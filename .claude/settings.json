@@ -1,0 +1,15 @@
+{
+  "env": {
+    "DISABLE_AUTOUPDATER": "1"
+  },
+  "autoMemoryEnabled": false,
+  "statusLine": {
+    "type": "command",
+    "command": "bash .claude/statusline-command.sh"
+  },
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "promptSuggestionEnabled": false,
+  "awaySummaryEnabled": false
+}
