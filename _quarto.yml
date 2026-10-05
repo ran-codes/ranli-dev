@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: _site
+  resources:
+    - CNAME
 website:
   title: "Ran Li"
   
@@ -38,3 +40,6 @@ format:
   html:
     theme: cosmo
     css: styles.css
+
+execute:
+  freeze: auto

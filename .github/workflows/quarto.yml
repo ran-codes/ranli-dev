@@ -1,0 +1,67 @@
+# Adapted from Drexel-UHC/cdc-correctional-facilities-hcv's quarto.yml, itself from
+# quarto-dev/quarto-actions examples.
+#
+# Two jobs:
+#   - quarto-check  — pull_request → render only, so a broken page fails before merge
+#   - quarto-deploy — push to main, or a manual run on main → render and publish to gh-pages
+#
+# The whole repo is the site, so there is no paths filter.
+#
+# No R install: the one executable page (blog/2025-09-09-duckdb-wasm-proof-of-concept) is
+# frozen (`execute: freeze: auto`, _freeze/ committed), so CI never runs R. Editing that page
+# without re-rendering locally makes it try to execute here and fail — the signal to run
+# `quarto render` locally and commit _freeze/.
+#
+# CNAME is listed under project.resources in _quarto.yml, so the custom domain survives
+# every publish to gh-pages.
+
+name: Quarto
+
+on:
+  pull_request:
+  push:
+    branches: main
+  workflow_dispatch:
+
+concurrency:
+  group: quarto-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  quarto-check:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.10.18
+
+      - name: Render
+        uses: quarto-dev/quarto-actions/render@v2
+
+  quarto-deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          version: 1.10.18
+
+      - name: Render and publish
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
