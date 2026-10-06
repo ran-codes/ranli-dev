@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: _site
+  resources:
+    - CNAME
 website:
   title: "Ran Li"
   
@@ -16,7 +18,7 @@ website:
       - text: "Portfolio"
         href: portfolio.qmd      
       - text: "Resume"
-        href: resume.pdf 
+        href: profile.pdf 
         target: _blank
     right:
       - icon: linkedin
@@ -38,3 +40,6 @@ format:
   html:
     theme: cosmo
     css: styles.css
+
+execute:
+  freeze: auto
