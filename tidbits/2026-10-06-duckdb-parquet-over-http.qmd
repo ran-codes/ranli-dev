@@ -1,0 +1,13 @@
+---
+title: "DuckDB can query Parquet over HTTP directly"
+date: "2026-10-06"
+categories: [duckdb, parquet]
+---
+
+No download step needed. With the `httpfs` extension, DuckDB reads a remote Parquet file in place:
+
+```sql
+SELECT * FROM 'https://example.com/data.parquet' LIMIT 10;
+```
+
+It only fetches the row groups and columns the query needs, so this stays fast even on large files.
