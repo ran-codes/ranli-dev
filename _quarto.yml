@@ -18,7 +18,7 @@ website:
       - text: "Portfolio"
         href: portfolio.qmd      
       - text: "Resume"
-        href: resume.pdf 
+        href: profile.pdf 
         target: _blank
     right:
       - icon: linkedin

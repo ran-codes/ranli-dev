@@ -30,7 +30,7 @@ about:
       target: _blank
     - icon: file-earmark-person
       text: "Resume"
-      href: /resume.pdf
+      href: /profile.pdf
       target: _blank
 
       
