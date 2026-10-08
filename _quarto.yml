@@ -7,6 +7,12 @@ website:
   title: "Ran Li"
   
   site-url: "https://ranli.dev"
+  description: "Ran Li — data engineering, public health analytics, and web dashboards."
+  image: profile.jpg
+  open-graph: true
+  twitter-card:
+    creator: "@ran_codes"
+    card-style: summary
   google-analytics: "G-PC0JG3M1ZX"
   navbar:
     logo-href: /index.qmd
