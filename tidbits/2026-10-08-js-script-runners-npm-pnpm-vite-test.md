@@ -17,4 +17,23 @@ categories: [javascript, pnpm, npm, vite, tooling]
 
 ## Understanding
 
+- What is key is the axis we are discussion which is what layer the technologies sit at
+- There are two layers **in this context** a higher level and a lower level
+
+
+
+
+| Level      | Layer           | Description                                        | Tools                                                                                                                                                                    |
+| ---------- | --------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Higher** | Package manager | Installs dependencies, runs `package.json` scripts | `npm`, `pnpm`                                                                                                                                                            |
+| **Lower**  | Tool            | Does the actual work, called by scripts            | `next`, `vite`, `vitest`, `jest`, `eslint`, `oxlint`, `prettier`, `tsc`, `svelte-check`, `stylelint`, `cspell`, `concurrently`, `rimraf`, `func`, `swa`, `serve`, `node` |
+
+
+
+
 ## Appendix A - Related tidbits to follow up on
+
+- vite is build tool ananllogous to turbopack for next.js ; vitetest - is that packge deicite testing packge
+- pnpm is a more modern npm and has a share package store (much better for worktrees); by defualt recomended to us pnpmn for JS project's package mangement
+- The best practice is for all projects to use one package manager with script running capabilites; group major tasks as scripts to be called by the package manager!
+
