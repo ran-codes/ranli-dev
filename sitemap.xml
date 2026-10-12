@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ranli.dev/tidbits/2026-10-05-nextjs-server-vs-client-components.html</loc>
-    <lastmod>2026-10-08T19:17:36.627Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ranli.dev/blog.html</loc>
-    <lastmod>2026-10-08T19:17:36.611Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ranli.dev/portfolio/2025-09-01-phl-city-health-dashboard/index.html</loc>
-    <lastmod>2026-10-08T19:17:36.626Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ranli.dev/blog/2025-09-09-duckdb-wasm-proof-of-concept/index.html</loc>
-    <lastmod>2026-10-08T19:17:36.611Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ranli.dev/index.html</loc>
-    <lastmod>2026-10-08T19:17:36.624Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ranli.dev/tidbits.html</loc>
-    <lastmod>2026-10-08T19:17:36.627Z</lastmod>
+    <loc>https://ranli.dev/tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html</loc>
+    <lastmod>2026-10-12T14:07:35.739Z</lastmod>
   </url>
   <url>
     <loc>https://ranli.dev/portfolio.html</loc>
-    <lastmod>2026-10-08T19:17:36.624Z</lastmod>
+    <lastmod>2026-10-12T14:07:35.735Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ranli.dev/tidbits.html</loc>
+    <lastmod>2026-10-12T14:07:35.738Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ranli.dev/index.html</loc>
+    <lastmod>2026-10-12T14:07:35.735Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ranli.dev/blog/2025-09-09-duckdb-wasm-proof-of-concept/index.html</loc>
+    <lastmod>2026-10-12T14:07:35.723Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ranli.dev/portfolio/2025-09-01-phl-city-health-dashboard/index.html</loc>
+    <lastmod>2026-10-12T14:07:35.737Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ranli.dev/blog.html</loc>
+    <lastmod>2026-10-12T14:07:35.723Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ranli.dev/tidbits/2026-10-05-nextjs-server-vs-client-components.html</loc>
+    <lastmod>2026-10-12T14:07:35.738Z</lastmod>
   </url>
 </urlset>
