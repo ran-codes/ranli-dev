@@ -24,6 +24,69 @@ categories: [r, uvr, tooling]
 - UVR can be used for both file level (metadata store in commnets at tope of R script) or project (Like uv level of details)
 - There is a global package donwlaod folder which project pull from meaning the local lock files only ocntian poitners; This is GREAT for workteees!!!!
 
-### Tests
+## Test Log
+
+### 1. Install CLI tool 
+
+```shell
+PS C:\Users\ranli\orca\workspaces\ran-codes.github.io\uvr-test> irm https://raw.githubusercontent.com/nbafrank/uvr/main/install.ps1 | iex
+uvr-install: Detected platform: x86_64-pc-windows-msvc
+uvr-install: Installing uvr v0.4.7
+uvr-install: Downloading uvr-x86_64-pc-windows-msvc.zip...
+uvr-install: Verifying checksum...
+uvr-install: Checksum verified
+uvr-install: Extracting...
+uvr-install: Installed uvr to C:\Users\ranli\.local\bin\uvr.exe
+uvr 0.4.7
+PS C:\Users\ranli\orca\workspaces\ran-codes.github.io\uvr-test> uvr --version
+uvr 0.4.7
+```
+
+
+
+### 2. Init New Project `uvr init`
+
+- This 'project' was scoped to this tidbits subfodler so relative path of  `tidbits/2026-10-21-uvr-test-drive` so `PS C:\Users\ranli\orca\workspaces\[ran-codes.github.io](http://ran-codes.github.io)\uvr-test\tidbits> cd .\2026-10-21-uvr-test-drive\`
+- We first init a project here `uvr init`
+
+```
+PS C:\Users\ranli\orca\workspaces\ran-codes.github.io\uvr-test\tidbits\2026-10-21-uvr-test-drive> uvr init hello
+✓ Initialized project hello
+  uvr.toml
+  .uvr/library/
+```
+
+This produced a few atirfacts:
+
+1. `gitignore`
+2. `.Rprofile`
+   - This file contians the R code required for uvr to work?
+3. `uvr.toml`
+   - A init is empty wiht single paraptmer `name = "hello"` 
+
+
+
+### 3. Adding a package `uvr add`
+
+- Lets now test some packages `uvr add tidyverse`
+- that was fast 2.4 seconds!
+- what gwas chagnd  
+  - a new uvr.lock file (becuase its fithe fist add with dpeneicny detials)
+  - then a dmepnciens secionts in the uvr.toml
+
+
+
+```toml
+[dependencies]
+tidyverse = "*"
+```
+
+
+
+### 4. Lets test it out?
+
+
+
+&nbsp;
 
 ## Appendix A - Related tidbits to follow up on
