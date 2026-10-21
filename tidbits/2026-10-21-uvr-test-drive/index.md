@@ -83,10 +83,40 @@ tidyverse = "*"
 
 
 
-### 4. Lets test it out?
+### 4. Lets test it out with a Script
+
+- We create test.R whihc otnaisn sprint mtcars
+- `uvr run test.R`
 
 
 
-&nbsp;
+this is through the terminal 
+
+
+
+```shell
+PS C:\Users\ranli\orca\workspaces\ran-codes.github.io\uvr-test\tidbits\2026-10-21-uvr-test-drive> uvr run test.R
+uvr: library linked (100 packages)
+── Attaching core tidyverse packages ──────────────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.1     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.2
+── Conflicts ────────────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts tobecome errors
+  cyl  n
+1   4 11
+2   6  7
+3   8 14
+```
+
+
+
+It Works as epected!!
+
+
 
 ## Appendix A - Related tidbits to follow up on
