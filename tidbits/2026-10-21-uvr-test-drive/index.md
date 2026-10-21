@@ -26,7 +26,7 @@ categories: [r, uvr, tooling]
 
 ## Test Log
 
-### 1. Install CLI tool 
+### 1. Install CLI tool
 
 ```shell
 PS C:\Users\ranli\orca\workspaces\ran-codes.github.io\uvr-test> irm https://raw.githubusercontent.com/nbafrank/uvr/main/install.ps1 | iex
@@ -62,7 +62,7 @@ This produced a few atirfacts:
 2. `.Rprofile`
    - This file contians the R code required for uvr to work?
 3. `uvr.toml`
-   - A init is empty wiht single paraptmer `name = "hello"` 
+   - A init is empty wiht single paraptmer `name = "hello"`
 
 
 
@@ -118,5 +118,38 @@ uvr: library linked (100 packages)
 It Works as epected!!
 
 
+
+### 5. Does this work with a quarto file - YES with the activaiton like uvr actiaviete
+
+- we setup `text.qmd` a normal 
+
+- [x] Open a new `pwsh` (PowerShell 7) terminal → `$PSVersionTable.PSVersion` says 7.x (5.1 can't parse `activate.ps1`)
+- [x] `. .uvr/activate.ps1` → no error
+- [x] `Rscript -e ".libPaths()"` → `.uvr/library` listed first
+- [x] `quarto render test.qmd` → renders without errors
+- [x] Open `test.html` → `.libPaths()` shows `.uvr/library` first, tidyverse loads
+- [x] `deactivate` → shell back to normal
+
+```shell
+.libPaths()
+
+[1] "C:/Users/ranli/orca/workspaces/ran-codes.github.io/uvr-test/tidbits/2026-10-21-uvr-test-drive/.uvr/library"
+[2] "C:/Program Files/R/R-4.5.3/library"      
+```
+
+
+
+- [x] Negative test: fresh `pwsh` at the repo root → `Rscript -e ".libPaths()"` → no `.uvr/library` (run outside this folder, since its `.Rprofile` links the library even without activation)
+
+```shell
+PS C:\Users\ranli\orca\workspaces\ran-codes.github.io\uvr-test> Rscript -e ".libPaths()"
+
+[1] "C:/Users/ranli/AppData/Local/R/win-library/4.5"
+[2] "C:/Program Files/R/R-4.5.3/library"   
+```
+
+
+
+&nbsp;
 
 ## Appendix A - Related tidbits to follow up on

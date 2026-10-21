@@ -1,0 +1,9 @@
+---
+title: "uvr Quarto test"
+---
+
+```{r}
+.libPaths()
+R.version.string
+library(tidyverse)
+```
