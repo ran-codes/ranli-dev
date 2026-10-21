@@ -34,5 +34,32 @@ its finel lfor assuepr siempl do public wihtou auth so anyitng. lets say we have
    - on page load will read form database `GET /names`
    - on form submission it is trigere to reread so the udpate thigns how up `GET /names`
 
+
+
+## Artifacts
+
+```{mermaid}
+sequenceDiagram
+    participant Form as Front end: form (JS)
+    participant Table as Front end: table (JS)
+    participant Worker as Cloudflare Worker<br/>(holds Notion token)
+    participant Notion as Notion database<br/>(baby names)
+
+    Note over Table,Notion: Page load
+    Table->>Worker: GET /names
+    Worker->>Notion: query database
+    Notion-->>Worker: rows
+    Worker-->>Table: JSON rows
+
+    Note over Form,Notion: Form submit
+    Form->>Worker: POST /names {name, popularity}
+    Worker->>Notion: create page (row)
+    Notion-->>Worker: ok
+    Worker-->>Form: ok
+    Form->>Table: trigger refresh
+    Table->>Worker: GET /names
+    Worker-->>Table: updated rows
+```
+
 ## Appendix A - Related tidbits to follow up on
 
