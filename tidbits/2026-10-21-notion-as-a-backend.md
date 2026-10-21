@@ -20,12 +20,19 @@ its finel lfor assuepr siempl do public wihtou auth so anyitng. lets say we have
    - What access permissions will this need - READ and WRITE
    - This is simple Insert form we cna make it mroe ocmeplx for pathces and deleiotns but htat sjust JS compelxity the archiehture we will just handle insert
 3. Proxy -  a serverless function (e.g. a Cloudflare worker) whihc stores the Database acces secerets. There are as many routes as needed for CRUD (Routes) into `/names`
-   -  `GET` Reads
-   -  `POST` inserts new rows 
-   - `PATCH` updates
-   - `DELETE` deletes
+   - routes
+     -  `GET` Reads
+     -  `POST` inserts new rows 
+     - `PATCH` updates
+     - `DELETE` deletes
+   - Providers for serverless functions (aka edge functiosn)
+     - Cloudflare workers (easeiest to setup and most free tier calls)
+     - Azure Functions
+     - AWS Lambda
+     - GCP Cloud Run Functions
 4. Front end -  a table that reads from the databse has JS logic to:
    - on page load will read form database `GET /names`
    - on form submission it is trigere to reread so the udpate thigns how up `GET /names`
 
 ## Appendix A - Related tidbits to follow up on
+
