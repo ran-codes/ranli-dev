@@ -1,22 +1,23 @@
 [
   {
-    "listing": "/blog.html",
+    "listing": "/portfolio.html",
     "items": [
-      "/blog/2025-09-09-duckdb-wasm-proof-of-concept/index.html"
+      "/portfolio/2025-09-01-phl-city-health-dashboard/index.html"
     ]
   },
   {
     "listing": "/tidbits.html",
     "items": [
       "/tidbits/2026-10-13-quarto-lightbox-figures.html",
+      "/tidbits/2026-10-12-r-package-and-env-management-renv.html",
       "/tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html",
       "/tidbits/2026-10-05-nextjs-server-vs-client-components.html"
     ]
   },
   {
-    "listing": "/portfolio.html",
+    "listing": "/blog.html",
     "items": [
-      "/portfolio/2025-09-01-phl-city-health-dashboard/index.html"
+      "/blog/2025-09-09-duckdb-wasm-proof-of-concept/index.html"
     ]
   }
 ]
