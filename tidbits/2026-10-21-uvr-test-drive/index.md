@@ -115,13 +115,13 @@ It Works as epected!!
 
 ### 5. Does this work with a quarto file - YES with the activaiton like uvr actiaviete
 
-- we setup `text.qmd` a normal 
+- we setup `_test.qmd` a normal 
 
 - [x] Open a new `pwsh` (PowerShell 7) terminal → `$PSVersionTable.PSVersion` says 7.x (5.1 can't parse `activate.ps1`)
 - [x] `. .uvr/activate.ps1` → no error
 - [x] `Rscript -e ".libPaths()"` → `.uvr/library` listed first
-- [x] `quarto render test.qmd` → renders without errors
-- [x] Open `test.html` → `.libPaths()` shows `.uvr/library` first, tidyverse loads
+- [x] `quarto render _test.qmd` → renders without errors
+- [x] Open `_test.html` → `.libPaths()` shows `.uvr/library` first, tidyverse loads
 - [x] `deactivate` → shell back to normal
 
 ```shell
