@@ -34,19 +34,19 @@ The axes the [r-managers post](https://rworks.dev/posts/r-managers/) uses:
 R tools on those axes:
 
 
-| Tool | Packages | R version | System deps | Scope | Workflow | Age | Stars | Releases | Releases (last 3 mo) | Merged PRs (last 3 mo) |
-| ---- | -------- | --------- | ----------- | ----- | -------- | --- | ----- | -------- | -------------------- | ---------------------- |
-| [renv](https://github.com/rstudio/renv) | ✅ | ❌ | ❌ | Project | Snapshot | since 2018 | 1,164 | 26 | 3 | 54 |
-| [rv](https://github.com/A2-ai/rv) | ✅ | ❌ | ❌ | Project | Declarative | since Dec 2024 | 380 | 42 | 3 | 23 |
-| [uvr](https://github.com/nbafrank/uvr) | ✅ | ✅ | ❌ | Project | Declarative | since Mar 2026 | 362 | 44 | 6 | 51 |
-| [ir](https://github.com/r-lib/ir) | ✅ | ✅ | ❌ | Single file | Declarative | since Jun 2026 | 66 | 5 | 4 | 14 |
-| [rix](https://github.com/ropensci/rix) | ✅ | ✅ | ✅ | Whole system | Declarative | since 2023 | 384 | 4 | 0 | 16 |
-| ***[uv](https://github.com/astral-sh/uv) (Python, for reference)*** | ✅ | ✅ (Python) | ❌ | Project | Declarative | since 2023 | 90,978 | 327 | 33 | 1,245 |
+| Tool                                                                | Packages | R version  | System deps | Scope        | Workflow    | Age            | Stars  | Releases | Releases (last 3 mo) | Merged PRs (last 3 mo) |
+| ------------------------------------------------------------------- | -------- | ---------- | ----------- | ------------ | ----------- | -------------- | ------ | -------- | -------------------- | ---------------------- |
+| [renv](https://github.com/rstudio/renv)                             | ✅        | ❌          | ❌           | Project      | Snapshot    | since 2018     | 1,164  | 26       | 3                    | 54                     |
+| [rv](https://github.com/A2-ai/rv)                                   | ✅        | ❌          | ❌           | Project      | Declarative | since Dec 2024 | 380    | 42       | 3                    | 23                     |
+| [uvr](https://github.com/nbafrank/uvr)                              | ✅        | ✅          | ❌           | Project      | Declarative | since Mar 2026 | 362    | 44       | 6                    | 51                     |
+| [ir](https://github.com/r-lib/ir)                                   | ✅        | ✅          | ❌           | Single file  | Declarative | since Jun 2026 | 66     | 5        | 4                    | 14                     |
+| [rix](https://github.com/ropensci/rix)                              | ✅        | ✅          | ✅           | Whole system | Declarative | since 2023     | 384    | 4        | 0                    | 16                     |
+| ***[uv](https://github.com/astral-sh/uv) (Python, for reference)*** | ✅        | ✅ (Python) | ❌           | Project      | Declarative | since 2023     | 90,978 | 327      | 33                   | 1,245                  |
+
 
 The last row is the Python baseline, not an R tool. The closest R match is the one whose row looks the same, which is uvr.
 
 Repo stats are from GitHub as of 2026-10-21; "last 3 mo" means since 2026-07-21. Releases are GitHub releases, which undercount renv and rix because they ship most versions to CRAN.
-
 
 ### Table 3 - Across languages
 
@@ -78,6 +78,11 @@ My simpler version, language × what the tool manages:
 
 ## Understanding
 
-- There are two axi
+- There are many axis to langueng lamaugnes
+  - what it tracks (R packges vs R version vs System dmepoencines)
+  - scope (single file vs single proejct vs whole system
+  - How it works snapshot (install first hten udpate recrd) or Declarative (udpate record - htne managem ahndels the installs)
+- The table 2 above is usepr informaiton comaprien R tools alaong hte acexis alognw ith amturity metrocsi vs UV
+- it seems UVR is a great cadinaitia and something to test
 
 ## Appendix A - Related tidbits to follow up on
