@@ -3,3 +3,6 @@ name = "2026-10-21-uvr-test-drive"
 
 [dependencies]
 tidyverse = "*"
+
+[activate]
+prompt = true
