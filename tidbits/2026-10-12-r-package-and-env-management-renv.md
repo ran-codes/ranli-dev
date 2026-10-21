@@ -87,4 +87,4 @@ My simpler version, language × what the tool manages:
 
 ## Appendix A - Related tidbits to follow up on
 
-- [Test driving uvr: a uv-style manager for R](2026-10-21-uvr-test-drive.md)
+- [Test driving uvr: a uv-style manager for R](2026-10-21-uvr-test-drive/index.md)
