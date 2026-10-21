@@ -18,16 +18,7 @@ categories: [r, uvr, tooling]
   - Queisotn
     - where are packge sinstaled withi lcoal repo? if so thas bad worktreses wont work?
 
-## Understanding
-
-- So it seems like
-- UVR can be used for both file level (metadata store in commnets at tope of R script) or project (Like uv level of details)
-- There is a global package donwlaod folder which project pull from meaning the local lock files only ocntian poitners; This is GREAT for workteees!!!!
-- See below for test run!
-- Tips
-  - set [Activaite] prompt conif tot true to see the uvr indicaiotr inthe tmeirnal! like it does for venv!
-
-## Test Log
+## Ran Testing
 
 ### 1. Install CLI tool
 
@@ -155,8 +146,16 @@ PS C:\Users\ranli\orca\workspaces\ran-codes.github.io\uvr-test> Rscript -e ".lib
 
 &nbsp;
 
-&nbsp;
+## Understanding
 
-&nbsp;
+- So it seems like
+- UVR can be used for both file level (metadata store in commnets at tope of R script) or project (Like uv level of details)
+- There is a global package donwlaod folder which project pull from meaning the local lock files only ocntian poitners; This is GREAT for workteees!!!!
+- See below for test run!
+- Tips
+  - set [Activaite] prompt conif tot true to see the uvr indicaiotr inthe tmeirnal! like it does for venv!
+- THIS WORKS GREAT. Need ot itnegrate it into some projects!!!
+
+
 
 ## Appendix A - Related tidbits to follow up on
