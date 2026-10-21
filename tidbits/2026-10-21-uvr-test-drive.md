@@ -18,8 +18,12 @@ categories: [r, uvr, tooling]
   - Queisotn
     - where are packge sinstaled withi lcoal repo? if so thas bad worktreses wont work?
 
-## Processing
-
 ## Understanding
+
+- So it seems like
+- UVR can be used for both file level (metadata store in commnets at tope of R script) or project (Like uv level of details)
+- There is a global package donwlaod folder which project pull from meaning the local lock files only ocntian poitners; This is GREAT for workteees!!!!
+
+### Tests
 
 ## Appendix A - Related tidbits to follow up on
