@@ -1,38 +1,31 @@
 [
   {
-    "objectID": "portfolio/2025-09-01-phl-city-health-dashboard/index.html",
-    "href": "portfolio/2025-09-01-phl-city-health-dashboard/index.html",
-    "title": "Philadelphia City Council Health Dashboard: From Shiny Prototype to Serverless Production App",
+    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html",
+    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html",
+    "title": "JS script runners and package managers: npm, pnpm, and vite test",
     "section": "",
-    "text": "Click the Image to get to the dashboard at https://drexel-uhc.github.io/philadelphia-council-districts-and-health"
+    "text": "there are some basictoling for JS develeoprm either enxt.js or svelte.\npnpm and npm then vite and vitetest\nfrom what i udresnta ther first 3 are packge apmagein each wiht own script fruning funcitonality. tehyera r enot edeidcate tasks urnigns like just\nso the tehst and cheks thems selves are ocmspeosn of atomic toosl such as lint or audit or scripts but youc an compose ‘script’ that ocmpsoe thes smaller tasks and run the ith pnpmn npmn nd vite \nbut what i dont udnrnsta d i\n\ns what is diff betwen viteest and vite \nwhat is hte best rpactice \npros and cons to each\n\nI do kwno pro is worktress and globa sitnal via pnpmn but what about vite and vitetest vs npmn/pnpmn?"
   },
   {
-    "objectID": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#context",
-    "href": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#context",
-    "title": "Philadelphia City Council Health Dashboard: From Shiny Prototype to Serverless Production App",
-    "section": "Context",
-    "text": "Context\n\nProject\nPhiladelphia health disparities aren’t connected to political geography, leaving council members without district-level insights for policy decisions.\nThis deliverable is an interactive dashboard visualizing health determinants across 10 council districts, making public health data actionable for policy makers and citizens.\n\n\nTeam Structure\n\n\n\n\nData Engineer (Others)\n\n\n\nDeveloped Data Bundle\nCreated static visualizations\nProvided text and mockup\n\n\n\n\n\n\n\n\n\n\n\nNoteData Architect (Ran Li)\n\n\n\n\nTech stack design for operational limits:\n\n3-month timeline\n5 hours/week capacity\nzero infrastructure costs\n\n\n\n\n\n\n\n\n\n\n\n\nNoteData Scientist (Ran Li)\n\n\n\n\nDeveloped prototype (R Shiny)\nDeveloped production application (Next.js)\nDeployed production application (GitHub Pages)\nDeployed data preservation (Zenodo)"
-  },
-  {
-    "objectID": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#phases",
-    "href": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#phases",
-    "title": "Philadelphia City Council Health Dashboard: From Shiny Prototype to Serverless Production App",
-    "section": "Phases",
-    "text": "Phases\n\nPhase 1: Tech Stack Design (March 2025)\nOperational Constraints:\n\nZero budget for infrastructure costs\n3-month delivery timeline\n5 hours/week development capacity\nNo ongoing maintenance resources\n\nArchitecture Decisions:\n\nData Preservation: Zenodo integration for DOI/citation (free, permanent hosting)\nPrototyping: R Shiny to reuse Data Engineers’ code but make it dynamic\nProduction Requirements: No cold starts needed → serverless SSG with modern UI\nFrontend: Next.js SSG for zero-cost hosting and instant loading\nDeployment: GitHub Pages static site (free, reliable)\nAnalytics: Google Analytics for usage tracking (free)\nPerformance: Client-side rendering for serverless architecture\nData Pipeline: Custom R-to-web transformation (leverages existing analysis)\nSEO: Search optimization for discoverability\n\n\n\nPhase 2: R Shiny Prototype (March-April 2025)\nRapid prototype for concept validation:\n\nCore interactions: dropdown selection, synchronized visualizations\nDistrict highlighting and hover effects\nStakeholder feedback integration\n\n\n\nPhase 3: Next.js Production (May-June 2025)\nProduction rebuild optimized for budget and operational constraints:\nFrontend Architecture:\n\nNext.js/React.js with Highcharts.js\nStatic site generation for cost-effective hosting\n\nKey Features:\n\nSynchronized bar charts and choropleth maps\nCustom Heat Vulnerability Index visualization\nInteractive district selection with highlighting\nEmbedded documentation and metadata\n\nProduction Infrastructure:\n\nEmbedded documentation and metadata\n\n\n\nTechnical Highlights\n\nSynchronized bar charts and choropleth maps\nCustom Heat Vulnerability Index visualization\nInteractive district selection with highlighting"
-  },
-  {
-    "objectID": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#reflections",
-    "href": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#reflections",
-    "title": "Philadelphia City Council Health Dashboard: From Shiny Prototype to Serverless Production App",
-    "section": "Reflections",
-    "text": "Reflections\n\nThings I really enjoyed\nLightweight tech stacks like these bring me great joy. You can leverage mature and developer-friendly open-science/open-source infrastructure such as GitHub Pages, Zenodo, and fully serverless application frameworks like SSG Next.js. This removes so much maintenance and operational work you have to do to maintain a deliverable and allows you to free up the time to focus on what is important: the UI of the final product and having a deep understanding of the stakeholders’ true needs.\n\n\nThings to improve next time\n\nA quick turnaround like this meant we did a one-off type of architecture\nIf this project continues, we will add interfaces for stakeholders to update data and modify metadata"
-  },
-  {
-    "objectID": "tidbits.html",
-    "href": "tidbits.html",
-    "title": "Tidbits",
+    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#ramblings",
+    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#ramblings",
+    "title": "JS script runners and package managers: npm, pnpm, and vite test",
     "section": "",
-    "text": "Date\n\n\n\nTitle\n\n\n\nCategories\n\n\n\n\n\n\n\n\n2026-10-21\n\n\nTest driving uvr: a uv-style manager for R\n\n\nr, uvr, tooling\n\n\n\n\n\n\n2026-10-21\n\n\nNotion as a backend for a static site\n\n\nnotion, cloudflare, architecture\n\n\n\n\n\n\n2026-10-13\n\n\nQuarto lightbox figures for HTML and Revealjs\n\n\nquarto, html, revealjs\n\n\n\n\n\n\n2026-10-12\n\n\nR package and environment management: renv, pak, and friends\n\n\nr, renv, pak, tooling\n\n\n\n\n\n\n2026-10-08\n\n\nJS script runners and package managers: npm, pnpm, and vite test\n\n\njavascript, pnpm, npm, vite, tooling\n\n\n\n\n\n\n2026-10-05\n\n\nNext.js server vs. client components in static exports\n\n\nnextjs, react, static-site\n\n\n\n\n\n\nNo matching items"
+    "text": "there are some basictoling for JS develeoprm either enxt.js or svelte.\npnpm and npm then vite and vitetest\nfrom what i udresnta ther first 3 are packge apmagein each wiht own script fruning funcitonality. tehyera r enot edeidcate tasks urnigns like just\nso the tehst and cheks thems selves are ocmspeosn of atomic toosl such as lint or audit or scripts but youc an compose ‘script’ that ocmpsoe thes smaller tasks and run the ith pnpmn npmn nd vite \nbut what i dont udnrnsta d i\n\ns what is diff betwen viteest and vite \nwhat is hte best rpactice \npros and cons to each\n\nI do kwno pro is worktress and globa sitnal via pnpmn but what about vite and vitetest vs npmn/pnpmn?"
+  },
+  {
+    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#understanding",
+    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#understanding",
+    "title": "JS script runners and package managers: npm, pnpm, and vite test",
+    "section": "Understanding",
+    "text": "Understanding\n\nWhat is key is the axis we are discussion which is what layer the technologies sit at\nThere are two layers in this context a higher level and a lower level\n\n\n\n\n\n\n\n\n\n\nLevel\nLayer\nDescription\nTools\n\n\n\n\nHigher\nPackage manager\nInstalls dependencies, runs package.json scripts\nnpm, pnpm\n\n\nLower\nTool\nDoes the actual work, called by scripts\nnext, vite, vitest, jest, eslint, oxlint, prettier, tsc, svelte-check, stylelint, cspell, concurrently, rimraf, func, swa, serve, node"
+  },
+  {
+    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#appendix-a---related-tidbits-to-follow-up-on",
+    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#appendix-a---related-tidbits-to-follow-up-on",
+    "title": "JS script runners and package managers: npm, pnpm, and vite test",
+    "section": "Appendix A - Related tidbits to follow up on",
+    "text": "Appendix A - Related tidbits to follow up on\n\nvite is build tool ananllogous to turbopack for next.js ; vitetest - is that packge deicite testing packge\npnpm is a more modern npm and has a share package store (much better for worktrees); by defualt recomended to us pnpmn for JS project’s package mangement\nThe best practice is for all projects to use one package manager with script running capabilites; group major tasks as scripts to be called by the package manager!"
   },
   {
     "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html",
@@ -61,34 +54,6 @@
     "title": "Quarto lightbox figures for HTML and Revealjs",
     "section": "Appendix A - Related tidbits to follow up on",
     "text": "Appendix A - Related tidbits to follow up on"
-  },
-  {
-    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html",
-    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html",
-    "title": "JS script runners and package managers: npm, pnpm, and vite test",
-    "section": "",
-    "text": "there are some basictoling for JS develeoprm either enxt.js or svelte.\npnpm and npm then vite and vitetest\nfrom what i udresnta ther first 3 are packge apmagein each wiht own script fruning funcitonality. tehyera r enot edeidcate tasks urnigns like just\nso the tehst and cheks thems selves are ocmspeosn of atomic toosl such as lint or audit or scripts but youc an compose ‘script’ that ocmpsoe thes smaller tasks and run the ith pnpmn npmn nd vite \nbut what i dont udnrnsta d i\n\ns what is diff betwen viteest and vite \nwhat is hte best rpactice \npros and cons to each\n\nI do kwno pro is worktress and globa sitnal via pnpmn but what about vite and vitetest vs npmn/pnpmn?"
-  },
-  {
-    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#ramblings",
-    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#ramblings",
-    "title": "JS script runners and package managers: npm, pnpm, and vite test",
-    "section": "",
-    "text": "there are some basictoling for JS develeoprm either enxt.js or svelte.\npnpm and npm then vite and vitetest\nfrom what i udresnta ther first 3 are packge apmagein each wiht own script fruning funcitonality. tehyera r enot edeidcate tasks urnigns like just\nso the tehst and cheks thems selves are ocmspeosn of atomic toosl such as lint or audit or scripts but youc an compose ‘script’ that ocmpsoe thes smaller tasks and run the ith pnpmn npmn nd vite \nbut what i dont udnrnsta d i\n\ns what is diff betwen viteest and vite \nwhat is hte best rpactice \npros and cons to each\n\nI do kwno pro is worktress and globa sitnal via pnpmn but what about vite and vitetest vs npmn/pnpmn?"
-  },
-  {
-    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#understanding",
-    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#understanding",
-    "title": "JS script runners and package managers: npm, pnpm, and vite test",
-    "section": "Understanding",
-    "text": "Understanding\n\nWhat is key is the axis we are discussion which is what layer the technologies sit at\nThere are two layers in this context a higher level and a lower level\n\n\n\n\n\n\n\n\n\n\nLevel\nLayer\nDescription\nTools\n\n\n\n\nHigher\nPackage manager\nInstalls dependencies, runs package.json scripts\nnpm, pnpm\n\n\nLower\nTool\nDoes the actual work, called by scripts\nnext, vite, vitest, jest, eslint, oxlint, prettier, tsc, svelte-check, stylelint, cspell, concurrently, rimraf, func, swa, serve, node"
-  },
-  {
-    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#appendix-a---related-tidbits-to-follow-up-on",
-    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#appendix-a---related-tidbits-to-follow-up-on",
-    "title": "JS script runners and package managers: npm, pnpm, and vite test",
-    "section": "Appendix A - Related tidbits to follow up on",
-    "text": "Appendix A - Related tidbits to follow up on\n\nvite is build tool ananllogous to turbopack for next.js ; vitetest - is that packge deicite testing packge\npnpm is a more modern npm and has a share package store (much better for worktrees); by defualt recomended to us pnpmn for JS project’s package mangement\nThe best practice is for all projects to use one package manager with script running capabilites; group major tasks as scripts to be called by the package manager!"
   },
   {
     "objectID": "tidbits/2026-10-21-notion-as-a-backend.html",
@@ -133,6 +98,20 @@
     "text": "Philadelphia City Council Health Dashboard: From Shiny Prototype to Serverless Production App\n\n\n\nDashboard\n\nR Shiny\n\nNext.js\n\nReact.js\n\nHighcharts.js\n\n\n\n\n\n\n\nRan Li\n\n\nSep 1, 2025\n\n\n\n\n\n\nNo matching items"
   },
   {
+    "objectID": "tidbits.html",
+    "href": "tidbits.html",
+    "title": "Tidbits",
+    "section": "",
+    "text": "Date\n\n\n\nTitle\n\n\n\nCategories\n\n\n\n\n\n\n\n\n2026-10-21\n\n\nNotion as a backend for a static site\n\n\nnotion, cloudflare, architecture\n\n\n\n\n\n\n2026-10-21\n\n\nTest driving uvr: a uv-style manager for R\n\n\nr, uvr, tooling\n\n\n\n\n\n\n2026-10-13\n\n\nQuarto lightbox figures for HTML and Revealjs\n\n\nquarto, html, revealjs\n\n\n\n\n\n\n2026-10-12\n\n\nR package and environment management: renv, pak, and friends\n\n\nr, renv, pak, tooling\n\n\n\n\n\n\n2026-10-08\n\n\nJS script runners and package managers: npm, pnpm, and vite test\n\n\njavascript, pnpm, npm, vite, tooling\n\n\n\n\n\n\n2026-10-05\n\n\nNext.js server vs. client components in static exports\n\n\nnextjs, react, static-site\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Ran Li",
+    "section": "",
+    "text": "I am a software engineer with 5+ years of experience spanning data architecture, data engineering, analytics engineering, cross-domain data integration, BI/dashboard development, front-end development, and serverless backend architecture.\nI believe in agile, integrated solutions tailored to stakeholders’ specific problems and implementing software-first approaches that are lightweight, scalable, and AI-compatible."
+  },
+  {
     "objectID": "blog/2025-09-09-duckdb-wasm-proof-of-concept/index.html",
     "href": "blog/2025-09-09-duckdb-wasm-proof-of-concept/index.html",
     "title": "Proof of Concept: Client-side Serverless DuckDB query of cloud bucket storages",
@@ -140,39 +119,39 @@
     "text": "Intro\nThis demonstrates a serverless analytics stack combining Static Site Generation (SSG) with cloud-hosted Parquet datasets via DuckDB WASM. This architecture enables lightweight, cost-effective deployment of static site front ends with integration to cloud data stroage (S3 or other databases) using client-side SQL processing via DuckDB WASM.\nUse Cases:\n\nInteractive dashboards deployed to CDNs\nReal-time analytics on static hosting (Netlify, Vercel, GitHub Pages)\nClient-side data processing without API costs\nScalable data visualization with minimal infrastructure\n\nArchitecture Benefits:\n\nZero server costs (static hosting only)\nAutomatic global CDN distribution\nDirect cloud dataset access\nClient-side SQL processing\n\n\n\nData Source (Hugging Faces Parquet)\nWe access Parquet files from Hugging Face, an open-science repository with ML-optimized APIs and CORS-enabled endpoints suitable for browser-based applications. However this workflow works with any storage provider (Azure, AWS, GCP, Hugging Face, etc.). We use Hugging Face because it’s a gold standard open-science data repository that is performant and free.\n\n\nTraditional Server-side Pattern (R/Python/Node.js running on server)\nWe can query as we do normally working on a local or cloud comptuer that is running some server; in this case its R code but it could be any language the query syntax is native SQL.\n\nlibrary(duckdb); library(tidyverse)\ncon &lt;- dbConnect(duckdb())\n\nresult &lt;- dbGetQuery(con, \"\n  SELECT * \n  FROM 'https://huggingface.co/datasets/ran-codes/mtcars/resolve/refs%2Fconvert%2Fparquet/default/train/0000.parquet' \n\") |&gt; as_tibble()\n\nresult |&gt; glimpse()\n\nRows: 32\nColumns: 12\n$ model &lt;chr&gt; \"Mazda RX4\", \"Mazda RX4 Wag\", \"Datsun 710\", \"Hornet 4 Drive\", \"H…\n$ mpg   &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8…\n$ cyl   &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8…\n$ disp  &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 1…\n$ hp    &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 18…\n$ drat  &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92…\n$ wt    &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3…\n$ qsec  &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 1…\n$ vs    &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0…\n$ am    &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0…\n$ gear  &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3…\n$ carb  &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2…\n\ndbDisconnect(con)\n\n\n\nServerless/Client-side Pattern (WASM running in browser)\nDuckDB WASM enables SQL processing directly in browsers, eliminating server dependencies. Below is the serverless equivalent of the query from above.\nLet’s first import DuckDB WASM from npm (Javascript package manager).\n\n// Import DuckDB WASM\nduckdb = import(\"https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.28.0/+esm\")\n\n\n\n\n\n\nNow we can set up our in browser DuckDB instance/connection. This is a bit more involved than the server-side version because we have to set up a web worker to run the database in a separate thread from the main browser UI thread.\n\n// Initialize with jsDelivr bundles (recommended approach)\ndb = {\n  const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();\n  const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);\n\n  const worker_url = URL.createObjectURL(\n    new Blob([`importScripts(\"${bundle.mainWorker}\");`], {type: 'text/javascript'})\n  );\n\n  const worker = new Worker(worker_url);\n  const logger = new duckdb.ConsoleLogger();\n  const db = new duckdb.AsyncDuckDB(logger, worker);\n  \n  await db.instantiate(bundle.mainModule, bundle.pthreadWorker);\n  URL.revokeObjectURL(worker_url);\n  \n  return db;\n}\n\n\n\n\n\n\nLooks good. Now we can connect to the cloud data storage and run our query.\n\n// Query S3 Parquet using HTTPS URL\nwasmResult = {\n  const conn = await db.connect();\n  \n  try {\n    const result = await conn.query(`\n      SELECT * \n     FROM 'https://huggingface.co/datasets/ran-codes/mtcars/resolve/refs%2Fconvert%2Fparquet/default/train/0000.parquet'  \n      LIMIT 5\n    `);\n    \n    return result.toArray().map(row =&gt; row.toJSON());\n    \n  } finally {\n    await conn.close();\n  }\n}\n\n\n\n\n\n\nLooks like it worked. Lets print results\n\nwasmResult\n\n\n\n\n\n\n\nInputs.table(wasmResult)\n\n\n\n\n\n\n\n\n\n\nArchitecture Implications\nDeployment Simplicity:\n\nBuild once, deploy to any static host\nNo server provisioning or maintenance\nAutomatic scaling via CDN\n\nCost Efficiency:\n\nNo compute costs (client-side processing)\nNo database hosting fees\nPay only for static hosting and data egress\n\nPerformance Characteristics:\n\nInitial WASM load overhead (~2-3MB)\nSubsequent queries run locally\nOptimal for &lt;100MB datasets per query\n\n\n\n\nAppendix: CORS and Cloud Storage\nCORS (Cross-Origin Resource Sharing) controls browser access to cross-domain resources.\nWhy Hugging Face works:\n\nCORS headers allow browser access (Access-Control-Allow-Origin: *)\nOptimized for ML/data science integration\n\nFor custom deployments:\nS3:\n[{\n  \"AllowedOrigins\": [\"https://yourapp.com\"],\n  \"AllowedMethods\": [\"GET\", \"HEAD\"], \n  \"AllowedHeaders\": [\"*\"],\n  \"MaxAgeSeconds\": 3000\n}]\nAzure Blob:\n{\n  \"allowedOrigins\": [\"https://yourapp.com\"],\n  \"allowedMethods\": [\"GET\"],\n  \"maxAgeInSeconds\": 3600\n}\nSecurity note: CORS controls browser access, not authentication. Use signed URLs or IAM policies for data security."
   },
   {
-    "objectID": "tidbits/2026-10-21-uvr-test-drive/index.html",
-    "href": "tidbits/2026-10-21-uvr-test-drive/index.html",
-    "title": "Test driving uvr: a uv-style manager for R",
+    "objectID": "portfolio/2025-09-01-phl-city-health-dashboard/index.html",
+    "href": "portfolio/2025-09-01-phl-city-health-dashboard/index.html",
+    "title": "Philadelphia City Council Health Dashboard: From Shiny Prototype to Serverless Production App",
     "section": "",
-    "text": "okay here we test uvr  - https://github.com/nbafrank/uvr\nso scanning the docs so here are my queistons\n\nscope\n\nso it can be used for ‘file’ level or ‘project level’ management \nis there a way to set  a global defaul liek uv global?\n\nthe commands\n\nuvr init does what? it inits a uv project memaning it creat eina ofdler some artacts like uv ldoes (lock files …. project.toml??))\nuvr add adds a package to the uvr proejct - akes sne\nuvr sync takes a uvr lcok file and isntalls the local R packges - quesiot to wehre does each get a local R pake folder? or is like pnpmn where there isa global store that can be reused across worktrees and stuff?\nuvr run so alls cipts msut be call via temrinal ? what about quarto?\n\nQueisotn\n\nwhere are packge sinstaled withi lcoal repo? if so thas bad worktreses wont work?"
+    "text": "Click the Image to get to the dashboard at https://drexel-uhc.github.io/philadelphia-council-districts-and-health"
   },
   {
-    "objectID": "tidbits/2026-10-21-uvr-test-drive/index.html#ramblings",
-    "href": "tidbits/2026-10-21-uvr-test-drive/index.html#ramblings",
-    "title": "Test driving uvr: a uv-style manager for R",
+    "objectID": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#context",
+    "href": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#context",
+    "title": "Philadelphia City Council Health Dashboard: From Shiny Prototype to Serverless Production App",
+    "section": "Context",
+    "text": "Context\n\nProject\nPhiladelphia health disparities aren’t connected to political geography, leaving council members without district-level insights for policy decisions.\nThis deliverable is an interactive dashboard visualizing health determinants across 10 council districts, making public health data actionable for policy makers and citizens.\n\n\nTeam Structure\n\n\n\n\nData Engineer (Others)\n\n\n\nDeveloped Data Bundle\nCreated static visualizations\nProvided text and mockup\n\n\n\n\n\n\n\n\n\n\n\nNoteData Architect (Ran Li)\n\n\n\n\nTech stack design for operational limits:\n\n3-month timeline\n5 hours/week capacity\nzero infrastructure costs\n\n\n\n\n\n\n\n\n\n\n\n\nNoteData Scientist (Ran Li)\n\n\n\n\nDeveloped prototype (R Shiny)\nDeveloped production application (Next.js)\nDeployed production application (GitHub Pages)\nDeployed data preservation (Zenodo)"
+  },
+  {
+    "objectID": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#phases",
+    "href": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#phases",
+    "title": "Philadelphia City Council Health Dashboard: From Shiny Prototype to Serverless Production App",
+    "section": "Phases",
+    "text": "Phases\n\nPhase 1: Tech Stack Design (March 2025)\nOperational Constraints:\n\nZero budget for infrastructure costs\n3-month delivery timeline\n5 hours/week development capacity\nNo ongoing maintenance resources\n\nArchitecture Decisions:\n\nData Preservation: Zenodo integration for DOI/citation (free, permanent hosting)\nPrototyping: R Shiny to reuse Data Engineers’ code but make it dynamic\nProduction Requirements: No cold starts needed → serverless SSG with modern UI\nFrontend: Next.js SSG for zero-cost hosting and instant loading\nDeployment: GitHub Pages static site (free, reliable)\nAnalytics: Google Analytics for usage tracking (free)\nPerformance: Client-side rendering for serverless architecture\nData Pipeline: Custom R-to-web transformation (leverages existing analysis)\nSEO: Search optimization for discoverability\n\n\n\nPhase 2: R Shiny Prototype (March-April 2025)\nRapid prototype for concept validation:\n\nCore interactions: dropdown selection, synchronized visualizations\nDistrict highlighting and hover effects\nStakeholder feedback integration\n\n\n\nPhase 3: Next.js Production (May-June 2025)\nProduction rebuild optimized for budget and operational constraints:\nFrontend Architecture:\n\nNext.js/React.js with Highcharts.js\nStatic site generation for cost-effective hosting\n\nKey Features:\n\nSynchronized bar charts and choropleth maps\nCustom Heat Vulnerability Index visualization\nInteractive district selection with highlighting\nEmbedded documentation and metadata\n\nProduction Infrastructure:\n\nEmbedded documentation and metadata\n\n\n\nTechnical Highlights\n\nSynchronized bar charts and choropleth maps\nCustom Heat Vulnerability Index visualization\nInteractive district selection with highlighting"
+  },
+  {
+    "objectID": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#reflections",
+    "href": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#reflections",
+    "title": "Philadelphia City Council Health Dashboard: From Shiny Prototype to Serverless Production App",
+    "section": "Reflections",
+    "text": "Reflections\n\nThings I really enjoyed\nLightweight tech stacks like these bring me great joy. You can leverage mature and developer-friendly open-science/open-source infrastructure such as GitHub Pages, Zenodo, and fully serverless application frameworks like SSG Next.js. This removes so much maintenance and operational work you have to do to maintain a deliverable and allows you to free up the time to focus on what is important: the UI of the final product and having a deep understanding of the stakeholders’ true needs.\n\n\nThings to improve next time\n\nA quick turnaround like this meant we did a one-off type of architecture\nIf this project continues, we will add interfaces for stakeholders to update data and modify metadata"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
     "section": "",
-    "text": "okay here we test uvr  - https://github.com/nbafrank/uvr\nso scanning the docs so here are my queistons\n\nscope\n\nso it can be used for ‘file’ level or ‘project level’ management \nis there a way to set  a global defaul liek uv global?\n\nthe commands\n\nuvr init does what? it inits a uv project memaning it creat eina ofdler some artacts like uv ldoes (lock files …. project.toml??))\nuvr add adds a package to the uvr proejct - akes sne\nuvr sync takes a uvr lcok file and isntalls the local R packges - quesiot to wehre does each get a local R pake folder? or is like pnpmn where there isa global store that can be reused across worktrees and stuff?\nuvr run so alls cipts msut be call via temrinal ? what about quarto?\n\nQueisotn\n\nwhere are packge sinstaled withi lcoal repo? if so thas bad worktreses wont work?"
-  },
-  {
-    "objectID": "tidbits/2026-10-21-uvr-test-drive/index.html#ran-testing",
-    "href": "tidbits/2026-10-21-uvr-test-drive/index.html#ran-testing",
-    "title": "Test driving uvr: a uv-style manager for R",
-    "section": "Ran Testing",
-    "text": "Ran Testing\n\n1. Install CLI tool\nPS C:\\Users\\ranli\\orca\\workspaces\\ran-codes.github.io\\uvr-test&gt; irm https://raw.githubusercontent.com/nbafrank/uvr/main/install.ps1 | iex\nuvr-install: Detected platform: x86_64-pc-windows-msvc\nuvr-install: Installing uvr v0.4.7\nuvr-install: Downloading uvr-x86_64-pc-windows-msvc.zip...\nuvr-install: Verifying checksum...\nuvr-install: Checksum verified\nuvr-install: Extracting...\nuvr-install: Installed uvr to C:\\Users\\ranli\\.local\\bin\\uvr.exe\nuvr 0.4.7\nPS C:\\Users\\ranli\\orca\\workspaces\\ran-codes.github.io\\uvr-test&gt; uvr --version\nuvr 0.4.7\n\n\n2. Init New Project uvr init\n\nThis ‘project’ was scoped to this tidbits subfodler so relative path of  tidbits/2026-10-21-uvr-test-drive so PS C:\\Users\\ranli\\orca\\workspaces\\[ran-codes.github.io](http://ran-codes.github.io)\\uvr-test\\tidbits&gt; cd .\\2026-10-21-uvr-test-drive\\\nWe first init a project here uvr init\n\nPS C:\\Users\\ranli\\orca\\workspaces\\ran-codes.github.io\\uvr-test\\tidbits\\2026-10-21-uvr-test-drive&gt; uvr init hello\n✓ Initialized project hello\n  uvr.toml\n  .uvr/library/\nThis produced a few atirfacts:\n\ngitignore\n.Rprofile\n\nThis file contians the R code required for uvr to work?\n\nuvr.toml\n\nA init is empty wiht single paraptmer name = \"hello\"\n\n\n\n\n3. Adding a package uvr add\n\nLets now test some packages uvr add tidyverse\nthat was fast 2.4 seconds!\nwhat gwas chagnd  \n\na new uvr.lock file (becuase its fithe fist add with dpeneicny detials)\nthen a dmepnciens secionts in the uvr.toml\n\n\n[dependencies]\ntidyverse = \"*\"\n\n\n4. Lets test it out with a Script\n\nWe create test.R whihc otnaisn sprint mtcars\nuvr run test.R\n\nthis is through the terminal \nPS C:\\Users\\ranli\\orca\\workspaces\\ran-codes.github.io\\uvr-test\\tidbits\\2026-10-21-uvr-test-drive&gt; uvr run test.R\nuvr: library linked (100 packages)\n── Attaching core tidyverse packages ──────────────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.1     ✔ readr     2.2.0\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.3     ✔ tibble    3.3.1\n✔ lubridate 1.9.5     ✔ tidyr     1.3.2\n✔ purrr     1.2.2\n── Conflicts ────────────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts tobecome errors\n  cyl  n\n1   4 11\n2   6  7\n3   8 14\nIt Works as epected!!\n\n\n5. Does this work with a quarto file - YES with the activaiton like uvr actiaviete\n\nwe setup _test.qmd a normal\nOpen a new pwsh (PowerShell 7) terminal → $PSVersionTable.PSVersion says 7.x (5.1 can’t parse activate.ps1)\n. .uvr/activate.ps1 → no error\nRscript -e \".libPaths()\" → .uvr/library listed first\nquarto render _test.qmd → renders without errors\nOpen _test.html → .libPaths() shows .uvr/library first, tidyverse loads\ndeactivate → shell back to normal\n\n.libPaths()\n\n[1] \"C:/Users/ranli/orca/workspaces/ran-codes.github.io/uvr-test/tidbits/2026-10-21-uvr-test-drive/.uvr/library\"\n[2] \"C:/Program Files/R/R-4.5.3/library\"      \n\nNegative test: fresh pwsh at the repo root → Rscript -e \".libPaths()\" → no .uvr/library (run outside this folder, since its .Rprofile links the library even without activation)\n\nPS C:\\Users\\ranli\\orca\\workspaces\\ran-codes.github.io\\uvr-test&gt; Rscript -e \".libPaths()\"\n\n[1] \"C:/Users/ranli/AppData/Local/R/win-library/4.5\"\n[2] \"C:/Program Files/R/R-4.5.3/library\""
-  },
-  {
-    "objectID": "tidbits/2026-10-21-uvr-test-drive/index.html#understanding",
-    "href": "tidbits/2026-10-21-uvr-test-drive/index.html#understanding",
-    "title": "Test driving uvr: a uv-style manager for R",
-    "section": "Understanding",
-    "text": "Understanding\n\nSo it seems like\nUVR can be used for both file level (metadata store in commnets at tope of R script) or project (Like uv level of details)\nThere is a global package donwlaod folder which project pull from meaning the local lock files only ocntian poitners; This is GREAT for workteees!!!!\nSee below for test run!\nTips\n\nset [Activaite] prompt conif tot true to see the uvr indicaiotr inthe tmeirnal! like it does for venv!\n\nTHIS WORKS GREAT. Need ot itnegrate it into some projects!!!"
-  },
-  {
-    "objectID": "tidbits/2026-10-21-uvr-test-drive/index.html#appendix-a---related-tidbits-to-follow-up-on",
-    "href": "tidbits/2026-10-21-uvr-test-drive/index.html#appendix-a---related-tidbits-to-follow-up-on",
-    "title": "Test driving uvr: a uv-style manager for R",
-    "section": "Appendix A - Related tidbits to follow up on",
-    "text": "Appendix A - Related tidbits to follow up on"
+    "text": "Proof of Concept: Client-side Serverless DuckDB query of cloud bucket storages\n\n\n\nserverless\n\ndata-engineering\n\nwasm\n\nduckdb\n\nanalytics\n\nsql\n\nparquet\n\n\n\n\n\n\n\n\n\nSep 9, 2025\n\n\nRan Li\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "tidbits/2026-10-12-r-package-and-env-management-renv.html",
@@ -210,6 +189,41 @@
     "text": "Appendix A - Related tidbits to follow up on\n\nTest driving uvr: a uv-style manager for R"
   },
   {
+    "objectID": "tidbits/2026-10-21-uvr-test-drive/index.html",
+    "href": "tidbits/2026-10-21-uvr-test-drive/index.html",
+    "title": "Test driving uvr: a uv-style manager for R",
+    "section": "",
+    "text": "okay here we test uvr  - https://github.com/nbafrank/uvr\nso scanning the docs so here are my queistons\n\nscope\n\nso it can be used for ‘file’ level or ‘project level’ management \nis there a way to set  a global defaul liek uv global?\n\nthe commands\n\nuvr init does what? it inits a uv project memaning it creat eina ofdler some artacts like uv ldoes (lock files …. project.toml??))\nuvr add adds a package to the uvr proejct - akes sne\nuvr sync takes a uvr lcok file and isntalls the local R packges - quesiot to wehre does each get a local R pake folder? or is like pnpmn where there isa global store that can be reused across worktrees and stuff?\nuvr run so alls cipts msut be call via temrinal ? what about quarto?\n\nQueisotn\n\nwhere are packge sinstaled withi lcoal repo? if so thas bad worktreses wont work?"
+  },
+  {
+    "objectID": "tidbits/2026-10-21-uvr-test-drive/index.html#ramblings",
+    "href": "tidbits/2026-10-21-uvr-test-drive/index.html#ramblings",
+    "title": "Test driving uvr: a uv-style manager for R",
+    "section": "",
+    "text": "okay here we test uvr  - https://github.com/nbafrank/uvr\nso scanning the docs so here are my queistons\n\nscope\n\nso it can be used for ‘file’ level or ‘project level’ management \nis there a way to set  a global defaul liek uv global?\n\nthe commands\n\nuvr init does what? it inits a uv project memaning it creat eina ofdler some artacts like uv ldoes (lock files …. project.toml??))\nuvr add adds a package to the uvr proejct - akes sne\nuvr sync takes a uvr lcok file and isntalls the local R packges - quesiot to wehre does each get a local R pake folder? or is like pnpmn where there isa global store that can be reused across worktrees and stuff?\nuvr run so alls cipts msut be call via temrinal ? what about quarto?\n\nQueisotn\n\nwhere are packge sinstaled withi lcoal repo? if so thas bad worktreses wont work?"
+  },
+  {
+    "objectID": "tidbits/2026-10-21-uvr-test-drive/index.html#ran-testing",
+    "href": "tidbits/2026-10-21-uvr-test-drive/index.html#ran-testing",
+    "title": "Test driving uvr: a uv-style manager for R",
+    "section": "Ran Testing",
+    "text": "Ran Testing\n\n1. Install CLI tool\nPS C:\\Users\\ranli\\orca\\workspaces\\ran-codes.github.io\\uvr-test&gt; irm https://raw.githubusercontent.com/nbafrank/uvr/main/install.ps1 | iex\nuvr-install: Detected platform: x86_64-pc-windows-msvc\nuvr-install: Installing uvr v0.4.7\nuvr-install: Downloading uvr-x86_64-pc-windows-msvc.zip...\nuvr-install: Verifying checksum...\nuvr-install: Checksum verified\nuvr-install: Extracting...\nuvr-install: Installed uvr to C:\\Users\\ranli\\.local\\bin\\uvr.exe\nuvr 0.4.7\nPS C:\\Users\\ranli\\orca\\workspaces\\ran-codes.github.io\\uvr-test&gt; uvr --version\nuvr 0.4.7\n\n\n2. Init New Project uvr init\n\nThis ‘project’ was scoped to this tidbits subfodler so relative path of  tidbits/2026-10-21-uvr-test-drive so PS C:\\Users\\ranli\\orca\\workspaces\\[ran-codes.github.io](http://ran-codes.github.io)\\uvr-test\\tidbits&gt; cd .\\2026-10-21-uvr-test-drive\\\nWe first init a project here uvr init\n\nPS C:\\Users\\ranli\\orca\\workspaces\\ran-codes.github.io\\uvr-test\\tidbits\\2026-10-21-uvr-test-drive&gt; uvr init hello\n✓ Initialized project hello\n  uvr.toml\n  .uvr/library/\nThis produced a few atirfacts:\n\ngitignore\n.Rprofile\n\nThis file contians the R code required for uvr to work?\n\nuvr.toml\n\nA init is empty wiht single paraptmer name = \"hello\"\n\n\n\n\n3. Adding a package uvr add\n\nLets now test some packages uvr add tidyverse\nthat was fast 2.4 seconds!\nwhat gwas chagnd  \n\na new uvr.lock file (becuase its fithe fist add with dpeneicny detials)\nthen a dmepnciens secionts in the uvr.toml\n\n\n[dependencies]\ntidyverse = \"*\"\n\n\n4. Lets test it out with a Script\n\nWe create test.R whihc otnaisn sprint mtcars\nuvr run test.R\n\nthis is through the terminal \nPS C:\\Users\\ranli\\orca\\workspaces\\ran-codes.github.io\\uvr-test\\tidbits\\2026-10-21-uvr-test-drive&gt; uvr run test.R\nuvr: library linked (100 packages)\n── Attaching core tidyverse packages ──────────────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.1     ✔ readr     2.2.0\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.3     ✔ tibble    3.3.1\n✔ lubridate 1.9.5     ✔ tidyr     1.3.2\n✔ purrr     1.2.2\n── Conflicts ────────────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts tobecome errors\n  cyl  n\n1   4 11\n2   6  7\n3   8 14\nIt Works as epected!!\n\n\n5. Does this work with a quarto file - YES with the activaiton like uvr actiaviete\n\nwe setup _test.qmd a normal\nOpen a new pwsh (PowerShell 7) terminal → $PSVersionTable.PSVersion says 7.x (5.1 can’t parse activate.ps1)\n. .uvr/activate.ps1 → no error\nRscript -e \".libPaths()\" → .uvr/library listed first\nquarto render _test.qmd → renders without errors\nOpen _test.html → .libPaths() shows .uvr/library first, tidyverse loads\ndeactivate → shell back to normal\n\n.libPaths()\n\n[1] \"C:/Users/ranli/orca/workspaces/ran-codes.github.io/uvr-test/tidbits/2026-10-21-uvr-test-drive/.uvr/library\"\n[2] \"C:/Program Files/R/R-4.5.3/library\"      \n\nNegative test: fresh pwsh at the repo root → Rscript -e \".libPaths()\" → no .uvr/library (run outside this folder, since its .Rprofile links the library even without activation)\n\nPS C:\\Users\\ranli\\orca\\workspaces\\ran-codes.github.io\\uvr-test&gt; Rscript -e \".libPaths()\"\n\n[1] \"C:/Users/ranli/AppData/Local/R/win-library/4.5\"\n[2] \"C:/Program Files/R/R-4.5.3/library\""
+  },
+  {
+    "objectID": "tidbits/2026-10-21-uvr-test-drive/index.html#understanding",
+    "href": "tidbits/2026-10-21-uvr-test-drive/index.html#understanding",
+    "title": "Test driving uvr: a uv-style manager for R",
+    "section": "Understanding",
+    "text": "Understanding\n\nSo it seems like\nUVR can be used for both file level (metadata store in commnets at tope of R script) or project (Like uv level of details)\nThere is a global package donwlaod folder which project pull from meaning the local lock files only ocntian poitners; This is GREAT for workteees!!!!\nSee below for test run!\nTips\n\nset [Activaite] prompt conif tot true to see the uvr indicaiotr inthe tmeirnal! like it does for venv!\n\nTHIS WORKS GREAT. Need ot itnegrate it into some projects!!!"
+  },
+  {
+    "objectID": "tidbits/2026-10-21-uvr-test-drive/index.html#appendix-a---related-tidbits-to-follow-up-on",
+    "href": "tidbits/2026-10-21-uvr-test-drive/index.html#appendix-a---related-tidbits-to-follow-up-on",
+    "title": "Test driving uvr: a uv-style manager for R",
+    "section": "Appendix A - Related tidbits to follow up on",
+    "text": "Appendix A - Related tidbits to follow up on"
+  },
+  {
     "objectID": "tidbits/2026-10-05-nextjs-server-vs-client-components.html",
     "href": "tidbits/2026-10-05-nextjs-server-vs-client-components.html",
     "title": "Next.js server vs. client components in static exports",
@@ -236,19 +250,5 @@
     "title": "Next.js server vs. client components in static exports",
     "section": "Appendix A - Related tidbits to follow up on",
     "text": "Appendix A - Related tidbits to follow up on\n\nHydration\nWhat breaks exports"
-  },
-  {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Blog",
-    "section": "",
-    "text": "Proof of Concept: Client-side Serverless DuckDB query of cloud bucket storages\n\n\n\nserverless\n\ndata-engineering\n\nwasm\n\nduckdb\n\nanalytics\n\nsql\n\nparquet\n\n\n\n\n\n\n\n\n\nSep 9, 2025\n\n\nRan Li\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Ran Li",
-    "section": "",
-    "text": "I am a software engineer with 5+ years of experience spanning data architecture, data engineering, analytics engineering, cross-domain data integration, BI/dashboard development, front-end development, and serverless backend architecture.\nI believe in agile, integrated solutions tailored to stakeholders’ specific problems and implementing software-first approaches that are lightweight, scalable, and AI-compatible."
   }
 ]
