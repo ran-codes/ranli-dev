@@ -1,122 +1,10 @@
 [
   {
-    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html",
-    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html",
-    "title": "JS script runners and package managers: npm, pnpm, and vite test",
-    "section": "",
-    "text": "there are some basictoling for JS develeoprm either enxt.js or svelte.\npnpm and npm then vite and vitetest\nfrom what i udresnta ther first 3 are packge apmagein each wiht own script fruning funcitonality. tehyera r enot edeidcate tasks urnigns like just\nso the tehst and cheks thems selves are ocmspeosn of atomic toosl such as lint or audit or scripts but youc an compose ‘script’ that ocmpsoe thes smaller tasks and run the ith pnpmn npmn nd vite \nbut what i dont udnrnsta d i\n\ns what is diff betwen viteest and vite \nwhat is hte best rpactice \npros and cons to each\n\nI do kwno pro is worktress and globa sitnal via pnpmn but what about vite and vitetest vs npmn/pnpmn?"
-  },
-  {
-    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#ramblings",
-    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#ramblings",
-    "title": "JS script runners and package managers: npm, pnpm, and vite test",
-    "section": "",
-    "text": "there are some basictoling for JS develeoprm either enxt.js or svelte.\npnpm and npm then vite and vitetest\nfrom what i udresnta ther first 3 are packge apmagein each wiht own script fruning funcitonality. tehyera r enot edeidcate tasks urnigns like just\nso the tehst and cheks thems selves are ocmspeosn of atomic toosl such as lint or audit or scripts but youc an compose ‘script’ that ocmpsoe thes smaller tasks and run the ith pnpmn npmn nd vite \nbut what i dont udnrnsta d i\n\ns what is diff betwen viteest and vite \nwhat is hte best rpactice \npros and cons to each\n\nI do kwno pro is worktress and globa sitnal via pnpmn but what about vite and vitetest vs npmn/pnpmn?"
-  },
-  {
-    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#understanding",
-    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#understanding",
-    "title": "JS script runners and package managers: npm, pnpm, and vite test",
-    "section": "Understanding",
-    "text": "Understanding\n\nWhat is key is the axis we are discussion which is what layer the technologies sit at\nThere are two layers in this context a higher level and a lower level\n\n\n\n\n\n\n\n\n\n\nLevel\nLayer\nDescription\nTools\n\n\n\n\nHigher\nPackage manager\nInstalls dependencies, runs package.json scripts\nnpm, pnpm\n\n\nLower\nTool\nDoes the actual work, called by scripts\nnext, vite, vitest, jest, eslint, oxlint, prettier, tsc, svelte-check, stylelint, cspell, concurrently, rimraf, func, swa, serve, node"
-  },
-  {
-    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#appendix-a---related-tidbits-to-follow-up-on",
-    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#appendix-a---related-tidbits-to-follow-up-on",
-    "title": "JS script runners and package managers: npm, pnpm, and vite test",
-    "section": "Appendix A - Related tidbits to follow up on",
-    "text": "Appendix A - Related tidbits to follow up on\n\nvite is build tool ananllogous to turbopack for next.js ; vitetest - is that packge deicite testing packge\npnpm is a more modern npm and has a share package store (much better for worktrees); by defualt recomended to us pnpmn for JS project’s package mangement\nThe best practice is for all projects to use one package manager with script running capabilites; group major tasks as scripts to be called by the package manager!"
-  },
-  {
-    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html",
-    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html",
-    "title": "Quarto lightbox figures for HTML and Revealjs",
-    "section": "",
-    "text": "Just learned Quarto can turn images into lightbox figures (click to enlarge) in HTML outputs like HTML documents and Revealjs slides. Docs: https://quarto.org/docs/output-formats/html-lightbox-figures.html"
-  },
-  {
-    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html#ramblings",
-    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html#ramblings",
-    "title": "Quarto lightbox figures for HTML and Revealjs",
-    "section": "",
-    "text": "Just learned Quarto can turn images into lightbox figures (click to enlarge) in HTML outputs like HTML documents and Revealjs slides. Docs: https://quarto.org/docs/output-formats/html-lightbox-figures.html"
-  },
-  {
-    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html#understanding",
-    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html#understanding",
-    "title": "Quarto lightbox figures for HTML and Revealjs",
-    "section": "Understanding",
-    "text": "Understanding\n\nA UI element that is an image which when cliked pops out hte image zoomed in in a nmodal is called a Lightbox \nRef and example:  https://en.wikipedia.org/wiki/Lightbox_(JavaScript)\nThis feature has two parts\n\n\nthe thumbnail image shown on your page (trigger)\n\n\nthe modal that pops up (inlcude the dim abckground) with closable button\n\n\nQuarto makes this available for HTML outputs?\n\nhttps://quarto.org/docs/output-formats/html-lightbox-figures.html"
-  },
-  {
-    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html#appendix-a---related-tidbits-to-follow-up-on",
-    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html#appendix-a---related-tidbits-to-follow-up-on",
-    "title": "Quarto lightbox figures for HTML and Revealjs",
-    "section": "Appendix A - Related tidbits to follow up on",
-    "text": "Appendix A - Related tidbits to follow up on"
-  },
-  {
-    "objectID": "tidbits/2026-10-21-notion-as-a-backend.html",
-    "href": "tidbits/2026-10-21-notion-as-a-backend.html",
-    "title": "Notion as a backend for a static site",
-    "section": "",
-    "text": "its finel lfor assuepr siempl do public wihtou auth so anyitng. lets say we have suepr simple database in notion a tabel of baby names two columns Name and another randomi coumn lets say numebr popautliary rating 0-10 that datbase is etup on notion. what hapepsn how i need auth otken specific ot that databaes that is troe din the cloruflar worker and the when a udpat ei mad ein the itnernface here what the psuh is goig to the cloduflalir which then udapte sthe databse? what abotu fetch in real time lets say i have a table viewin tidibits but hte entry is a form this woudl require JS for hte form but the table what ist here sj lgoica there too that is like scan the noitnoatab ever 1 se to se if udpat ehtei f hter is to rererhes the html table? but that seems usper iniefiencet . who si my arhcenture plan? tohguhts?"
-  },
-  {
-    "objectID": "tidbits/2026-10-21-notion-as-a-backend.html#rambling",
-    "href": "tidbits/2026-10-21-notion-as-a-backend.html#rambling",
-    "title": "Notion as a backend for a static site",
-    "section": "",
-    "text": "its finel lfor assuepr siempl do public wihtou auth so anyitng. lets say we have suepr simple database in notion a tabel of baby names two columns Name and another randomi coumn lets say numebr popautliary rating 0-10 that datbase is etup on notion. what hapepsn how i need auth otken specific ot that databaes that is troe din the cloruflar worker and the when a udpat ei mad ein the itnernface here what the psuh is goig to the cloduflalir which then udapte sthe databse? what abotu fetch in real time lets say i have a table viewin tidibits but hte entry is a form this woudl require JS for hte form but the table what ist here sj lgoica there too that is like scan the noitnoatab ever 1 se to se if udpat ehtei f hter is to rererhes the html table? but that seems usper iniefiencet . who si my arhcenture plan? tohguhts?"
-  },
-  {
-    "objectID": "tidbits/2026-10-21-notion-as-a-backend.html#understanding",
-    "href": "tidbits/2026-10-21-notion-as-a-backend.html#understanding",
-    "title": "Notion as a backend for a static site",
-    "section": "Understanding",
-    "text": "Understanding\n\nI want to explore the easiest way to get a CRUD feature using Notion databases as the backend on s simple static site\nThis would require some sort of proxy function to store the API Token with access to the Notion database\nThis would then ahve several comepontsn\n\n\nA database (Notion database) - lets say simple schema of baby names 2 columns ‘Name (text)’ and “popularity 0 - 10 numeric’\nfront end - a data entry form - JS for data entry that after click submit will push info and trigger some server function\n\nWhat access permissions will this need - READ and WRITE\nThis is simple Insert form we cna make it mroe ocmeplx for pathces and deleiotns but htat sjust JS compelxity the archiehture we will just handle insert\n\nProxy -  a serverless function (e.g. a Cloudflare worker) whihc stores the Database acces secerets. There are as many routes as needed for CRUD (Routes) into /names\n\nroutes\n\n GET Reads\n POST inserts new rows \nPATCH updates\nDELETE deletes\n\nProviders for serverless functions (aka edge functiosn)\n\nCloudflare workers (easeiest to setup and most free tier calls)\nAzure Functions\nAWS Lambda\nGCP Cloud Run Functions\n\n\nFront end -  a table that reads from the databse has JS logic to:\n\non page load will read form database GET /names\non form submission it is trigere to reread so the udpate thigns how up GET /names"
-  },
-  {
-    "objectID": "tidbits/2026-10-21-notion-as-a-backend.html#artifacts",
-    "href": "tidbits/2026-10-21-notion-as-a-backend.html#artifacts",
-    "title": "Notion as a backend for a static site",
-    "section": "Artifacts",
-    "text": "Artifacts\n\n\n\n\n\nsequenceDiagram\n    participant Form as Front end: form (JS)\n    participant Table as Front end: table (JS)\n    participant Worker as Cloudflare Worker&lt;br/&gt;(holds Notion token)\n    participant Notion as Notion database&lt;br/&gt;(baby names)\n\n    Note over Table,Notion: Page load\n    Table-&gt;&gt;Worker: GET /names\n    Worker-&gt;&gt;Notion: query database\n    Notion--&gt;&gt;Worker: rows\n    Worker--&gt;&gt;Table: JSON rows\n\n    Note over Form,Notion: Form submit\n    Form-&gt;&gt;Worker: POST /names {name, popularity}\n    Worker-&gt;&gt;Notion: create page (row)\n    Notion--&gt;&gt;Worker: ok\n    Worker--&gt;&gt;Form: ok\n    Form-&gt;&gt;Table: trigger refresh\n    Table-&gt;&gt;Worker: GET /names\n    Worker--&gt;&gt;Table: updated rows"
-  },
-  {
-    "objectID": "tidbits/2026-10-21-notion-as-a-backend.html#appendix-a---related-tidbits-to-follow-up-on",
-    "href": "tidbits/2026-10-21-notion-as-a-backend.html#appendix-a---related-tidbits-to-follow-up-on",
-    "title": "Notion as a backend for a static site",
-    "section": "Appendix A - Related tidbits to follow up on",
-    "text": "Appendix A - Related tidbits to follow up on"
-  },
-  {
-    "objectID": "portfolio.html",
-    "href": "portfolio.html",
-    "title": "Portfolio",
-    "section": "",
-    "text": "Philadelphia City Council Health Dashboard: From Shiny Prototype to Serverless Production App\n\n\n\nDashboard\n\nR Shiny\n\nNext.js\n\nReact.js\n\nHighcharts.js\n\n\n\n\n\n\n\nRan Li\n\n\nSep 1, 2025\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "tidbits.html",
-    "href": "tidbits.html",
-    "title": "Tidbits",
-    "section": "",
-    "text": "Date\n\n\n\nTitle\n\n\n\nCategories\n\n\n\n\n\n\n\n\n2026-10-21\n\n\nNotion as a backend for a static site\n\n\nnotion, cloudflare, architecture\n\n\n\n\n\n\n2026-10-21\n\n\nTest driving uvr: a uv-style manager for R\n\n\nr, uvr, tooling\n\n\n\n\n\n\n2026-10-13\n\n\nQuarto lightbox figures for HTML and Revealjs\n\n\nquarto, html, revealjs\n\n\n\n\n\n\n2026-10-12\n\n\nR package and environment management: renv, pak, and friends\n\n\nr, renv, pak, tooling\n\n\n\n\n\n\n2026-10-08\n\n\nJS script runners and package managers: npm, pnpm, and vite test\n\n\njavascript, pnpm, npm, vite, tooling\n\n\n\n\n\n\n2026-10-05\n\n\nNext.js server vs. client components in static exports\n\n\nnextjs, react, static-site\n\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Ran Li",
     "section": "",
     "text": "I am a software engineer with 5+ years of experience spanning data architecture, data engineering, analytics engineering, cross-domain data integration, BI/dashboard development, front-end development, and serverless backend architecture.\nI believe in agile, integrated solutions tailored to stakeholders’ specific problems and implementing software-first approaches that are lightweight, scalable, and AI-compatible."
-  },
-  {
-    "objectID": "blog/2025-09-09-duckdb-wasm-proof-of-concept/index.html",
-    "href": "blog/2025-09-09-duckdb-wasm-proof-of-concept/index.html",
-    "title": "Proof of Concept: Client-side Serverless DuckDB query of cloud bucket storages",
-    "section": "",
-    "text": "Intro\nThis demonstrates a serverless analytics stack combining Static Site Generation (SSG) with cloud-hosted Parquet datasets via DuckDB WASM. This architecture enables lightweight, cost-effective deployment of static site front ends with integration to cloud data stroage (S3 or other databases) using client-side SQL processing via DuckDB WASM.\nUse Cases:\n\nInteractive dashboards deployed to CDNs\nReal-time analytics on static hosting (Netlify, Vercel, GitHub Pages)\nClient-side data processing without API costs\nScalable data visualization with minimal infrastructure\n\nArchitecture Benefits:\n\nZero server costs (static hosting only)\nAutomatic global CDN distribution\nDirect cloud dataset access\nClient-side SQL processing\n\n\n\nData Source (Hugging Faces Parquet)\nWe access Parquet files from Hugging Face, an open-science repository with ML-optimized APIs and CORS-enabled endpoints suitable for browser-based applications. However this workflow works with any storage provider (Azure, AWS, GCP, Hugging Face, etc.). We use Hugging Face because it’s a gold standard open-science data repository that is performant and free.\n\n\nTraditional Server-side Pattern (R/Python/Node.js running on server)\nWe can query as we do normally working on a local or cloud comptuer that is running some server; in this case its R code but it could be any language the query syntax is native SQL.\n\nlibrary(duckdb); library(tidyverse)\ncon &lt;- dbConnect(duckdb())\n\nresult &lt;- dbGetQuery(con, \"\n  SELECT * \n  FROM 'https://huggingface.co/datasets/ran-codes/mtcars/resolve/refs%2Fconvert%2Fparquet/default/train/0000.parquet' \n\") |&gt; as_tibble()\n\nresult |&gt; glimpse()\n\nRows: 32\nColumns: 12\n$ model &lt;chr&gt; \"Mazda RX4\", \"Mazda RX4 Wag\", \"Datsun 710\", \"Hornet 4 Drive\", \"H…\n$ mpg   &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8…\n$ cyl   &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8…\n$ disp  &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 1…\n$ hp    &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 18…\n$ drat  &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92…\n$ wt    &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3…\n$ qsec  &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 1…\n$ vs    &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0…\n$ am    &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0…\n$ gear  &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3…\n$ carb  &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2…\n\ndbDisconnect(con)\n\n\n\nServerless/Client-side Pattern (WASM running in browser)\nDuckDB WASM enables SQL processing directly in browsers, eliminating server dependencies. Below is the serverless equivalent of the query from above.\nLet’s first import DuckDB WASM from npm (Javascript package manager).\n\n// Import DuckDB WASM\nduckdb = import(\"https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.28.0/+esm\")\n\n\n\n\n\n\nNow we can set up our in browser DuckDB instance/connection. This is a bit more involved than the server-side version because we have to set up a web worker to run the database in a separate thread from the main browser UI thread.\n\n// Initialize with jsDelivr bundles (recommended approach)\ndb = {\n  const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();\n  const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);\n\n  const worker_url = URL.createObjectURL(\n    new Blob([`importScripts(\"${bundle.mainWorker}\");`], {type: 'text/javascript'})\n  );\n\n  const worker = new Worker(worker_url);\n  const logger = new duckdb.ConsoleLogger();\n  const db = new duckdb.AsyncDuckDB(logger, worker);\n  \n  await db.instantiate(bundle.mainModule, bundle.pthreadWorker);\n  URL.revokeObjectURL(worker_url);\n  \n  return db;\n}\n\n\n\n\n\n\nLooks good. Now we can connect to the cloud data storage and run our query.\n\n// Query S3 Parquet using HTTPS URL\nwasmResult = {\n  const conn = await db.connect();\n  \n  try {\n    const result = await conn.query(`\n      SELECT * \n     FROM 'https://huggingface.co/datasets/ran-codes/mtcars/resolve/refs%2Fconvert%2Fparquet/default/train/0000.parquet'  \n      LIMIT 5\n    `);\n    \n    return result.toArray().map(row =&gt; row.toJSON());\n    \n  } finally {\n    await conn.close();\n  }\n}\n\n\n\n\n\n\nLooks like it worked. Lets print results\n\nwasmResult\n\n\n\n\n\n\n\nInputs.table(wasmResult)\n\n\n\n\n\n\n\n\n\n\nArchitecture Implications\nDeployment Simplicity:\n\nBuild once, deploy to any static host\nNo server provisioning or maintenance\nAutomatic scaling via CDN\n\nCost Efficiency:\n\nNo compute costs (client-side processing)\nNo database hosting fees\nPay only for static hosting and data egress\n\nPerformance Characteristics:\n\nInitial WASM load overhead (~2-3MB)\nSubsequent queries run locally\nOptimal for &lt;100MB datasets per query\n\n\n\n\nAppendix: CORS and Cloud Storage\nCORS (Cross-Origin Resource Sharing) controls browser access to cross-domain resources.\nWhy Hugging Face works:\n\nCORS headers allow browser access (Access-Control-Allow-Origin: *)\nOptimized for ML/data science integration\n\nFor custom deployments:\nS3:\n[{\n  \"AllowedOrigins\": [\"https://yourapp.com\"],\n  \"AllowedMethods\": [\"GET\", \"HEAD\"], \n  \"AllowedHeaders\": [\"*\"],\n  \"MaxAgeSeconds\": 3000\n}]\nAzure Blob:\n{\n  \"allowedOrigins\": [\"https://yourapp.com\"],\n  \"allowedMethods\": [\"GET\"],\n  \"maxAgeInSeconds\": 3600\n}\nSecurity note: CORS controls browser access, not authentication. Use signed URLs or IAM policies for data security."
   },
   {
     "objectID": "portfolio/2025-09-01-phl-city-health-dashboard/index.html",
@@ -147,11 +35,32 @@
     "text": "Reflections\n\nThings I really enjoyed\nLightweight tech stacks like these bring me great joy. You can leverage mature and developer-friendly open-science/open-source infrastructure such as GitHub Pages, Zenodo, and fully serverless application frameworks like SSG Next.js. This removes so much maintenance and operational work you have to do to maintain a deliverable and allows you to free up the time to focus on what is important: the UI of the final product and having a deep understanding of the stakeholders’ true needs.\n\n\nThings to improve next time\n\nA quick turnaround like this meant we did a one-off type of architecture\nIf this project continues, we will add interfaces for stakeholders to update data and modify metadata"
   },
   {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Blog",
+    "objectID": "tidbits/2026-10-05-nextjs-server-vs-client-components.html",
+    "href": "tidbits/2026-10-05-nextjs-server-vs-client-components.html",
+    "title": "Next.js server vs. client components in static exports",
     "section": "",
-    "text": "Proof of Concept: Client-side Serverless DuckDB query of cloud bucket storages\n\n\n\nserverless\n\ndata-engineering\n\nwasm\n\nduckdb\n\nanalytics\n\nsql\n\nparquet\n\n\n\n\n\n\n\n\n\nSep 9, 2025\n\n\nRan Li\n\n\n\n\n\nNo matching items"
+    "text": "Next.js has two types of compoents\n\nServer Componets and Client Compoentsn\n\nThese terms are confusing because Next.js static exports can still use server comeponts\nThey just indicate what is run at build time not what is expeorted\nSo at build time server compoents run the next.js server and export pure HTML\nClient ocmeopnts run at build time to export boht the HTML and the JS coderequired for a HTML page to funciton\nServer site build ouptus are smaller ebucase thye dont ship JS\nThe best practice is to use SErver side comeponts uneslss required client side specific features (most of the server comeponts are the best practice)\nIt is confuse beacuse there are some SSR next.js feautre locked ibehcig server comeponts which in that cas erequires a nExt.j server and would not work as auflly static export\nSo this PR essentially developes the loom integraitn o to work with both server and client pages; as wella smepahsize the best practice of defaulting to server"
+  },
+  {
+    "objectID": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#ramblings",
+    "href": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#ramblings",
+    "title": "Next.js server vs. client components in static exports",
+    "section": "",
+    "text": "Next.js has two types of compoents\n\nServer Componets and Client Compoentsn\n\nThese terms are confusing because Next.js static exports can still use server comeponts\nThey just indicate what is run at build time not what is expeorted\nSo at build time server compoents run the next.js server and export pure HTML\nClient ocmeopnts run at build time to export boht the HTML and the JS coderequired for a HTML page to funciton\nServer site build ouptus are smaller ebucase thye dont ship JS\nThe best practice is to use SErver side comeponts uneslss required client side specific features (most of the server comeponts are the best practice)\nIt is confuse beacuse there are some SSR next.js feautre locked ibehcig server comeponts which in that cas erequires a nExt.j server and would not work as auflly static export\nSo this PR essentially developes the loom integraitn o to work with both server and client pages; as wella smepahsize the best practice of defaulting to server"
+  },
+  {
+    "objectID": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#understanding",
+    "href": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#understanding",
+    "title": "Next.js server vs. client components in static exports",
+    "section": "Understanding",
+    "text": "Understanding\n\nTwo Types of Next.js Components: 1) Server and 2) Client\n\nThe key idea and difference is: where the code runs not when\nServer components\n\nThe JS runs on the Next.js Server to produce HTML\nIn hybrid/SSR Next.js this could be in the actual Next.js server in real-time in production as there is a server\nIn export/SSG Next.js this runs on Next.js during build time to produce HTML that is deploy to a serverless static site host.\n\nClient Components\n\nThe Next.js code (JS) is shipped and runs in the clients browser\n\n\nBest practice is to user Server Compoents; ‘use client’ only when required on smaller niche compoentns that need it"
+  },
+  {
+    "objectID": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#appendix-a---related-tidbits-to-follow-up-on",
+    "href": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#appendix-a---related-tidbits-to-follow-up-on",
+    "title": "Next.js server vs. client components in static exports",
+    "section": "Appendix A - Related tidbits to follow up on",
+    "text": "Appendix A - Related tidbits to follow up on\n\nHydration\nWhat breaks exports"
   },
   {
     "objectID": "tidbits/2026-10-12-r-package-and-env-management-renv.html",
@@ -189,6 +98,55 @@
     "text": "Appendix A - Related tidbits to follow up on\n\nTest driving uvr: a uv-style manager for R"
   },
   {
+    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html",
+    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html",
+    "title": "Quarto lightbox figures for HTML and Revealjs",
+    "section": "",
+    "text": "Just learned Quarto can turn images into lightbox figures (click to enlarge) in HTML outputs like HTML documents and Revealjs slides. Docs: https://quarto.org/docs/output-formats/html-lightbox-figures.html"
+  },
+  {
+    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html#ramblings",
+    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html#ramblings",
+    "title": "Quarto lightbox figures for HTML and Revealjs",
+    "section": "",
+    "text": "Just learned Quarto can turn images into lightbox figures (click to enlarge) in HTML outputs like HTML documents and Revealjs slides. Docs: https://quarto.org/docs/output-formats/html-lightbox-figures.html"
+  },
+  {
+    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html#understanding",
+    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html#understanding",
+    "title": "Quarto lightbox figures for HTML and Revealjs",
+    "section": "Understanding",
+    "text": "Understanding\n\nA UI element that is an image which when cliked pops out hte image zoomed in in a nmodal is called a Lightbox \nRef and example:  https://en.wikipedia.org/wiki/Lightbox_(JavaScript)\nThis feature has two parts\n\n\nthe thumbnail image shown on your page (trigger)\n\n\nthe modal that pops up (inlcude the dim abckground) with closable button\n\n\nQuarto makes this available for HTML outputs?\n\nhttps://quarto.org/docs/output-formats/html-lightbox-figures.html"
+  },
+  {
+    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html#appendix-a---related-tidbits-to-follow-up-on",
+    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html#appendix-a---related-tidbits-to-follow-up-on",
+    "title": "Quarto lightbox figures for HTML and Revealjs",
+    "section": "Appendix A - Related tidbits to follow up on",
+    "text": "Appendix A - Related tidbits to follow up on"
+  },
+  {
+    "objectID": "blog/2025-09-09-duckdb-wasm-proof-of-concept/index.html",
+    "href": "blog/2025-09-09-duckdb-wasm-proof-of-concept/index.html",
+    "title": "Proof of Concept: Client-side Serverless DuckDB query of cloud bucket storages",
+    "section": "",
+    "text": "Intro\nThis demonstrates a serverless analytics stack combining Static Site Generation (SSG) with cloud-hosted Parquet datasets via DuckDB WASM. This architecture enables lightweight, cost-effective deployment of static site front ends with integration to cloud data stroage (S3 or other databases) using client-side SQL processing via DuckDB WASM.\nUse Cases:\n\nInteractive dashboards deployed to CDNs\nReal-time analytics on static hosting (Netlify, Vercel, GitHub Pages)\nClient-side data processing without API costs\nScalable data visualization with minimal infrastructure\n\nArchitecture Benefits:\n\nZero server costs (static hosting only)\nAutomatic global CDN distribution\nDirect cloud dataset access\nClient-side SQL processing\n\n\n\nData Source (Hugging Faces Parquet)\nWe access Parquet files from Hugging Face, an open-science repository with ML-optimized APIs and CORS-enabled endpoints suitable for browser-based applications. However this workflow works with any storage provider (Azure, AWS, GCP, Hugging Face, etc.). We use Hugging Face because it’s a gold standard open-science data repository that is performant and free.\n\n\nTraditional Server-side Pattern (R/Python/Node.js running on server)\nWe can query as we do normally working on a local or cloud comptuer that is running some server; in this case its R code but it could be any language the query syntax is native SQL.\n\nlibrary(duckdb); library(tidyverse)\ncon &lt;- dbConnect(duckdb())\n\nresult &lt;- dbGetQuery(con, \"\n  SELECT * \n  FROM 'https://huggingface.co/datasets/ran-codes/mtcars/resolve/refs%2Fconvert%2Fparquet/default/train/0000.parquet' \n\") |&gt; as_tibble()\n\nresult |&gt; glimpse()\n\nRows: 32\nColumns: 12\n$ model &lt;chr&gt; \"Mazda RX4\", \"Mazda RX4 Wag\", \"Datsun 710\", \"Hornet 4 Drive\", \"H…\n$ mpg   &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8…\n$ cyl   &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8…\n$ disp  &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 1…\n$ hp    &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 18…\n$ drat  &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92…\n$ wt    &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3…\n$ qsec  &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 1…\n$ vs    &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0…\n$ am    &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0…\n$ gear  &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3…\n$ carb  &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2…\n\ndbDisconnect(con)\n\n\n\nServerless/Client-side Pattern (WASM running in browser)\nDuckDB WASM enables SQL processing directly in browsers, eliminating server dependencies. Below is the serverless equivalent of the query from above.\nLet’s first import DuckDB WASM from npm (Javascript package manager).\n\n// Import DuckDB WASM\nduckdb = import(\"https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.28.0/+esm\")\n\n\n\n\n\n\nNow we can set up our in browser DuckDB instance/connection. This is a bit more involved than the server-side version because we have to set up a web worker to run the database in a separate thread from the main browser UI thread.\n\n// Initialize with jsDelivr bundles (recommended approach)\ndb = {\n  const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();\n  const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);\n\n  const worker_url = URL.createObjectURL(\n    new Blob([`importScripts(\"${bundle.mainWorker}\");`], {type: 'text/javascript'})\n  );\n\n  const worker = new Worker(worker_url);\n  const logger = new duckdb.ConsoleLogger();\n  const db = new duckdb.AsyncDuckDB(logger, worker);\n  \n  await db.instantiate(bundle.mainModule, bundle.pthreadWorker);\n  URL.revokeObjectURL(worker_url);\n  \n  return db;\n}\n\n\n\n\n\n\nLooks good. Now we can connect to the cloud data storage and run our query.\n\n// Query S3 Parquet using HTTPS URL\nwasmResult = {\n  const conn = await db.connect();\n  \n  try {\n    const result = await conn.query(`\n      SELECT * \n     FROM 'https://huggingface.co/datasets/ran-codes/mtcars/resolve/refs%2Fconvert%2Fparquet/default/train/0000.parquet'  \n      LIMIT 5\n    `);\n    \n    return result.toArray().map(row =&gt; row.toJSON());\n    \n  } finally {\n    await conn.close();\n  }\n}\n\n\n\n\n\n\nLooks like it worked. Lets print results\n\nwasmResult\n\n\n\n\n\n\n\nInputs.table(wasmResult)\n\n\n\n\n\n\n\n\n\n\nArchitecture Implications\nDeployment Simplicity:\n\nBuild once, deploy to any static host\nNo server provisioning or maintenance\nAutomatic scaling via CDN\n\nCost Efficiency:\n\nNo compute costs (client-side processing)\nNo database hosting fees\nPay only for static hosting and data egress\n\nPerformance Characteristics:\n\nInitial WASM load overhead (~2-3MB)\nSubsequent queries run locally\nOptimal for &lt;100MB datasets per query\n\n\n\n\nAppendix: CORS and Cloud Storage\nCORS (Cross-Origin Resource Sharing) controls browser access to cross-domain resources.\nWhy Hugging Face works:\n\nCORS headers allow browser access (Access-Control-Allow-Origin: *)\nOptimized for ML/data science integration\n\nFor custom deployments:\nS3:\n[{\n  \"AllowedOrigins\": [\"https://yourapp.com\"],\n  \"AllowedMethods\": [\"GET\", \"HEAD\"], \n  \"AllowedHeaders\": [\"*\"],\n  \"MaxAgeSeconds\": 3000\n}]\nAzure Blob:\n{\n  \"allowedOrigins\": [\"https://yourapp.com\"],\n  \"allowedMethods\": [\"GET\"],\n  \"maxAgeInSeconds\": 3600\n}\nSecurity note: CORS controls browser access, not authentication. Use signed URLs or IAM policies for data security."
+  },
+  {
+    "objectID": "tidbits.html",
+    "href": "tidbits.html",
+    "title": "Tidbits",
+    "section": "",
+    "text": "Date\n\n\n\nTitle\n\n\n\nCategories\n\n\n\n\n\n\n\n\n2026-10-21\n\n\nTest driving uvr: a uv-style manager for R\n\n\nr, uvr, tooling\n\n\n\n\n\n\n2026-10-21\n\n\nNotion as a backend for a static site\n\n\nnotion, cloudflare, architecture\n\n\n\n\n\n\n2026-10-13\n\n\nQuarto lightbox figures for HTML and Revealjs\n\n\nquarto, html, revealjs\n\n\n\n\n\n\n2026-10-12\n\n\nR package and environment management: renv, pak, and friends\n\n\nr, renv, pak, tooling\n\n\n\n\n\n\n2026-10-08\n\n\nJS script runners and package managers: npm, pnpm, and vite test\n\n\njavascript, pnpm, npm, vite, tooling\n\n\n\n\n\n\n2026-10-05\n\n\nNext.js server vs. client components in static exports\n\n\nnextjs, react, static-site\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "portfolio.html",
+    "href": "portfolio.html",
+    "title": "Portfolio",
+    "section": "",
+    "text": "Philadelphia City Council Health Dashboard: From Shiny Prototype to Serverless Production App\n\n\n\nDashboard\n\nR Shiny\n\nNext.js\n\nReact.js\n\nHighcharts.js\n\n\n\n\n\n\n\nRan Li\n\n\nSep 1, 2025\n\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "tidbits/2026-10-21-uvr-test-drive/index.html",
     "href": "tidbits/2026-10-21-uvr-test-drive/index.html",
     "title": "Test driving uvr: a uv-style manager for R",
@@ -224,31 +182,73 @@
     "text": "Appendix A - Related tidbits to follow up on"
   },
   {
-    "objectID": "tidbits/2026-10-05-nextjs-server-vs-client-components.html",
-    "href": "tidbits/2026-10-05-nextjs-server-vs-client-components.html",
-    "title": "Next.js server vs. client components in static exports",
+    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html",
+    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html",
+    "title": "JS script runners and package managers: npm, pnpm, and vite test",
     "section": "",
-    "text": "Next.js has two types of compoents\n\nServer Componets and Client Compoentsn\n\nThese terms are confusing because Next.js static exports can still use server comeponts\nThey just indicate what is run at build time not what is expeorted\nSo at build time server compoents run the next.js server and export pure HTML\nClient ocmeopnts run at build time to export boht the HTML and the JS coderequired for a HTML page to funciton\nServer site build ouptus are smaller ebucase thye dont ship JS\nThe best practice is to use SErver side comeponts uneslss required client side specific features (most of the server comeponts are the best practice)\nIt is confuse beacuse there are some SSR next.js feautre locked ibehcig server comeponts which in that cas erequires a nExt.j server and would not work as auflly static export\nSo this PR essentially developes the loom integraitn o to work with both server and client pages; as wella smepahsize the best practice of defaulting to server"
+    "text": "there are some basictoling for JS develeoprm either enxt.js or svelte.\npnpm and npm then vite and vitetest\nfrom what i udresnta ther first 3 are packge apmagein each wiht own script fruning funcitonality. tehyera r enot edeidcate tasks urnigns like just\nso the tehst and cheks thems selves are ocmspeosn of atomic toosl such as lint or audit or scripts but youc an compose ‘script’ that ocmpsoe thes smaller tasks and run the ith pnpmn npmn nd vite \nbut what i dont udnrnsta d i\n\ns what is diff betwen viteest and vite \nwhat is hte best rpactice \npros and cons to each\n\nI do kwno pro is worktress and globa sitnal via pnpmn but what about vite and vitetest vs npmn/pnpmn?"
   },
   {
-    "objectID": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#ramblings",
-    "href": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#ramblings",
-    "title": "Next.js server vs. client components in static exports",
+    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#ramblings",
+    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#ramblings",
+    "title": "JS script runners and package managers: npm, pnpm, and vite test",
     "section": "",
-    "text": "Next.js has two types of compoents\n\nServer Componets and Client Compoentsn\n\nThese terms are confusing because Next.js static exports can still use server comeponts\nThey just indicate what is run at build time not what is expeorted\nSo at build time server compoents run the next.js server and export pure HTML\nClient ocmeopnts run at build time to export boht the HTML and the JS coderequired for a HTML page to funciton\nServer site build ouptus are smaller ebucase thye dont ship JS\nThe best practice is to use SErver side comeponts uneslss required client side specific features (most of the server comeponts are the best practice)\nIt is confuse beacuse there are some SSR next.js feautre locked ibehcig server comeponts which in that cas erequires a nExt.j server and would not work as auflly static export\nSo this PR essentially developes the loom integraitn o to work with both server and client pages; as wella smepahsize the best practice of defaulting to server"
+    "text": "there are some basictoling for JS develeoprm either enxt.js or svelte.\npnpm and npm then vite and vitetest\nfrom what i udresnta ther first 3 are packge apmagein each wiht own script fruning funcitonality. tehyera r enot edeidcate tasks urnigns like just\nso the tehst and cheks thems selves are ocmspeosn of atomic toosl such as lint or audit or scripts but youc an compose ‘script’ that ocmpsoe thes smaller tasks and run the ith pnpmn npmn nd vite \nbut what i dont udnrnsta d i\n\ns what is diff betwen viteest and vite \nwhat is hte best rpactice \npros and cons to each\n\nI do kwno pro is worktress and globa sitnal via pnpmn but what about vite and vitetest vs npmn/pnpmn?"
   },
   {
-    "objectID": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#understanding",
-    "href": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#understanding",
-    "title": "Next.js server vs. client components in static exports",
+    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#understanding",
+    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#understanding",
+    "title": "JS script runners and package managers: npm, pnpm, and vite test",
     "section": "Understanding",
-    "text": "Understanding\n\nTwo Types of Next.js Components: 1) Server and 2) Client\n\nThe key idea and difference is: where the code runs not when\nServer components\n\nThe JS runs on the Next.js Server to produce HTML\nIn hybrid/SSR Next.js this could be in the actual Next.js server in real-time in production as there is a server\nIn export/SSG Next.js this runs on Next.js during build time to produce HTML that is deploy to a serverless static site host.\n\nClient Components\n\nThe Next.js code (JS) is shipped and runs in the clients browser\n\n\nBest practice is to user Server Compoents; ‘use client’ only when required on smaller niche compoentns that need it"
+    "text": "Understanding\n\nWhat is key is the axis we are discussion which is what layer the technologies sit at\nThere are two layers in this context a higher level and a lower level\n\n\n\n\n\n\n\n\n\n\nLevel\nLayer\nDescription\nTools\n\n\n\n\nHigher\nPackage manager\nInstalls dependencies, runs package.json scripts\nnpm, pnpm\n\n\nLower\nTool\nDoes the actual work, called by scripts\nnext, vite, vitest, jest, eslint, oxlint, prettier, tsc, svelte-check, stylelint, cspell, concurrently, rimraf, func, swa, serve, node"
   },
   {
-    "objectID": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#appendix-a---related-tidbits-to-follow-up-on",
-    "href": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#appendix-a---related-tidbits-to-follow-up-on",
-    "title": "Next.js server vs. client components in static exports",
+    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#appendix-a---related-tidbits-to-follow-up-on",
+    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#appendix-a---related-tidbits-to-follow-up-on",
+    "title": "JS script runners and package managers: npm, pnpm, and vite test",
     "section": "Appendix A - Related tidbits to follow up on",
-    "text": "Appendix A - Related tidbits to follow up on\n\nHydration\nWhat breaks exports"
+    "text": "Appendix A - Related tidbits to follow up on\n\nvite is build tool ananllogous to turbopack for next.js ; vitetest - is that packge deicite testing packge\npnpm is a more modern npm and has a share package store (much better for worktrees); by defualt recomended to us pnpmn for JS project’s package mangement\nThe best practice is for all projects to use one package manager with script running capabilites; group major tasks as scripts to be called by the package manager!"
+  },
+  {
+    "objectID": "tidbits/2026-10-21-notion-as-a-backend.html",
+    "href": "tidbits/2026-10-21-notion-as-a-backend.html",
+    "title": "Notion as a backend for a static site",
+    "section": "",
+    "text": "its finel lfor assuepr siempl do public wihtou auth so anyitng. lets say we have suepr simple database in notion a tabel of baby names two columns Name and another randomi coumn lets say numebr popautliary rating 0-10 that datbase is etup on notion. what hapepsn how i need auth otken specific ot that databaes that is troe din the cloruflar worker and the when a udpat ei mad ein the itnernface here what the psuh is goig to the cloduflalir which then udapte sthe databse? what abotu fetch in real time lets say i have a table viewin tidibits but hte entry is a form this woudl require JS for hte form but the table what ist here sj lgoica there too that is like scan the noitnoatab ever 1 se to se if udpat ehtei f hter is to rererhes the html table? but that seems usper iniefiencet . who si my arhcenture plan? tohguhts?"
+  },
+  {
+    "objectID": "tidbits/2026-10-21-notion-as-a-backend.html#rambling",
+    "href": "tidbits/2026-10-21-notion-as-a-backend.html#rambling",
+    "title": "Notion as a backend for a static site",
+    "section": "",
+    "text": "its finel lfor assuepr siempl do public wihtou auth so anyitng. lets say we have suepr simple database in notion a tabel of baby names two columns Name and another randomi coumn lets say numebr popautliary rating 0-10 that datbase is etup on notion. what hapepsn how i need auth otken specific ot that databaes that is troe din the cloruflar worker and the when a udpat ei mad ein the itnernface here what the psuh is goig to the cloduflalir which then udapte sthe databse? what abotu fetch in real time lets say i have a table viewin tidibits but hte entry is a form this woudl require JS for hte form but the table what ist here sj lgoica there too that is like scan the noitnoatab ever 1 se to se if udpat ehtei f hter is to rererhes the html table? but that seems usper iniefiencet . who si my arhcenture plan? tohguhts?"
+  },
+  {
+    "objectID": "tidbits/2026-10-21-notion-as-a-backend.html#understanding",
+    "href": "tidbits/2026-10-21-notion-as-a-backend.html#understanding",
+    "title": "Notion as a backend for a static site",
+    "section": "Understanding",
+    "text": "Understanding\n\nI want to explore the easiest way to get a CRUD feature using Notion databases as the backend on s simple static site\nThis would require some sort of proxy function to store the API Token with access to the Notion database\nThis would then ahve several comepontsn\n\n\nA database (Notion database) - lets say simple schema of baby names 2 columns ‘Name (text)’ and “popularity 0 - 10 numeric’\nfront end - a data entry form - JS for data entry that after click submit will push info and trigger some server function\n\nWhat access permissions will this need - READ and WRITE\nThis is simple Insert form we cna make it mroe ocmeplx for pathces and deleiotns but htat sjust JS compelxity the archiehture we will just handle insert\n\nProxy -  a serverless function (e.g. a Cloudflare worker) whihc stores the Database acces secerets. There are as many routes as needed for CRUD (Routes) into /names\n\nroutes\n\n GET Reads\n POST inserts new rows \nPATCH updates\nDELETE deletes\n\nProviders for serverless functions (aka edge functiosn)\n\nCloudflare workers (easeiest to setup and most free tier calls)\nAzure Functions\nAWS Lambda\nGCP Cloud Run Functions\n\n\nFront end -  a table that reads from the databse has JS logic to:\n\non page load will read form database GET /names\non form submission it is trigere to reread so the udpate thigns how up GET /names"
+  },
+  {
+    "objectID": "tidbits/2026-10-21-notion-as-a-backend.html#artifacts",
+    "href": "tidbits/2026-10-21-notion-as-a-backend.html#artifacts",
+    "title": "Notion as a backend for a static site",
+    "section": "Artifacts",
+    "text": "Artifacts\n\n\n\n\n\nsequenceDiagram\n    participant Form as Front end: form (JS)\n    participant Table as Front end: table (JS)\n    participant Worker as Cloudflare Worker&lt;br/&gt;(holds Notion token)\n    participant Notion as Notion database&lt;br/&gt;(baby names)\n\n    Note over Table,Notion: Page load\n    Table-&gt;&gt;Worker: GET /names\n    Worker-&gt;&gt;Notion: query database\n    Notion--&gt;&gt;Worker: rows\n    Worker--&gt;&gt;Table: JSON rows\n\n    Note over Form,Notion: Form submit\n    Form-&gt;&gt;Worker: POST /names {name, popularity}\n    Worker-&gt;&gt;Notion: create page (row)\n    Notion--&gt;&gt;Worker: ok\n    Worker--&gt;&gt;Form: ok\n    Form-&gt;&gt;Table: trigger refresh\n    Table-&gt;&gt;Worker: GET /names\n    Worker--&gt;&gt;Table: updated rows"
+  },
+  {
+    "objectID": "tidbits/2026-10-21-notion-as-a-backend.html#appendix-a---related-tidbits-to-follow-up-on",
+    "href": "tidbits/2026-10-21-notion-as-a-backend.html#appendix-a---related-tidbits-to-follow-up-on",
+    "title": "Notion as a backend for a static site",
+    "section": "Appendix A - Related tidbits to follow up on",
+    "text": "Appendix A - Related tidbits to follow up on"
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Proof of Concept: Client-side Serverless DuckDB query of cloud bucket storages\n\n\n\nserverless\n\ndata-engineering\n\nwasm\n\nduckdb\n\nanalytics\n\nsql\n\nparquet\n\n\n\n\n\n\n\n\n\nSep 9, 2025\n\n\nRan Li\n\n\n\n\n\nNo matching items"
   }
 ]
