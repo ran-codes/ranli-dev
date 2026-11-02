@@ -7,21 +7,22 @@ categories: [git, line-endings, gitattributes, windows]
 
 - Some of the repos i am working on that have prettier in the checks workflow keeps popping up with this same bug
 - its cosmetic but still  bother to deal with
-- i can fix it with claude but dont understand fully yet.
+- i can fix it with Claude but don't understand fully yet.
 - I believe there are a few axis
   - 1) its not a bug - just a cosmetic thing
   - 2) LF vs CRLF
   - 3) local vs origin
   - 4) git command to fix it  `git rm -r --cached -q :/ && git reset --hard`
 - so these are things i want to learn
-- probably need to init a git/github glossary along the way.
+- maybe need to init a git/GitHub glossary along the way.
 
 # 2. Understanding
 
 - Triage
-  - There are some core concpets i need to udnerstand (LF vs CRLF)
+  - There are some core concepts i need to understand (LF vs CRLF)
   - then there is tooling around these that are secondary
-  - lets start wiht the concepts
+  - lets start with the concepts
+  - then move on to the tooling
 
 
 
@@ -51,9 +52,21 @@ categories: [git, line-endings, gitattributes, windows]
 
 
 
+&nbsp;
+
 ## 2.2 Tooling
 
 - So now we are on to the tooling (speiccally github). There three thigns i want to udnrestand
   - `.gitattribute` (specifically the EOL config)
   - implcaitions for `local` vs `remote`
   - how the reomcend fix command works  `git rm -r --cached -q :/ && git reset --hard`
+- Lets first document core vocabular to talk about this in the glossary for git/github the come back to contextualize and link ideas together here.
+
+
+
+---
+
+# Reference
+
+## a. Diff LF vs CRLF
+
