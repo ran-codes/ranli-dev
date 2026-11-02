@@ -1,0 +1,12 @@
+---
+title: "Git and GitHub"
+description: "Repos, clones, config files and line endings."
+date-modified: "2026-11-02"
+---
+Terms follow the [Git documentation](https://git-scm.com/docs) and [GitHub Docs](https://docs.github.com/). Terms that are not official are marked *informal*.
+
+## Config files
+
+| Term | Meaning |
+|---|---|
+| `.gitattributes` | A committed file that sets per-path rules for Git, such as which line ending (`eol`) files get when Git writes them. It travels with the repo, so it applies on every clone |
