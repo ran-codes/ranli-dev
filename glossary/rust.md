@@ -58,7 +58,20 @@ Both commands take these, so they can run on a subset of the workspace.
 | `rlib` | A Rust library file (`.rlib`), an intermediate artifact used by later builds |
 | `dylib` | A dynamic Rust library (`.dll`/`.so`/`.dylib`) |
 | `cdylib` | A dynamic library other languages can load; used for `.wasm` libraries |
+| `.wasm` | A WebAssembly file, built for a `wasm32-*` target triple; a `bin` or a `cdylib` |
 | Target triple | The platform being compiled for, such as `x86_64-pc-windows-msvc` or `wasm32-unknown-unknown` |
+
+### Portability
+
+Where each artifact can be used after it is built.
+
+| Artifact | Runs on |
+|---|---|
+| `bin` (executable) | Its target triple only (one OS and chip) |
+| `cdylib` | Its target triple only |
+| `dylib` | Its target triple, with the same `rustc` version |
+| `rlib` | Its target triple, with the same `rustc` version |
+| `.wasm` | Any OS with a WebAssembly runtime, such as a browser |
 
 ## Caching
 
