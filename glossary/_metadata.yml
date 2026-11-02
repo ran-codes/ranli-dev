@@ -1,0 +1,10 @@
+# options specified here will apply to all glossaries in this folder
+freeze: true
+title-block-banner: true
+format:
+  html:
+    toc: true
+
+author:
+  - name: "Ran Li"
+    url: "https://ran-codes.github.io/"

@@ -1,0 +1,73 @@
+---
+title: "Rust"
+description: "Cargo, crates, compiling, building and caching."
+date-modified: "2026-11-02"
+---
+Terms follow [The Rust Book](https://doc.rust-lang.org/book/), [The Rust Reference](https://doc.rust-lang.org/reference/) and [The Cargo Book](https://doc.rust-lang.org/cargo/). Terms that are not official are marked *informal*.
+
+## Code units
+
+Smallest first.
+
+| Term | Meaning |
+|---|---|
+| Function | An item with a name, parameters, a return type and a body (`fn`) |
+| Item | A component of a crate, such as a function, struct or module |
+| Module | A container for zero or more items |
+| Crate | The smallest amount of code the compiler considers at a time |
+| Binary crate | A crate with a `main` function that compiles to an executable |
+| Library crate | A crate with no `main` that defines code for other crates to use |
+| Package | A bundle of one or more crates, described by a `Cargo.toml`; at most one library crate |
+| Workspace | A set of packages that share one `Cargo.lock` and one output directory |
+
+## Steps
+
+Steps have no command of their own; they run inside a command.
+
+| Term | Meaning | Tool |
+|---|---|---|
+| Compile | Turn one crate into an artifact | `rustc` |
+| Link | Combine compiled code into the final artifact | The linker |
+
+## Commands
+
+| Command | Meaning | Runs |
+|---|---|---|
+| `cargo build` | Compile local packages and all their dependencies | Compile, link |
+| `cargo test` | Compile and run a package's unit and integration tests | Compile, link, run tests |
+
+### Scope flags
+
+Both commands take these, so they can run on a subset of the workspace.
+
+| Level | Flag | Covers |
+|---|---|---|
+| Workspace | `--workspace` | All packages |
+| Package | `-p <name>` | One package |
+| Target | `--lib`, `--bin <name>`, `--test <name>` | One crate in a package |
+| Test name | `cargo test <filter>` | Tests matching a name (`cargo test` only) |
+
+## Outputs
+
+| Term | Meaning |
+|---|---|
+| Artifact | Any file a build produces |
+| Target | What Cargo can build from a package: `lib`, `bin`, `example`, `test` or `bench` |
+| Crate type | The form a compiled crate takes, such as `bin`, `rlib`, `dylib`, `cdylib` or `staticlib` |
+| `bin` | An executable (`.exe` on Windows, no extension on Linux/macOS) |
+| `rlib` | A Rust library file (`.rlib`), an intermediate artifact used by later builds |
+| `dylib` | A dynamic Rust library (`.dll`/`.so`/`.dylib`) |
+| `cdylib` | A dynamic library other languages can load; used for `.wasm` libraries |
+| Target triple | The platform being compiled for, such as `x86_64-pc-windows-msvc` or `wasm32-unknown-unknown` |
+
+## Caching
+
+| Term | Meaning |
+|---|---|
+| Target directory | Where Cargo stores build output (`target/` by default); also called the build cache |
+| Fresh | A unit whose cached output is up to date, so Cargo skips it |
+| Dirty | A unit that changed, so Cargo rebuilds it |
+| Incremental compilation | `rustc` reuses work from the last compile of the same crate |
+| Cold / warm build | *Informal.* A build with an empty vs. populated target directory |
+| `rustc` wrapper | A program Cargo runs in place of `rustc` (`build.rustc-wrapper`) |
+| sccache | *Third-party.* A `rustc` wrapper that caches compile output across directories |
