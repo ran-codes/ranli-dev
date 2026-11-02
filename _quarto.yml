@@ -21,16 +21,18 @@ website:
         href: index.qmd
       - text: "Blog"
         href: blog.qmd
+      - text: "Portfolio"
+        href: portfolio.qmd
+      - text: "Resume"
+        href: profile.pdf
+        target: _blank
+    right:
       - text: "Tidbits"
         href: tidbits.qmd
       - text: "Glossary"
         href: glossary.qmd
-      - text: "Portfolio"
-        href: portfolio.qmd      
-      - text: "Resume"
-        href: profile.pdf 
-        target: _blank
-    right:
+  page-footer:
+    center:
       - icon: linkedin
         href: https://www.linkedin.com/in/ran-li-6b722718/
         target: _blank
@@ -41,7 +43,7 @@ website:
         href: https://bsky.app/profile/ran-li.bsky.social
         target: _blank
       - icon: twitter
-        href: https://x.com/ran_codes      
+        href: https://x.com/ran_codes
         target: _blank
       - icon: medium
         href: https://medium.com/@ranli2011
