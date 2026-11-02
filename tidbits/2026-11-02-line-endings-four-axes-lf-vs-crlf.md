@@ -53,4 +53,7 @@ categories: [git, line-endings, gitattributes, windows]
 
 ## 2.2 Tooling
 
-- So now we are ont
+- So now we are on to the tooling (speiccally github). There three thigns i want to udnrestand
+  - `.gitattribute` (specifically the EOL config)
+  - implcaitions for `local` vs `remote`
+  - how the reomcend fix command works  `git rm -r --cached -q :/ && git reset --hard`
