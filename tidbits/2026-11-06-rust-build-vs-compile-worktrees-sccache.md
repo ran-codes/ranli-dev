@@ -24,17 +24,25 @@ categories: [rust, cargo, sccache, git-worktrees]
 ### 2.1 Core Question 1: Compilation vs Build
 
 - Compilation or compiling within the Rust/Cargo workflows is a step.
-  - This takes rust code and builds an output artifact (which could be a exe or rlib or wasm or other artifacts); These are artifacts can be consumed/used by various operating systems
+  - This takes rust code and builds an output artifact (which could be a exe or rlib or wasm or other artifacts); These are artifacts can be consumed/used by users
 - Build is a specific Cargo command `cargo build` which does a few steps for a speicifed scope of work
-  - Build can be specified to work at the worspace level, at a program level or at a crate level
+  - Build can be specified to work at various levels (
+    - worspace level  -&gt; all packages/crates within  a repo
+    - package -&gt; specific packgaes and all its crates
+    - crate -&gt; specific crates
   - it then within the scope sepcific does a two main steps
-    - Firstly it compiles all the crates that is within the scope
-    - Then it Links the individual crate output artifacts into a single develoerable artifact as specificed 
+    - Firstly it compiles all the crates that is within the scope (plus dpednenceis)
+    - Then it Links the individual crate output artifacts into a single develoerable artifact per target as specificed 
 - So in summary
   - Compilation is a step
   - Build is a process/command that calls compilation
 
-### 2.2 Core Question 2: Worktrees and Sccache and perofmrance in rust/cargo
+---
 
-- So
+# Follow-up
 
+- The rambling asked two big queistons
+- We answer hte first one as its a good scope for a tidibit
+- we filled follow two tibbits 
+  - one to asnwer hte core quesiton 2
+  - another to reoslve a new confusiong point hta came up which is the diffeirentiation of crate vs package (and their file tree implemtations)

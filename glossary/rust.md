@@ -14,7 +14,7 @@ Smallest first.
 | Function | An item with a name, parameters, a return type and a body (`fn`) |
 | Item | A component of a crate, such as a function, struct or module |
 | Module | A container for zero or more items |
-| Crate | The smallest amount of code the compiler considers at a time |
+| Crate | The smallest amount of code the compiler considers at a time. Cargo calls the same thing a *target*; they are one and the same |
 | Binary crate | A crate with a `main` function that compiles to an executable |
 | Library crate | A crate with no `main` that defines code for other crates to use |
 | Package | A bundle of one or more crates, described by a `Cargo.toml`; at most one library crate |
@@ -44,7 +44,7 @@ Both commands take these, so they can run on a subset of the workspace.
 |---|---|---|
 | Workspace | `--workspace` | All packages |
 | Package | `-p <name>` | One package |
-| Target | `--lib`, `--bin <name>`, `--test <name>` | One crate in a package |
+| Crate | `--lib`, `--bin <name>`, `--test <name>` | One crate in a package |
 | Test name | `cargo test <filter>` | Tests matching a name (`cargo test` only) |
 
 ## Outputs
@@ -52,7 +52,6 @@ Both commands take these, so they can run on a subset of the workspace.
 | Term | Meaning |
 |---|---|
 | Artifact | Any file a build produces |
-| Target | What Cargo can build from a package: `lib`, `bin`, `example`, `test` or `bench` |
 | Crate type | The form a compiled crate takes, such as `bin`, `rlib`, `dylib`, `cdylib` or `staticlib` |
 | `bin` | An executable (`.exe` on Windows, no extension on Linux/macOS) |
 | `rlib` | A Rust library file (`.rlib`), an intermediate artifact used by later builds |
