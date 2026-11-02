@@ -1,7 +1,14 @@
 [
   {
+    "listing": "/glossary.html",
+    "items": [
+      "/glossary/rust.html"
+    ]
+  },
+  {
     "listing": "/tidbits.html",
     "items": [
+      "/tidbits/2026-11-06-rust-build-vs-compile-worktrees-sccache.html",
       "/tidbits/2026-10-30-github-actions-triggers-filters-and-ifs.html",
       "/tidbits/2026-10-30-rust-crate-101.html",
       "/tidbits/2026-10-21-uvr-test-drive/index.html",
