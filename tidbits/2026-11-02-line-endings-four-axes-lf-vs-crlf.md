@@ -70,3 +70,27 @@ categories: [git, line-endings, gitattributes, windows]
 
 ## a. Diff LF vs CRLF
 
+The same two lines of code, saved with each line ending. `␍` is CR (`\r`) and `␊` is LF (`\n`); both are normally invisible.
+
+```diff
+- const a = 1;␍␊      ← CRLF (Windows): 2 bytes per line ending
+- const b = 2;␍␊
++ const a = 1;␊        ← LF (Unix/Mac): 1 byte per line ending
++ const b = 2;␊
+```
+
+Raw bytes (`od -c`):
+
+```diff
+- c o n s t   a   =   1 ; \r \n
++ c o n s t   a   =   1 ; \n
+```
+
+The text is identical. The only difference is the extra `\r` before every `\n`.
+
+Prettier (default `endOfLine: "lf"`) flags each of those `\r` characters:
+
+```
+1:13  error  Delete `␍`  prettier/prettier
+```
+
