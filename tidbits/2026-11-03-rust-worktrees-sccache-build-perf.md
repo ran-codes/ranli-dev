@@ -22,9 +22,9 @@ categories: [rust, cargo, sccache, git-worktrees]
   - `/target` - this is the folder that cargo will output its build and cache artificats too
     - Its comparable to the DBT `/target` folder 
     - It is comparable Next.js' `/.next` fodler (not to be confused with the `/out` fodler which contians the final static export
-  - It has a few subfolders that amtter to use
-    - `/target/release` - this is final build files so this is comaprable to next.js `/out` this is gerneated by `cargo build --release` (compiles slow but runs fast)
-    - `/target/debug` - output of a plan `cargo build` - compiles fast but runs slow
-    - `/target/deps` - hold compiled dependencies, which is most a cold build and waht `sccache` can share
-    - `/target/incremental` - caches own crates which incrementally. first build cache initialize cache for each crate
-  - 
+    - It has a few subfolders that amtter to use
+      - `/target/release` - this is final build files so this is comaprable to next.js `/out` this is gerneated by `cargo build --release` (compiles slow but runs fast)
+      - `/target/debug` - output of a plan `cargo build` - compiles fast but runs slow
+      - `/target/deps` - hold compiled dependencies, which is most a cold build and waht `sccache` can share
+      - `/target/incremental` - caches own crates which incrementally. first build cache initialize cache for each crate
+
