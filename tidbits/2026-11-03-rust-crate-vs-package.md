@@ -1,11 +1,12 @@
 ---
-title: "Rust crate vs package"
+title: "Rust package vs crate vs modules"
 date: "2026-11-03"
 categories: [rust, cargo]
 ---
 # Rambling
 
-- A p
+- conceptutal crate vs package and then the epxressino of it in filestrees and organizaotn ruesl are not clear to me
+- need to clearly undrestnad thsi arhcetrue  to start being able to sniff test rust codebases
 
 
 
