@@ -84,3 +84,14 @@ Where each artifact can be used after it is built.
 | Cold / warm build | *Informal.* A build with an empty vs. populated target directory |
 | `rustc` wrapper | A program Cargo runs in place of `rustc` (`build.rustc-wrapper`) |
 | sccache | *Third-party.* A `rustc` wrapper that caches compile output across directories |
+
+### Target directory layout
+
+The subfolders that matter for build speed. `deps/` and `incremental/` sit inside each profile folder, not at the top of `target/`.
+
+| Path | Holds |
+|---|---|
+| `target/debug/` | Output of a plain `cargo build`; compiles fast, runs slow |
+| `target/release/` | Output of `cargo build --release`; compiles slow, runs fast. The final files sit at its top level, like Next.js's `out/` |
+| `target/<profile>/deps/` | Compiled dependencies; most of a cold build, and the part sccache can share |
+| `target/<profile>/incremental/` | Incremental state for your own crates; filled on the first build in each target directory. sccache does not cache incremental compiles |
