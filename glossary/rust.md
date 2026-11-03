@@ -1,7 +1,7 @@
 ---
 title: "Rust"
 description: "Cargo, crates, compiling, building and caching."
-date-modified: "2026-11-02"
+date-modified: "2026-11-03"
 ---
 Terms follow [The Rust Book](https://doc.rust-lang.org/book/), [The Rust Reference](https://doc.rust-lang.org/reference/) and [The Cargo Book](https://doc.rust-lang.org/cargo/). Terms that are not official are marked *informal*.
 
@@ -15,6 +15,7 @@ Smallest first.
 | Item | A component of a crate, such as a function, struct or module |
 | Module | A container for zero or more items |
 | Crate | The smallest amount of code the compiler considers at a time. Cargo calls the same thing a *target*; they are one and the same |
+| Crate root | The source file the compiler starts from, which makes up the crate's root module, such as `src/lib.rs` or `src/main.rs` |
 | Binary crate | A crate with a `main` function that compiles to an executable |
 | Library crate | A crate with no `main` that defines code for other crates to use |
 | Package | A bundle of one or more crates, described by a `Cargo.toml`; at most one library crate |
