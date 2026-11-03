@@ -77,7 +77,7 @@ Where each artifact can be used after it is built.
 
 | Term | Meaning |
 |---|---|
-| Target directory | Where Cargo stores build output (`target/` by default); also called the build cache |
+| Target directory | Where Cargo stores build output and the state it checks to skip unchanged work (`target/` by default); also called the build cache. One per workspace, so each git worktree gets its own. Similar to Next.js's `.next/` or dbt's `target/` |
 | Fresh | A unit whose cached output is up to date, so Cargo skips it |
 | Dirty | A unit that changed, so Cargo rebuilds it |
 | Incremental compilation | `rustc` reuses work from the last compile of the same crate |
