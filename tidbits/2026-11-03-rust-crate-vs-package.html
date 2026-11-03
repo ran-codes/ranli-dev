@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ran Li">
-<meta name="dcterms.date" content="2026-11-06">
+<meta name="dcterms.date" content="2026-11-03">
 
-<title>Rust build vs compilation, and working in worktrees with sccache – Ran Li</title>
+<title>Rust package vs crate vs modules – Ran Li</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -88,10 +88,12 @@ gtag('config', 'G-PC0JG3M1ZX', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Rust build vs compilation, and working in worktrees with sccache – Ran Li">
+<meta property="og:title" content="Rust package vs crate vs modules – Ran Li">
+<meta property="og:description" content="Ran Li — software engineering, AI harness development, web development, data engineering, and public health analytics.">
 <meta property="og:image" content="https://ranli.dev/tidbits/profile.jpg">
 <meta property="og:site_name" content="Ran Li">
-<meta name="twitter:title" content="Rust build vs compilation, and working in worktrees with sccache – Ran Li">
+<meta name="twitter:title" content="Rust package vs crate vs modules – Ran Li">
+<meta name="twitter:description" content="Ran Li — software engineering, AI harness development, web development, data engineering, and public health analytics.">
 <meta name="twitter:image" content="https://ranli.dev/tidbits/profile.jpg">
 <meta name="twitter:creator" content="@ran_codes">
 <meta name="twitter:card" content="summary">
@@ -151,12 +153,10 @@ gtag('config', 'G-PC0JG3M1ZX', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Rust build vs compilation, and working in worktrees with sccache</h1>
+      <h1 class="title">Rust package vs crate vs modules</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">rust</div>
                 <div class="quarto-category">cargo</div>
-                <div class="quarto-category">sccache</div>
-                <div class="quarto-category">git-worktrees</div>
               </div>
                   </div>
   </div>
@@ -174,7 +174,7 @@ gtag('config', 'G-PC0JG3M1ZX', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">November 6, 2026</p>
+        <p class="date">November 3, 2026</p>
       </div>
     </div>
     
@@ -193,74 +193,156 @@ gtag('config', 'G-PC0JG3M1ZX', { 'anonymize_ip': true});
 
 
 
-<section id="ramblings" class="level1">
-<h1>1. Ramblings</h1>
+<section id="rambling" class="level1">
+<h1>Rambling</h1>
 <ul>
-<li>rust has compilation then build</li>
-<li>iw ant t konw the idferinces</li>
-<li>the efect of tec sucha s sccache on rust wokr in worktrees</li>
-<li>i want atbles of conidioatn and worktres and scenairoes to fully udnrestand</li>
+<li>conceptutal crate vs package and then the epxressino of it in filestrees and organizaotn ruesl are not clear to me</li>
+<li>need to clearly undrestnad thsi arhcetrue to start being able to sniff test rust codebases</li>
 </ul>
 </section>
 <section id="understanding" class="level1">
-<h1>2. Understanding</h1>
+<h1>Understanding</h1>
 <ul>
-<li>Triage
+<li>Work space
 <ul>
-<li>So I think i asked great questions above</li>
-<li>They are very ‘fundamental’ questions - the answers to which require a fundamental working baseline vocabulary of Rust workflows to even begin to answer</li>
-<li>I first initialized a basic super simple rust glossary in this site</li>
-<li>From there we will triage and answer the rambling questions from above</li>
+<li>Are composed of&nbsp; 1+ packages</li>
+<li>Get cargo.toml files
+<ul>
+<li>includes metadata about the workspace/repo</li>
+<li>includes the comopsition/orchestration information about its comopenent packages</li>
 </ul></li>
-<li>Breakdown/rephrase: first lets isolate the specific questions or points of confusion
+</ul></li>
+<li>Packages
 <ul>
-<li>Core question 1: Compilation vs Build</li>
-<li>Core question 2: Worktrees and Sccache</li>
+<li>Are composed of 1+ crates</li>
+<li>get cargo.toml files
+<ul>
+<li>this includes metadata about the package</li>
+<li>includes the composition/orchestration information of its component crates</li>
+</ul></li>
+<li>Must have at least one of either a library (max 1) or binary (no limit) crate (or both)
+<ul>
+<li>both is common. library holds the logic (<code>src/lib.rs</code>)&nbsp; and the binary (<code>main.rs</code> - wraps it into a binary)</li>
+</ul></li>
+</ul></li>
+<li>Crates&nbsp;
+<ul>
+<li>Crate is AKA as target</li>
+<li>Are composted of&nbsp; crate root file&nbsp; and optionally additional modules/sub-modules</li>
+<li>Don’t get cargo.toml files</li>
+<li>There are a few kinds of crates/target each with crate root file&nbsp; (which signals what type of crate this is)
+<ul>
+<li><strong>Shipped&nbsp;Crates</strong> that are Shipped to users
+<ul>
+<li><strong>Library</strong> (<code>src/lib.rs</code>) -&nbsp; a package can only&nbsp; have <strong>at most one library crate</strong> - produces <code>.rlib</code> for other crates
+<ul>
+<li>contains syntax for organizing its modules and sub modules</li>
+</ul></li>
+<li><strong>Binary</strong>
+<ul>
+<li>A package can have 0+ binaries</li>
+<li>contains syntax for organizing its modules and sub modules</li>
+<li>They can be declared two ways
+<ul>
+<li><code>src/main.rs</code>&nbsp;produces <code>{packagename}.exe</code></li>
+<li><code>src/bin/*.rs</code>&nbsp;produces <code>*.exe</code>
+<ul>
+<li>note that multiple packages potentially may produce the same exe e.g.&nbsp;package A and Package B may produce <code>x.exe</code>&nbsp;this will be flagged ad build time and cargo will warn you to resolve these duplicated binary names as one .exe silently overwrites the other</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><strong>Helper</strong> <strong>Crates</strong> (not shipped, cargo builds for dev tasks only)&nbsp;
+<ul>
+<li>Crate types
+<ul>
+<li><strong>Tests</strong></li>
+<li><strong>Examples</strong></li>
+<li><strong>benches</strong></li>
+<li><strong>Build scripts</strong></li>
+</ul></li>
+<li>We will not detail into them here as its outside the scope of the tid-bit</li>
+</ul></li>
+</ul></li>
+<li><strong>Modules</strong>
+<ul>
+<li>Module names should be <code>snake_case</code>&nbsp;(no hyphens&nbsp; or leading digits or uppercase)</li>
+<li>There several ways modules can be expressed
+<ul>
+<li>in-line block within the crate file
+<ul>
+<li><p><code>// src/[lib.rs](http://lib.rs)</code></p>
+<p><code>mod util {                // module util, no [util.rs](http://util.rs) needed</code></p>
+<p><code>pub fn add(a: i32, b: i32) -&gt; i32 { a + b }</code></p>
+<p><code>}</code></p></li>
+<li><p>common for small helpers and <code>mod tests { }</code></p></li>
+</ul></li>
+<li>own file
+<ul>
+<li>these must site beside the crate root that declares it&nbsp; so for the <code>/src/crate_dbt.rs</code>&nbsp;crate that declares&nbsp;&nbsp;<code>module_dbt_engine</code>&nbsp;then the modules file will sit at&nbsp;<code>src/module_dbt_engine.rs</code></li>
+<li>this module must then be linked to the binary or library that declares it in that upstream file</li>
+</ul></li>
+<li>Submodules
+<ul>
+<li>modules can have submodules to help organize and modularize the logic</li>
+<li>Submodules as expressed in a subfolder with the module name</li>
+<li>Modern syntax is (e.g.&nbsp;for example for the <code>module_dbt</code>&nbsp;module)
+<ul>
+<li>a subfolder <code>/src/module_dbt/{sub_module_name}.rs</code></li>
+</ul></li>
+<li>older syntax is <code>{parent}/{child}/mod.rs</code></li>
+</ul></li>
+<li>have its own sub-modules</li>
+</ul></li>
+</ul></li>
 </ul></li>
 </ul>
-<section id="core-question-1-compilation-vs-build" class="level3">
-<h3 class="anchored" data-anchor-id="core-question-1-compilation-vs-build">2.1 Core Question 1: Compilation vs Build</h3>
-<ul>
-<li>Compilation or compiling within the Rust/Cargo workflows is a step.
-<ul>
-<li>This takes rust code and builds an output artifact (which could be a exe or rlib or wasm or other artifacts); These are artifacts can be consumed/used by users</li>
-</ul></li>
-<li>Build is a specific Cargo command <code>cargo build</code>&nbsp;which does a few steps for a speicifed scope of work
-<ul>
-<li>Build can be specified to work at various levels (
-<ul>
-<li>worspace level&nbsp; -&gt; all packages/crates within&nbsp; a repo</li>
-<li>package -&gt; specific packgaes and all its crates</li>
-<li>crate -&gt; specific crates</li>
-</ul></li>
-<li>it then within the scope sepcific does a two main steps
-<ul>
-<li>Firstly it compiles all the crates that is within the scope (plus dpednenceis)</li>
-<li>Then it Links the individual crate output artifacts into a single develoerable artifact per target as specificed</li>
-</ul></li>
-</ul></li>
-<li>So in summary
-<ul>
-<li>Compilation is a step</li>
-<li>Build is a process/command that calls compilation</li>
-</ul></li>
-</ul>
+<p>&nbsp;</p>
 <hr>
 </section>
+<section id="references" class="level1">
+<h1>References</h1>
+<section id="reference-a---crate-types" class="level2">
+<h2 class="anchored" data-anchor-id="reference-a---crate-types">Reference A - Crate types</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 40%">
+<col style="width: 39%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Kind</th>
+<th>Crate Root</th>
+<th>Builds</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Library</td>
+<td><code>src/lib.rs</code> (max one)</td>
+<td><code>.rlib</code> for other crates</td>
+</tr>
+<tr class="even">
+<td>Binary</td>
+<td><code>src/main.rs</code>, <code>src/bin/*.rs</code></td>
+<td>an <code>.exe</code></td>
+</tr>
+<tr class="odd">
+<td>Test, example, bench</td>
+<td><code>tests/</code>, <code>examples/</code>, <code>benches/</code> <code>*.rs</code></td>
+<td>an <code>.exe</code>, run by its own cargo command</td>
+</tr>
+<tr class="even">
+<td>Build script</td>
+<td><code>build.rs</code></td>
+<td>runs before the package compiles</td>
+</tr>
+</tbody>
+</table>
+
+
 </section>
-<section id="follow-up" class="level1">
-<h1>Follow-up</h1>
-<ul>
-<li>The rambling asked two big queistons</li>
-<li>We answer hte first one as its a good scope for a tidibit</li>
-<li>we filled follow two tibbits&nbsp;
-<ul>
-<li>one to asnwer hte core quesiton 2</li>
-<li>another to reoslve a new confusiong point hta came up which is the diffeirentiation of crate vs package (and their file tree implemtations)</li>
-</ul></li>
-</ul>
-
-
 </section>
 
 </main> <!-- /main -->

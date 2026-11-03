@@ -161,53 +161,39 @@
     "text": "Appendix A - Related tidbits to follow up on\n\nTest driving uvr: a uv-style manager for R"
   },
   {
-    "objectID": "tidbits/2026-11-06-rust-build-vs-compile-worktrees-sccache.html",
-    "href": "tidbits/2026-11-06-rust-build-vs-compile-worktrees-sccache.html",
+    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html",
+    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html",
+    "title": "Quarto lightbox figures for HTML and Revealjs",
+    "section": "",
+    "text": "Just learned Quarto can turn images into lightbox figures (click to enlarge) in HTML outputs like HTML documents and Revealjs slides. Docs: https://quarto.org/docs/output-formats/html-lightbox-figures.html"
+  },
+  {
+    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html#ramblings",
+    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html#ramblings",
+    "title": "Quarto lightbox figures for HTML and Revealjs",
+    "section": "",
+    "text": "Just learned Quarto can turn images into lightbox figures (click to enlarge) in HTML outputs like HTML documents and Revealjs slides. Docs: https://quarto.org/docs/output-formats/html-lightbox-figures.html"
+  },
+  {
+    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html#understanding",
+    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html#understanding",
+    "title": "Quarto lightbox figures for HTML and Revealjs",
+    "section": "Understanding",
+    "text": "Understanding\n\nA UI element that is an image which when cliked pops out hte image zoomed in in a nmodal is called a Lightbox \nRef and example:  https://en.wikipedia.org/wiki/Lightbox_(JavaScript)\nThis feature has two parts\n\n\nthe thumbnail image shown on your page (trigger)\n\n\nthe modal that pops up (inlcude the dim abckground) with closable button\n\n\nQuarto makes this available for HTML outputs?\n\nhttps://quarto.org/docs/output-formats/html-lightbox-figures.html"
+  },
+  {
+    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html#appendix-a---related-tidbits-to-follow-up-on",
+    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html#appendix-a---related-tidbits-to-follow-up-on",
+    "title": "Quarto lightbox figures for HTML and Revealjs",
+    "section": "Appendix A - Related tidbits to follow up on",
+    "text": "Appendix A - Related tidbits to follow up on"
+  },
+  {
+    "objectID": "tidbits/2026-11-02-rust-build-vs-compile-worktrees-sccache.html",
+    "href": "tidbits/2026-11-02-rust-build-vs-compile-worktrees-sccache.html",
     "title": "Rust build vs compilation, and working in worktrees with sccache",
     "section": "",
     "text": "1. Ramblings\n\nrust has compilation then build\niw ant t konw the idferinces\nthe efect of tec sucha s sccache on rust wokr in worktrees\ni want atbles of conidioatn and worktres and scenairoes to fully udnrestand\n\n\n\n2. Understanding\n\nTriage\n\nSo I think i asked great questions above\nThey are very ‘fundamental’ questions - the answers to which require a fundamental working baseline vocabulary of Rust workflows to even begin to answer\nI first initialized a basic super simple rust glossary in this site\nFrom there we will triage and answer the rambling questions from above\n\nBreakdown/rephrase: first lets isolate the specific questions or points of confusion\n\nCore question 1: Compilation vs Build\nCore question 2: Worktrees and Sccache\n\n\n\n2.1 Core Question 1: Compilation vs Build\n\nCompilation or compiling within the Rust/Cargo workflows is a step.\n\nThis takes rust code and builds an output artifact (which could be a exe or rlib or wasm or other artifacts); These are artifacts can be consumed/used by users\n\nBuild is a specific Cargo command cargo build which does a few steps for a speicifed scope of work\n\nBuild can be specified to work at various levels (\n\nworspace level  -&gt; all packages/crates within  a repo\npackage -&gt; specific packgaes and all its crates\ncrate -&gt; specific crates\n\nit then within the scope sepcific does a two main steps\n\nFirstly it compiles all the crates that is within the scope (plus dpednenceis)\nThen it Links the individual crate output artifacts into a single develoerable artifact per target as specificed\n\n\nSo in summary\n\nCompilation is a step\nBuild is a process/command that calls compilation\n\n\n\n\n\n\nFollow-up\n\nThe rambling asked two big queistons\nWe answer hte first one as its a good scope for a tidibit\nwe filled follow two tibbits \n\none to asnwer hte core quesiton 2\nanother to reoslve a new confusiong point hta came up which is the diffeirentiation of crate vs package (and their file tree implemtations)"
-  },
-  {
-    "objectID": "glossary/git.html",
-    "href": "glossary/git.html",
-    "title": "Git and GitHub",
-    "section": "",
-    "text": "Terms follow the Git documentation and GitHub Docs. Terms that are not official are marked informal."
-  },
-  {
-    "objectID": "glossary/git.html#config-files",
-    "href": "glossary/git.html#config-files",
-    "title": "Git and GitHub",
-    "section": "Config files",
-    "text": "Config files\n\n\n\n\n\n\n\nTerm\nMeaning\n\n\n\n\n.gitattributes\nA committed file that sets per-path rules for Git, such as which line ending (eol) files get when Git writes them. It travels with the repo, so it applies on every clone"
-  },
-  {
-    "objectID": "portfolio.html",
-    "href": "portfolio.html",
-    "title": "Portfolio",
-    "section": "",
-    "text": "Philadelphia City Council Health Dashboard: From Shiny Prototype to Serverless Production App\n\n\n\nDashboard\n\nR Shiny\n\nNext.js\n\nReact.js\n\nHighcharts.js\n\n\n\n\n\n\n\nRan Li\n\n\nSep 1, 2025\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "blog/2025-09-09-duckdb-wasm-proof-of-concept/index.html",
-    "href": "blog/2025-09-09-duckdb-wasm-proof-of-concept/index.html",
-    "title": "Proof of Concept: Client-side Serverless DuckDB query of cloud bucket storages",
-    "section": "",
-    "text": "Intro\nThis demonstrates a serverless analytics stack combining Static Site Generation (SSG) with cloud-hosted Parquet datasets via DuckDB WASM. This architecture enables lightweight, cost-effective deployment of static site front ends with integration to cloud data stroage (S3 or other databases) using client-side SQL processing via DuckDB WASM.\nUse Cases:\n\nInteractive dashboards deployed to CDNs\nReal-time analytics on static hosting (Netlify, Vercel, GitHub Pages)\nClient-side data processing without API costs\nScalable data visualization with minimal infrastructure\n\nArchitecture Benefits:\n\nZero server costs (static hosting only)\nAutomatic global CDN distribution\nDirect cloud dataset access\nClient-side SQL processing\n\n\n\nData Source (Hugging Faces Parquet)\nWe access Parquet files from Hugging Face, an open-science repository with ML-optimized APIs and CORS-enabled endpoints suitable for browser-based applications. However this workflow works with any storage provider (Azure, AWS, GCP, Hugging Face, etc.). We use Hugging Face because it’s a gold standard open-science data repository that is performant and free.\n\n\nTraditional Server-side Pattern (R/Python/Node.js running on server)\nWe can query as we do normally working on a local or cloud comptuer that is running some server; in this case its R code but it could be any language the query syntax is native SQL.\n\nlibrary(duckdb); library(tidyverse)\ncon &lt;- dbConnect(duckdb())\n\nresult &lt;- dbGetQuery(con, \"\n  SELECT * \n  FROM 'https://huggingface.co/datasets/ran-codes/mtcars/resolve/refs%2Fconvert%2Fparquet/default/train/0000.parquet' \n\") |&gt; as_tibble()\n\nresult |&gt; glimpse()\n\nRows: 32\nColumns: 12\n$ model &lt;chr&gt; \"Mazda RX4\", \"Mazda RX4 Wag\", \"Datsun 710\", \"Hornet 4 Drive\", \"H…\n$ mpg   &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8…\n$ cyl   &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8…\n$ disp  &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 1…\n$ hp    &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 18…\n$ drat  &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92…\n$ wt    &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3…\n$ qsec  &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 1…\n$ vs    &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0…\n$ am    &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0…\n$ gear  &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3…\n$ carb  &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2…\n\ndbDisconnect(con)\n\n\n\nServerless/Client-side Pattern (WASM running in browser)\nDuckDB WASM enables SQL processing directly in browsers, eliminating server dependencies. Below is the serverless equivalent of the query from above.\nLet’s first import DuckDB WASM from npm (Javascript package manager).\n\n// Import DuckDB WASM\nduckdb = import(\"https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.28.0/+esm\")\n\n\n\n\n\n\nNow we can set up our in browser DuckDB instance/connection. This is a bit more involved than the server-side version because we have to set up a web worker to run the database in a separate thread from the main browser UI thread.\n\n// Initialize with jsDelivr bundles (recommended approach)\ndb = {\n  const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();\n  const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);\n\n  const worker_url = URL.createObjectURL(\n    new Blob([`importScripts(\"${bundle.mainWorker}\");`], {type: 'text/javascript'})\n  );\n\n  const worker = new Worker(worker_url);\n  const logger = new duckdb.ConsoleLogger();\n  const db = new duckdb.AsyncDuckDB(logger, worker);\n  \n  await db.instantiate(bundle.mainModule, bundle.pthreadWorker);\n  URL.revokeObjectURL(worker_url);\n  \n  return db;\n}\n\n\n\n\n\n\nLooks good. Now we can connect to the cloud data storage and run our query.\n\n// Query S3 Parquet using HTTPS URL\nwasmResult = {\n  const conn = await db.connect();\n  \n  try {\n    const result = await conn.query(`\n      SELECT * \n     FROM 'https://huggingface.co/datasets/ran-codes/mtcars/resolve/refs%2Fconvert%2Fparquet/default/train/0000.parquet'  \n      LIMIT 5\n    `);\n    \n    return result.toArray().map(row =&gt; row.toJSON());\n    \n  } finally {\n    await conn.close();\n  }\n}\n\n\n\n\n\n\nLooks like it worked. Lets print results\n\nwasmResult\n\n\n\n\n\n\n\nInputs.table(wasmResult)\n\n\n\n\n\n\n\n\n\n\nArchitecture Implications\nDeployment Simplicity:\n\nBuild once, deploy to any static host\nNo server provisioning or maintenance\nAutomatic scaling via CDN\n\nCost Efficiency:\n\nNo compute costs (client-side processing)\nNo database hosting fees\nPay only for static hosting and data egress\n\nPerformance Characteristics:\n\nInitial WASM load overhead (~2-3MB)\nSubsequent queries run locally\nOptimal for &lt;100MB datasets per query\n\n\n\n\nAppendix: CORS and Cloud Storage\nCORS (Cross-Origin Resource Sharing) controls browser access to cross-domain resources.\nWhy Hugging Face works:\n\nCORS headers allow browser access (Access-Control-Allow-Origin: *)\nOptimized for ML/data science integration\n\nFor custom deployments:\nS3:\n[{\n  \"AllowedOrigins\": [\"https://yourapp.com\"],\n  \"AllowedMethods\": [\"GET\", \"HEAD\"], \n  \"AllowedHeaders\": [\"*\"],\n  \"MaxAgeSeconds\": 3000\n}]\nAzure Blob:\n{\n  \"allowedOrigins\": [\"https://yourapp.com\"],\n  \"allowedMethods\": [\"GET\"],\n  \"maxAgeInSeconds\": 3600\n}\nSecurity note: CORS controls browser access, not authentication. Use signed URLs or IAM policies for data security."
-  },
-  {
-    "objectID": "tidbits.html",
-    "href": "tidbits.html",
-    "title": "Tidbits",
-    "section": "",
-    "text": "Date\n\n\n\nTitle\n\n\n\nCategories\n\n\n\n\n\n\n\n\n2026-11-06\n\n\nRust build vs compilation, and working in worktrees with sccache\n\n\nrust, cargo, sccache, git-worktrees\n\n\n\n\n\n\n2026-11-02\n\n\nAzure compute options: Container Apps vs Web App, and their AWS equivalents\n\n\nazure, aws, container-apps, app-service\n\n\n\n\n\n\n2026-11-02\n\n\nLine endings on four axes: LF vs CRLF, repo vs local, .gitattributes, and the refresh\n\n\ngit, line-endings, gitattributes, windows\n\n\n\n\n\n\n2026-10-30\n\n\nGitHub Actions triggers, filters and ifs\n\n\ngithub-actions, ci, git\n\n\n\n\n\n\n2026-10-30\n\n\nRust code organizaiton 101 - breaking down dbt-oss repo\n\n\nrust, cargo, tooling\n\n\n\n\n\n\n2026-10-21\n\n\nTest driving uvr: a uv-style manager for R\n\n\nr, uvr, tooling\n\n\n\n\n\n\n2026-10-21\n\n\nNotion as a backend for a static site\n\n\nnotion, cloudflare, architecture\n\n\n\n\n\n\n2026-10-13\n\n\nQuarto lightbox figures for HTML and Revealjs\n\n\nquarto, html, revealjs\n\n\n\n\n\n\n2026-10-12\n\n\nR package and environment management: renv, pak, and friends\n\n\nr, renv, pak, tooling\n\n\n\n\n\n\n2026-10-08\n\n\nJS script runners and package managers: npm, pnpm, and vite test\n\n\njavascript, pnpm, npm, vite, tooling\n\n\n\n\n\n\n2026-10-05\n\n\nNext.js server vs. client components in static exports\n\n\nnextjs, react, static-site\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "glossary.html",
-    "href": "glossary.html",
-    "title": "Glossary",
-    "section": "",
-    "text": "Title\n\n\n\nDescription\n\n\n\nModified\n\n\n\n\n\n\n\n\nGit and GitHub\n\n\nRepos, clones, config files and line endings.\n\n\n \n\n\n\n\n\n\nRust\n\n\nCargo, crates, compiling, building and caching.\n\n\n \n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "glossary/rust.html",
@@ -221,7 +207,7 @@
     "href": "glossary/rust.html#code-units",
     "title": "Rust",
     "section": "Code units",
-    "text": "Code units\nSmallest first.\n\n\n\n\n\n\n\nTerm\nMeaning\n\n\n\n\nFunction\nAn item with a name, parameters, a return type and a body (fn)\n\n\nItem\nA component of a crate, such as a function, struct or module\n\n\nModule\nA container for zero or more items\n\n\nCrate\nThe smallest amount of code the compiler considers at a time. Cargo calls the same thing a target; they are one and the same\n\n\nBinary crate\nA crate with a main function that compiles to an executable\n\n\nLibrary crate\nA crate with no main that defines code for other crates to use\n\n\nPackage\nA bundle of one or more crates, described by a Cargo.toml; at most one library crate\n\n\nWorkspace\nA set of packages that share one Cargo.lock and one output directory"
+    "text": "Code units\nSmallest first.\n\n\n\n\n\n\n\nTerm\nMeaning\n\n\n\n\nFunction\nAn item with a name, parameters, a return type and a body (fn)\n\n\nItem\nA component of a crate, such as a function, struct or module\n\n\nModule\nA container for zero or more items\n\n\nCrate\nThe smallest amount of code the compiler considers at a time. Cargo calls the same thing a target; they are one and the same\n\n\nCrate root\nThe source file the compiler starts from, which makes up the crate’s root module, such as src/lib.rs or src/main.rs\n\n\nBinary crate\nA crate with a main function that compiles to an executable\n\n\nLibrary crate\nA crate with no main that defines code for other crates to use\n\n\nPackage\nA bundle of one or more crates, described by a Cargo.toml; at most one library crate\n\n\nWorkspace\nA set of packages that share one Cargo.lock and one output directory"
   },
   {
     "objectID": "glossary/rust.html#steps",
@@ -252,32 +238,60 @@
     "text": "Caching\n\n\n\n\n\n\n\nTerm\nMeaning\n\n\n\n\nTarget directory\nWhere Cargo stores build output (target/ by default); also called the build cache\n\n\nFresh\nA unit whose cached output is up to date, so Cargo skips it\n\n\nDirty\nA unit that changed, so Cargo rebuilds it\n\n\nIncremental compilation\nrustc reuses work from the last compile of the same crate\n\n\nCold / warm build\nInformal. A build with an empty vs. populated target directory\n\n\nrustc wrapper\nA program Cargo runs in place of rustc (build.rustc-wrapper)\n\n\nsccache\nThird-party. A rustc wrapper that caches compile output across directories"
   },
   {
-    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html",
-    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html",
-    "title": "Quarto lightbox figures for HTML and Revealjs",
+    "objectID": "glossary.html",
+    "href": "glossary.html",
+    "title": "Glossary",
     "section": "",
-    "text": "Just learned Quarto can turn images into lightbox figures (click to enlarge) in HTML outputs like HTML documents and Revealjs slides. Docs: https://quarto.org/docs/output-formats/html-lightbox-figures.html"
+    "text": "Title\n\n\n\nDescription\n\n\n\nModified\n\n\n\n\n\n\n\n\nGit and GitHub\n\n\nRepos, clones, config files and line endings.\n\n\n \n\n\n\n\n\n\nRust\n\n\nCargo, crates, compiling, building and caching.\n\n\n \n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html#ramblings",
-    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html#ramblings",
-    "title": "Quarto lightbox figures for HTML and Revealjs",
+    "objectID": "tidbits.html",
+    "href": "tidbits.html",
+    "title": "Tidbits",
     "section": "",
-    "text": "Just learned Quarto can turn images into lightbox figures (click to enlarge) in HTML outputs like HTML documents and Revealjs slides. Docs: https://quarto.org/docs/output-formats/html-lightbox-figures.html"
+    "text": "Date\n\n\n\nTitle\n\n\n\nCategories\n\n\n\n\n\n\n\n\n2026-11-03\n\n\nRust package vs crate vs modules\n\n\nrust, cargo\n\n\n\n\n\n\n2026-11-02\n\n\nRust build vs compilation, and working in worktrees with sccache\n\n\nrust, cargo, sccache, git-worktrees\n\n\n\n\n\n\n2026-11-02\n\n\nAzure compute options: Container Apps vs Web App, and their AWS equivalents\n\n\nazure, aws, container-apps, app-service\n\n\n\n\n\n\n2026-11-02\n\n\nLine endings on four axes: LF vs CRLF, repo vs local, .gitattributes, and the refresh\n\n\ngit, line-endings, gitattributes, windows\n\n\n\n\n\n\n2026-10-30\n\n\nGitHub Actions triggers, filters and ifs\n\n\ngithub-actions, ci, git\n\n\n\n\n\n\n2026-10-30\n\n\nRust code organizaiton 101 - breaking down dbt-oss repo\n\n\nrust, cargo, tooling\n\n\n\n\n\n\n2026-10-21\n\n\nTest driving uvr: a uv-style manager for R\n\n\nr, uvr, tooling\n\n\n\n\n\n\n2026-10-21\n\n\nNotion as a backend for a static site\n\n\nnotion, cloudflare, architecture\n\n\n\n\n\n\n2026-10-13\n\n\nQuarto lightbox figures for HTML and Revealjs\n\n\nquarto, html, revealjs\n\n\n\n\n\n\n2026-10-12\n\n\nR package and environment management: renv, pak, and friends\n\n\nr, renv, pak, tooling\n\n\n\n\n\n\n2026-10-08\n\n\nJS script runners and package managers: npm, pnpm, and vite test\n\n\njavascript, pnpm, npm, vite, tooling\n\n\n\n\n\n\n2026-10-05\n\n\nNext.js server vs. client components in static exports\n\n\nnextjs, react, static-site\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html#understanding",
-    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html#understanding",
-    "title": "Quarto lightbox figures for HTML and Revealjs",
-    "section": "Understanding",
-    "text": "Understanding\n\nA UI element that is an image which when cliked pops out hte image zoomed in in a nmodal is called a Lightbox \nRef and example:  https://en.wikipedia.org/wiki/Lightbox_(JavaScript)\nThis feature has two parts\n\n\nthe thumbnail image shown on your page (trigger)\n\n\nthe modal that pops up (inlcude the dim abckground) with closable button\n\n\nQuarto makes this available for HTML outputs?\n\nhttps://quarto.org/docs/output-formats/html-lightbox-figures.html"
+    "objectID": "blog/2025-09-09-duckdb-wasm-proof-of-concept/index.html",
+    "href": "blog/2025-09-09-duckdb-wasm-proof-of-concept/index.html",
+    "title": "Proof of Concept: Client-side Serverless DuckDB query of cloud bucket storages",
+    "section": "",
+    "text": "Intro\nThis demonstrates a serverless analytics stack combining Static Site Generation (SSG) with cloud-hosted Parquet datasets via DuckDB WASM. This architecture enables lightweight, cost-effective deployment of static site front ends with integration to cloud data stroage (S3 or other databases) using client-side SQL processing via DuckDB WASM.\nUse Cases:\n\nInteractive dashboards deployed to CDNs\nReal-time analytics on static hosting (Netlify, Vercel, GitHub Pages)\nClient-side data processing without API costs\nScalable data visualization with minimal infrastructure\n\nArchitecture Benefits:\n\nZero server costs (static hosting only)\nAutomatic global CDN distribution\nDirect cloud dataset access\nClient-side SQL processing\n\n\n\nData Source (Hugging Faces Parquet)\nWe access Parquet files from Hugging Face, an open-science repository with ML-optimized APIs and CORS-enabled endpoints suitable for browser-based applications. However this workflow works with any storage provider (Azure, AWS, GCP, Hugging Face, etc.). We use Hugging Face because it’s a gold standard open-science data repository that is performant and free.\n\n\nTraditional Server-side Pattern (R/Python/Node.js running on server)\nWe can query as we do normally working on a local or cloud comptuer that is running some server; in this case its R code but it could be any language the query syntax is native SQL.\n\nlibrary(duckdb); library(tidyverse)\ncon &lt;- dbConnect(duckdb())\n\nresult &lt;- dbGetQuery(con, \"\n  SELECT * \n  FROM 'https://huggingface.co/datasets/ran-codes/mtcars/resolve/refs%2Fconvert%2Fparquet/default/train/0000.parquet' \n\") |&gt; as_tibble()\n\nresult |&gt; glimpse()\n\nRows: 32\nColumns: 12\n$ model &lt;chr&gt; \"Mazda RX4\", \"Mazda RX4 Wag\", \"Datsun 710\", \"Hornet 4 Drive\", \"H…\n$ mpg   &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8…\n$ cyl   &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8…\n$ disp  &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 1…\n$ hp    &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 18…\n$ drat  &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92…\n$ wt    &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3…\n$ qsec  &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 1…\n$ vs    &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0…\n$ am    &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0…\n$ gear  &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3…\n$ carb  &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2…\n\ndbDisconnect(con)\n\n\n\nServerless/Client-side Pattern (WASM running in browser)\nDuckDB WASM enables SQL processing directly in browsers, eliminating server dependencies. Below is the serverless equivalent of the query from above.\nLet’s first import DuckDB WASM from npm (Javascript package manager).\n\n// Import DuckDB WASM\nduckdb = import(\"https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.28.0/+esm\")\n\n\n\n\n\n\nNow we can set up our in browser DuckDB instance/connection. This is a bit more involved than the server-side version because we have to set up a web worker to run the database in a separate thread from the main browser UI thread.\n\n// Initialize with jsDelivr bundles (recommended approach)\ndb = {\n  const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();\n  const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);\n\n  const worker_url = URL.createObjectURL(\n    new Blob([`importScripts(\"${bundle.mainWorker}\");`], {type: 'text/javascript'})\n  );\n\n  const worker = new Worker(worker_url);\n  const logger = new duckdb.ConsoleLogger();\n  const db = new duckdb.AsyncDuckDB(logger, worker);\n  \n  await db.instantiate(bundle.mainModule, bundle.pthreadWorker);\n  URL.revokeObjectURL(worker_url);\n  \n  return db;\n}\n\n\n\n\n\n\nLooks good. Now we can connect to the cloud data storage and run our query.\n\n// Query S3 Parquet using HTTPS URL\nwasmResult = {\n  const conn = await db.connect();\n  \n  try {\n    const result = await conn.query(`\n      SELECT * \n     FROM 'https://huggingface.co/datasets/ran-codes/mtcars/resolve/refs%2Fconvert%2Fparquet/default/train/0000.parquet'  \n      LIMIT 5\n    `);\n    \n    return result.toArray().map(row =&gt; row.toJSON());\n    \n  } finally {\n    await conn.close();\n  }\n}\n\n\n\n\n\n\nLooks like it worked. Lets print results\n\nwasmResult\n\n\n\n\n\n\n\nInputs.table(wasmResult)\n\n\n\n\n\n\n\n\n\n\nArchitecture Implications\nDeployment Simplicity:\n\nBuild once, deploy to any static host\nNo server provisioning or maintenance\nAutomatic scaling via CDN\n\nCost Efficiency:\n\nNo compute costs (client-side processing)\nNo database hosting fees\nPay only for static hosting and data egress\n\nPerformance Characteristics:\n\nInitial WASM load overhead (~2-3MB)\nSubsequent queries run locally\nOptimal for &lt;100MB datasets per query\n\n\n\n\nAppendix: CORS and Cloud Storage\nCORS (Cross-Origin Resource Sharing) controls browser access to cross-domain resources.\nWhy Hugging Face works:\n\nCORS headers allow browser access (Access-Control-Allow-Origin: *)\nOptimized for ML/data science integration\n\nFor custom deployments:\nS3:\n[{\n  \"AllowedOrigins\": [\"https://yourapp.com\"],\n  \"AllowedMethods\": [\"GET\", \"HEAD\"], \n  \"AllowedHeaders\": [\"*\"],\n  \"MaxAgeSeconds\": 3000\n}]\nAzure Blob:\n{\n  \"allowedOrigins\": [\"https://yourapp.com\"],\n  \"allowedMethods\": [\"GET\"],\n  \"maxAgeInSeconds\": 3600\n}\nSecurity note: CORS controls browser access, not authentication. Use signed URLs or IAM policies for data security."
   },
   {
-    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html#appendix-a---related-tidbits-to-follow-up-on",
-    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html#appendix-a---related-tidbits-to-follow-up-on",
-    "title": "Quarto lightbox figures for HTML and Revealjs",
-    "section": "Appendix A - Related tidbits to follow up on",
-    "text": "Appendix A - Related tidbits to follow up on"
+    "objectID": "portfolio.html",
+    "href": "portfolio.html",
+    "title": "Portfolio",
+    "section": "",
+    "text": "Philadelphia City Council Health Dashboard: From Shiny Prototype to Serverless Production App\n\n\n\nDashboard\n\nR Shiny\n\nNext.js\n\nReact.js\n\nHighcharts.js\n\n\n\n\n\n\n\nRan Li\n\n\nSep 1, 2025\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "glossary/git.html",
+    "href": "glossary/git.html",
+    "title": "Git and GitHub",
+    "section": "",
+    "text": "Terms follow the Git documentation and GitHub Docs. Terms that are not official are marked informal."
+  },
+  {
+    "objectID": "glossary/git.html#config-files",
+    "href": "glossary/git.html#config-files",
+    "title": "Git and GitHub",
+    "section": "Config files",
+    "text": "Config files\n\n\n\n\n\n\n\nTerm\nMeaning\n\n\n\n\n.gitattributes\nA committed file that sets per-path rules for Git, such as which line ending (eol) files get when Git writes them. It travels with the repo, so it applies on every clone"
+  },
+  {
+    "objectID": "tidbits/2026-11-03-rust-crate-vs-package.html",
+    "href": "tidbits/2026-11-03-rust-crate-vs-package.html",
+    "title": "Rust package vs crate vs modules",
+    "section": "",
+    "text": "conceptutal crate vs package and then the epxressino of it in filestrees and organizaotn ruesl are not clear to me\nneed to clearly undrestnad thsi arhcetrue to start being able to sniff test rust codebases"
+  },
+  {
+    "objectID": "tidbits/2026-11-03-rust-crate-vs-package.html#reference-a---crate-types",
+    "href": "tidbits/2026-11-03-rust-crate-vs-package.html#reference-a---crate-types",
+    "title": "Rust package vs crate vs modules",
+    "section": "Reference A - Crate types",
+    "text": "Reference A - Crate types\n\n\n\n\n\n\n\n\nKind\nCrate Root\nBuilds\n\n\n\n\nLibrary\nsrc/lib.rs (max one)\n.rlib for other crates\n\n\nBinary\nsrc/main.rs, src/bin/*.rs\nan .exe\n\n\nTest, example, bench\ntests/, examples/, benches/ *.rs\nan .exe, run by its own cargo command\n\n\nBuild script\nbuild.rs\nruns before the package compiles"
   },
   {
     "objectID": "tidbits/2026-10-21-uvr-test-drive/index.html",
