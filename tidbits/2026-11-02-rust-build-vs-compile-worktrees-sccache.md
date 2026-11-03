@@ -1,6 +1,6 @@
 ---
 title: "Rust build vs compilation, and working in worktrees with sccache"
-date: "2026-11-06"
+date: "2026-11-02"
 categories: [rust, cargo, sccache, git-worktrees]
 ---
 # 1. Ramblings
