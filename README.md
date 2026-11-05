@@ -9,12 +9,12 @@
 - Usually during development, we can use `quarto preview` to see changes live and iterate
 - works on `_development` branch to reduce number of GitHub Actions builds (default branch is `main`)
 
-### Production `./deploy.bat`
+### Production `./scripts/deploy.bat`
 
 - Context
     - The end product is a GitHub pages site
     - The page is deployed by GitHub Actions using contents in the `docs/` folder
-- Deployment logic is bundled in shell script `deploy.bat` for convenience
+- Deployment logic is bundled in shell script `scripts/deploy.bat` for convenience
     - It builds the site into `_site/` folder with quarto render
     - Deletes existing `docs/` folder or creates if not exists
     - Copies `_site/` folder to `docs/` folder
