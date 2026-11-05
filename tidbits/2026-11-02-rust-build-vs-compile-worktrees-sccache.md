@@ -1,5 +1,5 @@
 ---
-title: "Rust build vs compilation, and working in worktrees with sccache"
+title: "Rust build vs compilation"
 date: "2026-11-02"
 categories: [rust, cargo, sccache, git-worktrees]
 ---
