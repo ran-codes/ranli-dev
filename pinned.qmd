@@ -1,0 +1,10 @@
+---
+title: "Pinned"
+subtitle: "Resources I keep coming back to."
+page-layout: full
+title-block-banner: true
+---
+
+| Resource | Why it's pinned |
+|---|---|
+| [Quack to the Future: the lakehouse in one slide](https://tgerke.github.io/quack-to-the-future/#/the-lakehouse-in-one-slide) | Travis Gerke, posit::conf 2026: {ducklake} versioned tables and {dplyneage} column lineage |

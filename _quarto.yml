@@ -31,6 +31,8 @@ website:
         href: tidbits.qmd
       - text: "Glossary"
         href: glossary.qmd
+      - text: "Pinned"
+        href: pinned.qmd
   page-footer:
     center:
       - icon: linkedin
