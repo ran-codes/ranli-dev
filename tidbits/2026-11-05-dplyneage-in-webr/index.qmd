@@ -2,6 +2,7 @@
 title: "Column lineage in the browser: dplyneage on webR"
 date: "2026-11-05"
 categories: [r, webr, wasm, lineage, dplyr]
+page-layout: full
 format:
   live-html:
     theme: cosmo
@@ -19,12 +20,33 @@ webr:
 
 # Rambling
 
-- saw Travis Gerke's [Quack to the Future](https://tgerke.github.io/quack-to-the-future/) talk at posit::conf 2026 — {ducklake} + {dplyneage}
-- [dplyneage](https://tgerke.github.io/dplyneage/) draws column-level lineage for dplyr pipelines as a React Flow diagram
-- question: can this run fully in the browser via webR? no install, editable demo
-- open questions
-    -  does dplynesage wokr on duckdplyr/dcklack wiht any database not jsut ducdkdb?
-    - what is simulati_posgres(); why not sim_duckdb or soemthing?
+- isnpired by Travis Gerke's [Quack to the Future](https://tgerke.github.io/quack-to-the-future/) talk at posit::conf 2026 — {ducklake} +   [dplyneage](https://tgerke.github.io/dplyneage/) 
+- lienage and preovnance work is suepr valuable for scalbility
+- its well deveoep din data engienenir and analytics enignerering
+- but not so uhc in the tidyvese world
+- so i ahve some quesitons for this tidbit 
+    - can this run fully in the browser via webR? no install, editable demo
+    - what syntax does dplyneages support (dplyr? duckplyr? dbplyr?)
+    - if dbplyr, does it wokr on any data base or does it require a opent able format like ducklake?
+
+
+
+
+# Understanding
+ 
+ - COre questions
+  - WebR - fully supported see Reprex below
+  - Dplyenages current supprots for syntax APIs (some are in preview and not GA)
+      - dbplyr
+      - dtplyr
+      - arrow
+      - duckplyr
+  - Super excitin that arrow is supported! (+1 for modualrity and iteropertablity!)
+  - So dplyeages works on any database dbplyr supports (postgers, duckdb, snowflake ... etc) - IT DOES NOT REQUQIRE OPEN TABLE FORMAT (like duckake)
+- How it works
+   - each query API produces  a plan (to be evlauted on a lazy object)
+   - this pacakge (dplyneage) turns it into a in memory lineage object that is convertable intothe gold-stadnrd lineage JSON shceam (OpenLineage)
+   - this lineage object is then visabilze via react flow
 
 # Simple Reprex
 
@@ -33,14 +55,33 @@ Runs in your browser with webR — no R install. Edit the pipeline and hit **Run
 ```{webr}
 library(dplyr); library(dbplyr); library(dplyneage)
 
-lin <- lazy_frame(id = 1, amt = 2, con = simulate_postgres()) |>
-  group_by(id) |>
-  summarise(total = sum(amt, na.rm = TRUE)) |>
-  extract_lineage()
+con <- simulate_postgres()
+
+# layer 1 (silver): clean + derive from raw mtcars
+silver <- tbl_lazy(mtcars, con = con, name = "mtcars") |>
+  mutate(
+    cyl   = as.integer(cyl),
+    kpl   = mpg * 0.425,
+    heavy = wt > 3.5
+  ) |>
+  select(cyl, kpl, heavy, hp)
+
+# layer 2 (gold): aggregate, reading from a table named "silver"
+silver_cols <- mtcars |>
+  mutate(cyl = as.integer(cyl), kpl = mpg * 0.425, heavy = wt > 3.5) |>
+  select(cyl, kpl, heavy, hp)
+
+gold <- tbl_lazy(silver_cols, con = con, name = "silver") |>
+  summarise(
+    avg_kpl  = mean(kpl, na.rm = TRUE),
+    avg_hp   = mean(hp, na.rm = TRUE),
+    n_models = n(),
+    .by = c(cyl, heavy)
+  )
+
+# names must match: gold's source "silver" stitches to the silver model
+lin <- extract_lineage(list(silver = silver, gold = gold))
 
 lin
 lineage_flow(lin)
 ```
-
-# Understanding
- 
