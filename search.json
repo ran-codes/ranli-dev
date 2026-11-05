@@ -7,207 +7,235 @@
     "text": "I am a software engineer with 5+ years of experience spanning data architecture, data engineering, analytics engineering, cross-domain data integration, BI/dashboard development, front-end development, and serverless backend architecture.\nI believe in agile, integrated solutions tailored to stakeholders’ specific problems and implementing software-first approaches that are lightweight, scalable, and AI-compatible."
   },
   {
-    "objectID": "portfolio/2025-09-01-phl-city-health-dashboard/index.html",
-    "href": "portfolio/2025-09-01-phl-city-health-dashboard/index.html",
-    "title": "Philadelphia City Council Health Dashboard: From Shiny Prototype to Serverless Production App",
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
     "section": "",
-    "text": "Click the Image to get to the dashboard at https://drexel-uhc.github.io/philadelphia-council-districts-and-health"
+    "text": "Proof of Concept: Client-side Serverless DuckDB query of cloud bucket storages\n\n\n\nserverless\n\ndata-engineering\n\nwasm\n\nduckdb\n\nanalytics\n\nsql\n\nparquet\n\n\n\n\n\n\n\n\n\nSep 9, 2025\n\n\nRan Li\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#context",
-    "href": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#context",
-    "title": "Philadelphia City Council Health Dashboard: From Shiny Prototype to Serverless Production App",
-    "section": "Context",
-    "text": "Context\n\nProject\nPhiladelphia health disparities aren’t connected to political geography, leaving council members without district-level insights for policy decisions.\nThis deliverable is an interactive dashboard visualizing health determinants across 10 council districts, making public health data actionable for policy makers and citizens.\n\n\nTeam Structure\n\n\n\n\nData Engineer (Others)\n\n\n\nDeveloped Data Bundle\nCreated static visualizations\nProvided text and mockup\n\n\n\n\n\n\n\n\n\n\n\nNoteData Architect (Ran Li)\n\n\n\n\nTech stack design for operational limits:\n\n3-month timeline\n5 hours/week capacity\nzero infrastructure costs\n\n\n\n\n\n\n\n\n\n\n\n\nNoteData Scientist (Ran Li)\n\n\n\n\nDeveloped prototype (R Shiny)\nDeveloped production application (Next.js)\nDeployed production application (GitHub Pages)\nDeployed data preservation (Zenodo)"
-  },
-  {
-    "objectID": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#phases",
-    "href": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#phases",
-    "title": "Philadelphia City Council Health Dashboard: From Shiny Prototype to Serverless Production App",
-    "section": "Phases",
-    "text": "Phases\n\nPhase 1: Tech Stack Design (March 2025)\nOperational Constraints:\n\nZero budget for infrastructure costs\n3-month delivery timeline\n5 hours/week development capacity\nNo ongoing maintenance resources\n\nArchitecture Decisions:\n\nData Preservation: Zenodo integration for DOI/citation (free, permanent hosting)\nPrototyping: R Shiny to reuse Data Engineers’ code but make it dynamic\nProduction Requirements: No cold starts needed → serverless SSG with modern UI\nFrontend: Next.js SSG for zero-cost hosting and instant loading\nDeployment: GitHub Pages static site (free, reliable)\nAnalytics: Google Analytics for usage tracking (free)\nPerformance: Client-side rendering for serverless architecture\nData Pipeline: Custom R-to-web transformation (leverages existing analysis)\nSEO: Search optimization for discoverability\n\n\n\nPhase 2: R Shiny Prototype (March-April 2025)\nRapid prototype for concept validation:\n\nCore interactions: dropdown selection, synchronized visualizations\nDistrict highlighting and hover effects\nStakeholder feedback integration\n\n\n\nPhase 3: Next.js Production (May-June 2025)\nProduction rebuild optimized for budget and operational constraints:\nFrontend Architecture:\n\nNext.js/React.js with Highcharts.js\nStatic site generation for cost-effective hosting\n\nKey Features:\n\nSynchronized bar charts and choropleth maps\nCustom Heat Vulnerability Index visualization\nInteractive district selection with highlighting\nEmbedded documentation and metadata\n\nProduction Infrastructure:\n\nEmbedded documentation and metadata\n\n\n\nTechnical Highlights\n\nSynchronized bar charts and choropleth maps\nCustom Heat Vulnerability Index visualization\nInteractive district selection with highlighting"
-  },
-  {
-    "objectID": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#reflections",
-    "href": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#reflections",
-    "title": "Philadelphia City Council Health Dashboard: From Shiny Prototype to Serverless Production App",
-    "section": "Reflections",
-    "text": "Reflections\n\nThings I really enjoyed\nLightweight tech stacks like these bring me great joy. You can leverage mature and developer-friendly open-science/open-source infrastructure such as GitHub Pages, Zenodo, and fully serverless application frameworks like SSG Next.js. This removes so much maintenance and operational work you have to do to maintain a deliverable and allows you to free up the time to focus on what is important: the UI of the final product and having a deep understanding of the stakeholders’ true needs.\n\n\nThings to improve next time\n\nA quick turnaround like this meant we did a one-off type of architecture\nIf this project continues, we will add interfaces for stakeholders to update data and modify metadata"
-  },
-  {
-    "objectID": "tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html",
-    "href": "tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html",
-    "title": "Rust workspace primer: target, modules, tests, sccache, worktrees",
+    "objectID": "tidbits/2026-10-21-notion-as-a-backend.html",
+    "href": "tidbits/2026-10-21-notion-as-a-backend.html",
+    "title": "Notion as a backend for a static site",
     "section": "",
-    "text": "I just want a good workflow for wokring iwht large cargo packges on worktrees\nParticualrly conerning about are\n\ncold tests or builds that may take a long time on worktrees when the pre-warm cache exiisnt on the main worktree \nto avoid unnecessary cold builds or tests when working on linked work trees\n\nI heard that sscache is a good too get around this\nso i want to make sure to document a workflow that prevents unnecessary cold tests/builds/compiles… etc"
+    "text": "its finel lfor assuepr siempl do public wihtou auth so anyitng. lets say we have suepr simple database in notion a tabel of baby names two columns Name and another randomi coumn lets say numebr popautliary rating 0-10 that datbase is etup on notion. what hapepsn how i need auth otken specific ot that databaes that is troe din the cloruflar worker and the when a udpat ei mad ein the itnernface here what the psuh is goig to the cloduflalir which then udapte sthe databse? what abotu fetch in real time lets say i have a table viewin tidibits but hte entry is a form this woudl require JS for hte form but the table what ist here sj lgoica there too that is like scan the noitnoatab ever 1 se to se if udpat ehtei f hter is to rererhes the html table? but that seems usper iniefiencet . who si my arhcenture plan? tohguhts?"
   },
   {
-    "objectID": "tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html#target-folder",
-    "href": "tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html#target-folder",
-    "title": "Rust workspace primer: target, modules, tests, sccache, worktrees",
-    "section": "2. target folder",
-    "text": "2. target folder\n\n/target - this is the folder that cargo will output its build and cache artificats too\n\nIts comparable to the DBT /target folder\nIt is comparable Next.js’ /.next fodler (not to be confused with the /out fodler which contians the final static export\nIt has a few subfolders that amtter to use\n\n/target/release - this is final build files so this is comaprable to next.js /out this is gerneated by cargo build --release (compiles slow but runs fast)\n/target/debug - output of a plan cargo build - compiles fast but runs slow\n/target/deps - hold compiled dependencies, which is most a cold build and waht sccache can share\n/target/incremental - caches own crates which incrementally. first build cache initialize cache for each crate"
-  },
-  {
-    "objectID": "tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html#files-and-modules-primer",
-    "href": "tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html#files-and-modules-primer",
-    "title": "Rust workspace primer: target, modules, tests, sccache, worktrees",
-    "section": "2. Files and modules primer",
-    "text": "2. Files and modules primer\n\nWithin a workspace there are two types of files\n\ntoml and lock files whicha re config files\nrs rust code base\n\n.rs code lives in a few packge folders src/, tests/, examples/ or /benches\n\n\nRust code take the form of either\n\ncrate roots \n\nspecial file names - src/lib.rs (one library crate)\nsrc/main.rs and each src/bin/*.rs → binary crates\nsrc/test/*.rs declare integration tests tests\nothers\n\nany other rs file are modules declared wiht the mod sytnax\n\nFiles are any file within the src folder\nmodule is an organizational concept to reference specific chunks of atomic code logic\nEach module has a path  - there are two types of paths relative and abosulte\n\nabsolute path from the crate root\n\ncrate::parser::fast::parse\n\nrelative path - relative to which module you are\n\nfast::parse form inside parser or super:: to go up one level\n\n\n\n● my-workspace/               ← workspace root\n  ├── Cargo.toml              ← [workspace] members = [\"mylib\", \"mycli\"]\n  ├── Cargo.lock              ← shared by all packages\n  ├── target/                 ← shared build output + cache\n  ├── mylib/                  ← package \"mylib\"\n  │   ├── Cargo.toml          ← name = \"mylib\"\n  │   ├── src/\n  │   │   ├── libr.rs          ← library crate root: mod parser;\n  │   │   ├── parser.rs       ← module parser: mod fast;\n  │   │   └── parser/\n  │   │       └── fast.rs     ← module parser::fast → fn parse\n  │   └── tests/\n  │       └── api.rs          ← integration test crate \"api\"\n  └── mycli/                  ← package \"mycli\"\n      ├── Cargo.toml          ← name = \"mycli\", depends on mylib\n      └── src/\n          └── main.rs         ← binary crate root, calls mylib::parser::fast::parse\n\nso analyzing the work tree above for paths\n\nModule mylib/src/parser/fast.rs\n\nAbsolute path (starts at lib.rs)\n\nModule: crate::parser::fast\nFunction: crate::parser::fast::&lt;function-name&gt;\nTest: crate::parser::fast::tests::&lt;test-name&gt;\n\nRelative path (starts at parser.rs - its parent module)\n\nModule: fast\nFunction: fast::&lt;function-name&gt;\nTest: fast::test::&lt;test-name&gt;\n\nCrates mylib/src/libr.rs\n\nAbsolute path crate \nFrom another crate its mylib\n\nthis is for libary crates\npackges can refernece other pacakges library carte (one only iwht the apckag name like mylib)\npackages cannot use other packages binaries (.exe)"
-  },
-  {
-    "objectID": "tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html#test-primer",
-    "href": "tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html#test-primer",
-    "title": "Rust workspace primer: target, modules, tests, sccache, worktrees",
-    "section": "3. Test primer",
-    "text": "3. Test primer\n\nA test name is the test functions full path such as parser::tests::parses_empty\nThere are several types of tests\n\nunit tests sit inline in src/ files inside a  mod tests\nintegration tests  are files in the packages’ test/ folder\n\neach of those files is its own crate, which --test &lt;file selects\n\nBoth kinds are #[test] functions, so both have names\ncargo test parses runs every test whos name contains parses"
-  },
-  {
-    "objectID": "tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html#what-is-sccache",
-    "href": "tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html#what-is-sccache",
-    "title": "Rust workspace primer: target, modules, tests, sccache, worktrees",
-    "section": "4. What is sccache",
-    "text": "4. What is sccache\n\nsccache is a rust tool that keeps one shared dependency compilation across worktrees\nuse it to prevent cold-recompile of dpendneces across worktrees\nIt does not effect the crate compilation for your workspace"
-  },
-  {
-    "objectID": "tidbits/2026-10-30-rust-crate-101.html",
-    "href": "tidbits/2026-10-30-rust-crate-101.html",
-    "title": "Rust code organizaiton 101 - breaking down dbt-oss repo",
+    "objectID": "tidbits/2026-10-21-notion-as-a-backend.html#rambling",
+    "href": "tidbits/2026-10-21-notion-as-a-backend.html#rambling",
+    "title": "Notion as a backend for a static site",
     "section": "",
-    "text": "New to rust and its a little confusing - breaking down the DBT-OSS codebase\nSo cargo is a apckage managemtn and devlopement tool\nWorkspace: A repositoy can be cargo workspacewoud cna containe many crates\n\nthe dbt-oss is a cargo workspace wih ahas 91 crates (we add the python cate) totla binir ghte loom-datwarhesou to 92 crates\ncargo automatically determines the dependencies between crates so it can resolve it when jsut runw ithotus epcificla defualt cargo build; libraries are compiled first. whihc ar ehten packaged into programs.\nthe workspace is specified in the root cargo.toml whcihd efines the workspace\n\nCrate: rust cosde is bundled in to units called crates\n\neach crate has a cargo.toml that incldue pseicicasl for waht the crate produces\nit has several secitons\n\na [[bin]] section indicate sthat it sohuld built into an exe file wiht configaiotns liek name and starting path; this optional jsut emtdata or conifsg about the exe\n[package] metdatat of the crate liek name .. etc\n[dependencies]` crate dpendicneins\n[feuaters] optio extracts\n\na crate either outputs either a program  (.exe) file (as configure by bin) or it by deufalit it outputs via compilation intoa library (.rlib)\nso a crate can ahve two tpyes either a program crate that genreates a exe or lirbary crate that genresates a rlib file\neach crate has its own src folder \nIn general: if a crates src fodler has a special file called src/main.rs then it is a program crate that will generate a exe. if it doenst hav the file then it is a regaulr crate that only genreates a library rlibs.\n\nthe excpeitons ita ht bin config can point the start file sonewehres. but dbt-oss follwos the default file naming and bin configs\n\n\nModule: modules are sectiosn fo code inside one crate (usiually one file each)\n\nthey organize the code\ne.g .dbt_features::cli means the cli module inside the dbt-features\n\nFunctions: are the smaller peices of code. funcitons live isnide modules \n\nfucntions have differen scoeps of sharing or reuse there are three scopes of sharing\nNo marking (dfeault) a funiton can be only use within its own module and the moduels nest within the module it is contained within\npub(crate) any where within the same crate it is deinfeint in \npub can be reussea acorss other crates - e.g.g creating crate level depdnencies..\n\nnote for this tow orkt he path of pub dpendncens but also all be pub for this chaining to work."
+    "text": "its finel lfor assuepr siempl do public wihtou auth so anyitng. lets say we have suepr simple database in notion a tabel of baby names two columns Name and another randomi coumn lets say numebr popautliary rating 0-10 that datbase is etup on notion. what hapepsn how i need auth otken specific ot that databaes that is troe din the cloruflar worker and the when a udpat ei mad ein the itnernface here what the psuh is goig to the cloduflalir which then udapte sthe databse? what abotu fetch in real time lets say i have a table viewin tidibits but hte entry is a form this woudl require JS for hte form but the table what ist here sj lgoica there too that is like scan the noitnoatab ever 1 se to se if udpat ehtei f hter is to rererhes the html table? but that seems usper iniefiencet . who si my arhcenture plan? tohguhts?"
   },
   {
-    "objectID": "tidbits/2026-10-30-rust-crate-101.html#ramblingunderstanding",
-    "href": "tidbits/2026-10-30-rust-crate-101.html#ramblingunderstanding",
-    "title": "Rust code organizaiton 101 - breaking down dbt-oss repo",
-    "section": "",
-    "text": "New to rust and its a little confusing - breaking down the DBT-OSS codebase\nSo cargo is a apckage managemtn and devlopement tool\nWorkspace: A repositoy can be cargo workspacewoud cna containe many crates\n\nthe dbt-oss is a cargo workspace wih ahas 91 crates (we add the python cate) totla binir ghte loom-datwarhesou to 92 crates\ncargo automatically determines the dependencies between crates so it can resolve it when jsut runw ithotus epcificla defualt cargo build; libraries are compiled first. whihc ar ehten packaged into programs.\nthe workspace is specified in the root cargo.toml whcihd efines the workspace\n\nCrate: rust cosde is bundled in to units called crates\n\neach crate has a cargo.toml that incldue pseicicasl for waht the crate produces\nit has several secitons\n\na [[bin]] section indicate sthat it sohuld built into an exe file wiht configaiotns liek name and starting path; this optional jsut emtdata or conifsg about the exe\n[package] metdatat of the crate liek name .. etc\n[dependencies]` crate dpendicneins\n[feuaters] optio extracts\n\na crate either outputs either a program  (.exe) file (as configure by bin) or it by deufalit it outputs via compilation intoa library (.rlib)\nso a crate can ahve two tpyes either a program crate that genreates a exe or lirbary crate that genresates a rlib file\neach crate has its own src folder \nIn general: if a crates src fodler has a special file called src/main.rs then it is a program crate that will generate a exe. if it doenst hav the file then it is a regaulr crate that only genreates a library rlibs.\n\nthe excpeitons ita ht bin config can point the start file sonewehres. but dbt-oss follwos the default file naming and bin configs\n\n\nModule: modules are sectiosn fo code inside one crate (usiually one file each)\n\nthey organize the code\ne.g .dbt_features::cli means the cli module inside the dbt-features\n\nFunctions: are the smaller peices of code. funcitons live isnide modules \n\nfucntions have differen scoeps of sharing or reuse there are three scopes of sharing\nNo marking (dfeault) a funiton can be only use within its own module and the moduels nest within the module it is contained within\npub(crate) any where within the same crate it is deinfeint in \npub can be reussea acorss other crates - e.g.g creating crate level depdnencies..\n\nnote for this tow orkt he path of pub dpendncens but also all be pub for this chaining to work."
-  },
-  {
-    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html",
-    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html",
-    "title": "JS script runners and package managers: npm, pnpm, and vite test",
-    "section": "",
-    "text": "there are some basictoling for JS develeoprm either enxt.js or svelte.\npnpm and npm then vite and vitetest\nfrom what i udresnta ther first 3 are packge apmagein each wiht own script fruning funcitonality. tehyera r enot edeidcate tasks urnigns like just\nso the tehst and cheks thems selves are ocmspeosn of atomic toosl such as lint or audit or scripts but youc an compose ‘script’ that ocmpsoe thes smaller tasks and run the ith pnpmn npmn nd vite \nbut what i dont udnrnsta d i\n\ns what is diff betwen viteest and vite \nwhat is hte best rpactice \npros and cons to each\n\nI do kwno pro is worktress and globa sitnal via pnpmn but what about vite and vitetest vs npmn/pnpmn?"
-  },
-  {
-    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#ramblings",
-    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#ramblings",
-    "title": "JS script runners and package managers: npm, pnpm, and vite test",
-    "section": "",
-    "text": "there are some basictoling for JS develeoprm either enxt.js or svelte.\npnpm and npm then vite and vitetest\nfrom what i udresnta ther first 3 are packge apmagein each wiht own script fruning funcitonality. tehyera r enot edeidcate tasks urnigns like just\nso the tehst and cheks thems selves are ocmspeosn of atomic toosl such as lint or audit or scripts but youc an compose ‘script’ that ocmpsoe thes smaller tasks and run the ith pnpmn npmn nd vite \nbut what i dont udnrnsta d i\n\ns what is diff betwen viteest and vite \nwhat is hte best rpactice \npros and cons to each\n\nI do kwno pro is worktress and globa sitnal via pnpmn but what about vite and vitetest vs npmn/pnpmn?"
-  },
-  {
-    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#understanding",
-    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#understanding",
-    "title": "JS script runners and package managers: npm, pnpm, and vite test",
+    "objectID": "tidbits/2026-10-21-notion-as-a-backend.html#understanding",
+    "href": "tidbits/2026-10-21-notion-as-a-backend.html#understanding",
+    "title": "Notion as a backend for a static site",
     "section": "Understanding",
-    "text": "Understanding\n\nWhat is key is the axis we are discussion which is what layer the technologies sit at\nThere are two layers in this context a higher level and a lower level\n\n\n\n\n\n\n\n\n\n\nLevel\nLayer\nDescription\nTools\n\n\n\n\nHigher\nPackage manager\nInstalls dependencies, runs package.json scripts\nnpm, pnpm\n\n\nLower\nTool\nDoes the actual work, called by scripts\nnext, vite, vitest, jest, eslint, oxlint, prettier, tsc, svelte-check, stylelint, cspell, concurrently, rimraf, func, swa, serve, node"
+    "text": "Understanding\n\nI want to explore the easiest way to get a CRUD feature using Notion databases as the backend on s simple static site\nThis would require some sort of proxy function to store the API Token with access to the Notion database\nThis would then ahve several comepontsn\n\n\nA database (Notion database) - lets say simple schema of baby names 2 columns ‘Name (text)’ and “popularity 0 - 10 numeric’\nfront end - a data entry form - JS for data entry that after click submit will push info and trigger some server function\n\nWhat access permissions will this need - READ and WRITE\nThis is simple Insert form we cna make it mroe ocmeplx for pathces and deleiotns but htat sjust JS compelxity the archiehture we will just handle insert\n\nProxy -  a serverless function (e.g. a Cloudflare worker) whihc stores the Database acces secerets. There are as many routes as needed for CRUD (Routes) into /names\n\nroutes\n\n GET Reads\n POST inserts new rows \nPATCH updates\nDELETE deletes\n\nProviders for serverless functions (aka edge functiosn)\n\nCloudflare workers (easeiest to setup and most free tier calls)\nAzure Functions\nAWS Lambda\nGCP Cloud Run Functions\n\n\nFront end -  a table that reads from the databse has JS logic to:\n\non page load will read form database GET /names\non form submission it is trigere to reread so the udpate thigns how up GET /names"
   },
   {
-    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#appendix-a---related-tidbits-to-follow-up-on",
-    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#appendix-a---related-tidbits-to-follow-up-on",
-    "title": "JS script runners and package managers: npm, pnpm, and vite test",
-    "section": "Appendix A - Related tidbits to follow up on",
-    "text": "Appendix A - Related tidbits to follow up on\n\nvite is build tool ananllogous to turbopack for next.js ; vitetest - is that packge deicite testing packge\npnpm is a more modern npm and has a share package store (much better for worktrees); by defualt recomended to us pnpmn for JS project’s package mangement\nThe best practice is for all projects to use one package manager with script running capabilites; group major tasks as scripts to be called by the package manager!"
+    "objectID": "tidbits/2026-10-21-notion-as-a-backend.html#artifacts",
+    "href": "tidbits/2026-10-21-notion-as-a-backend.html#artifacts",
+    "title": "Notion as a backend for a static site",
+    "section": "Artifacts",
+    "text": "Artifacts\n\n\n\n\n\nsequenceDiagram\n    participant Form as Front end: form (JS)\n    participant Table as Front end: table (JS)\n    participant Worker as Cloudflare Worker&lt;br/&gt;(holds Notion token)\n    participant Notion as Notion database&lt;br/&gt;(baby names)\n\n    Note over Table,Notion: Page load\n    Table-&gt;&gt;Worker: GET /names\n    Worker-&gt;&gt;Notion: query database\n    Notion--&gt;&gt;Worker: rows\n    Worker--&gt;&gt;Table: JSON rows\n\n    Note over Form,Notion: Form submit\n    Form-&gt;&gt;Worker: POST /names {name, popularity}\n    Worker-&gt;&gt;Notion: create page (row)\n    Notion--&gt;&gt;Worker: ok\n    Worker--&gt;&gt;Form: ok\n    Form-&gt;&gt;Table: trigger refresh\n    Table-&gt;&gt;Worker: GET /names\n    Worker--&gt;&gt;Table: updated rows"
   },
   {
-    "objectID": "tidbits/2026-11-02-azure-compute-options-container-apps-vs-web-app.html",
-    "href": "tidbits/2026-11-02-azure-compute-options-container-apps-vs-web-app.html",
-    "title": "Azure compute options: Container Apps vs Web App, and their AWS equivalents",
-    "section": "",
-    "text": "Tried to deploy a server a azure to test out foundry-commjs for a POC; but IT blocked me from deploying Azure “Cotainer Apps” but I could deploy a “Web App”\nI realized i did’t know the different between teh two\nJust wnat to get a high elvel udnresntand of the didfrernces"
-  },
-  {
-    "objectID": "tidbits/2026-11-02-azure-compute-options-container-apps-vs-web-app.html#ramblings",
-    "href": "tidbits/2026-11-02-azure-compute-options-container-apps-vs-web-app.html#ramblings",
-    "title": "Azure compute options: Container Apps vs Web App, and their AWS equivalents",
-    "section": "",
-    "text": "Tried to deploy a server a azure to test out foundry-commjs for a POC; but IT blocked me from deploying Azure “Cotainer Apps” but I could deploy a “Web App”\nI realized i did’t know the different between teh two\nJust wnat to get a high elvel udnresntand of the didfrernces"
-  },
-  {
-    "objectID": "tidbits/2026-11-02-azure-compute-options-container-apps-vs-web-app.html#understanding",
-    "href": "tidbits/2026-11-02-azure-compute-options-container-apps-vs-web-app.html#understanding",
-    "title": "Azure compute options: Container Apps vs Web App, and their AWS equivalents",
-    "section": "2. Understanding",
-    "text": "2. Understanding\n\nBoth have simialir specs endpoints, dockers/fexilbity, scalability\nThe major difference is billing\n\nWeb Apps is fixed plan (always on - no cold starts)\nContainer apps is consumption (pay per uses, scales to zero whne not in use - but has cold starts)\n\nweb apps is also slight easier to use\n\ndoenst have to use dockers, can jsut ship code\n\nbut can use docekrs if neeeded\n\ncontainer apps require dockers"
-  },
-  {
-    "objectID": "tidbits/2026-11-02-azure-compute-options-container-apps-vs-web-app.html#appendix-a---references",
-    "href": "tidbits/2026-11-02-azure-compute-options-container-apps-vs-web-app.html#appendix-a---references",
-    "title": "Azure compute options: Container Apps vs Web App, and their AWS equivalents",
-    "section": "Appendix A - References",
-    "text": "Appendix A - References"
-  },
-  {
-    "objectID": "tidbits/2026-10-12-r-package-and-env-management-renv.html",
-    "href": "tidbits/2026-10-12-r-package-and-env-management-renv.html",
-    "title": "R package and environment management: renv, pak, and friends",
-    "section": "",
-    "text": "Reading from https://rworks.dev/posts/r-managers/ and trying to get the gist of it\nSo there are differenta xis we have to anylze in thi socnetxt\nwe have scope\n\nPackge/depenendciy mangemnet\nR version angemern\n\nI wan tot undestnadn the R ecoceys btu importably to compare tot eh Python and JS ecoysstemt; expecially presntign this int eh context of uv which i dont konw why jsut sticks out as the best UX i ahve ver had with a mangemnt but  from hwat i udnresnt uv does both pyhotn and dpendenc in one thign?\nimplciaitnosf or loom-datawarehouse\n\nso a arcehtecutural decision is that we  dont even need to ‘fork’ and modfy dbt-oss but rather we just \nwhat we can do is develop a wrapper"
-  },
-  {
-    "objectID": "tidbits/2026-10-12-r-package-and-env-management-renv.html#ramblings",
-    "href": "tidbits/2026-10-12-r-package-and-env-management-renv.html#ramblings",
-    "title": "R package and environment management: renv, pak, and friends",
-    "section": "",
-    "text": "Reading from https://rworks.dev/posts/r-managers/ and trying to get the gist of it\nSo there are differenta xis we have to anylze in thi socnetxt\nwe have scope\n\nPackge/depenendciy mangemnet\nR version angemern\n\nI wan tot undestnadn the R ecoceys btu importably to compare tot eh Python and JS ecoysstemt; expecially presntign this int eh context of uv which i dont konw why jsut sticks out as the best UX i ahve ver had with a mangemnt but  from hwat i udnresnt uv does both pyhotn and dpendenc in one thign?\nimplciaitnosf or loom-datawarehouse\n\nso a arcehtecutural decision is that we  dont even need to ‘fork’ and modfy dbt-oss but rather we just \nwhat we can do is develop a wrapper"
-  },
-  {
-    "objectID": "tidbits/2026-10-12-r-package-and-env-management-renv.html#processing",
-    "href": "tidbits/2026-10-12-r-package-and-env-management-renv.html#processing",
-    "title": "R package and environment management: renv, pak, and friends",
-    "section": "Processing",
-    "text": "Processing\n\nTable 1 - The post’s axes\nThe axes the r-managers post uses:\n\n\n\nAxis\nValues\n\n\n\n\nWhat it tracks\nPackages, R version, system deps\n\n\nScope\nSingle file, project, whole system\n\n\nWorkflow\nSnapshot or declarative\n\n\n\n\n\nTable 2 - R tools on those axes\nR tools on those axes:\n\n\n\nTool\nPackages\nR version\nSystem deps\nScope\nWorkflow\nAge\nStars\nReleases\nReleases (last 3 mo)\nMerged PRs (last 3 mo)\n\n\n\n\nrenv\n✅\n❌\n❌\nProject\nSnapshot\nsince 2018\n1,164\n26\n3\n54\n\n\nrv\n✅\n❌\n❌\nProject\nDeclarative\nsince Dec 2024\n380\n42\n3\n23\n\n\nuvr\n✅\n✅\n❌\nProject\nDeclarative\nsince Mar 2026\n362\n44\n6\n51\n\n\nir\n✅\n✅\n❌\nSingle file\nDeclarative\nsince Jun 2026\n66\n5\n4\n14\n\n\nrix\n✅\n✅\n✅\nWhole system\nDeclarative\nsince 2023\n384\n4\n0\n16\n\n\nuv (Python, for reference)\n✅\n✅ (Python)\n❌\nProject\nDeclarative\nsince 2023\n90,978\n327\n33\n1,245\n\n\n\nThe last row is the Python baseline, not an R tool. The closest R match is the one whose row looks the same, which is uvr.\nRepo stats are from GitHub as of 2026-10-21; “last 3 mo” means since 2026-07-21. Releases are GitHub releases, which undercount renv and rix because they ship most versions to CRAN.\n\n\nTable 3 - Across languages\nThe same axes across languages:\n\n\n\n\n\n\n\n\n\n\nLanguage\nPackages\nLanguage version\nSystem deps\nWorkflow\n\n\n\n\nPython\nuv\nuv\nconda / pixi\nDeclarative\n\n\nR\nrenv / rv\nrig / uvr\nrix\nBoth\n\n\nJS\npnpm\nfnm\nnone (Docker)\nDeclarative\n\n\n\n\n\nTable 4 - My simple two-axis version\nMy simpler version, language × what the tool manages:\n\n\n\n\nLanguage version\nPackages\n\n\n\n\nPython\nuv\nuv\n\n\nR\nrig\nrenv / pak\n\n\nJS\nfnm\npnpm"
-  },
-  {
-    "objectID": "tidbits/2026-10-12-r-package-and-env-management-renv.html#understanding",
-    "href": "tidbits/2026-10-12-r-package-and-env-management-renv.html#understanding",
-    "title": "R package and environment management: renv, pak, and friends",
-    "section": "Understanding",
-    "text": "Understanding\n\nThere are many axis to langueng lamaugnes\n\nwhat it tracks (R packges vs R version vs System dmepoencines)\nscope (single file vs single proejct vs whole system\nHow it works snapshot (install first hten udpate recrd) or Declarative (udpate record - htne managem ahndels the installs)\n\nThe table 2 above is usepr informaiton comaprien R tools alaong hte acexis alognw ith amturity metrocsi vs UV\nit seems UVR is a great cadinaitia and something to test"
-  },
-  {
-    "objectID": "tidbits/2026-10-12-r-package-and-env-management-renv.html#appendix-a---related-tidbits-to-follow-up-on",
-    "href": "tidbits/2026-10-12-r-package-and-env-management-renv.html#appendix-a---related-tidbits-to-follow-up-on",
-    "title": "R package and environment management: renv, pak, and friends",
-    "section": "Appendix A - Related tidbits to follow up on",
-    "text": "Appendix A - Related tidbits to follow up on\n\nTest driving uvr: a uv-style manager for R"
-  },
-  {
-    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html",
-    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html",
-    "title": "Quarto lightbox figures for HTML and Revealjs",
-    "section": "",
-    "text": "Just learned Quarto can turn images into lightbox figures (click to enlarge) in HTML outputs like HTML documents and Revealjs slides. Docs: https://quarto.org/docs/output-formats/html-lightbox-figures.html"
-  },
-  {
-    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html#ramblings",
-    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html#ramblings",
-    "title": "Quarto lightbox figures for HTML and Revealjs",
-    "section": "",
-    "text": "Just learned Quarto can turn images into lightbox figures (click to enlarge) in HTML outputs like HTML documents and Revealjs slides. Docs: https://quarto.org/docs/output-formats/html-lightbox-figures.html"
-  },
-  {
-    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html#understanding",
-    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html#understanding",
-    "title": "Quarto lightbox figures for HTML and Revealjs",
-    "section": "Understanding",
-    "text": "Understanding\n\nA UI element that is an image which when cliked pops out hte image zoomed in in a nmodal is called a Lightbox \nRef and example:  https://en.wikipedia.org/wiki/Lightbox_(JavaScript)\nThis feature has two parts\n\n\nthe thumbnail image shown on your page (trigger)\n\n\nthe modal that pops up (inlcude the dim abckground) with closable button\n\n\nQuarto makes this available for HTML outputs?\n\nhttps://quarto.org/docs/output-formats/html-lightbox-figures.html"
-  },
-  {
-    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html#appendix-a---related-tidbits-to-follow-up-on",
-    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html#appendix-a---related-tidbits-to-follow-up-on",
-    "title": "Quarto lightbox figures for HTML and Revealjs",
+    "objectID": "tidbits/2026-10-21-notion-as-a-backend.html#appendix-a---related-tidbits-to-follow-up-on",
+    "href": "tidbits/2026-10-21-notion-as-a-backend.html#appendix-a---related-tidbits-to-follow-up-on",
+    "title": "Notion as a backend for a static site",
     "section": "Appendix A - Related tidbits to follow up on",
     "text": "Appendix A - Related tidbits to follow up on"
   },
   {
-    "objectID": "tidbits/2026-11-02-rust-build-vs-compile-worktrees-sccache.html",
-    "href": "tidbits/2026-11-02-rust-build-vs-compile-worktrees-sccache.html",
-    "title": "Rust build vs compilation",
+    "objectID": "tidbits/2026-10-05-nextjs-server-vs-client-components.html",
+    "href": "tidbits/2026-10-05-nextjs-server-vs-client-components.html",
+    "title": "Next.js server vs. client components in static exports",
     "section": "",
-    "text": "1. Ramblings\n\nrust has compilation then build\niw ant t konw the idferinces\nthe efect of tec sucha s sccache on rust wokr in worktrees\ni want atbles of conidioatn and worktres and scenairoes to fully udnrestand\n\n\n\n2. Understanding\n\nTriage\n\nSo I think i asked great questions above\nThey are very ‘fundamental’ questions - the answers to which require a fundamental working baseline vocabulary of Rust workflows to even begin to answer\nI first initialized a basic super simple rust glossary in this site\nFrom there we will triage and answer the rambling questions from above\n\nBreakdown/rephrase: first lets isolate the specific questions or points of confusion\n\nCore question 1: Compilation vs Build\nCore question 2: Worktrees and Sccache\n\n\n\n2.1 Core Question 1: Compilation vs Build\n\nCompilation or compiling within the Rust/Cargo workflows is a step.\n\nThis takes rust code and builds an output artifact (which could be a exe or rlib or wasm or other artifacts); These are artifacts can be consumed/used by users\n\nBuild is a specific Cargo command cargo build which does a few steps for a speicifed scope of work\n\nBuild can be specified to work at various levels (\n\nworspace level  -&gt; all packages/crates within  a repo\npackage -&gt; specific packgaes and all its crates\ncrate -&gt; specific crates\n\nit then within the scope sepcific does a two main steps\n\nFirstly it compiles all the crates that is within the scope (plus dpednenceis)\nThen it Links the individual crate output artifacts into a single develoerable artifact per target as specificed\n\n\nSo in summary\n\nCompilation is a step\nBuild is a process/command that calls compilation\n\n\n\n\n\n\nFollow-up\n\nThe rambling asked two big queistons\nWe answer hte first one as its a good scope for a tidibit\nwe filled follow two tibbits \n\none to asnwer hte core quesiton 2\nanother to reoslve a new confusiong point hta came up which is the diffeirentiation of crate vs package (and their file tree implemtations)"
+    "text": "Next.js has two types of compoents\n\nServer Componets and Client Compoentsn\n\nThese terms are confusing because Next.js static exports can still use server comeponts\nThey just indicate what is run at build time not what is expeorted\nSo at build time server compoents run the next.js server and export pure HTML\nClient ocmeopnts run at build time to export boht the HTML and the JS coderequired for a HTML page to funciton\nServer site build ouptus are smaller ebucase thye dont ship JS\nThe best practice is to use SErver side comeponts uneslss required client side specific features (most of the server comeponts are the best practice)\nIt is confuse beacuse there are some SSR next.js feautre locked ibehcig server comeponts which in that cas erequires a nExt.j server and would not work as auflly static export\nSo this PR essentially developes the loom integraitn o to work with both server and client pages; as wella smepahsize the best practice of defaulting to server"
+  },
+  {
+    "objectID": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#ramblings",
+    "href": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#ramblings",
+    "title": "Next.js server vs. client components in static exports",
+    "section": "",
+    "text": "Next.js has two types of compoents\n\nServer Componets and Client Compoentsn\n\nThese terms are confusing because Next.js static exports can still use server comeponts\nThey just indicate what is run at build time not what is expeorted\nSo at build time server compoents run the next.js server and export pure HTML\nClient ocmeopnts run at build time to export boht the HTML and the JS coderequired for a HTML page to funciton\nServer site build ouptus are smaller ebucase thye dont ship JS\nThe best practice is to use SErver side comeponts uneslss required client side specific features (most of the server comeponts are the best practice)\nIt is confuse beacuse there are some SSR next.js feautre locked ibehcig server comeponts which in that cas erequires a nExt.j server and would not work as auflly static export\nSo this PR essentially developes the loom integraitn o to work with both server and client pages; as wella smepahsize the best practice of defaulting to server"
+  },
+  {
+    "objectID": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#understanding",
+    "href": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#understanding",
+    "title": "Next.js server vs. client components in static exports",
+    "section": "Understanding",
+    "text": "Understanding\n\nTwo Types of Next.js Components: 1) Server and 2) Client\n\nThe key idea and difference is: where the code runs not when\nServer components\n\nThe JS runs on the Next.js Server to produce HTML\nIn hybrid/SSR Next.js this could be in the actual Next.js server in real-time in production as there is a server\nIn export/SSG Next.js this runs on Next.js during build time to produce HTML that is deploy to a serverless static site host.\n\nClient Components\n\nThe Next.js code (JS) is shipped and runs in the clients browser\n\n\nBest practice is to user Server Compoents; ‘use client’ only when required on smaller niche compoentns that need it"
+  },
+  {
+    "objectID": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#appendix-a---related-tidbits-to-follow-up-on",
+    "href": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#appendix-a---related-tidbits-to-follow-up-on",
+    "title": "Next.js server vs. client components in static exports",
+    "section": "Appendix A - Related tidbits to follow up on",
+    "text": "Appendix A - Related tidbits to follow up on\n\nHydration\nWhat breaks exports"
+  },
+  {
+    "objectID": "tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html",
+    "href": "tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html",
+    "title": "Line endings on four axes: LF vs CRLF, repo vs local, .gitattributes, and the refresh",
+    "section": "",
+    "text": "Some of the repos i am working on that have prettier in the checks workflow keeps popping up with this same bug\nits cosmetic but still  bother to deal with\ni can fix it with Claude but don’t understand fully yet.\nI believe there are a few axis\n\n\nits not a bug - just a cosmetic thing\n\n\nLF vs CRLF\n\n\nlocal vs origin\n\n\ngit command to fix it  git rm -r --cached -q :/ && git reset --hard\n\n\nso these are things i want to learn\nmaybe need to init a git/GitHub glossary along the way."
+  },
+  {
+    "objectID": "tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html#ramblings",
+    "href": "tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html#ramblings",
+    "title": "Line endings on four axes: LF vs CRLF, repo vs local, .gitattributes, and the refresh",
+    "section": "",
+    "text": "Some of the repos i am working on that have prettier in the checks workflow keeps popping up with this same bug\nits cosmetic but still  bother to deal with\ni can fix it with Claude but don’t understand fully yet.\nI believe there are a few axis\n\n\nits not a bug - just a cosmetic thing\n\n\nLF vs CRLF\n\n\nlocal vs origin\n\n\ngit command to fix it  git rm -r --cached -q :/ && git reset --hard\n\n\nso these are things i want to learn\nmaybe need to init a git/GitHub glossary along the way."
+  },
+  {
+    "objectID": "tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html#understanding",
+    "href": "tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html#understanding",
+    "title": "Line endings on four axes: LF vs CRLF, repo vs local, .gitattributes, and the refresh",
+    "section": "2. Understanding",
+    "text": "2. Understanding\n\nTriage\n\nThere are some core concepts i need to understand (LF vs CRLF)\nthen there is tooling around these that are secondary\nlets start with the concepts\nthen move on to the tooling\n\n\n\n2.1 Core Concept: OS newline or End of Line (EOL) conventions\n\nWhen a line of code ends; there are are two ways of ending the line when it comes to the binary aspect - way 1 and way 2\nWay 1 amd way 2 are not rules. they can both work on tools acoss operating systems (windows git vs mac/unix git)\nBut each tool-os has their defaults\n\nWindows git defaults to way 1\nUnix/Mac git defaults to way 2\n\nHistory of way 1 and way 2\n\na bit is a binary digit 0 or 1\na byte is a 8 bits\nmost ASCII characters (aka most of code) is 1 byte per character\nThere are two characters that are using in encoding end of line\n\nLine Feed (LF) aka \\n  \nCarriage Return (CR) aka \\r\nhistorically these came from typewriters; where to type a new line you needed to type both to create the new line in typewriters\nWhen people started writing code on computers (keyboards) not type-writers\nwe didn’t need both to encode a new line but the two branches fork a bit in terms of opinion\n\nUnix/Mac - we dont need both so lets jsut simplfiy and keep one LF (one less byte per line! - without losing anyhting other than deviation from history)\nWindows - said lets keep the old traditional at the end of line type both the CR + LF - (\\r \\n) like typewriters did\n\n\n\nThe problem \n\nPrettier standardizes to test that the code base sohuld be LF  (Unix/Mac)\nbut our windows tooling often produces CRLFleading to frequent prettier failures"
+  },
+  {
+    "objectID": "tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html#tooling",
+    "href": "tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html#tooling",
+    "title": "Line endings on four axes: LF vs CRLF, repo vs local, .gitattributes, and the refresh",
+    "section": "2.2 Tooling",
+    "text": "2.2 Tooling\n\nSo now we are on to the tooling (speiccally github). There three thigns i want to udnrestand\n\n.gitattribute (specifically the EOL config)\nimplications for local vs remote\nhow the recommended fix command works  git rm -r --cached -q :/ && git reset --hard\n\nGitHub remote/cloud/origin stores  on the cloud a version of your codebase including the EOL - the commited bytes\nGit has a sepcific file called   .gitattirbutes which stores the configurations for how git converts and works with your codebase (e..g on clones or commits); one such config is the EOL config\nSo to fix the preittier warning/bug; the first step is to always make sure your gitattribute EOL config is set to LF and Commit/push\nBut what the config is set in the gitattrbute is not teh same as what bytes (EOL) are saved in the github repo origin and local. These stored byte vs LF config in gittatrbutes can exist in two scenarios\nThere can be two cases where we can have the bad EOL (CRLF)\n\nCase one its on the GitHub Repo in the cloud/origin - Repo CRLF\nCase 2 the Repo is okay its Repo LF but local CRLF\n\nThese two cases have two fixes\n\nCase 1 Repo CRLF\n\nwe can call git add --renormalize which will re-appled the settings of LF in .gitattributes to every tracekd file, so CRLF gets stroed as LF on the next commit and push\n\nCase 2 Repo LF but Local CRLF\n\nwe can call ``git rm -r –cached -q :/ && git reset –hard`` \nWhihc does the following\n\ngit rm -r --cached -q :/ empties the index; disk untouched\ngit reset --hard rebuilds the index and rewrites every file through .gitattributes, as LF\nrisk is that this discards uncommitted edits. so make sure you run this on a clean worktree!"
+  },
+  {
+    "objectID": "tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html#a.-diff-lf-vs-crlf",
+    "href": "tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html#a.-diff-lf-vs-crlf",
+    "title": "Line endings on four axes: LF vs CRLF, repo vs local, .gitattributes, and the refresh",
+    "section": "a. Diff LF vs CRLF",
+    "text": "a. Diff LF vs CRLF\nThe same two lines of code, saved with each line ending. ␍ is CR (\\r) and ␊ is LF (\\n); both are normally invisible.\n- const a = 1;␍␊      ← CRLF (Windows): 2 bytes per line ending\n- const b = 2;␍␊\n+ const a = 1;␊        ← LF (Unix/Mac): 1 byte per line ending\n+ const b = 2;␊\nRaw bytes (od -c):\n- c o n s t   a   =   1 ; \\r \\n\n+ c o n s t   a   =   1 ; \\n\nThe text is identical. The only difference is the extra \\r before every \\n.\nPrettier (default endOfLine: \"lf\") flags each of those \\r characters:\n1:13  error  Delete `␍`  prettier/prettier"
+  },
+  {
+    "objectID": "tidbits/2026-10-30-github-actions-triggers-filters-and-ifs.html",
+    "href": "tidbits/2026-10-30-github-actions-triggers-filters-and-ifs.html",
+    "title": "GitHub Actions triggers, filters and ifs",
+    "section": "",
+    "text": "Okay so its really important to understand how GitHub action are controlled (aka when they run!)\nFrom my understanding there are a few axis involve\n\nScope: Workflow vs Job\n\nA single GitHub action YAML contains the information for a single workflow run\nA workflow can have multiple jobs\nControl can be implemented on both levels\n\nWorkflow level control\n\nWhere a workflow runs is controlled by two components: Triggers-Filters\nTriggers are actions that happen on GitHub (see supplementary table below for details)\n\nmain\nPR\nmanual run trigger (aka dispatch maybe)\nothers\n\nFilters are more granular things that are add to trigger\n\nThese include (see supplementary table below for details)\n\npaths\nbranches\n\nUse cases\n\nFor example a common thing is if the trigger  change on main you can configure more sepcificayll that not jsut an change on main but sepcifical onyl on change sot as pecific path on main juchs as main &gt; /quarto so only when the quarot foder is changed on the main branch\n\n\nJob Level control\n\nHere we can level the triggers and filters at the job level\n\nSot he same stuff as above okay. the workflow runs but we can utilzie th same trigger-filter to detemrien whether a sepcific job within the file runs or not\n\nin addition we can level job level ifnormaiton (see supplementary table below for details)\n\nE.g. only run job 1 if job 2 is successuful; if job 1 fails then job 2 does not run\n\n\n\n\n\nThe best practice is to when desinging when your aciotns run si to be very sepcific so you dont waste computing minutes\n\nIf a workflow can be skipped - set workflow level controls to skip it\nIf specific jobs can be skiped impelmetn the right contrls to skip it!\n\n\nHappy Actions!!!"
+  },
+  {
+    "objectID": "tidbits/2026-10-30-github-actions-triggers-filters-and-ifs.html#ramblingunderstanding",
+    "href": "tidbits/2026-10-30-github-actions-triggers-filters-and-ifs.html#ramblingunderstanding",
+    "title": "GitHub Actions triggers, filters and ifs",
+    "section": "",
+    "text": "Okay so its really important to understand how GitHub action are controlled (aka when they run!)\nFrom my understanding there are a few axis involve\n\nScope: Workflow vs Job\n\nA single GitHub action YAML contains the information for a single workflow run\nA workflow can have multiple jobs\nControl can be implemented on both levels\n\nWorkflow level control\n\nWhere a workflow runs is controlled by two components: Triggers-Filters\nTriggers are actions that happen on GitHub (see supplementary table below for details)\n\nmain\nPR\nmanual run trigger (aka dispatch maybe)\nothers\n\nFilters are more granular things that are add to trigger\n\nThese include (see supplementary table below for details)\n\npaths\nbranches\n\nUse cases\n\nFor example a common thing is if the trigger  change on main you can configure more sepcificayll that not jsut an change on main but sepcifical onyl on change sot as pecific path on main juchs as main &gt; /quarto so only when the quarot foder is changed on the main branch\n\n\nJob Level control\n\nHere we can level the triggers and filters at the job level\n\nSot he same stuff as above okay. the workflow runs but we can utilzie th same trigger-filter to detemrien whether a sepcific job within the file runs or not\n\nin addition we can level job level ifnormaiton (see supplementary table below for details)\n\nE.g. only run job 1 if job 2 is successuful; if job 1 fails then job 2 does not run\n\n\n\n\n\nThe best practice is to when desinging when your aciotns run si to be very sepcific so you dont waste computing minutes\n\nIf a workflow can be skipped - set workflow level controls to skip it\nIf specific jobs can be skiped impelmetn the right contrls to skip it!\n\n\nHappy Actions!!!"
+  },
+  {
+    "objectID": "tidbits/2026-10-30-github-actions-triggers-filters-and-ifs.html#detailsreferences",
+    "href": "tidbits/2026-10-30-github-actions-triggers-filters-and-ifs.html#detailsreferences",
+    "title": "GitHub Actions triggers, filters and ifs",
+    "section": "Details/References",
+    "text": "Details/References\n\nCommon triggers\nDocs: Events that trigger workflows\n\n\n\n\n\n\n\n\nTrigger\nFires when\nExample use\n\n\n\n\npush\nCommits land on a branch or tag\nDeploy on merge to main\n\n\npull_request\nA PR is opened or updated\nTest or render before merge\n\n\nworkflow_dispatch\nSomeone clicks “Run workflow” (or runs gh workflow run)\nManual redeploy\n\n\nschedule\nA cron time is reached\nNightly data refresh\n\n\nrelease\nA release is published\nPublish a package\n\n\nworkflow_call\nAnother workflow calls this one\nReusable build steps\n\n\n\nNote: main is not a trigger on its own. It is push plus a branches: [main] filter.\n\n\nFilters\nDocs: Using filters, branches, paths\n\n\n\n\n\n\n\n\nFilter\nNarrows by\nWorks on\n\n\n\n\nbranches / branches-ignore\nBranch name\npush, pull_request (the PR’s target branch)\n\n\ntags / tags-ignore\nTag name\npush\n\n\npaths / paths-ignore\nFiles changed\npush, pull_request\n\n\ntypes\nActivity type (e.g. opened, closed)\npull_request, release, issues\n\n\ncron\nTime\nschedule\n\n\ninputs\nValues passed at launch\nworkflow_dispatch, workflow_call\n\n\n\nNote: paths does not work on workflow_dispatch or schedule.\n\n\nJob-level control\nDocs: jobs.&lt;job_id&gt;.if, jobs.&lt;job_id&gt;.needs, Status check functions, jobs.&lt;job_id&gt;.environment\n\n\n\n\n\n\n\n\nControl\nWhat it does\nExample\n\n\n\n\nif:\nRuns the job only when a condition is true\nif: github.ref == 'refs/heads/main'\n\n\nneeds:\nWaits for other jobs; skipped if one fails\nneeds: build\n\n\nif: success()\nRuns when every needed job passed (the default)\nDeploy after tests pass\n\n\nif: failure()\nRuns only when a needed job failed\nSend an alert\n\n\nif: always()\nRuns no matter what\nCleanup\n\n\nenvironment:\nWaits for an approval or protection rule\nManual sign-off before deploy"
+  },
+  {
+    "objectID": "tidbits/2026-10-30-github-actions-triggers-filters-and-ifs.html#appendix-a---references",
+    "href": "tidbits/2026-10-30-github-actions-triggers-filters-and-ifs.html#appendix-a---references",
+    "title": "GitHub Actions triggers, filters and ifs",
+    "section": "Appendix A - References",
+    "text": "Appendix A - References"
+  },
+  {
+    "objectID": "tidbits/2026-11-06-agent-accessibility-quarto-docusaurus-doc-sites.html",
+    "href": "tidbits/2026-11-06-agent-accessibility-quarto-docusaurus-doc-sites.html",
+    "title": "Agent accessibility in Quarto and Docusaurus doc sites",
+    "section": "",
+    "text": "Rambling\n\nugh i am making a lot of documentatino sites mainly in quarot but starting to get into toher docs specific tools like docusarus and astro starlight\nmy quetions is in the agent of agents. \nwhat best practieces (in Nov 2026) are there for makig doc siste agent and accessible\ni hear the word llm.txt or soethgi or wheher that quaot emebds. but id ton know\nthis tibit is just to oreint my self and provide myself wihta priemr so i can impelment best practices into my docs sites\n\n\n\nUnderstanding\n\nthere is a gold standard for agent accessiblity of doc sites\n\nllms.txt is a singel index of all the pages on your side\n(llms.md oor .md) is markdown copy of each page\nllms-full.txt all docs in one file\n\nFor the tools that i use here is the support for these artifacts\n\n\n\n\n\nQuarto (native, 1.9+)\nDocusaurus 3.x (no native support; community plugin rachfop/docusaurus-plugin-llms v0.6.1)\n\n\n\n\nllms.txt (page index)\n✅\n✅\n\n\nMarkdown copy of each page\n✅\n✅\n\n\nllms-full.txt (all docs in one file)\n❌\n✅\n\n\n\n\nQuarot has native support\nOnly works in website and set in quarto.yaml\n\nwebsite:\n  llms-txt: true"
+  },
+  {
+    "objectID": "tidbits/2026-10-21-uvr-test-drive/index.html",
+    "href": "tidbits/2026-10-21-uvr-test-drive/index.html",
+    "title": "Test driving uvr: a uv-style manager for R",
+    "section": "",
+    "text": "okay here we test uvr  - https://github.com/nbafrank/uvr\nso scanning the docs so here are my queistons\n\nscope\n\nso it can be used for ‘file’ level or ‘project level’ management \nis there a way to set  a global defaul liek uv global?\n\nthe commands\n\nuvr init does what? it inits a uv project memaning it creat eina ofdler some artacts like uv ldoes (lock files …. project.toml??))\nuvr add adds a package to the uvr proejct - akes sne\nuvr sync takes a uvr lcok file and isntalls the local R packges - quesiot to wehre does each get a local R pake folder? or is like pnpmn where there isa global store that can be reused across worktrees and stuff?\nuvr run so alls cipts msut be call via temrinal ? what about quarto?\n\nQueisotn\n\nwhere are packge sinstaled withi lcoal repo? if so thas bad worktreses wont work?"
+  },
+  {
+    "objectID": "tidbits/2026-10-21-uvr-test-drive/index.html#ramblings",
+    "href": "tidbits/2026-10-21-uvr-test-drive/index.html#ramblings",
+    "title": "Test driving uvr: a uv-style manager for R",
+    "section": "",
+    "text": "okay here we test uvr  - https://github.com/nbafrank/uvr\nso scanning the docs so here are my queistons\n\nscope\n\nso it can be used for ‘file’ level or ‘project level’ management \nis there a way to set  a global defaul liek uv global?\n\nthe commands\n\nuvr init does what? it inits a uv project memaning it creat eina ofdler some artacts like uv ldoes (lock files …. project.toml??))\nuvr add adds a package to the uvr proejct - akes sne\nuvr sync takes a uvr lcok file and isntalls the local R packges - quesiot to wehre does each get a local R pake folder? or is like pnpmn where there isa global store that can be reused across worktrees and stuff?\nuvr run so alls cipts msut be call via temrinal ? what about quarto?\n\nQueisotn\n\nwhere are packge sinstaled withi lcoal repo? if so thas bad worktreses wont work?"
+  },
+  {
+    "objectID": "tidbits/2026-10-21-uvr-test-drive/index.html#ran-testing",
+    "href": "tidbits/2026-10-21-uvr-test-drive/index.html#ran-testing",
+    "title": "Test driving uvr: a uv-style manager for R",
+    "section": "Ran Testing",
+    "text": "Ran Testing\n\n1. Install CLI tool\nPS C:\\Users\\ranli\\orca\\workspaces\\ran-codes.github.io\\uvr-test&gt; irm https://raw.githubusercontent.com/nbafrank/uvr/main/install.ps1 | iex\nuvr-install: Detected platform: x86_64-pc-windows-msvc\nuvr-install: Installing uvr v0.4.7\nuvr-install: Downloading uvr-x86_64-pc-windows-msvc.zip...\nuvr-install: Verifying checksum...\nuvr-install: Checksum verified\nuvr-install: Extracting...\nuvr-install: Installed uvr to C:\\Users\\ranli\\.local\\bin\\uvr.exe\nuvr 0.4.7\nPS C:\\Users\\ranli\\orca\\workspaces\\ran-codes.github.io\\uvr-test&gt; uvr --version\nuvr 0.4.7\n\n\n2. Init New Project uvr init\n\nThis ‘project’ was scoped to this tidbits subfodler so relative path of  tidbits/2026-10-21-uvr-test-drive so PS C:\\Users\\ranli\\orca\\workspaces\\[ran-codes.github.io](http://ran-codes.github.io)\\uvr-test\\tidbits&gt; cd .\\2026-10-21-uvr-test-drive\\\nWe first init a project here uvr init\n\nPS C:\\Users\\ranli\\orca\\workspaces\\ran-codes.github.io\\uvr-test\\tidbits\\2026-10-21-uvr-test-drive&gt; uvr init hello\n✓ Initialized project hello\n  uvr.toml\n  .uvr/library/\nThis produced a few atirfacts:\n\ngitignore\n.Rprofile\n\nThis file contians the R code required for uvr to work?\n\nuvr.toml\n\nA init is empty wiht single paraptmer name = \"hello\"\n\n\n\n\n3. Adding a package uvr add\n\nLets now test some packages uvr add tidyverse\nthat was fast 2.4 seconds!\nwhat gwas chagnd  \n\na new uvr.lock file (becuase its fithe fist add with dpeneicny detials)\nthen a dmepnciens secionts in the uvr.toml\n\n\n[dependencies]\ntidyverse = \"*\"\n\n\n4. Lets test it out with a Script\n\nWe create test.R whihc otnaisn sprint mtcars\nuvr run test.R\n\nthis is through the terminal \nPS C:\\Users\\ranli\\orca\\workspaces\\ran-codes.github.io\\uvr-test\\tidbits\\2026-10-21-uvr-test-drive&gt; uvr run test.R\nuvr: library linked (100 packages)\n── Attaching core tidyverse packages ──────────────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.1     ✔ readr     2.2.0\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.3     ✔ tibble    3.3.1\n✔ lubridate 1.9.5     ✔ tidyr     1.3.2\n✔ purrr     1.2.2\n── Conflicts ────────────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts tobecome errors\n  cyl  n\n1   4 11\n2   6  7\n3   8 14\nIt Works as epected!!\n\n\n5. Does this work with a quarto file - YES with the activaiton like uvr actiaviete\n\nwe setup _test.qmd a normal\nOpen a new pwsh (PowerShell 7) terminal → $PSVersionTable.PSVersion says 7.x (5.1 can’t parse activate.ps1)\n. .uvr/activate.ps1 → no error\nRscript -e \".libPaths()\" → .uvr/library listed first\nquarto render _test.qmd → renders without errors\nOpen _test.html → .libPaths() shows .uvr/library first, tidyverse loads\ndeactivate → shell back to normal\n\n.libPaths()\n\n[1] \"C:/Users/ranli/orca/workspaces/ran-codes.github.io/uvr-test/tidbits/2026-10-21-uvr-test-drive/.uvr/library\"\n[2] \"C:/Program Files/R/R-4.5.3/library\"      \n\nNegative test: fresh pwsh at the repo root → Rscript -e \".libPaths()\" → no .uvr/library (run outside this folder, since its .Rprofile links the library even without activation)\n\nPS C:\\Users\\ranli\\orca\\workspaces\\ran-codes.github.io\\uvr-test&gt; Rscript -e \".libPaths()\"\n\n[1] \"C:/Users/ranli/AppData/Local/R/win-library/4.5\"\n[2] \"C:/Program Files/R/R-4.5.3/library\""
+  },
+  {
+    "objectID": "tidbits/2026-10-21-uvr-test-drive/index.html#understanding",
+    "href": "tidbits/2026-10-21-uvr-test-drive/index.html#understanding",
+    "title": "Test driving uvr: a uv-style manager for R",
+    "section": "Understanding",
+    "text": "Understanding\n\nSo it seems like\nUVR can be used for both file level (metadata store in commnets at tope of R script) or project (Like uv level of details)\nThere is a global package donwlaod folder which project pull from meaning the local lock files only ocntian poitners; This is GREAT for workteees!!!!\nSee below for test run!\nTips\n\nset [Activaite] prompt conif tot true to see the uvr indicaiotr inthe tmeirnal! like it does for venv!\n\nTHIS WORKS GREAT. Need ot itnegrate it into some projects!!!"
+  },
+  {
+    "objectID": "tidbits/2026-10-21-uvr-test-drive/index.html#appendix-a---related-tidbits-to-follow-up-on",
+    "href": "tidbits/2026-10-21-uvr-test-drive/index.html#appendix-a---related-tidbits-to-follow-up-on",
+    "title": "Test driving uvr: a uv-style manager for R",
+    "section": "Appendix A - Related tidbits to follow up on",
+    "text": "Appendix A - Related tidbits to follow up on"
+  },
+  {
+    "objectID": "tidbits/2026-11-03-rust-crate-vs-package.html",
+    "href": "tidbits/2026-11-03-rust-crate-vs-package.html",
+    "title": "Rust package vs crate vs modules",
+    "section": "",
+    "text": "conceptutal crate vs package and then the epxressino of it in filestrees and organizaotn ruesl are not clear to me\nneed to clearly undrestnad thsi arhcetrue to start being able to sniff test rust codebases"
+  },
+  {
+    "objectID": "tidbits/2026-11-03-rust-crate-vs-package.html#reference-a---crate-types",
+    "href": "tidbits/2026-11-03-rust-crate-vs-package.html#reference-a---crate-types",
+    "title": "Rust package vs crate vs modules",
+    "section": "Reference A - Crate types",
+    "text": "Reference A - Crate types\n\n\n\n\n\n\n\n\nKind\nCrate Root\nBuilds\n\n\n\n\nLibrary\nsrc/lib.rs (max one)\n.rlib for other crates\n\n\nBinary\nsrc/main.rs, src/bin/*.rs\nan .exe\n\n\nTest, example, bench\ntests/, examples/, benches/ *.rs\nan .exe, run by its own cargo command\n\n\nBuild script\nbuild.rs\nruns before the package compiles"
+  },
+  {
+    "objectID": "glossary/git.html",
+    "href": "glossary/git.html",
+    "title": "Git and GitHub",
+    "section": "",
+    "text": "Terms follow the Git documentation and GitHub Docs. Terms that are not official are marked informal."
+  },
+  {
+    "objectID": "glossary/git.html#config-files",
+    "href": "glossary/git.html#config-files",
+    "title": "Git and GitHub",
+    "section": "Config files",
+    "text": "Config files\n\n\n\n\n\n\n\nTerm\nMeaning\n\n\n\n\n.gitattributes\nA committed file that sets per-path rules for Git, such as which line ending (eol) files get when Git writes them. It travels with the repo, so it applies on every clone"
+  },
+  {
+    "objectID": "portfolio.html",
+    "href": "portfolio.html",
+    "title": "Portfolio",
+    "section": "",
+    "text": "Philadelphia City Council Health Dashboard: From Shiny Prototype to Serverless Production App\n\n\n\nDashboard\n\nR Shiny\n\nNext.js\n\nReact.js\n\nHighcharts.js\n\n\n\n\n\n\n\nRan Li\n\n\nSep 1, 2025\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "blog/2025-09-09-duckdb-wasm-proof-of-concept/index.html",
+    "href": "blog/2025-09-09-duckdb-wasm-proof-of-concept/index.html",
+    "title": "Proof of Concept: Client-side Serverless DuckDB query of cloud bucket storages",
+    "section": "",
+    "text": "Intro\nThis demonstrates a serverless analytics stack combining Static Site Generation (SSG) with cloud-hosted Parquet datasets via DuckDB WASM. This architecture enables lightweight, cost-effective deployment of static site front ends with integration to cloud data stroage (S3 or other databases) using client-side SQL processing via DuckDB WASM.\nUse Cases:\n\nInteractive dashboards deployed to CDNs\nReal-time analytics on static hosting (Netlify, Vercel, GitHub Pages)\nClient-side data processing without API costs\nScalable data visualization with minimal infrastructure\n\nArchitecture Benefits:\n\nZero server costs (static hosting only)\nAutomatic global CDN distribution\nDirect cloud dataset access\nClient-side SQL processing\n\n\n\nData Source (Hugging Faces Parquet)\nWe access Parquet files from Hugging Face, an open-science repository with ML-optimized APIs and CORS-enabled endpoints suitable for browser-based applications. However this workflow works with any storage provider (Azure, AWS, GCP, Hugging Face, etc.). We use Hugging Face because it’s a gold standard open-science data repository that is performant and free.\n\n\nTraditional Server-side Pattern (R/Python/Node.js running on server)\nWe can query as we do normally working on a local or cloud comptuer that is running some server; in this case its R code but it could be any language the query syntax is native SQL.\n\nlibrary(duckdb); library(tidyverse)\ncon &lt;- dbConnect(duckdb())\n\nresult &lt;- dbGetQuery(con, \"\n  SELECT * \n  FROM 'https://huggingface.co/datasets/ran-codes/mtcars/resolve/refs%2Fconvert%2Fparquet/default/train/0000.parquet' \n\") |&gt; as_tibble()\n\nresult |&gt; glimpse()\n\nRows: 32\nColumns: 12\n$ model &lt;chr&gt; \"Mazda RX4\", \"Mazda RX4 Wag\", \"Datsun 710\", \"Hornet 4 Drive\", \"H…\n$ mpg   &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8…\n$ cyl   &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8…\n$ disp  &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 1…\n$ hp    &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 18…\n$ drat  &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92…\n$ wt    &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3…\n$ qsec  &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 1…\n$ vs    &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0…\n$ am    &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0…\n$ gear  &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3…\n$ carb  &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2…\n\ndbDisconnect(con)\n\n\n\nServerless/Client-side Pattern (WASM running in browser)\nDuckDB WASM enables SQL processing directly in browsers, eliminating server dependencies. Below is the serverless equivalent of the query from above.\nLet’s first import DuckDB WASM from npm (Javascript package manager).\n\n// Import DuckDB WASM\nduckdb = import(\"https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.28.0/+esm\")\n\n\n\n\n\n\nNow we can set up our in browser DuckDB instance/connection. This is a bit more involved than the server-side version because we have to set up a web worker to run the database in a separate thread from the main browser UI thread.\n\n// Initialize with jsDelivr bundles (recommended approach)\ndb = {\n  const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();\n  const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);\n\n  const worker_url = URL.createObjectURL(\n    new Blob([`importScripts(\"${bundle.mainWorker}\");`], {type: 'text/javascript'})\n  );\n\n  const worker = new Worker(worker_url);\n  const logger = new duckdb.ConsoleLogger();\n  const db = new duckdb.AsyncDuckDB(logger, worker);\n  \n  await db.instantiate(bundle.mainModule, bundle.pthreadWorker);\n  URL.revokeObjectURL(worker_url);\n  \n  return db;\n}\n\n\n\n\n\n\nLooks good. Now we can connect to the cloud data storage and run our query.\n\n// Query S3 Parquet using HTTPS URL\nwasmResult = {\n  const conn = await db.connect();\n  \n  try {\n    const result = await conn.query(`\n      SELECT * \n     FROM 'https://huggingface.co/datasets/ran-codes/mtcars/resolve/refs%2Fconvert%2Fparquet/default/train/0000.parquet'  \n      LIMIT 5\n    `);\n    \n    return result.toArray().map(row =&gt; row.toJSON());\n    \n  } finally {\n    await conn.close();\n  }\n}\n\n\n\n\n\n\nLooks like it worked. Lets print results\n\nwasmResult\n\n\n\n\n\n\n\nInputs.table(wasmResult)\n\n\n\n\n\n\n\n\n\n\nArchitecture Implications\nDeployment Simplicity:\n\nBuild once, deploy to any static host\nNo server provisioning or maintenance\nAutomatic scaling via CDN\n\nCost Efficiency:\n\nNo compute costs (client-side processing)\nNo database hosting fees\nPay only for static hosting and data egress\n\nPerformance Characteristics:\n\nInitial WASM load overhead (~2-3MB)\nSubsequent queries run locally\nOptimal for &lt;100MB datasets per query\n\n\n\n\nAppendix: CORS and Cloud Storage\nCORS (Cross-Origin Resource Sharing) controls browser access to cross-domain resources.\nWhy Hugging Face works:\n\nCORS headers allow browser access (Access-Control-Allow-Origin: *)\nOptimized for ML/data science integration\n\nFor custom deployments:\nS3:\n[{\n  \"AllowedOrigins\": [\"https://yourapp.com\"],\n  \"AllowedMethods\": [\"GET\", \"HEAD\"], \n  \"AllowedHeaders\": [\"*\"],\n  \"MaxAgeSeconds\": 3000\n}]\nAzure Blob:\n{\n  \"allowedOrigins\": [\"https://yourapp.com\"],\n  \"allowedMethods\": [\"GET\"],\n  \"maxAgeInSeconds\": 3600\n}\nSecurity note: CORS controls browser access, not authentication. Use signed URLs or IAM policies for data security."
+  },
+  {
+    "objectID": "tidbits.html",
+    "href": "tidbits.html",
+    "title": "Tidbits",
+    "section": "",
+    "text": "Date\n\n\n\nTitle\n\n\n\nCategories\n\n\n\n\n\n\n\n\n2026-11-06\n\n\nAgent accessibility in Quarto and Docusaurus doc sites\n\n\nquarto, docusaurus, ai-agents, docs\n\n\n\n\n\n\n2026-11-05\n\n\nRust workspace primer: target, modules, tests, sccache, worktrees\n\n\nrust, cargo, sccache, git-worktrees\n\n\n\n\n\n\n2026-11-03\n\n\nRust package vs crate vs modules\n\n\nrust, cargo\n\n\n\n\n\n\n2026-11-02\n\n\nRust build vs compilation\n\n\nrust, cargo, sccache, git-worktrees\n\n\n\n\n\n\n2026-11-02\n\n\nAzure compute options: Container Apps vs Web App, and their AWS equivalents\n\n\nazure, aws, container-apps, app-service\n\n\n\n\n\n\n2026-11-02\n\n\nLine endings on four axes: LF vs CRLF, repo vs local, .gitattributes, and the refresh\n\n\ngit, line-endings, gitattributes, windows\n\n\n\n\n\n\n2026-10-30\n\n\nGitHub Actions triggers, filters and ifs\n\n\ngithub-actions, ci, git\n\n\n\n\n\n\n2026-10-30\n\n\nRust code organizaiton 101 - breaking down dbt-oss repo\n\n\nrust, cargo, tooling\n\n\n\n\n\n\n2026-10-21\n\n\nTest driving uvr: a uv-style manager for R\n\n\nr, uvr, tooling\n\n\n\n\n\n\n2026-10-21\n\n\nNotion as a backend for a static site\n\n\nnotion, cloudflare, architecture\n\n\n\n\n\n\n2026-10-13\n\n\nQuarto lightbox figures for HTML and Revealjs\n\n\nquarto, html, revealjs\n\n\n\n\n\n\n2026-10-12\n\n\nR package and environment management: renv, pak, and friends\n\n\nr, renv, pak, tooling\n\n\n\n\n\n\n2026-10-08\n\n\nJS script runners and package managers: npm, pnpm, and vite test\n\n\njavascript, pnpm, npm, vite, tooling\n\n\n\n\n\n\n2026-10-05\n\n\nNext.js server vs. client components in static exports\n\n\nnextjs, react, static-site\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "glossary.html",
+    "href": "glossary.html",
+    "title": "Glossary",
+    "section": "",
+    "text": "Title\n\n\n\nDescription\n\n\n\nModified\n\n\n\n\n\n\n\n\nGit and GitHub\n\n\nRepos, clones, config files and line endings.\n\n\n \n\n\n\n\n\n\nRust\n\n\nCargo, crates, compiling, building and caching.\n\n\n \n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "glossary/rust.html",
@@ -252,234 +280,213 @@
     "text": "Caching\n\n\n\n\n\n\n\nTerm\nMeaning\n\n\n\n\nTarget directory\nWhere Cargo stores build output and the state it checks to skip unchanged work (target/ by default); also called the build cache. One per workspace, so each git worktree gets its own. Similar to Next.js’s .next/ or dbt’s target/\n\n\nFresh\nA unit whose cached output is up to date, so Cargo skips it\n\n\nDirty\nA unit that changed, so Cargo rebuilds it\n\n\nIncremental compilation\nrustc reuses work from the last compile of the same crate\n\n\nCold / warm build\nInformal. A build with an empty vs. populated target directory\n\n\nrustc wrapper\nA program Cargo runs in place of rustc (build.rustc-wrapper)\n\n\nsccache\nThird-party. A rustc wrapper that caches compile output across directories\n\n\n\n\nTarget directory layout\nThe subfolders that matter for build speed. deps/ and incremental/ sit inside each profile folder, not at the top of target/.\n\n\n\n\n\n\n\nPath\nHolds\n\n\n\n\ntarget/debug/\nOutput of a plain cargo build; compiles fast, runs slow\n\n\ntarget/release/\nOutput of cargo build --release; compiles slow, runs fast. The final files sit at its top level, like Next.js’s out/\n\n\ntarget/&lt;profile&gt;/deps/\nCompiled dependencies; most of a cold build, and the part sccache can share\n\n\ntarget/&lt;profile&gt;/incremental/\nIncremental state for your own crates; filled on the first build in each target directory. sccache does not cache incremental compiles"
   },
   {
-    "objectID": "glossary.html",
-    "href": "glossary.html",
-    "title": "Glossary",
+    "objectID": "tidbits/2026-11-02-rust-build-vs-compile-worktrees-sccache.html",
+    "href": "tidbits/2026-11-02-rust-build-vs-compile-worktrees-sccache.html",
+    "title": "Rust build vs compilation",
     "section": "",
-    "text": "Title\n\n\n\nDescription\n\n\n\nModified\n\n\n\n\n\n\n\n\nGit and GitHub\n\n\nRepos, clones, config files and line endings.\n\n\n \n\n\n\n\n\n\nRust\n\n\nCargo, crates, compiling, building and caching.\n\n\n \n\n\n\n\n\n\nNo matching items"
+    "text": "1. Ramblings\n\nrust has compilation then build\niw ant t konw the idferinces\nthe efect of tec sucha s sccache on rust wokr in worktrees\ni want atbles of conidioatn and worktres and scenairoes to fully udnrestand\n\n\n\n2. Understanding\n\nTriage\n\nSo I think i asked great questions above\nThey are very ‘fundamental’ questions - the answers to which require a fundamental working baseline vocabulary of Rust workflows to even begin to answer\nI first initialized a basic super simple rust glossary in this site\nFrom there we will triage and answer the rambling questions from above\n\nBreakdown/rephrase: first lets isolate the specific questions or points of confusion\n\nCore question 1: Compilation vs Build\nCore question 2: Worktrees and Sccache\n\n\n\n2.1 Core Question 1: Compilation vs Build\n\nCompilation or compiling within the Rust/Cargo workflows is a step.\n\nThis takes rust code and builds an output artifact (which could be a exe or rlib or wasm or other artifacts); These are artifacts can be consumed/used by users\n\nBuild is a specific Cargo command cargo build which does a few steps for a speicifed scope of work\n\nBuild can be specified to work at various levels (\n\nworspace level  -&gt; all packages/crates within  a repo\npackage -&gt; specific packgaes and all its crates\ncrate -&gt; specific crates\n\nit then within the scope sepcific does a two main steps\n\nFirstly it compiles all the crates that is within the scope (plus dpednenceis)\nThen it Links the individual crate output artifacts into a single develoerable artifact per target as specificed\n\n\nSo in summary\n\nCompilation is a step\nBuild is a process/command that calls compilation\n\n\n\n\n\n\nFollow-up\n\nThe rambling asked two big queistons\nWe answer hte first one as its a good scope for a tidibit\nwe filled follow two tibbits \n\none to asnwer hte core quesiton 2\nanother to reoslve a new confusiong point hta came up which is the diffeirentiation of crate vs package (and their file tree implemtations)"
   },
   {
-    "objectID": "tidbits.html",
-    "href": "tidbits.html",
-    "title": "Tidbits",
+    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html",
+    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html",
+    "title": "Quarto lightbox figures for HTML and Revealjs",
     "section": "",
-    "text": "Date\n\n\n\nTitle\n\n\n\nCategories\n\n\n\n\n\n\n\n\n2026-11-06\n\n\nAgent accessibility in Quarto and Docusaurus doc sites\n\n\nquarto, docusaurus, ai-agents, docs\n\n\n\n\n\n\n2026-11-05\n\n\nRust workspace primer: target, modules, tests, sccache, worktrees\n\n\nrust, cargo, sccache, git-worktrees\n\n\n\n\n\n\n2026-11-03\n\n\nRust package vs crate vs modules\n\n\nrust, cargo\n\n\n\n\n\n\n2026-11-02\n\n\nRust build vs compilation\n\n\nrust, cargo, sccache, git-worktrees\n\n\n\n\n\n\n2026-11-02\n\n\nAzure compute options: Container Apps vs Web App, and their AWS equivalents\n\n\nazure, aws, container-apps, app-service\n\n\n\n\n\n\n2026-11-02\n\n\nLine endings on four axes: LF vs CRLF, repo vs local, .gitattributes, and the refresh\n\n\ngit, line-endings, gitattributes, windows\n\n\n\n\n\n\n2026-10-30\n\n\nGitHub Actions triggers, filters and ifs\n\n\ngithub-actions, ci, git\n\n\n\n\n\n\n2026-10-30\n\n\nRust code organizaiton 101 - breaking down dbt-oss repo\n\n\nrust, cargo, tooling\n\n\n\n\n\n\n2026-10-21\n\n\nTest driving uvr: a uv-style manager for R\n\n\nr, uvr, tooling\n\n\n\n\n\n\n2026-10-21\n\n\nNotion as a backend for a static site\n\n\nnotion, cloudflare, architecture\n\n\n\n\n\n\n2026-10-13\n\n\nQuarto lightbox figures for HTML and Revealjs\n\n\nquarto, html, revealjs\n\n\n\n\n\n\n2026-10-12\n\n\nR package and environment management: renv, pak, and friends\n\n\nr, renv, pak, tooling\n\n\n\n\n\n\n2026-10-08\n\n\nJS script runners and package managers: npm, pnpm, and vite test\n\n\njavascript, pnpm, npm, vite, tooling\n\n\n\n\n\n\n2026-10-05\n\n\nNext.js server vs. client components in static exports\n\n\nnextjs, react, static-site\n\n\n\n\n\n\nNo matching items"
+    "text": "Just learned Quarto can turn images into lightbox figures (click to enlarge) in HTML outputs like HTML documents and Revealjs slides. Docs: https://quarto.org/docs/output-formats/html-lightbox-figures.html"
   },
   {
-    "objectID": "blog/2025-09-09-duckdb-wasm-proof-of-concept/index.html",
-    "href": "blog/2025-09-09-duckdb-wasm-proof-of-concept/index.html",
-    "title": "Proof of Concept: Client-side Serverless DuckDB query of cloud bucket storages",
+    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html#ramblings",
+    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html#ramblings",
+    "title": "Quarto lightbox figures for HTML and Revealjs",
     "section": "",
-    "text": "Intro\nThis demonstrates a serverless analytics stack combining Static Site Generation (SSG) with cloud-hosted Parquet datasets via DuckDB WASM. This architecture enables lightweight, cost-effective deployment of static site front ends with integration to cloud data stroage (S3 or other databases) using client-side SQL processing via DuckDB WASM.\nUse Cases:\n\nInteractive dashboards deployed to CDNs\nReal-time analytics on static hosting (Netlify, Vercel, GitHub Pages)\nClient-side data processing without API costs\nScalable data visualization with minimal infrastructure\n\nArchitecture Benefits:\n\nZero server costs (static hosting only)\nAutomatic global CDN distribution\nDirect cloud dataset access\nClient-side SQL processing\n\n\n\nData Source (Hugging Faces Parquet)\nWe access Parquet files from Hugging Face, an open-science repository with ML-optimized APIs and CORS-enabled endpoints suitable for browser-based applications. However this workflow works with any storage provider (Azure, AWS, GCP, Hugging Face, etc.). We use Hugging Face because it’s a gold standard open-science data repository that is performant and free.\n\n\nTraditional Server-side Pattern (R/Python/Node.js running on server)\nWe can query as we do normally working on a local or cloud comptuer that is running some server; in this case its R code but it could be any language the query syntax is native SQL.\n\nlibrary(duckdb); library(tidyverse)\ncon &lt;- dbConnect(duckdb())\n\nresult &lt;- dbGetQuery(con, \"\n  SELECT * \n  FROM 'https://huggingface.co/datasets/ran-codes/mtcars/resolve/refs%2Fconvert%2Fparquet/default/train/0000.parquet' \n\") |&gt; as_tibble()\n\nresult |&gt; glimpse()\n\nRows: 32\nColumns: 12\n$ model &lt;chr&gt; \"Mazda RX4\", \"Mazda RX4 Wag\", \"Datsun 710\", \"Hornet 4 Drive\", \"H…\n$ mpg   &lt;dbl&gt; 21.0, 21.0, 22.8, 21.4, 18.7, 18.1, 14.3, 24.4, 22.8, 19.2, 17.8…\n$ cyl   &lt;dbl&gt; 6, 6, 4, 6, 8, 6, 8, 4, 4, 6, 6, 8, 8, 8, 8, 8, 8, 4, 4, 4, 4, 8…\n$ disp  &lt;dbl&gt; 160.0, 160.0, 108.0, 258.0, 360.0, 225.0, 360.0, 146.7, 140.8, 1…\n$ hp    &lt;dbl&gt; 110, 110, 93, 110, 175, 105, 245, 62, 95, 123, 123, 180, 180, 18…\n$ drat  &lt;dbl&gt; 3.90, 3.90, 3.85, 3.08, 3.15, 2.76, 3.21, 3.69, 3.92, 3.92, 3.92…\n$ wt    &lt;dbl&gt; 2.620, 2.875, 2.320, 3.215, 3.440, 3.460, 3.570, 3.190, 3.150, 3…\n$ qsec  &lt;dbl&gt; 16.46, 17.02, 18.61, 19.44, 17.02, 20.22, 15.84, 20.00, 22.90, 1…\n$ vs    &lt;dbl&gt; 0, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0…\n$ am    &lt;dbl&gt; 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0…\n$ gear  &lt;dbl&gt; 4, 4, 4, 3, 3, 3, 3, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3, 4, 4, 4, 3, 3…\n$ carb  &lt;dbl&gt; 4, 4, 1, 1, 2, 1, 4, 2, 2, 4, 4, 3, 3, 3, 4, 4, 4, 1, 2, 1, 1, 2…\n\ndbDisconnect(con)\n\n\n\nServerless/Client-side Pattern (WASM running in browser)\nDuckDB WASM enables SQL processing directly in browsers, eliminating server dependencies. Below is the serverless equivalent of the query from above.\nLet’s first import DuckDB WASM from npm (Javascript package manager).\n\n// Import DuckDB WASM\nduckdb = import(\"https://cdn.jsdelivr.net/npm/@duckdb/duckdb-wasm@1.28.0/+esm\")\n\n\n\n\n\n\nNow we can set up our in browser DuckDB instance/connection. This is a bit more involved than the server-side version because we have to set up a web worker to run the database in a separate thread from the main browser UI thread.\n\n// Initialize with jsDelivr bundles (recommended approach)\ndb = {\n  const JSDELIVR_BUNDLES = duckdb.getJsDelivrBundles();\n  const bundle = await duckdb.selectBundle(JSDELIVR_BUNDLES);\n\n  const worker_url = URL.createObjectURL(\n    new Blob([`importScripts(\"${bundle.mainWorker}\");`], {type: 'text/javascript'})\n  );\n\n  const worker = new Worker(worker_url);\n  const logger = new duckdb.ConsoleLogger();\n  const db = new duckdb.AsyncDuckDB(logger, worker);\n  \n  await db.instantiate(bundle.mainModule, bundle.pthreadWorker);\n  URL.revokeObjectURL(worker_url);\n  \n  return db;\n}\n\n\n\n\n\n\nLooks good. Now we can connect to the cloud data storage and run our query.\n\n// Query S3 Parquet using HTTPS URL\nwasmResult = {\n  const conn = await db.connect();\n  \n  try {\n    const result = await conn.query(`\n      SELECT * \n     FROM 'https://huggingface.co/datasets/ran-codes/mtcars/resolve/refs%2Fconvert%2Fparquet/default/train/0000.parquet'  \n      LIMIT 5\n    `);\n    \n    return result.toArray().map(row =&gt; row.toJSON());\n    \n  } finally {\n    await conn.close();\n  }\n}\n\n\n\n\n\n\nLooks like it worked. Lets print results\n\nwasmResult\n\n\n\n\n\n\n\nInputs.table(wasmResult)\n\n\n\n\n\n\n\n\n\n\nArchitecture Implications\nDeployment Simplicity:\n\nBuild once, deploy to any static host\nNo server provisioning or maintenance\nAutomatic scaling via CDN\n\nCost Efficiency:\n\nNo compute costs (client-side processing)\nNo database hosting fees\nPay only for static hosting and data egress\n\nPerformance Characteristics:\n\nInitial WASM load overhead (~2-3MB)\nSubsequent queries run locally\nOptimal for &lt;100MB datasets per query\n\n\n\n\nAppendix: CORS and Cloud Storage\nCORS (Cross-Origin Resource Sharing) controls browser access to cross-domain resources.\nWhy Hugging Face works:\n\nCORS headers allow browser access (Access-Control-Allow-Origin: *)\nOptimized for ML/data science integration\n\nFor custom deployments:\nS3:\n[{\n  \"AllowedOrigins\": [\"https://yourapp.com\"],\n  \"AllowedMethods\": [\"GET\", \"HEAD\"], \n  \"AllowedHeaders\": [\"*\"],\n  \"MaxAgeSeconds\": 3000\n}]\nAzure Blob:\n{\n  \"allowedOrigins\": [\"https://yourapp.com\"],\n  \"allowedMethods\": [\"GET\"],\n  \"maxAgeInSeconds\": 3600\n}\nSecurity note: CORS controls browser access, not authentication. Use signed URLs or IAM policies for data security."
+    "text": "Just learned Quarto can turn images into lightbox figures (click to enlarge) in HTML outputs like HTML documents and Revealjs slides. Docs: https://quarto.org/docs/output-formats/html-lightbox-figures.html"
   },
   {
-    "objectID": "portfolio.html",
-    "href": "portfolio.html",
-    "title": "Portfolio",
-    "section": "",
-    "text": "Philadelphia City Council Health Dashboard: From Shiny Prototype to Serverless Production App\n\n\n\nDashboard\n\nR Shiny\n\nNext.js\n\nReact.js\n\nHighcharts.js\n\n\n\n\n\n\n\nRan Li\n\n\nSep 1, 2025\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "glossary/git.html",
-    "href": "glossary/git.html",
-    "title": "Git and GitHub",
-    "section": "",
-    "text": "Terms follow the Git documentation and GitHub Docs. Terms that are not official are marked informal."
-  },
-  {
-    "objectID": "glossary/git.html#config-files",
-    "href": "glossary/git.html#config-files",
-    "title": "Git and GitHub",
-    "section": "Config files",
-    "text": "Config files\n\n\n\n\n\n\n\nTerm\nMeaning\n\n\n\n\n.gitattributes\nA committed file that sets per-path rules for Git, such as which line ending (eol) files get when Git writes them. It travels with the repo, so it applies on every clone"
-  },
-  {
-    "objectID": "tidbits/2026-11-03-rust-crate-vs-package.html",
-    "href": "tidbits/2026-11-03-rust-crate-vs-package.html",
-    "title": "Rust package vs crate vs modules",
-    "section": "",
-    "text": "conceptutal crate vs package and then the epxressino of it in filestrees and organizaotn ruesl are not clear to me\nneed to clearly undrestnad thsi arhcetrue to start being able to sniff test rust codebases"
-  },
-  {
-    "objectID": "tidbits/2026-11-03-rust-crate-vs-package.html#reference-a---crate-types",
-    "href": "tidbits/2026-11-03-rust-crate-vs-package.html#reference-a---crate-types",
-    "title": "Rust package vs crate vs modules",
-    "section": "Reference A - Crate types",
-    "text": "Reference A - Crate types\n\n\n\n\n\n\n\n\nKind\nCrate Root\nBuilds\n\n\n\n\nLibrary\nsrc/lib.rs (max one)\n.rlib for other crates\n\n\nBinary\nsrc/main.rs, src/bin/*.rs\nan .exe\n\n\nTest, example, bench\ntests/, examples/, benches/ *.rs\nan .exe, run by its own cargo command\n\n\nBuild script\nbuild.rs\nruns before the package compiles"
-  },
-  {
-    "objectID": "tidbits/2026-10-21-uvr-test-drive/index.html",
-    "href": "tidbits/2026-10-21-uvr-test-drive/index.html",
-    "title": "Test driving uvr: a uv-style manager for R",
-    "section": "",
-    "text": "okay here we test uvr  - https://github.com/nbafrank/uvr\nso scanning the docs so here are my queistons\n\nscope\n\nso it can be used for ‘file’ level or ‘project level’ management \nis there a way to set  a global defaul liek uv global?\n\nthe commands\n\nuvr init does what? it inits a uv project memaning it creat eina ofdler some artacts like uv ldoes (lock files …. project.toml??))\nuvr add adds a package to the uvr proejct - akes sne\nuvr sync takes a uvr lcok file and isntalls the local R packges - quesiot to wehre does each get a local R pake folder? or is like pnpmn where there isa global store that can be reused across worktrees and stuff?\nuvr run so alls cipts msut be call via temrinal ? what about quarto?\n\nQueisotn\n\nwhere are packge sinstaled withi lcoal repo? if so thas bad worktreses wont work?"
-  },
-  {
-    "objectID": "tidbits/2026-10-21-uvr-test-drive/index.html#ramblings",
-    "href": "tidbits/2026-10-21-uvr-test-drive/index.html#ramblings",
-    "title": "Test driving uvr: a uv-style manager for R",
-    "section": "",
-    "text": "okay here we test uvr  - https://github.com/nbafrank/uvr\nso scanning the docs so here are my queistons\n\nscope\n\nso it can be used for ‘file’ level or ‘project level’ management \nis there a way to set  a global defaul liek uv global?\n\nthe commands\n\nuvr init does what? it inits a uv project memaning it creat eina ofdler some artacts like uv ldoes (lock files …. project.toml??))\nuvr add adds a package to the uvr proejct - akes sne\nuvr sync takes a uvr lcok file and isntalls the local R packges - quesiot to wehre does each get a local R pake folder? or is like pnpmn where there isa global store that can be reused across worktrees and stuff?\nuvr run so alls cipts msut be call via temrinal ? what about quarto?\n\nQueisotn\n\nwhere are packge sinstaled withi lcoal repo? if so thas bad worktreses wont work?"
-  },
-  {
-    "objectID": "tidbits/2026-10-21-uvr-test-drive/index.html#ran-testing",
-    "href": "tidbits/2026-10-21-uvr-test-drive/index.html#ran-testing",
-    "title": "Test driving uvr: a uv-style manager for R",
-    "section": "Ran Testing",
-    "text": "Ran Testing\n\n1. Install CLI tool\nPS C:\\Users\\ranli\\orca\\workspaces\\ran-codes.github.io\\uvr-test&gt; irm https://raw.githubusercontent.com/nbafrank/uvr/main/install.ps1 | iex\nuvr-install: Detected platform: x86_64-pc-windows-msvc\nuvr-install: Installing uvr v0.4.7\nuvr-install: Downloading uvr-x86_64-pc-windows-msvc.zip...\nuvr-install: Verifying checksum...\nuvr-install: Checksum verified\nuvr-install: Extracting...\nuvr-install: Installed uvr to C:\\Users\\ranli\\.local\\bin\\uvr.exe\nuvr 0.4.7\nPS C:\\Users\\ranli\\orca\\workspaces\\ran-codes.github.io\\uvr-test&gt; uvr --version\nuvr 0.4.7\n\n\n2. Init New Project uvr init\n\nThis ‘project’ was scoped to this tidbits subfodler so relative path of  tidbits/2026-10-21-uvr-test-drive so PS C:\\Users\\ranli\\orca\\workspaces\\[ran-codes.github.io](http://ran-codes.github.io)\\uvr-test\\tidbits&gt; cd .\\2026-10-21-uvr-test-drive\\\nWe first init a project here uvr init\n\nPS C:\\Users\\ranli\\orca\\workspaces\\ran-codes.github.io\\uvr-test\\tidbits\\2026-10-21-uvr-test-drive&gt; uvr init hello\n✓ Initialized project hello\n  uvr.toml\n  .uvr/library/\nThis produced a few atirfacts:\n\ngitignore\n.Rprofile\n\nThis file contians the R code required for uvr to work?\n\nuvr.toml\n\nA init is empty wiht single paraptmer name = \"hello\"\n\n\n\n\n3. Adding a package uvr add\n\nLets now test some packages uvr add tidyverse\nthat was fast 2.4 seconds!\nwhat gwas chagnd  \n\na new uvr.lock file (becuase its fithe fist add with dpeneicny detials)\nthen a dmepnciens secionts in the uvr.toml\n\n\n[dependencies]\ntidyverse = \"*\"\n\n\n4. Lets test it out with a Script\n\nWe create test.R whihc otnaisn sprint mtcars\nuvr run test.R\n\nthis is through the terminal \nPS C:\\Users\\ranli\\orca\\workspaces\\ran-codes.github.io\\uvr-test\\tidbits\\2026-10-21-uvr-test-drive&gt; uvr run test.R\nuvr: library linked (100 packages)\n── Attaching core tidyverse packages ──────────────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.2.1     ✔ readr     2.2.0\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.3     ✔ tibble    3.3.1\n✔ lubridate 1.9.5     ✔ tidyr     1.3.2\n✔ purrr     1.2.2\n── Conflicts ────────────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts tobecome errors\n  cyl  n\n1   4 11\n2   6  7\n3   8 14\nIt Works as epected!!\n\n\n5. Does this work with a quarto file - YES with the activaiton like uvr actiaviete\n\nwe setup _test.qmd a normal\nOpen a new pwsh (PowerShell 7) terminal → $PSVersionTable.PSVersion says 7.x (5.1 can’t parse activate.ps1)\n. .uvr/activate.ps1 → no error\nRscript -e \".libPaths()\" → .uvr/library listed first\nquarto render _test.qmd → renders without errors\nOpen _test.html → .libPaths() shows .uvr/library first, tidyverse loads\ndeactivate → shell back to normal\n\n.libPaths()\n\n[1] \"C:/Users/ranli/orca/workspaces/ran-codes.github.io/uvr-test/tidbits/2026-10-21-uvr-test-drive/.uvr/library\"\n[2] \"C:/Program Files/R/R-4.5.3/library\"      \n\nNegative test: fresh pwsh at the repo root → Rscript -e \".libPaths()\" → no .uvr/library (run outside this folder, since its .Rprofile links the library even without activation)\n\nPS C:\\Users\\ranli\\orca\\workspaces\\ran-codes.github.io\\uvr-test&gt; Rscript -e \".libPaths()\"\n\n[1] \"C:/Users/ranli/AppData/Local/R/win-library/4.5\"\n[2] \"C:/Program Files/R/R-4.5.3/library\""
-  },
-  {
-    "objectID": "tidbits/2026-10-21-uvr-test-drive/index.html#understanding",
-    "href": "tidbits/2026-10-21-uvr-test-drive/index.html#understanding",
-    "title": "Test driving uvr: a uv-style manager for R",
+    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html#understanding",
+    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html#understanding",
+    "title": "Quarto lightbox figures for HTML and Revealjs",
     "section": "Understanding",
-    "text": "Understanding\n\nSo it seems like\nUVR can be used for both file level (metadata store in commnets at tope of R script) or project (Like uv level of details)\nThere is a global package donwlaod folder which project pull from meaning the local lock files only ocntian poitners; This is GREAT for workteees!!!!\nSee below for test run!\nTips\n\nset [Activaite] prompt conif tot true to see the uvr indicaiotr inthe tmeirnal! like it does for venv!\n\nTHIS WORKS GREAT. Need ot itnegrate it into some projects!!!"
+    "text": "Understanding\n\nA UI element that is an image which when cliked pops out hte image zoomed in in a nmodal is called a Lightbox \nRef and example:  https://en.wikipedia.org/wiki/Lightbox_(JavaScript)\nThis feature has two parts\n\n\nthe thumbnail image shown on your page (trigger)\n\n\nthe modal that pops up (inlcude the dim abckground) with closable button\n\n\nQuarto makes this available for HTML outputs?\n\nhttps://quarto.org/docs/output-formats/html-lightbox-figures.html"
   },
   {
-    "objectID": "tidbits/2026-10-21-uvr-test-drive/index.html#appendix-a---related-tidbits-to-follow-up-on",
-    "href": "tidbits/2026-10-21-uvr-test-drive/index.html#appendix-a---related-tidbits-to-follow-up-on",
-    "title": "Test driving uvr: a uv-style manager for R",
+    "objectID": "tidbits/2026-10-13-quarto-lightbox-figures.html#appendix-a---related-tidbits-to-follow-up-on",
+    "href": "tidbits/2026-10-13-quarto-lightbox-figures.html#appendix-a---related-tidbits-to-follow-up-on",
+    "title": "Quarto lightbox figures for HTML and Revealjs",
     "section": "Appendix A - Related tidbits to follow up on",
     "text": "Appendix A - Related tidbits to follow up on"
   },
   {
-    "objectID": "tidbits/2026-11-06-agent-accessibility-quarto-docusaurus-doc-sites.html",
-    "href": "tidbits/2026-11-06-agent-accessibility-quarto-docusaurus-doc-sites.html",
-    "title": "Agent accessibility in Quarto and Docusaurus doc sites",
+    "objectID": "tidbits/2026-10-12-r-package-and-env-management-renv.html",
+    "href": "tidbits/2026-10-12-r-package-and-env-management-renv.html",
+    "title": "R package and environment management: renv, pak, and friends",
     "section": "",
-    "text": "Rambling\n\nugh i am making a lot of documentatino sites mainly in quarot but starting to get into toher docs specific tools like docusarus and astro starlight\nmy quetions is in the agent of agents. \nwhat best practieces (in Nov 2026) are there for makig doc siste agent and accessible\ni hear the word llm.txt or soethgi or wheher that quaot emebds. but id ton know\nthis tibit is just to oreint my self and provide myself wihta priemr so i can impelment best practices into my docs sites\n\n\n\nUnderstanding\n\nthere is a gold standard for agent accessiblity of doc sites\n\nllms.txt is a singel index of all the pages on your side\n(llms.md oor .md) is markdown copy of each page\nllms-full.txt all docs in one file\n\nFor the tools that i use here is the support for these artifacts\n\n\n\n\n\nQuarto (native, 1.9+)\nDocusaurus 3.x (no native support; community plugin rachfop/docusaurus-plugin-llms v0.6.1)\n\n\n\n\nllms.txt (page index)\n✅\n✅\n\n\nMarkdown copy of each page\n✅\n✅\n\n\nllms-full.txt (all docs in one file)\n❌\n✅\n\n\n\n\nQuarot has native support\nOnly works in website and set in quarto.yaml\n\nwebsite:\n  llms-txt: true"
+    "text": "Reading from https://rworks.dev/posts/r-managers/ and trying to get the gist of it\nSo there are differenta xis we have to anylze in thi socnetxt\nwe have scope\n\nPackge/depenendciy mangemnet\nR version angemern\n\nI wan tot undestnadn the R ecoceys btu importably to compare tot eh Python and JS ecoysstemt; expecially presntign this int eh context of uv which i dont konw why jsut sticks out as the best UX i ahve ver had with a mangemnt but  from hwat i udnresnt uv does both pyhotn and dpendenc in one thign?\nimplciaitnosf or loom-datawarehouse\n\nso a arcehtecutural decision is that we  dont even need to ‘fork’ and modfy dbt-oss but rather we just \nwhat we can do is develop a wrapper"
   },
   {
-    "objectID": "tidbits/2026-10-30-github-actions-triggers-filters-and-ifs.html",
-    "href": "tidbits/2026-10-30-github-actions-triggers-filters-and-ifs.html",
-    "title": "GitHub Actions triggers, filters and ifs",
+    "objectID": "tidbits/2026-10-12-r-package-and-env-management-renv.html#ramblings",
+    "href": "tidbits/2026-10-12-r-package-and-env-management-renv.html#ramblings",
+    "title": "R package and environment management: renv, pak, and friends",
     "section": "",
-    "text": "Okay so its really important to understand how GitHub action are controlled (aka when they run!)\nFrom my understanding there are a few axis involve\n\nScope: Workflow vs Job\n\nA single GitHub action YAML contains the information for a single workflow run\nA workflow can have multiple jobs\nControl can be implemented on both levels\n\nWorkflow level control\n\nWhere a workflow runs is controlled by two components: Triggers-Filters\nTriggers are actions that happen on GitHub (see supplementary table below for details)\n\nmain\nPR\nmanual run trigger (aka dispatch maybe)\nothers\n\nFilters are more granular things that are add to trigger\n\nThese include (see supplementary table below for details)\n\npaths\nbranches\n\nUse cases\n\nFor example a common thing is if the trigger  change on main you can configure more sepcificayll that not jsut an change on main but sepcifical onyl on change sot as pecific path on main juchs as main &gt; /quarto so only when the quarot foder is changed on the main branch\n\n\nJob Level control\n\nHere we can level the triggers and filters at the job level\n\nSot he same stuff as above okay. the workflow runs but we can utilzie th same trigger-filter to detemrien whether a sepcific job within the file runs or not\n\nin addition we can level job level ifnormaiton (see supplementary table below for details)\n\nE.g. only run job 1 if job 2 is successuful; if job 1 fails then job 2 does not run\n\n\n\n\n\nThe best practice is to when desinging when your aciotns run si to be very sepcific so you dont waste computing minutes\n\nIf a workflow can be skipped - set workflow level controls to skip it\nIf specific jobs can be skiped impelmetn the right contrls to skip it!\n\n\nHappy Actions!!!"
+    "text": "Reading from https://rworks.dev/posts/r-managers/ and trying to get the gist of it\nSo there are differenta xis we have to anylze in thi socnetxt\nwe have scope\n\nPackge/depenendciy mangemnet\nR version angemern\n\nI wan tot undestnadn the R ecoceys btu importably to compare tot eh Python and JS ecoysstemt; expecially presntign this int eh context of uv which i dont konw why jsut sticks out as the best UX i ahve ver had with a mangemnt but  from hwat i udnresnt uv does both pyhotn and dpendenc in one thign?\nimplciaitnosf or loom-datawarehouse\n\nso a arcehtecutural decision is that we  dont even need to ‘fork’ and modfy dbt-oss but rather we just \nwhat we can do is develop a wrapper"
   },
   {
-    "objectID": "tidbits/2026-10-30-github-actions-triggers-filters-and-ifs.html#ramblingunderstanding",
-    "href": "tidbits/2026-10-30-github-actions-triggers-filters-and-ifs.html#ramblingunderstanding",
-    "title": "GitHub Actions triggers, filters and ifs",
+    "objectID": "tidbits/2026-10-12-r-package-and-env-management-renv.html#processing",
+    "href": "tidbits/2026-10-12-r-package-and-env-management-renv.html#processing",
+    "title": "R package and environment management: renv, pak, and friends",
+    "section": "Processing",
+    "text": "Processing\n\nTable 1 - The post’s axes\nThe axes the r-managers post uses:\n\n\n\nAxis\nValues\n\n\n\n\nWhat it tracks\nPackages, R version, system deps\n\n\nScope\nSingle file, project, whole system\n\n\nWorkflow\nSnapshot or declarative\n\n\n\n\n\nTable 2 - R tools on those axes\nR tools on those axes:\n\n\n\nTool\nPackages\nR version\nSystem deps\nScope\nWorkflow\nAge\nStars\nReleases\nReleases (last 3 mo)\nMerged PRs (last 3 mo)\n\n\n\n\nrenv\n✅\n❌\n❌\nProject\nSnapshot\nsince 2018\n1,164\n26\n3\n54\n\n\nrv\n✅\n❌\n❌\nProject\nDeclarative\nsince Dec 2024\n380\n42\n3\n23\n\n\nuvr\n✅\n✅\n❌\nProject\nDeclarative\nsince Mar 2026\n362\n44\n6\n51\n\n\nir\n✅\n✅\n❌\nSingle file\nDeclarative\nsince Jun 2026\n66\n5\n4\n14\n\n\nrix\n✅\n✅\n✅\nWhole system\nDeclarative\nsince 2023\n384\n4\n0\n16\n\n\nuv (Python, for reference)\n✅\n✅ (Python)\n❌\nProject\nDeclarative\nsince 2023\n90,978\n327\n33\n1,245\n\n\n\nThe last row is the Python baseline, not an R tool. The closest R match is the one whose row looks the same, which is uvr.\nRepo stats are from GitHub as of 2026-10-21; “last 3 mo” means since 2026-07-21. Releases are GitHub releases, which undercount renv and rix because they ship most versions to CRAN.\n\n\nTable 3 - Across languages\nThe same axes across languages:\n\n\n\n\n\n\n\n\n\n\nLanguage\nPackages\nLanguage version\nSystem deps\nWorkflow\n\n\n\n\nPython\nuv\nuv\nconda / pixi\nDeclarative\n\n\nR\nrenv / rv\nrig / uvr\nrix\nBoth\n\n\nJS\npnpm\nfnm\nnone (Docker)\nDeclarative\n\n\n\n\n\nTable 4 - My simple two-axis version\nMy simpler version, language × what the tool manages:\n\n\n\n\nLanguage version\nPackages\n\n\n\n\nPython\nuv\nuv\n\n\nR\nrig\nrenv / pak\n\n\nJS\nfnm\npnpm"
+  },
+  {
+    "objectID": "tidbits/2026-10-12-r-package-and-env-management-renv.html#understanding",
+    "href": "tidbits/2026-10-12-r-package-and-env-management-renv.html#understanding",
+    "title": "R package and environment management: renv, pak, and friends",
+    "section": "Understanding",
+    "text": "Understanding\n\nThere are many axis to langueng lamaugnes\n\nwhat it tracks (R packges vs R version vs System dmepoencines)\nscope (single file vs single proejct vs whole system\nHow it works snapshot (install first hten udpate recrd) or Declarative (udpate record - htne managem ahndels the installs)\n\nThe table 2 above is usepr informaiton comaprien R tools alaong hte acexis alognw ith amturity metrocsi vs UV\nit seems UVR is a great cadinaitia and something to test"
+  },
+  {
+    "objectID": "tidbits/2026-10-12-r-package-and-env-management-renv.html#appendix-a---related-tidbits-to-follow-up-on",
+    "href": "tidbits/2026-10-12-r-package-and-env-management-renv.html#appendix-a---related-tidbits-to-follow-up-on",
+    "title": "R package and environment management: renv, pak, and friends",
+    "section": "Appendix A - Related tidbits to follow up on",
+    "text": "Appendix A - Related tidbits to follow up on\n\nTest driving uvr: a uv-style manager for R"
+  },
+  {
+    "objectID": "tidbits/2026-11-02-azure-compute-options-container-apps-vs-web-app.html",
+    "href": "tidbits/2026-11-02-azure-compute-options-container-apps-vs-web-app.html",
+    "title": "Azure compute options: Container Apps vs Web App, and their AWS equivalents",
     "section": "",
-    "text": "Okay so its really important to understand how GitHub action are controlled (aka when they run!)\nFrom my understanding there are a few axis involve\n\nScope: Workflow vs Job\n\nA single GitHub action YAML contains the information for a single workflow run\nA workflow can have multiple jobs\nControl can be implemented on both levels\n\nWorkflow level control\n\nWhere a workflow runs is controlled by two components: Triggers-Filters\nTriggers are actions that happen on GitHub (see supplementary table below for details)\n\nmain\nPR\nmanual run trigger (aka dispatch maybe)\nothers\n\nFilters are more granular things that are add to trigger\n\nThese include (see supplementary table below for details)\n\npaths\nbranches\n\nUse cases\n\nFor example a common thing is if the trigger  change on main you can configure more sepcificayll that not jsut an change on main but sepcifical onyl on change sot as pecific path on main juchs as main &gt; /quarto so only when the quarot foder is changed on the main branch\n\n\nJob Level control\n\nHere we can level the triggers and filters at the job level\n\nSot he same stuff as above okay. the workflow runs but we can utilzie th same trigger-filter to detemrien whether a sepcific job within the file runs or not\n\nin addition we can level job level ifnormaiton (see supplementary table below for details)\n\nE.g. only run job 1 if job 2 is successuful; if job 1 fails then job 2 does not run\n\n\n\n\n\nThe best practice is to when desinging when your aciotns run si to be very sepcific so you dont waste computing minutes\n\nIf a workflow can be skipped - set workflow level controls to skip it\nIf specific jobs can be skiped impelmetn the right contrls to skip it!\n\n\nHappy Actions!!!"
+    "text": "Tried to deploy a server a azure to test out foundry-commjs for a POC; but IT blocked me from deploying Azure “Cotainer Apps” but I could deploy a “Web App”\nI realized i did’t know the different between teh two\nJust wnat to get a high elvel udnresntand of the didfrernces"
   },
   {
-    "objectID": "tidbits/2026-10-30-github-actions-triggers-filters-and-ifs.html#detailsreferences",
-    "href": "tidbits/2026-10-30-github-actions-triggers-filters-and-ifs.html#detailsreferences",
-    "title": "GitHub Actions triggers, filters and ifs",
-    "section": "Details/References",
-    "text": "Details/References\n\nCommon triggers\nDocs: Events that trigger workflows\n\n\n\n\n\n\n\n\nTrigger\nFires when\nExample use\n\n\n\n\npush\nCommits land on a branch or tag\nDeploy on merge to main\n\n\npull_request\nA PR is opened or updated\nTest or render before merge\n\n\nworkflow_dispatch\nSomeone clicks “Run workflow” (or runs gh workflow run)\nManual redeploy\n\n\nschedule\nA cron time is reached\nNightly data refresh\n\n\nrelease\nA release is published\nPublish a package\n\n\nworkflow_call\nAnother workflow calls this one\nReusable build steps\n\n\n\nNote: main is not a trigger on its own. It is push plus a branches: [main] filter.\n\n\nFilters\nDocs: Using filters, branches, paths\n\n\n\n\n\n\n\n\nFilter\nNarrows by\nWorks on\n\n\n\n\nbranches / branches-ignore\nBranch name\npush, pull_request (the PR’s target branch)\n\n\ntags / tags-ignore\nTag name\npush\n\n\npaths / paths-ignore\nFiles changed\npush, pull_request\n\n\ntypes\nActivity type (e.g. opened, closed)\npull_request, release, issues\n\n\ncron\nTime\nschedule\n\n\ninputs\nValues passed at launch\nworkflow_dispatch, workflow_call\n\n\n\nNote: paths does not work on workflow_dispatch or schedule.\n\n\nJob-level control\nDocs: jobs.&lt;job_id&gt;.if, jobs.&lt;job_id&gt;.needs, Status check functions, jobs.&lt;job_id&gt;.environment\n\n\n\n\n\n\n\n\nControl\nWhat it does\nExample\n\n\n\n\nif:\nRuns the job only when a condition is true\nif: github.ref == 'refs/heads/main'\n\n\nneeds:\nWaits for other jobs; skipped if one fails\nneeds: build\n\n\nif: success()\nRuns when every needed job passed (the default)\nDeploy after tests pass\n\n\nif: failure()\nRuns only when a needed job failed\nSend an alert\n\n\nif: always()\nRuns no matter what\nCleanup\n\n\nenvironment:\nWaits for an approval or protection rule\nManual sign-off before deploy"
+    "objectID": "tidbits/2026-11-02-azure-compute-options-container-apps-vs-web-app.html#ramblings",
+    "href": "tidbits/2026-11-02-azure-compute-options-container-apps-vs-web-app.html#ramblings",
+    "title": "Azure compute options: Container Apps vs Web App, and their AWS equivalents",
+    "section": "",
+    "text": "Tried to deploy a server a azure to test out foundry-commjs for a POC; but IT blocked me from deploying Azure “Cotainer Apps” but I could deploy a “Web App”\nI realized i did’t know the different between teh two\nJust wnat to get a high elvel udnresntand of the didfrernces"
   },
   {
-    "objectID": "tidbits/2026-10-30-github-actions-triggers-filters-and-ifs.html#appendix-a---references",
-    "href": "tidbits/2026-10-30-github-actions-triggers-filters-and-ifs.html#appendix-a---references",
-    "title": "GitHub Actions triggers, filters and ifs",
+    "objectID": "tidbits/2026-11-02-azure-compute-options-container-apps-vs-web-app.html#understanding",
+    "href": "tidbits/2026-11-02-azure-compute-options-container-apps-vs-web-app.html#understanding",
+    "title": "Azure compute options: Container Apps vs Web App, and their AWS equivalents",
+    "section": "2. Understanding",
+    "text": "2. Understanding\n\nBoth have simialir specs endpoints, dockers/fexilbity, scalability\nThe major difference is billing\n\nWeb Apps is fixed plan (always on - no cold starts)\nContainer apps is consumption (pay per uses, scales to zero whne not in use - but has cold starts)\n\nweb apps is also slight easier to use\n\ndoenst have to use dockers, can jsut ship code\n\nbut can use docekrs if neeeded\n\ncontainer apps require dockers"
+  },
+  {
+    "objectID": "tidbits/2026-11-02-azure-compute-options-container-apps-vs-web-app.html#appendix-a---references",
+    "href": "tidbits/2026-11-02-azure-compute-options-container-apps-vs-web-app.html#appendix-a---references",
+    "title": "Azure compute options: Container Apps vs Web App, and their AWS equivalents",
     "section": "Appendix A - References",
     "text": "Appendix A - References"
   },
   {
-    "objectID": "tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html",
-    "href": "tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html",
-    "title": "Line endings on four axes: LF vs CRLF, repo vs local, .gitattributes, and the refresh",
+    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html",
+    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html",
+    "title": "JS script runners and package managers: npm, pnpm, and vite test",
     "section": "",
-    "text": "Some of the repos i am working on that have prettier in the checks workflow keeps popping up with this same bug\nits cosmetic but still  bother to deal with\ni can fix it with Claude but don’t understand fully yet.\nI believe there are a few axis\n\n\nits not a bug - just a cosmetic thing\n\n\nLF vs CRLF\n\n\nlocal vs origin\n\n\ngit command to fix it  git rm -r --cached -q :/ && git reset --hard\n\n\nso these are things i want to learn\nmaybe need to init a git/GitHub glossary along the way."
+    "text": "there are some basictoling for JS develeoprm either enxt.js or svelte.\npnpm and npm then vite and vitetest\nfrom what i udresnta ther first 3 are packge apmagein each wiht own script fruning funcitonality. tehyera r enot edeidcate tasks urnigns like just\nso the tehst and cheks thems selves are ocmspeosn of atomic toosl such as lint or audit or scripts but youc an compose ‘script’ that ocmpsoe thes smaller tasks and run the ith pnpmn npmn nd vite \nbut what i dont udnrnsta d i\n\ns what is diff betwen viteest and vite \nwhat is hte best rpactice \npros and cons to each\n\nI do kwno pro is worktress and globa sitnal via pnpmn but what about vite and vitetest vs npmn/pnpmn?"
   },
   {
-    "objectID": "tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html#ramblings",
-    "href": "tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html#ramblings",
-    "title": "Line endings on four axes: LF vs CRLF, repo vs local, .gitattributes, and the refresh",
+    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#ramblings",
+    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#ramblings",
+    "title": "JS script runners and package managers: npm, pnpm, and vite test",
     "section": "",
-    "text": "Some of the repos i am working on that have prettier in the checks workflow keeps popping up with this same bug\nits cosmetic but still  bother to deal with\ni can fix it with Claude but don’t understand fully yet.\nI believe there are a few axis\n\n\nits not a bug - just a cosmetic thing\n\n\nLF vs CRLF\n\n\nlocal vs origin\n\n\ngit command to fix it  git rm -r --cached -q :/ && git reset --hard\n\n\nso these are things i want to learn\nmaybe need to init a git/GitHub glossary along the way."
+    "text": "there are some basictoling for JS develeoprm either enxt.js or svelte.\npnpm and npm then vite and vitetest\nfrom what i udresnta ther first 3 are packge apmagein each wiht own script fruning funcitonality. tehyera r enot edeidcate tasks urnigns like just\nso the tehst and cheks thems selves are ocmspeosn of atomic toosl such as lint or audit or scripts but youc an compose ‘script’ that ocmpsoe thes smaller tasks and run the ith pnpmn npmn nd vite \nbut what i dont udnrnsta d i\n\ns what is diff betwen viteest and vite \nwhat is hte best rpactice \npros and cons to each\n\nI do kwno pro is worktress and globa sitnal via pnpmn but what about vite and vitetest vs npmn/pnpmn?"
   },
   {
-    "objectID": "tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html#understanding",
-    "href": "tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html#understanding",
-    "title": "Line endings on four axes: LF vs CRLF, repo vs local, .gitattributes, and the refresh",
-    "section": "2. Understanding",
-    "text": "2. Understanding\n\nTriage\n\nThere are some core concepts i need to understand (LF vs CRLF)\nthen there is tooling around these that are secondary\nlets start with the concepts\nthen move on to the tooling\n\n\n\n2.1 Core Concept: OS newline or End of Line (EOL) conventions\n\nWhen a line of code ends; there are are two ways of ending the line when it comes to the binary aspect - way 1 and way 2\nWay 1 amd way 2 are not rules. they can both work on tools acoss operating systems (windows git vs mac/unix git)\nBut each tool-os has their defaults\n\nWindows git defaults to way 1\nUnix/Mac git defaults to way 2\n\nHistory of way 1 and way 2\n\na bit is a binary digit 0 or 1\na byte is a 8 bits\nmost ASCII characters (aka most of code) is 1 byte per character\nThere are two characters that are using in encoding end of line\n\nLine Feed (LF) aka \\n  \nCarriage Return (CR) aka \\r\nhistorically these came from typewriters; where to type a new line you needed to type both to create the new line in typewriters\nWhen people started writing code on computers (keyboards) not type-writers\nwe didn’t need both to encode a new line but the two branches fork a bit in terms of opinion\n\nUnix/Mac - we dont need both so lets jsut simplfiy and keep one LF (one less byte per line! - without losing anyhting other than deviation from history)\nWindows - said lets keep the old traditional at the end of line type both the CR + LF - (\\r \\n) like typewriters did\n\n\n\nThe problem \n\nPrettier standardizes to test that the code base sohuld be LF  (Unix/Mac)\nbut our windows tooling often produces CRLFleading to frequent prettier failures"
-  },
-  {
-    "objectID": "tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html#tooling",
-    "href": "tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html#tooling",
-    "title": "Line endings on four axes: LF vs CRLF, repo vs local, .gitattributes, and the refresh",
-    "section": "2.2 Tooling",
-    "text": "2.2 Tooling\n\nSo now we are on to the tooling (speiccally github). There three thigns i want to udnrestand\n\n.gitattribute (specifically the EOL config)\nimplications for local vs remote\nhow the recommended fix command works  git rm -r --cached -q :/ && git reset --hard\n\nGitHub remote/cloud/origin stores  on the cloud a version of your codebase including the EOL - the commited bytes\nGit has a sepcific file called   .gitattirbutes which stores the configurations for how git converts and works with your codebase (e..g on clones or commits); one such config is the EOL config\nSo to fix the preittier warning/bug; the first step is to always make sure your gitattribute EOL config is set to LF and Commit/push\nBut what the config is set in the gitattrbute is not teh same as what bytes (EOL) are saved in the github repo origin and local. These stored byte vs LF config in gittatrbutes can exist in two scenarios\nThere can be two cases where we can have the bad EOL (CRLF)\n\nCase one its on the GitHub Repo in the cloud/origin - Repo CRLF\nCase 2 the Repo is okay its Repo LF but local CRLF\n\nThese two cases have two fixes\n\nCase 1 Repo CRLF\n\nwe can call git add --renormalize which will re-appled the settings of LF in .gitattributes to every tracekd file, so CRLF gets stroed as LF on the next commit and push\n\nCase 2 Repo LF but Local CRLF\n\nwe can call ``git rm -r –cached -q :/ && git reset –hard`` \nWhihc does the following\n\ngit rm -r --cached -q :/ empties the index; disk untouched\ngit reset --hard rebuilds the index and rewrites every file through .gitattributes, as LF\nrisk is that this discards uncommitted edits. so make sure you run this on a clean worktree!"
-  },
-  {
-    "objectID": "tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html#a.-diff-lf-vs-crlf",
-    "href": "tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html#a.-diff-lf-vs-crlf",
-    "title": "Line endings on four axes: LF vs CRLF, repo vs local, .gitattributes, and the refresh",
-    "section": "a. Diff LF vs CRLF",
-    "text": "a. Diff LF vs CRLF\nThe same two lines of code, saved with each line ending. ␍ is CR (\\r) and ␊ is LF (\\n); both are normally invisible.\n- const a = 1;␍␊      ← CRLF (Windows): 2 bytes per line ending\n- const b = 2;␍␊\n+ const a = 1;␊        ← LF (Unix/Mac): 1 byte per line ending\n+ const b = 2;␊\nRaw bytes (od -c):\n- c o n s t   a   =   1 ; \\r \\n\n+ c o n s t   a   =   1 ; \\n\nThe text is identical. The only difference is the extra \\r before every \\n.\nPrettier (default endOfLine: \"lf\") flags each of those \\r characters:\n1:13  error  Delete `␍`  prettier/prettier"
-  },
-  {
-    "objectID": "tidbits/2026-10-05-nextjs-server-vs-client-components.html",
-    "href": "tidbits/2026-10-05-nextjs-server-vs-client-components.html",
-    "title": "Next.js server vs. client components in static exports",
-    "section": "",
-    "text": "Next.js has two types of compoents\n\nServer Componets and Client Compoentsn\n\nThese terms are confusing because Next.js static exports can still use server comeponts\nThey just indicate what is run at build time not what is expeorted\nSo at build time server compoents run the next.js server and export pure HTML\nClient ocmeopnts run at build time to export boht the HTML and the JS coderequired for a HTML page to funciton\nServer site build ouptus are smaller ebucase thye dont ship JS\nThe best practice is to use SErver side comeponts uneslss required client side specific features (most of the server comeponts are the best practice)\nIt is confuse beacuse there are some SSR next.js feautre locked ibehcig server comeponts which in that cas erequires a nExt.j server and would not work as auflly static export\nSo this PR essentially developes the loom integraitn o to work with both server and client pages; as wella smepahsize the best practice of defaulting to server"
-  },
-  {
-    "objectID": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#ramblings",
-    "href": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#ramblings",
-    "title": "Next.js server vs. client components in static exports",
-    "section": "",
-    "text": "Next.js has two types of compoents\n\nServer Componets and Client Compoentsn\n\nThese terms are confusing because Next.js static exports can still use server comeponts\nThey just indicate what is run at build time not what is expeorted\nSo at build time server compoents run the next.js server and export pure HTML\nClient ocmeopnts run at build time to export boht the HTML and the JS coderequired for a HTML page to funciton\nServer site build ouptus are smaller ebucase thye dont ship JS\nThe best practice is to use SErver side comeponts uneslss required client side specific features (most of the server comeponts are the best practice)\nIt is confuse beacuse there are some SSR next.js feautre locked ibehcig server comeponts which in that cas erequires a nExt.j server and would not work as auflly static export\nSo this PR essentially developes the loom integraitn o to work with both server and client pages; as wella smepahsize the best practice of defaulting to server"
-  },
-  {
-    "objectID": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#understanding",
-    "href": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#understanding",
-    "title": "Next.js server vs. client components in static exports",
+    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#understanding",
+    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#understanding",
+    "title": "JS script runners and package managers: npm, pnpm, and vite test",
     "section": "Understanding",
-    "text": "Understanding\n\nTwo Types of Next.js Components: 1) Server and 2) Client\n\nThe key idea and difference is: where the code runs not when\nServer components\n\nThe JS runs on the Next.js Server to produce HTML\nIn hybrid/SSR Next.js this could be in the actual Next.js server in real-time in production as there is a server\nIn export/SSG Next.js this runs on Next.js during build time to produce HTML that is deploy to a serverless static site host.\n\nClient Components\n\nThe Next.js code (JS) is shipped and runs in the clients browser\n\n\nBest practice is to user Server Compoents; ‘use client’ only when required on smaller niche compoentns that need it"
+    "text": "Understanding\n\nWhat is key is the axis we are discussion which is what layer the technologies sit at\nThere are two layers in this context a higher level and a lower level\n\n\n\n\n\n\n\n\n\n\nLevel\nLayer\nDescription\nTools\n\n\n\n\nHigher\nPackage manager\nInstalls dependencies, runs package.json scripts\nnpm, pnpm\n\n\nLower\nTool\nDoes the actual work, called by scripts\nnext, vite, vitest, jest, eslint, oxlint, prettier, tsc, svelte-check, stylelint, cspell, concurrently, rimraf, func, swa, serve, node"
   },
   {
-    "objectID": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#appendix-a---related-tidbits-to-follow-up-on",
-    "href": "tidbits/2026-10-05-nextjs-server-vs-client-components.html#appendix-a---related-tidbits-to-follow-up-on",
-    "title": "Next.js server vs. client components in static exports",
+    "objectID": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#appendix-a---related-tidbits-to-follow-up-on",
+    "href": "tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html#appendix-a---related-tidbits-to-follow-up-on",
+    "title": "JS script runners and package managers: npm, pnpm, and vite test",
     "section": "Appendix A - Related tidbits to follow up on",
-    "text": "Appendix A - Related tidbits to follow up on\n\nHydration\nWhat breaks exports"
+    "text": "Appendix A - Related tidbits to follow up on\n\nvite is build tool ananllogous to turbopack for next.js ; vitetest - is that packge deicite testing packge\npnpm is a more modern npm and has a share package store (much better for worktrees); by defualt recomended to us pnpmn for JS project’s package mangement\nThe best practice is for all projects to use one package manager with script running capabilites; group major tasks as scripts to be called by the package manager!"
   },
   {
-    "objectID": "tidbits/2026-10-21-notion-as-a-backend.html",
-    "href": "tidbits/2026-10-21-notion-as-a-backend.html",
-    "title": "Notion as a backend for a static site",
+    "objectID": "tidbits/2026-10-30-rust-crate-101.html",
+    "href": "tidbits/2026-10-30-rust-crate-101.html",
+    "title": "Rust code organizaiton 101 - breaking down dbt-oss repo",
     "section": "",
-    "text": "its finel lfor assuepr siempl do public wihtou auth so anyitng. lets say we have suepr simple database in notion a tabel of baby names two columns Name and another randomi coumn lets say numebr popautliary rating 0-10 that datbase is etup on notion. what hapepsn how i need auth otken specific ot that databaes that is troe din the cloruflar worker and the when a udpat ei mad ein the itnernface here what the psuh is goig to the cloduflalir which then udapte sthe databse? what abotu fetch in real time lets say i have a table viewin tidibits but hte entry is a form this woudl require JS for hte form but the table what ist here sj lgoica there too that is like scan the noitnoatab ever 1 se to se if udpat ehtei f hter is to rererhes the html table? but that seems usper iniefiencet . who si my arhcenture plan? tohguhts?"
+    "text": "New to rust and its a little confusing - breaking down the DBT-OSS codebase\nSo cargo is a apckage managemtn and devlopement tool\nWorkspace: A repositoy can be cargo workspacewoud cna containe many crates\n\nthe dbt-oss is a cargo workspace wih ahas 91 crates (we add the python cate) totla binir ghte loom-datwarhesou to 92 crates\ncargo automatically determines the dependencies between crates so it can resolve it when jsut runw ithotus epcificla defualt cargo build; libraries are compiled first. whihc ar ehten packaged into programs.\nthe workspace is specified in the root cargo.toml whcihd efines the workspace\n\nCrate: rust cosde is bundled in to units called crates\n\neach crate has a cargo.toml that incldue pseicicasl for waht the crate produces\nit has several secitons\n\na [[bin]] section indicate sthat it sohuld built into an exe file wiht configaiotns liek name and starting path; this optional jsut emtdata or conifsg about the exe\n[package] metdatat of the crate liek name .. etc\n[dependencies]` crate dpendicneins\n[feuaters] optio extracts\n\na crate either outputs either a program  (.exe) file (as configure by bin) or it by deufalit it outputs via compilation intoa library (.rlib)\nso a crate can ahve two tpyes either a program crate that genreates a exe or lirbary crate that genresates a rlib file\neach crate has its own src folder \nIn general: if a crates src fodler has a special file called src/main.rs then it is a program crate that will generate a exe. if it doenst hav the file then it is a regaulr crate that only genreates a library rlibs.\n\nthe excpeitons ita ht bin config can point the start file sonewehres. but dbt-oss follwos the default file naming and bin configs\n\n\nModule: modules are sectiosn fo code inside one crate (usiually one file each)\n\nthey organize the code\ne.g .dbt_features::cli means the cli module inside the dbt-features\n\nFunctions: are the smaller peices of code. funcitons live isnide modules \n\nfucntions have differen scoeps of sharing or reuse there are three scopes of sharing\nNo marking (dfeault) a funiton can be only use within its own module and the moduels nest within the module it is contained within\npub(crate) any where within the same crate it is deinfeint in \npub can be reussea acorss other crates - e.g.g creating crate level depdnencies..\n\nnote for this tow orkt he path of pub dpendncens but also all be pub for this chaining to work."
   },
   {
-    "objectID": "tidbits/2026-10-21-notion-as-a-backend.html#rambling",
-    "href": "tidbits/2026-10-21-notion-as-a-backend.html#rambling",
-    "title": "Notion as a backend for a static site",
+    "objectID": "tidbits/2026-10-30-rust-crate-101.html#ramblingunderstanding",
+    "href": "tidbits/2026-10-30-rust-crate-101.html#ramblingunderstanding",
+    "title": "Rust code organizaiton 101 - breaking down dbt-oss repo",
     "section": "",
-    "text": "its finel lfor assuepr siempl do public wihtou auth so anyitng. lets say we have suepr simple database in notion a tabel of baby names two columns Name and another randomi coumn lets say numebr popautliary rating 0-10 that datbase is etup on notion. what hapepsn how i need auth otken specific ot that databaes that is troe din the cloruflar worker and the when a udpat ei mad ein the itnernface here what the psuh is goig to the cloduflalir which then udapte sthe databse? what abotu fetch in real time lets say i have a table viewin tidibits but hte entry is a form this woudl require JS for hte form but the table what ist here sj lgoica there too that is like scan the noitnoatab ever 1 se to se if udpat ehtei f hter is to rererhes the html table? but that seems usper iniefiencet . who si my arhcenture plan? tohguhts?"
+    "text": "New to rust and its a little confusing - breaking down the DBT-OSS codebase\nSo cargo is a apckage managemtn and devlopement tool\nWorkspace: A repositoy can be cargo workspacewoud cna containe many crates\n\nthe dbt-oss is a cargo workspace wih ahas 91 crates (we add the python cate) totla binir ghte loom-datwarhesou to 92 crates\ncargo automatically determines the dependencies between crates so it can resolve it when jsut runw ithotus epcificla defualt cargo build; libraries are compiled first. whihc ar ehten packaged into programs.\nthe workspace is specified in the root cargo.toml whcihd efines the workspace\n\nCrate: rust cosde is bundled in to units called crates\n\neach crate has a cargo.toml that incldue pseicicasl for waht the crate produces\nit has several secitons\n\na [[bin]] section indicate sthat it sohuld built into an exe file wiht configaiotns liek name and starting path; this optional jsut emtdata or conifsg about the exe\n[package] metdatat of the crate liek name .. etc\n[dependencies]` crate dpendicneins\n[feuaters] optio extracts\n\na crate either outputs either a program  (.exe) file (as configure by bin) or it by deufalit it outputs via compilation intoa library (.rlib)\nso a crate can ahve two tpyes either a program crate that genreates a exe or lirbary crate that genresates a rlib file\neach crate has its own src folder \nIn general: if a crates src fodler has a special file called src/main.rs then it is a program crate that will generate a exe. if it doenst hav the file then it is a regaulr crate that only genreates a library rlibs.\n\nthe excpeitons ita ht bin config can point the start file sonewehres. but dbt-oss follwos the default file naming and bin configs\n\n\nModule: modules are sectiosn fo code inside one crate (usiually one file each)\n\nthey organize the code\ne.g .dbt_features::cli means the cli module inside the dbt-features\n\nFunctions: are the smaller peices of code. funcitons live isnide modules \n\nfucntions have differen scoeps of sharing or reuse there are three scopes of sharing\nNo marking (dfeault) a funiton can be only use within its own module and the moduels nest within the module it is contained within\npub(crate) any where within the same crate it is deinfeint in \npub can be reussea acorss other crates - e.g.g creating crate level depdnencies..\n\nnote for this tow orkt he path of pub dpendncens but also all be pub for this chaining to work."
   },
   {
-    "objectID": "tidbits/2026-10-21-notion-as-a-backend.html#understanding",
-    "href": "tidbits/2026-10-21-notion-as-a-backend.html#understanding",
-    "title": "Notion as a backend for a static site",
-    "section": "Understanding",
-    "text": "Understanding\n\nI want to explore the easiest way to get a CRUD feature using Notion databases as the backend on s simple static site\nThis would require some sort of proxy function to store the API Token with access to the Notion database\nThis would then ahve several comepontsn\n\n\nA database (Notion database) - lets say simple schema of baby names 2 columns ‘Name (text)’ and “popularity 0 - 10 numeric’\nfront end - a data entry form - JS for data entry that after click submit will push info and trigger some server function\n\nWhat access permissions will this need - READ and WRITE\nThis is simple Insert form we cna make it mroe ocmeplx for pathces and deleiotns but htat sjust JS compelxity the archiehture we will just handle insert\n\nProxy -  a serverless function (e.g. a Cloudflare worker) whihc stores the Database acces secerets. There are as many routes as needed for CRUD (Routes) into /names\n\nroutes\n\n GET Reads\n POST inserts new rows \nPATCH updates\nDELETE deletes\n\nProviders for serverless functions (aka edge functiosn)\n\nCloudflare workers (easeiest to setup and most free tier calls)\nAzure Functions\nAWS Lambda\nGCP Cloud Run Functions\n\n\nFront end -  a table that reads from the databse has JS logic to:\n\non page load will read form database GET /names\non form submission it is trigere to reread so the udpate thigns how up GET /names"
-  },
-  {
-    "objectID": "tidbits/2026-10-21-notion-as-a-backend.html#artifacts",
-    "href": "tidbits/2026-10-21-notion-as-a-backend.html#artifacts",
-    "title": "Notion as a backend for a static site",
-    "section": "Artifacts",
-    "text": "Artifacts\n\n\n\n\n\nsequenceDiagram\n    participant Form as Front end: form (JS)\n    participant Table as Front end: table (JS)\n    participant Worker as Cloudflare Worker&lt;br/&gt;(holds Notion token)\n    participant Notion as Notion database&lt;br/&gt;(baby names)\n\n    Note over Table,Notion: Page load\n    Table-&gt;&gt;Worker: GET /names\n    Worker-&gt;&gt;Notion: query database\n    Notion--&gt;&gt;Worker: rows\n    Worker--&gt;&gt;Table: JSON rows\n\n    Note over Form,Notion: Form submit\n    Form-&gt;&gt;Worker: POST /names {name, popularity}\n    Worker-&gt;&gt;Notion: create page (row)\n    Notion--&gt;&gt;Worker: ok\n    Worker--&gt;&gt;Form: ok\n    Form-&gt;&gt;Table: trigger refresh\n    Table-&gt;&gt;Worker: GET /names\n    Worker--&gt;&gt;Table: updated rows"
-  },
-  {
-    "objectID": "tidbits/2026-10-21-notion-as-a-backend.html#appendix-a---related-tidbits-to-follow-up-on",
-    "href": "tidbits/2026-10-21-notion-as-a-backend.html#appendix-a---related-tidbits-to-follow-up-on",
-    "title": "Notion as a backend for a static site",
-    "section": "Appendix A - Related tidbits to follow up on",
-    "text": "Appendix A - Related tidbits to follow up on"
-  },
-  {
-    "objectID": "blog.html",
-    "href": "blog.html",
-    "title": "Blog",
+    "objectID": "tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html",
+    "href": "tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html",
+    "title": "Rust workspace primer: target, modules, tests, sccache, worktrees",
     "section": "",
-    "text": "Proof of Concept: Client-side Serverless DuckDB query of cloud bucket storages\n\n\n\nserverless\n\ndata-engineering\n\nwasm\n\nduckdb\n\nanalytics\n\nsql\n\nparquet\n\n\n\n\n\n\n\n\n\nSep 9, 2025\n\n\nRan Li\n\n\n\n\n\nNo matching items"
+    "text": "I just want a good workflow for wokring iwht large cargo packges on worktrees\nParticualrly conerning about are\n\ncold tests or builds that may take a long time on worktrees when the pre-warm cache exiisnt on the main worktree \nto avoid unnecessary cold builds or tests when working on linked work trees\n\nI heard that sscache is a good too get around this\nso i want to make sure to document a workflow that prevents unnecessary cold tests/builds/compiles… etc"
+  },
+  {
+    "objectID": "tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html#target-folder",
+    "href": "tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html#target-folder",
+    "title": "Rust workspace primer: target, modules, tests, sccache, worktrees",
+    "section": "2. target folder",
+    "text": "2. target folder\n\n/target - this is the folder that cargo will output its build and cache artificats too\n\nIts comparable to the DBT /target folder\nIt is comparable Next.js’ /.next fodler (not to be confused with the /out fodler which contians the final static export\nIt has a few subfolders that amtter to use\n\n/target/release - this is final build files so this is comaprable to next.js /out this is gerneated by cargo build --release (compiles slow but runs fast)\n/target/debug - output of a plan cargo build - compiles fast but runs slow\n/target/deps - hold compiled dependencies, which is most a cold build and waht sccache can share\n/target/incremental - caches own crates which incrementally. first build cache initialize cache for each crate"
+  },
+  {
+    "objectID": "tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html#files-and-modules-primer",
+    "href": "tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html#files-and-modules-primer",
+    "title": "Rust workspace primer: target, modules, tests, sccache, worktrees",
+    "section": "2. Files and modules primer",
+    "text": "2. Files and modules primer\n\nWithin a workspace there are two types of files\n\ntoml and lock files whicha re config files\nrs rust code base\n\n.rs code lives in a few packge folders src/, tests/, examples/ or /benches\n\n\nRust code take the form of either\n\ncrate roots \n\nspecial file names - src/lib.rs (one library crate)\nsrc/main.rs and each src/bin/*.rs → binary crates\nsrc/test/*.rs declare integration tests tests\nothers\n\nany other rs file are modules declared wiht the mod sytnax\n\nFiles are any file within the src folder\nmodule is an organizational concept to reference specific chunks of atomic code logic\nEach module has a path  - there are two types of paths relative and abosulte\n\nabsolute path from the crate root\n\ncrate::parser::fast::parse\n\nrelative path - relative to which module you are\n\nfast::parse form inside parser or super:: to go up one level\n\n\n\n● my-workspace/               ← workspace root\n  ├── Cargo.toml              ← [workspace] members = [\"mylib\", \"mycli\"]\n  ├── Cargo.lock              ← shared by all packages\n  ├── target/                 ← shared build output + cache\n  ├── mylib/                  ← package \"mylib\"\n  │   ├── Cargo.toml          ← name = \"mylib\"\n  │   ├── src/\n  │   │   ├── libr.rs          ← library crate root: mod parser;\n  │   │   ├── parser.rs       ← module parser: mod fast;\n  │   │   └── parser/\n  │   │       └── fast.rs     ← module parser::fast → fn parse\n  │   └── tests/\n  │       └── api.rs          ← integration test crate \"api\"\n  └── mycli/                  ← package \"mycli\"\n      ├── Cargo.toml          ← name = \"mycli\", depends on mylib\n      └── src/\n          └── main.rs         ← binary crate root, calls mylib::parser::fast::parse\n\nso analyzing the work tree above for paths\n\nModule mylib/src/parser/fast.rs\n\nAbsolute path (starts at lib.rs)\n\nModule: crate::parser::fast\nFunction: crate::parser::fast::&lt;function-name&gt;\nTest: crate::parser::fast::tests::&lt;test-name&gt;\n\nRelative path (starts at parser.rs - its parent module)\n\nModule: fast\nFunction: fast::&lt;function-name&gt;\nTest: fast::test::&lt;test-name&gt;\n\nCrates mylib/src/libr.rs\n\nAbsolute path crate \nFrom another crate its mylib\n\nthis is for libary crates\npackges can refernece other pacakges library carte (one only iwht the apckag name like mylib)\npackages cannot use other packages binaries (.exe)"
+  },
+  {
+    "objectID": "tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html#test-primer",
+    "href": "tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html#test-primer",
+    "title": "Rust workspace primer: target, modules, tests, sccache, worktrees",
+    "section": "3. Test primer",
+    "text": "3. Test primer\n\nA test name is the test functions full path such as parser::tests::parses_empty\nThere are several types of tests\n\nunit tests sit inline in src/ files inside a  mod tests\nintegration tests  are files in the packages’ test/ folder\n\neach of those files is its own crate, which --test &lt;file selects\n\nBoth kinds are #[test] functions, so both have names\ncargo test parses runs every test whos name contains parses"
+  },
+  {
+    "objectID": "tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html#what-is-sccache",
+    "href": "tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html#what-is-sccache",
+    "title": "Rust workspace primer: target, modules, tests, sccache, worktrees",
+    "section": "4. What is sccache",
+    "text": "4. What is sccache\n\nsccache is a rust tool that keeps one shared dependency compilation across worktrees\nuse it to prevent cold-recompile of dpendneces across worktrees\nIt does not effect the crate compilation for your workspace"
+  },
+  {
+    "objectID": "portfolio/2025-09-01-phl-city-health-dashboard/index.html",
+    "href": "portfolio/2025-09-01-phl-city-health-dashboard/index.html",
+    "title": "Philadelphia City Council Health Dashboard: From Shiny Prototype to Serverless Production App",
+    "section": "",
+    "text": "Click the Image to get to the dashboard at https://drexel-uhc.github.io/philadelphia-council-districts-and-health"
+  },
+  {
+    "objectID": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#context",
+    "href": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#context",
+    "title": "Philadelphia City Council Health Dashboard: From Shiny Prototype to Serverless Production App",
+    "section": "Context",
+    "text": "Context\n\nProject\nPhiladelphia health disparities aren’t connected to political geography, leaving council members without district-level insights for policy decisions.\nThis deliverable is an interactive dashboard visualizing health determinants across 10 council districts, making public health data actionable for policy makers and citizens.\n\n\nTeam Structure\n\n\n\n\nData Engineer (Others)\n\n\n\nDeveloped Data Bundle\nCreated static visualizations\nProvided text and mockup\n\n\n\n\n\n\n\n\n\n\n\nNoteData Architect (Ran Li)\n\n\n\n\nTech stack design for operational limits:\n\n3-month timeline\n5 hours/week capacity\nzero infrastructure costs\n\n\n\n\n\n\n\n\n\n\n\n\nNoteData Scientist (Ran Li)\n\n\n\n\nDeveloped prototype (R Shiny)\nDeveloped production application (Next.js)\nDeployed production application (GitHub Pages)\nDeployed data preservation (Zenodo)"
+  },
+  {
+    "objectID": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#phases",
+    "href": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#phases",
+    "title": "Philadelphia City Council Health Dashboard: From Shiny Prototype to Serverless Production App",
+    "section": "Phases",
+    "text": "Phases\n\nPhase 1: Tech Stack Design (March 2025)\nOperational Constraints:\n\nZero budget for infrastructure costs\n3-month delivery timeline\n5 hours/week development capacity\nNo ongoing maintenance resources\n\nArchitecture Decisions:\n\nData Preservation: Zenodo integration for DOI/citation (free, permanent hosting)\nPrototyping: R Shiny to reuse Data Engineers’ code but make it dynamic\nProduction Requirements: No cold starts needed → serverless SSG with modern UI\nFrontend: Next.js SSG for zero-cost hosting and instant loading\nDeployment: GitHub Pages static site (free, reliable)\nAnalytics: Google Analytics for usage tracking (free)\nPerformance: Client-side rendering for serverless architecture\nData Pipeline: Custom R-to-web transformation (leverages existing analysis)\nSEO: Search optimization for discoverability\n\n\n\nPhase 2: R Shiny Prototype (March-April 2025)\nRapid prototype for concept validation:\n\nCore interactions: dropdown selection, synchronized visualizations\nDistrict highlighting and hover effects\nStakeholder feedback integration\n\n\n\nPhase 3: Next.js Production (May-June 2025)\nProduction rebuild optimized for budget and operational constraints:\nFrontend Architecture:\n\nNext.js/React.js with Highcharts.js\nStatic site generation for cost-effective hosting\n\nKey Features:\n\nSynchronized bar charts and choropleth maps\nCustom Heat Vulnerability Index visualization\nInteractive district selection with highlighting\nEmbedded documentation and metadata\n\nProduction Infrastructure:\n\nEmbedded documentation and metadata\n\n\n\nTechnical Highlights\n\nSynchronized bar charts and choropleth maps\nCustom Heat Vulnerability Index visualization\nInteractive district selection with highlighting"
+  },
+  {
+    "objectID": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#reflections",
+    "href": "portfolio/2025-09-01-phl-city-health-dashboard/index.html#reflections",
+    "title": "Philadelphia City Council Health Dashboard: From Shiny Prototype to Serverless Production App",
+    "section": "Reflections",
+    "text": "Reflections\n\nThings I really enjoyed\nLightweight tech stacks like these bring me great joy. You can leverage mature and developer-friendly open-science/open-source infrastructure such as GitHub Pages, Zenodo, and fully serverless application frameworks like SSG Next.js. This removes so much maintenance and operational work you have to do to maintain a deliverable and allows you to free up the time to focus on what is important: the UI of the final product and having a deep understanding of the stakeholders’ true needs.\n\n\nThings to improve next time\n\nA quick turnaround like this meant we did a one-off type of architecture\nIf this project continues, we will add interfaces for stakeholders to update data and modify metadata"
+  },
+  {
+    "objectID": "pinned.html",
+    "href": "pinned.html",
+    "title": "Pinned",
+    "section": "",
+    "text": "Resource\nWhy it’s pinned\n\n\n\n\nQuack to the Future: the lakehouse in one slide\nTravis Gerke, posit::conf 2026: {ducklake} versioned tables and {dplyneage} column lineage"
   }
 ]
