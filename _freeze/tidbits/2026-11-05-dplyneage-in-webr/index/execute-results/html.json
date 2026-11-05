@@ -1,0 +1,15 @@
+{
+  "hash": "03149a713d1f37d96e572f4849db9ae6",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Column lineage in the browser: dplyneage on webR\"\ndate: \"2026-11-05\"\ncategories: [r, webr, wasm, lineage, dplyr]\nformat:\n  live-html:\n    theme: cosmo\n    css: ../../styles.css\n    toc: false\nengine: knitr\nwebr:\n  packages:\n    - dplyr\n    - dbplyr\n    - dplyneage\n---\n\n\n::: {.cell}\n\n:::\n\n\n\n# Rambling\n\n- saw Travis Gerke's [Quack to the Future](https://tgerke.github.io/quack-to-the-future/) talk at posit::conf 2026 — {ducklake} + {dplyneage}\n- [dplyneage](https://tgerke.github.io/dplyneage/) draws column-level lineage for dplyr pipelines as a React Flow diagram\n- question: can this run fully in the browser via webR? no install, editable demo\n- open questions\n    -  does dplynesage wokr on duckdplyr/dcklack wiht any database not jsut ducdkdb?\n    - what is simulati_posgres(); why not sim_duckdb or soemthing?\n\n# Simple Reprex\n\nRuns in your browser with webR — no R install. Edit the pipeline and hit **Run Code**; the first run downloads packages, so give it a moment.\n\n\n::: {.cell}\n```{webr}\nlibrary(dplyr); library(dbplyr); library(dplyneage)\n\nlin <- lazy_frame(id = 1, amt = 2, con = simulate_postgres()) |>\n  group_by(id) |>\n  summarise(total = sum(amt, na.rm = TRUE)) |>\n  extract_lineage()\n\nlin\nlineage_flow(lin)\n```\n:::\n\n\n# Understanding\n ",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
