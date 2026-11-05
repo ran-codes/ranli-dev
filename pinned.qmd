@@ -1,6 +1,6 @@
 ---
 title: "Pinned"
-subtitle: "Resources I keep coming back to."
+subtitle: "Stuff I thought was cool."
 page-layout: full
 title-block-banner: true
 ---
