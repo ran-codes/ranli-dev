@@ -77,10 +77,21 @@ Where each artifact can be used after it is built.
 
 | Term | Meaning |
 |---|---|
-| Target directory | Where Cargo stores build output (`target/` by default); also called the build cache |
+| Target directory | Where Cargo stores build output and the state it checks to skip unchanged work (`target/` by default); also called the build cache. One per workspace, so each git worktree gets its own. Similar to Next.js's `.next/` or dbt's `target/` |
 | Fresh | A unit whose cached output is up to date, so Cargo skips it |
 | Dirty | A unit that changed, so Cargo rebuilds it |
 | Incremental compilation | `rustc` reuses work from the last compile of the same crate |
 | Cold / warm build | *Informal.* A build with an empty vs. populated target directory |
 | `rustc` wrapper | A program Cargo runs in place of `rustc` (`build.rustc-wrapper`) |
 | sccache | *Third-party.* A `rustc` wrapper that caches compile output across directories |
+
+### Target directory layout
+
+The subfolders that matter for build speed. `deps/` and `incremental/` sit inside each profile folder, not at the top of `target/`.
+
+| Path | Holds |
+|---|---|
+| `target/debug/` | Output of a plain `cargo build`; compiles fast, runs slow |
+| `target/release/` | Output of `cargo build --release`; compiles slow, runs fast. The final files sit at its top level, like Next.js's `out/` |
+| `target/<profile>/deps/` | Compiled dependencies; most of a cold build, and the part sccache can share |
+| `target/<profile>/incremental/` | Incremental state for your own crates; filled on the first build in each target directory. sccache does not cache incremental compiles |
