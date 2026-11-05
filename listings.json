@@ -8,8 +8,8 @@
   {
     "listing": "/tidbits.html",
     "items": [
-      "/tidbits/2026-11-03-rust-crate-vs-package.html",
       "/tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html",
+      "/tidbits/2026-11-03-rust-crate-vs-package.html",
       "/tidbits/2026-11-02-rust-build-vs-compile-worktrees-sccache.html",
       "/tidbits/2026-11-02-azure-compute-options-container-apps-vs-web-app.html",
       "/tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html",
