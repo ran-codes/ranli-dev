@@ -6,15 +6,17 @@
     ]
   },
   {
-    "listing": "/portfolio.html",
+    "listing": "/glossary.html",
     "items": [
-      "/portfolio/2025-09-01-phl-city-health-dashboard/index.html"
+      "/glossary/git.html",
+      "/glossary/rust.html"
     ]
   },
   {
     "listing": "/tidbits.html",
     "items": [
       "/tidbits/2026-11-06-agent-accessibility-quarto-docusaurus-doc-sites.html",
+      "/tidbits/2026-11-05-dplyneage-in-webr/index.html",
       "/tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html",
       "/tidbits/2026-11-03-rust-crate-vs-package.html",
       "/tidbits/2026-11-02-rust-build-vs-compile-worktrees-sccache.html",
@@ -31,10 +33,9 @@
     ]
   },
   {
-    "listing": "/glossary.html",
+    "listing": "/portfolio.html",
     "items": [
-      "/glossary/git.html",
-      "/glossary/rust.html"
+      "/portfolio/2025-09-01-phl-city-health-dashboard/index.html"
     ]
   }
 ]
