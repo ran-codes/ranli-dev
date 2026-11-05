@@ -6,7 +6,7 @@
 # nothing is published.
 #
 # The whole repo is the site, so the paths filter is an ignore list: pushes that touch
-# only non-site files (Claude config, the legacy docs/ build, the README, deploy.bat)
+# only non-site files (Claude config, the legacy docs/ build, the README, scripts/)
 # don't trigger a deploy.
 #
 # No R install: the one executable page (blog/2025-09-09-duckdb-wasm-proof-of-concept) is
@@ -26,7 +26,7 @@ on:
       - ".claude/**"
       - "docs/**"
       - "README.md"
-      - "deploy.bat"
+      - "scripts/**"
 
 concurrency:
   group: quarto-deploy
