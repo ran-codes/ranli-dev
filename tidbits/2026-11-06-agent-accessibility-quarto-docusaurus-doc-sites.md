@@ -13,3 +13,24 @@ categories: [quarto, docusaurus, ai-agents, docs]
 
 # Understanding
 
+- there is a gold standard for agent accessiblity of doc sites
+  - `llms.txt` is a singel index of all the pages on your side
+  - (`llms.md` oor `.md`) is markdown copy of each page
+  - `llms-full.txt` all docs in one file
+- For the tools that i use here is the support for these artifacts
+
+
+|                                        | Quarto (native, 1.9+) | Docusaurus 3.x (no native support; community plugin [rachfop/docusaurus-plugin-llms](https://github.com/rachfop/docusaurus-plugin-llms) v0.6.1) |
+| -------------------------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `llms.txt` (page index)                | ✅                     | ✅                                                                                                                                               |
+| Markdown copy of each page             | ✅                     | ✅                                                                                                                                               |
+| `llms-full.txt` (all docs in one file) | ❌                     | ✅                                                                                                                                               |
+
+
+- Quarot has native support
+- Only works in website and set in quarto.yaml
+
+```
+website:
+  llms-txt: true
+```
