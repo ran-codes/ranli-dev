@@ -1,6 +1,6 @@
 ---
-title: "Rust worktrees, sccache and build performance"
-date: "2026-11-03"
+title: "Rust workspace primer: target, modules, tests, sccache, worktrees"
+date: "2026-11-05"
 categories: [rust, cargo, sccache, git-worktrees]
 ---
 # Rambling
