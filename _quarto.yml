@@ -29,10 +29,10 @@ website:
     right:
       - text: "Tidbits"
         href: tidbits.qmd
-      - text: "Glossary"
-        href: glossary.qmd
       - text: "Pinned"
         href: pinned.qmd
+      - text: "Glossary"
+        href: glossary.qmd
   page-footer:
     center:
       - icon: linkedin
