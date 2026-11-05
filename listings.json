@@ -1,15 +1,15 @@
 [
   {
-    "listing": "/glossary.html",
+    "listing": "/portfolio.html",
     "items": [
-      "/glossary/git.html",
-      "/glossary/rust.html"
+      "/portfolio/2025-09-01-phl-city-health-dashboard/index.html"
     ]
   },
   {
     "listing": "/tidbits.html",
     "items": [
       "/tidbits/2026-11-03-rust-crate-vs-package.html",
+      "/tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html",
       "/tidbits/2026-11-02-rust-build-vs-compile-worktrees-sccache.html",
       "/tidbits/2026-11-02-azure-compute-options-container-apps-vs-web-app.html",
       "/tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html",
@@ -24,9 +24,10 @@
     ]
   },
   {
-    "listing": "/portfolio.html",
+    "listing": "/glossary.html",
     "items": [
-      "/portfolio/2025-09-01-phl-city-health-dashboard/index.html"
+      "/glossary/git.html",
+      "/glossary/rust.html"
     ]
   },
   {

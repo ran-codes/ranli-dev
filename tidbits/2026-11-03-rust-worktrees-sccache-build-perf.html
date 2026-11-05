@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ran Li">
+<meta name="dcterms.date" content="2026-11-03">
+
+<title>Rust worktrees, sccache and build performance – Ran Li</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-a14d652b86e00f03abd5043129e363d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PC0JG3M1ZX"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-PC0JG3M1ZX', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="Rust worktrees, sccache and build performance – Ran Li">
+<meta property="og:image" content="https://ranli.dev/tidbits/profile.jpg">
+<meta property="og:site_name" content="Ran Li">
+<meta name="twitter:title" content="Rust worktrees, sccache and build performance – Ran Li">
+<meta name="twitter:image" content="https://ranli.dev/tidbits/profile.jpg">
+<meta name="twitter:creator" content="@ran_codes">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Ran Li</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../blog.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../portfolio.html"> 
+<span class="menu-text">Portfolio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../profile.pdf" target="_blank"> 
+<span class="menu-text">Resume</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../tidbits.html"> 
+<span class="menu-text">Tidbits</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../glossary.html"> 
+<span class="menu-text">Glossary</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Rust worktrees, sccache and build performance</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">rust</div>
+                <div class="quarto-category">cargo</div>
+                <div class="quarto-category">sccache</div>
+                <div class="quarto-category">git-worktrees</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p><a href="https://ran-codes.github.io/">Ran Li</a> </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">November 3, 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="rambling" class="level1">
+<h1>Rambling</h1>
+<ul>
+<li>I just want a good workflow for wokring iwht large cargo packges on worktrees</li>
+<li>Particualrly conerning about are
+<ul>
+<li>cold tests or builds that may take a long time on worktrees when the pre-warm cache exiisnt on the main worktree&nbsp;</li>
+<li>to avoid unnecessary cold builds or tests when working on linked work trees</li>
+</ul></li>
+<li>I heard that sscache is a good too get around this</li>
+<li>so i want to make sure to document a workflow that prevents unnecessary cold tests/builds/compiles… etc</li>
+</ul>
+</section>
+<section id="new-vocab" class="level1">
+<h1>New Vocab</h1>
+<section id="target-folder" class="level2">
+<h2 class="anchored" data-anchor-id="target-folder">2. <code>target</code> folder</h2>
+<ul>
+<li><code>/target</code>&nbsp;- this is the folder that cargo will output its build and cache artificats too
+<ul>
+<li>Its comparable to the DBT <code>/target</code>&nbsp;folder</li>
+<li>It is comparable Next.js’ <code>/.next</code>&nbsp;fodler (not to be confused with the <code>/out</code>&nbsp;fodler which contians the final static export</li>
+<li>It has a few subfolders that amtter to use
+<ul>
+<li><code>/target/release</code>&nbsp;- this is final build files so this is comaprable to next.js <code>/out</code>&nbsp;this is gerneated by <code>cargo build --release</code>&nbsp;(compiles slow but runs fast)</li>
+<li><code>/target/debug</code>&nbsp;- output of a plan <code>cargo build</code>&nbsp;- compiles fast but runs slow</li>
+<li><code>/target/deps</code>&nbsp;- hold compiled dependencies, which is most a cold build and waht <code>sccache</code>&nbsp;can share</li>
+<li><code>/target/incremental</code>&nbsp;- caches own crates which incrementally. first build cache initialize cache for each crate</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="files-and-modules-primer" class="level2">
+<h2 class="anchored" data-anchor-id="files-and-modules-primer">2. Files and modules primer</h2>
+<ul>
+<li>Within a workspace there are two types of files
+<ul>
+<li><code>toml</code>&nbsp;and <code>lock</code>&nbsp;files whicha re config files</li>
+<li><code>rs</code>&nbsp;rust code base
+<ul>
+<li><code>.rs</code>&nbsp;code lives in a few packge folders <code>src/</code>, <code>tests/</code>, <code>examples/</code>&nbsp;or <code>/benches</code></li>
+</ul></li>
+</ul></li>
+<li>Rust code take the form of either
+<ul>
+<li>crate roots&nbsp;
+<ul>
+<li>special file names - <code>src/lib.rs</code>&nbsp;(one library crate)</li>
+<li><code>src/main.rs</code>&nbsp;and each <code>src/bin/*.rs</code> → binary crates</li>
+<li><code>src/test/*.rs</code>&nbsp;declare integration tests tests</li>
+<li>others</li>
+</ul></li>
+<li>any other rs file are modules declared wiht the <code>mod</code>&nbsp;sytnax</li>
+</ul></li>
+<li>Files are any file within the <code>src</code>&nbsp;folder</li>
+<li><code>module</code> is an organizational concept to reference specific chunks of atomic code logic</li>
+<li>Each module has a <code>path</code>&nbsp;&nbsp;- there are two types of paths relative and abosulte
+<ul>
+<li><code>absolute path</code>&nbsp;from the <strong>crate</strong> root
+<ul>
+<li><code>crate::parser::fast::parse</code></li>
+</ul></li>
+<li><code>relative path</code>&nbsp;- relative to which <strong>module</strong> you are
+<ul>
+<li><code>fast::parse</code>&nbsp;form inside <code>parser</code>&nbsp;or <code>super::</code>&nbsp;to go up one level</li>
+</ul></li>
+</ul></li>
+</ul>
+<pre><code>● my-workspace/               ← workspace root
+  ├── Cargo.toml              ← [workspace] members = ["mylib", "mycli"]
+  ├── Cargo.lock              ← shared by all packages
+  ├── target/                 ← shared build output + cache
+  ├── mylib/                  ← package "mylib"
+  │   ├── Cargo.toml          ← name = "mylib"
+  │   ├── src/
+  │   │   ├── libr.rs          ← library crate root: mod parser;
+  │   │   ├── parser.rs       ← module parser: mod fast;
+  │   │   └── parser/
+  │   │       └── fast.rs     ← module parser::fast → fn parse
+  │   └── tests/
+  │       └── api.rs          ← integration test crate "api"
+  └── mycli/                  ← package "mycli"
+      ├── Cargo.toml          ← name = "mycli", depends on mylib
+      └── src/
+          └── main.rs         ← binary crate root, calls mylib::parser::fast::parse</code></pre>
+<ul>
+<li>so analyzing the work tree above for paths
+<ul>
+<li><strong>Module</strong> <code>mylib/src/parser/fast.rs</code>
+<ul>
+<li>Absolute path (starts at <code>lib.rs</code>)
+<ul>
+<li>Module: <code>crate::parser::fast</code></li>
+<li>Function:&nbsp;<code>crate::parser::fast::&lt;function-name&gt;</code></li>
+<li>Test:&nbsp;<code>crate::parser::fast::tests::&lt;test-name&gt;</code></li>
+</ul></li>
+<li>Relative path (starts at <code>parser.rs</code>&nbsp;- its parent module)
+<ul>
+<li>Module: <code>fast</code></li>
+<li>Function:&nbsp;<code>fast::&lt;function-name&gt;</code></li>
+<li>Test:&nbsp;<code>fast::test::&lt;test-name&gt;</code></li>
+</ul></li>
+<li><strong>Crates</strong>&nbsp;<code>mylib/src/libr.rs</code>
+<ul>
+<li>Absolute path <code>crate</code>&nbsp;</li>
+<li>From another crate its <code>mylib</code>
+<ul>
+<li>this is for libary crates</li>
+<li>packges can refernece other pacakges library carte (one only iwht the apckag name like <code>mylib</code>)</li>
+<li>packages cannot use other packages binaries (.exe)</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="test-primer" class="level2">
+<h2 class="anchored" data-anchor-id="test-primer">3. Test primer</h2>
+<ul>
+<li>A test name is the test functions full path such as <code>parser::tests::parses_empty</code></li>
+<li>There are several types of tests
+<ul>
+<li><code>unit tests</code>&nbsp;sit inline in <code>src/</code>&nbsp;files inside a&nbsp; <code>mod tests</code></li>
+<li><code>integration tests</code>&nbsp; are files in the packages’ <code>test/</code>&nbsp;folder
+<ul>
+<li>each of those files is its own crate, which <code>--test &lt;file</code>&nbsp;selects</li>
+</ul></li>
+<li>Both kinds are <code>#[test]</code>&nbsp;functions, so both have names</li>
+<li><code>cargo test parses</code>&nbsp;runs every test whos name contains parses</li>
+</ul></li>
+</ul>
+</section>
+<section id="what-is-sccache" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-sccache">4. What is <code>sccache</code></h2>
+<ul>
+<li><code>sccache</code>&nbsp;is a rust tool that keeps one shared dependency compilation across worktrees</li>
+<li>use it to prevent cold-recompile of dpendneces across worktrees</li>
+<li>It does not effect the crate compilation for your workspace</li>
+</ul>
+</section>
+</section>
+<section id="understanding" class="level1">
+<h1>Understanding</h1>
+<ul>
+<li>Triage&nbsp; - guess there are some core concepts i need to know before we cna really put things together Core questions 1 - How Cargo handles cache and efficient builds
+<ul>
+<li>Core Questions 1 -&nbsp;How Cargo handles cache and efficient builds</li>
+<li>Core questions 2 - How Cargo handles cache and efficient tests</li>
+<li>Core questions 3 - How work trees introduce unnecessary cold computes</li>
+<li>Core questions 4 - How can we mitigate unnecessary cold computes for worktree workflows</li>
+</ul></li>
+<li>Core Questions 1 -&nbsp;How Cargo handles cache and efficient builds
+<ul>
+<li><code>cargo build</code>&nbsp;only compiles crates</li>
+<li>so a workspace has many crates - lets say 50 crates</li>
+<li>first time - cold build
+<ul>
+<li>when you run cargo build for the first time</li>
+<li>each crate gets&nbsp; compiled the results are stored in targets/incremental and the outputs int o target/debug</li>
+</ul></li>
+<li>now the development starts
+<ul>
+<li>lets say that one crate code base is changed</li>
+<li>you want to build it so you run cargo build</li>
+<li>cargo will be smart enough to look at a <code>target</code>&nbsp;artifact (<code>target/debug/.fingerprint/</code>) in &nbsp;as a reference to see what crates have changed</li>
+<li>then only compile for the crates that have changed (and all the crates that depend on it)</li>
+</ul></li>
+</ul></li>
+<li>Core questions 2 - How Cargo handles cache and efficient tests
+<ul>
+<li><code>cargo test</code>&nbsp;does a few things
+<ul>
+<li>first it runs a build process (seperate test version of crate) - so a prior carogo build doesnt cover it&nbsp;</li>
+<li>then it runs&nbsp; all tests (regardless if a crate has changed or&nbsp;not)</li>
+<li>so you have to narrow it yourself with
+<ul>
+<li>package filters : <code>-p &lt;pacakge&gt;</code></li>
+<li>crate fitlers: –lib, –bin &lt;name&gt; or –test &lt;name&gt; for one crate</li>
+<li>test name</li>
+</ul></li>
+</ul></li>
+<li>So the test version build is incremental
+<ul>
+<li>the first test will compile the crates in scope, plus dependencies</li>
+<li>then int he future target willd etect what crates ahve chagneds codebase&nbsp;
+<ul>
+<li>only that crate and its ocnsumers’ tests willbe test-compiled</li>
+</ul></li>
+</ul></li>
+<li>but the test is going to run on everything (its not incremental) - test only relies on package, crate and test name filters</li>
+</ul></li>
+<li>Core questions 3 - How work trees introduce unnecessary cold computes
+<ul>
+<li>For cargo workspaces that have a lot of crates</li>
+<li>Cargo builds incrementally for the main build and the test build, and cahces upstream dpeneiceis</li>
+<li>however when we are working on worktrees. each new linked worktree only gets the files that are under version control</li>
+<li>Since <code>target</code>&nbsp;is gitignore; new linekd worktrees will not get that folder or the artifacts within the main worktree’s <code>target</code>&nbsp;folder - importaltn not eh fingerprint or incremental fodler or the compiled dpendiceis which allows incrememtal builds to work</li>
+<li>as a result un-mitigated, new linked trees and build or test would have to re-compile the crates (and hte huge upstream depenicesi)&nbsp; from scratch for the first build or test - taking a long time</li>
+<li>This introduces uncesary cold computes
+<ul>
+<li>crates need to be re-compiled</li>
+<li>usptrema dpenciesn are compield fromt heir source again</li>
+</ul></li>
+</ul></li>
+<li>Core questions 4 - How can we mitigate unnecessary cold computes for worktree workflows
+<ul>
+<li>Firstly implment <code>sccache</code>&nbsp;beuase it stops&nbsp; the uncesary ocmpaitlion dependencie source code for worktree build and test calls</li>
+<li>In terms of compilations
+<ul>
+<li>A first full recompile is unavaiodable (with defualt cargo icnrmeimetnal set to on); one full compile per worktree is unavaibaldable</li>
+<li>once its done its incrememtnal</li>
+<li>On worktree creation, prebuild int he background with&nbsp; &nbsp;&nbsp;<code>cargo test --no-run</code>&nbsp;(add <code>cargo build</code>&nbsp;only if you runt he binary - e.g.&nbsp;harness testing)</li>
+</ul></li>
+<li>In terms of tests
+<ul>
+<li>use the&nbsp; proper filters in work trees</li>
+<li>only run&nbsp; your packges and their consumer tests, let CI runt he whol e wworkspace</li>
+</ul></li>
+</ul></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/ranli\.dev");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/ran-li-6b722718/" target="_blank">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ran-codes" target="_blank">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/ran-li.bsky.social" target="_blank">
+<p><iconify-icon role="img" inline="" icon="fa6-brands:bluesky" aria-label="Icon bluesky from fa6-brands Iconify.design set." title="Icon bluesky from fa6-brands Iconify.design set."></iconify-icon></p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://x.com/ran_codes" target="_blank">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://medium.com/@ranli2011" target="_blank">
+      <i class="bi bi-medium" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

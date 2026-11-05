@@ -201,7 +201,10 @@ gtag('config', 'G-PC0JG3M1ZX', { 'anonymize_ip': true});
   <ul class="collapse">
   <li><a href="#portability" id="toc-portability" class="nav-link" data-scroll-target="#portability">Portability</a></li>
   </ul></li>
-  <li><a href="#caching" id="toc-caching" class="nav-link" data-scroll-target="#caching">Caching</a></li>
+  <li><a href="#caching" id="toc-caching" class="nav-link" data-scroll-target="#caching">Caching</a>
+  <ul class="collapse">
+  <li><a href="#target-directory-layout" id="toc-target-directory-layout" class="nav-link" data-scroll-target="#target-directory-layout">Target directory layout</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -460,7 +463,7 @@ gtag('config', 'G-PC0JG3M1ZX', { 'anonymize_ip': true});
 <tbody>
 <tr class="odd">
 <td>Target directory</td>
-<td>Where Cargo stores build output (<code>target/</code> by default); also called the build cache</td>
+<td>Where Cargo stores build output and the state it checks to skip unchanged work (<code>target/</code> by default); also called the build cache. One per workspace, so each git worktree gets its own. Similar to Next.js’s <code>.next/</code> or dbt’s <code>target/</code></td>
 </tr>
 <tr class="even">
 <td>Fresh</td>
@@ -488,8 +491,42 @@ gtag('config', 'G-PC0JG3M1ZX', { 'anonymize_ip': true});
 </tr>
 </tbody>
 </table>
+<section id="target-directory-layout" class="level3">
+<h3 class="anchored" data-anchor-id="target-directory-layout">Target directory layout</h3>
+<p>The subfolders that matter for build speed. <code>deps/</code> and <code>incremental/</code> sit inside each profile folder, not at the top of <code>target/</code>.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Path</th>
+<th>Holds</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>target/debug/</code></td>
+<td>Output of a plain <code>cargo build</code>; compiles fast, runs slow</td>
+</tr>
+<tr class="even">
+<td><code>target/release/</code></td>
+<td>Output of <code>cargo build --release</code>; compiles slow, runs fast. The final files sit at its top level, like Next.js’s <code>out/</code></td>
+</tr>
+<tr class="odd">
+<td><code>target/&lt;profile&gt;/deps/</code></td>
+<td>Compiled dependencies; most of a cold build, and the part sccache can share</td>
+</tr>
+<tr class="even">
+<td><code>target/&lt;profile&gt;/incremental/</code></td>
+<td>Incremental state for your own crates; filled on the first build in each target directory. sccache does not cache incremental compiles</td>
+</tr>
+</tbody>
+</table>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
