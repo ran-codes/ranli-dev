@@ -77,14 +77,19 @@ Shelf after all three build:
 
 
 
-## Ideas to explore
+## Ideation
 
-- This being the case
-- Sccache is still incredimble valuable as the depencie compaitlion is abig chunk fo rht eocmpaitlion time.
-- Is there a way we can use a just script or a sscacahe config to just tell scchace to not include path in the lookup key? or can we manipulat eth oloopup key withinna proejct like loom-datawarehouse to only unitilzie on path across allw orktrees?
-  - would this solve the problem
-  - is this feasible
-  - shoudl we do it for loomwarhouse
+- Pitch idea
+  - This being the case
+  - Sccache is still incredimble valuable as the depencie compaitlion is abig chunk fo rht eocmpaitlion time.
+  - Is there a way we can use a just script or a sscacahe config to just tell scchace to not include path in the lookup key? or can we manipulat eth oloopup key withinna proejct like loom-datawarehouse to only unitilzie on path across allw orktrees?
+    - would this solve the problem
+    - is this feasible
+    - shoudl we do it for loomwarhouse
+- CC intiial evalution
+  - for dbt-loom sccahce onyl saved about 60 seconds forma  300 sec build. so not a huge lever
+  - also try shared path for wotkree but the conflict becuae overwiting dbt.exe and contaiinaing `dbt.exe` across worktrees
+  - so dont impelment for now!
 
 
 
