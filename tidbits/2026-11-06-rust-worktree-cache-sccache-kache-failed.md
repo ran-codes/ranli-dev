@@ -72,13 +72,20 @@ Shelf after all three build:
 - A deicison tree is printed above along wiht new covabulary needed to understnaind the symptom
 - So sscache works by using a ID-tag caleld -Lookup Key that is linked to each depencny-folder-path
 - the reason why scache doesnt work for worktrees is  because the dpeenceis folder path is dffernt across worktrees
-- So even tohught `paruqet on main worktree`  is cache `parquet on new worktree diff path` is not ocnsidere cache ebcuase the fodler apth si part of the freshness chek
-- Thats why sccache does work for worktrees
+- So even tohught `paruqet on main worktree`  is cache `parquet on new worktree diff path` is not ocnsidere cache ebcuase the fodler apth si part of the cache lookup
+- Thats why sccache doesnt work for worktrees
 
 
 
-&nbsp;
+## Ideas to explore
 
-&nbsp;
+- This being the case
+- Sccache is still incredimble valuable as the depencie compaitlion is abig chunk fo rht eocmpaitlion time.
+- Is there a way we can use a just script or a sscacahe config to just tell scchace to not include path in the lookup key? or can we manipulat eth oloopup key withinna proejct like loom-datawarehouse to only unitilzie on path across allw orktrees?
+  - would this solve the problem
+  - is this feasible
+  - shoudl we do it for loomwarhouse
+
+
 
 &nbsp;
