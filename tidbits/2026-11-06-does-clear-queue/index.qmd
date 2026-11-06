@@ -42,6 +42,7 @@ We can understand this through two axies
 
 # Understanding
 
+(To coorect wiht vacab/primer - beucase this ois slightly incorrect)
 - `/clear` is queued behind fore ground activity (it does not queue behind background activity)
 - foreground activity includes 
     - other skill calls (i gues sthye have o explcitiy run fore guna dn not bakcogurnd)
