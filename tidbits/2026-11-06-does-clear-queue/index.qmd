@@ -2,6 +2,12 @@
 title: "Experiment: does /clear queue in Claude Code?"
 date: "2026-11-06"
 categories: [claude-code, agents, workflow]
+lightbox: true
+format:
+  html:
+    grid:
+      margin-width: 500px
+      body-width: 800px
 ---
 # Rambling
 
@@ -10,7 +16,38 @@ categories: [claude-code, agents, workflow]
 - i am not sure
 - this is gap inc alriity is  blcoker for efifient skill based workflwos
 - apprently the docs ar ento celar about this too. so I want confirm wiht some epxiemrients here
-- The expiermts are s
+- The expiermts are decibr in the bottom expeirment secitons
+- we will store the new vocab require to learn and then the udnrsaning below
+
+# Vocab/Primer
+
+- session: one open claude code window
+- context: what claude remebres this session; clear wipes it
+- turn: one round - you send -> claude works -> claude replies
+- tool call: one action inside a turn (Bash, Edit)
+   - Question: so one turn can onyl have one aciton right?
+- background task: a Bash command moved out of the turn; the turn ends without it
+- Queue: input type mid turn, waiting to be secitons
+- Slash command: `/somethign` eithierh abuilt in slahs command like clear ot a skill develoepd by plugin or user
+
+
+We can understand this through two axies
+
+1. Is claude busy?
+   - busy =  a turn is running
+   - idel = a turn finished. a bckground tasks counts as idle
+2. What did you Type
+   - Text
+   - slash commnad
+
+# Understanding
+
+- `/clear` is queued behind fore ground activity (it does not queue behind background activity)
+- foreground activity includes 
+    - other skill calls (i gues sthye have o explcitiy run fore guna dn not bakcogurnd)
+    - text like quesitons liek `what am i doing?` int he epxierment
+
+
 
 
 
@@ -18,17 +55,70 @@ categories: [claude-code, agents, workflow]
 
 
 
-## Test 1 
+## Test 1 - does `/clear` wait behind running work?
 
-- [ ]
+### Protocol
+
+In a scratch session:
+
+- [x] Ask: "run `python -c "import time; time.sleep(30)"` in Bash, then say DONE"
+  - not `sleep 30` — the Bash tool blocks foreground `sleep` and backgrounds it, which ends the turn immediately and invalidates the test (attempt 1 did this)
+- [x] While it sleeps, type `/clear`
+- [x] Then type "what did I just ask you?"
 
 
+
+
+### Result
+
+::: {.column-margin}
+![Test 1: question answered mid-turn, `/clear` still queued below](test1-clear-queued.png)
+:::
+
+**Answer: yes. `/clear` waited — but the typed question didn't.**
+
+| Typed mid-turn | What happened |
+|---|---|
+| `/clear` | queued until the turn ended |
+| "what did I ask?" | answered right away, with memory |
+
+**Analysis**
+
+- Text mid-turn → joins the running turn
+- Slash command mid-turn → waits for turn end
+- So `/clear` does queue — but typed text jumps ahead of it
+- The "inconsistency": `/clear` on an idle session fires instantly; mid-turn it waits
+
+**Gaps**
+
+- Assumes `/clear` was typed before the question
+- Screenshot ends before `/clear` fired — did it clear after the Stop hook?
 
 ## Test 2
 
+**Question: if Claude stops to ask me something, does a queued `/clear` still wait?**
 
+In a scratch session:
+
+- [ ] Ask: "run `python -c "import time; time.sleep(30)"` in Bash, then ask me a yes/no question with AskUserQuestion"
+- [ ] While it sleeps, type `/clear`
+- [ ] Then type `hello`
+- [ ] Note what `hello` did: answered the question, got dropped, or waited
+
+**Answer:**
 
 ## Test 3
+
+**Question: can I queue `/dev-log` → `/clear` → `/rev` and walk away?**
+
+On a throwaway PR:
+
+- [ ] Type `/dev-log`
+- [ ] While it runs, type `/clear`
+- [ ] Then type `/rev`
+- [ ] Note the order they ran in, and whether `/rev` started on a clean context
+
+**Answer:**
 
 # Understanding
 
