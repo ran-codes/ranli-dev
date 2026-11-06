@@ -30,17 +30,24 @@ cargo asks sccache to compile a crate
 └─ Dependency (parquet 50.0) → make its ID tag:
       parquet 50.0 + compiler flags + folder path
       │
-      ├─ worktree-A: ...parquet + C:\repo\worktree-A → tag 7f3a
-      └─ worktree-B: ...parquet + C:\repo\worktree-B → tag 91c2
+      ├─ main:     ...parquet + C:\repo\loom-warehouse → tag 7f3a
+      ├─ linked-1: ...parquet + C:\repo\wt-1          → tag 91c2
+      └─ linked-2: ...parquet + C:\repo\wt-2          → tag c48e
             │
-            Is tag 91c2 on the shelf?
+            Is tag c48e on the shelf?
             ├─ yes → cache hit: reuse saved copy (fast)
-            └─ no → cache miss: compile, save under 91c2
+            └─ no → cache miss: compile, save under c48e
                     ← every new worktree ends up here
 
-Shelf after both worktrees build:
-  7f3a → parquet compiled in worktree-A
-  91c2 → parquet compiled in worktree-B   ← same code, saved twice
+Lookup keys (parquet only):
+  main:      C:\repo\loom-warehouse\target\debug\deps\libparquet  → 7f3a
+  linked-1:  C:\repo\wt-1\target\debug\deps\libparquet            → 91c2
+  linked-2:  C:\repo\wt-2\target\debug\deps\libparquet            → c48e
+
+Shelf after all three build:
+  7f3a → parquet compiled in main
+  91c2 → parquet compiled in linked-1
+  c48e → parquet compiled in linked-2   ← same code, saved 3 times
 ```
 
 **Vocab**
@@ -58,5 +65,20 @@ Shelf after both worktrees build:
 
 # Understanding
 
-- So sscache works by using a ID-tag caleld -Lookup Key that is linked to each depencny
-  - this tag take into a
+
+
+## Core Question answered
+
+- A deicison tree is printed above along wiht new covabulary needed to understnaind the symptom
+- So sscache works by using a ID-tag caleld -Lookup Key that is linked to each depencny-folder-path
+- the reason why scache doesnt work for worktrees is  because the dpeenceis folder path is dffernt across worktrees
+- So even tohught `paruqet on main worktree`  is cache `parquet on new worktree diff path` is not ocnsidere cache ebcuase the fodler apth si part of the freshness chek
+- Thats why sccache does work for worktrees
+
+
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
