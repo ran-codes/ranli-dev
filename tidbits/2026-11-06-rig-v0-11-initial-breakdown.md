@@ -29,7 +29,11 @@ categories: [r, rig, tooling]
 
 # Understanding
 
-- Triage
-  - you know this is really one of those times where i am not sure how to approach this
-  - should i
+
+
+---
+
+# References
+
+## 1. Agent Bullet Points (make a toggle colabspoible later)
 
