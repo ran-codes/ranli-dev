@@ -13,6 +13,9 @@ categories: [r, rig, tooling]
   - R Packages - [https://opensource.posit.co/blog/2026-10-12_rig-0-11-0-part-two/?mkt_tok=NzA5LU5YTi03MDYAAAGlUJB2DkXVKrP40XoLMNXUs7xDzuBKN8BI3eADi03ydxzjV4sYJIENtBYNVHI80MBe-\_ngMiQgBOculS6gzifluHc-eLq3-JiK-6nmFHIQ7BVfjSQ](https://opensource.posit.co/blog/2026-10-12_rig-0-11-0-part-two/?mkt_tok=NzA5LU5YTi03MDYAAAGlUJB2DkXVKrP40XoLMNXUs7xDzuBKN8BI3eADi03ydxzjV4sYJIENtBYNVHI80MBe-_ngMiQgBOculS6gzifluHc-eLq3-JiK-6nmFHIQ7BVfjSQ)
   - R projects - [https://opensource.posit.co/blog/2026-10-15_rig-0-11-0-part-three/?mkt_tok=NzA5LU5YTi03MDYAAAGlUJB2DbvRH3b5q12idkOUvapnuL_ftiQE5c6UVCVQiCjm_XtNS6RFhDHifpfo2XcIlVHsNmZD5ciL2x5Egz1SBXX3raIXhTv1a0fJceaddPIVMKg](https://opensource.posit.co/blog/2026-10-15_rig-0-11-0-part-three/?mkt_tok=NzA5LU5YTi03MDYAAAGlUJB2DbvRH3b5q12idkOUvapnuL_ftiQE5c6UVCVQiCjm_XtNS6RFhDHifpfo2XcIlVHsNmZD5ciL2x5Egz1SBXX3raIXhTv1a0fJceaddPIVMKg)
 - intiail impressio si that is fundamentall cahgesna lot of how R systmes are manged and a serioius contender to replace UVR
+- This is new thing that willinfomr my opition on R system amnagement that was coverd in previous psots
+  - [https://ranli.dev/tidbits/2026-10-12-r-package-and-env-management-renv.html](https://ranli.dev/tidbits/2026-10-12-r-package-and-env-management-renv.html)
+  - [https://ranli.dev/tidbits/2026-10-21-uvr-test-drive/](https://ranli.dev/tidbits/2026-10-21-uvr-test-drive/)
 - some queions
   - does this repalce uvr
   - i get R installs and packages but what are R projects in rig  (wahts hte utilty ? is r rpeojcts manged in uvr as well or not?)
