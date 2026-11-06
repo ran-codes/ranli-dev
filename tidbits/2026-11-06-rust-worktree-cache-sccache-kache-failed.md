@@ -9,12 +9,15 @@ categories: [rust, cargo, sccache, kache, git-worktrees]
 - its basic research about worktree workflows in rust/cargo development
 - then we tried to impelment it in one of our prohejcts `loom-datawarehouse` and it didnt go accrodingly to plan
   - espcailly the `sccache` which theroetical seems to amke ense but fo rosme reson didnt work
+    - Linking PR for reference
+      - Implemting scache [https://github.com/ran-codes/loom-warehouse/pull/30](https://github.com/ran-codes/loom-warehouse/pull/30)
+      - realizing it doesnt wont then adding another pore-warm mitigaiton workfow - [https://github.com/ran-codes/loom-warehouse/pull/39](https://github.com/ran-codes/loom-warehouse/pull/39)
 - and thne we tried anotehr method `kache` prust pacakge. which also didnt work
 - endedupw itht he conflusiona sof now
   - there isn't a great tooling for windwos rust worktree work
 - here we jsut not try to solve ht problme but jsut try to undresatnd why sscache didn't work
 
- 
+
 
 # Understanding
 
