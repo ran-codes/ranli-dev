@@ -21,6 +21,15 @@ categories: [r, rig, tooling]
   - i get R installs and packages but what are R projects in rig  (wahts hte utilty ? is r rpeojcts manged in uvr as well or not?)
   - how epxirement is the uspport of pack/proj (is it epxeirmental lable is it stable)
     - to inform if its owrht swithcing now or jsut wait for a more GA lable for htese fetures
+- Approahc
+  - you know this is really one of those times where i am not sure how to approach this
+  - should i raw dog it and feed it to an agent and ask quesitons like i suueally do - untill i have good understanidng
+  - or sohuld i jsut read the blogs
+  - how about lets do a hyrbid have the agent read it provide me bulletpoints to review then then i do my usualy question to learn type thing
 
 # Understanding
+
+- Triage
+  - you know this is really one of those times where i am not sure how to approach this
+  - should i
 
