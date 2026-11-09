@@ -51,6 +51,7 @@ We can understand this through two axies
 # Understanding
 
 
+- The core vocabular for answer these questiosn is really important. 
 - Test  1 -  does `/clear` wait behind running work?
    - `/clear` is a built in slash command; functionally it runs after the current turn ends in its own 'turn'
       - So meaning it will wait for all foreground activity to end; it does not wait on background tool calls
@@ -127,30 +128,6 @@ In a scratch session:
 - So a pending question counts as **busy** — the turn is paused, not over
 - For the `/dev-log` loop: a skill that stops to ask something will hold the queue, not drop it
 
-## Test 3
 
-**Question: can I queue `/dev-log` → `/clear` → `/rev` and walk away?**
 
-On a throwaway PR:
-
-- [ ] **3.1** Type `/dev-log`
-- [ ] **3.2** While it runs, type `/clear`
-- [ ] **3.3** Then type `/rev`
-- [ ] **3.4** Note the order they ran in, and whether `/rev` started on a clean context
-
-**Answer:**
-
-## Test 4 - while Claude is waiting on my answer, where does typed text go?
-
-Split out of Test 2 — the original issue bundled this into it. Not needed for the `/dev-log` loop; here for completeness.
-
-In a scratch session:
-
-- [ ] **4.1** Ask: "ask me a yes/no question with AskUserQuestion"
-- [ ] **4.2** When the question appears, don't pick an option — type `hello` in the input box instead
-- [ ] **4.3** Note what `hello` did: taken as the answer, dropped, or held until the question is resolved
-
-**Answer:**
-
-# Understanding
 
