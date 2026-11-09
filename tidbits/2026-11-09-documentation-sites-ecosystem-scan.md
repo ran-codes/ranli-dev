@@ -42,7 +42,12 @@ categories: [docs, docusaurus, astro, quarto]
 
 - There is a difference between package docs generators (Pkgdown for R and Great Docs for Python) and general docs site frameowrks (docusarus, astro-starlight, quarto)
 - This tidbit is focused on geneal docs sites framwroks only so we will onyl evlaute docsuars, astro-satrlight, quarto
-- 
+- the feature aprtiy table is shown in ref 3
+- the takeaway for general docs sites is to use docusarus as it has hte most antive spport ofr core feature required.
+- but you can't really go wrong - hope quarto adds native semvra support soon but a issue scan.. seems unlikely. so for genral docusarus seems okay. for anything that is more R centric stick with quarot and tdoa handrolled CICID like salurbal-infra? maybe time will tell. we will try docsauruse with salrubal-obt jsut for the semvra stuff.
+- time will tell...
+
+   
 
 
 
@@ -100,3 +105,27 @@ categories: [docs, docusaurus, astro, quarto]
 | Host                   | GitHub Pages               | Used                          | loom, obt, infra index                    |
 | Host                   | Azure Blob static site     | Used                          | infra refinement, producer contract specs |
 | Host                   | Azure Static Web Apps      | Rejected: login not needed    | infra #1016                               |
+
+
+## 3. Feature parity: general docs frameworks
+
+Researched 2026-11-09 against each repo: Docusaurus 3.10.2 · Starlight 0.42.10 · Quarto 1.11.9.
+
+✅ native · 🧩 extension · ❌ none
+
+
+| Feature                        | Docusaurus         | Starlight          | Quarto                       | Extension that fills the gap                                                                                                                                                                       |
+| ------------------------------ | ------------------ | ------------------ | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Built on                       | React (JS/TS, MDX) | Astro (JS/TS, MDX) | Pandoc (Lua filters, `.qmd`) | —                                                                                                                                                                                                  |
+| Multilingual site              | ✅                  | ✅                  | 🧩                           | [babelquarto](https://github.com/ropensci-review-tools/babelquarto) (62★, v0.1.0, R package)                                                                                                       |
+| Docs versioning                | ✅                  | 🧩                 | 🧩                           | [starlight-versions](https://github.com/HiDeoo/starlight-versions) (102★, v0.10.2) · [quarto-version-selector](https://github.com/CCBR/quarto-version-selector) (0★, v1.0.0, 2 weeks old)          |
+| Agent access (`llms.txt`)      | 🧩                 | 🧩                 | ✅                            | [docusaurus-plugin-llms](https://github.com/rachfop/docusaurus-plugin-llms) (147★, v0.6.1, used in loom #44) · [starlight-llms-txt](https://github.com/delucis/starlight-llms-txt) (117★, v0.12.0) |
+| Mermaid diagrams               | ✅                  | 🧩                 | ✅                            | [astro-mermaid](https://github.com/joesaby/astro-mermaid) (125★, v2.2.0)                                                                                                                           |
+| Interactive tables             | ✅                  | ✅                  | ✅                            | none needed                                                                                                                                                                                        |
+| Listing pages (blog, glossary) | ✅                  | 🧩                 | ✅                            | [starlight-blog](https://github.com/HiDeoo/starlight-blog) (277★, v0.30.2), blog only                                                                                                              |
+| Flexible layout                | ✅                  | ✅                  | ✅                            | none needed                                                                                                                                                                                        |
+| Runs R and Python code         | ❌                  | ❌                  | ✅                            | none                                                                                                                                                                                               |
+
+
+- Interactive tables and flexible layout: in Docusaurus and Starlight you write React or Astro components; in Quarto it is Markdown syntax or R/Python widgets.
+- Quarto gaps: multilingual ([quarto-cli #275](https://github.com/quarto-dev/quarto-cli/issues/275), open since 2022) and versioning ([quarto-cli #474](https://github.com/quarto-dev/quarto-cli/issues/474), open since 2022).
