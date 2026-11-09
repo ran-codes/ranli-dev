@@ -64,7 +64,8 @@ We can understand this through two axies
 
 # Expeirments
 
-
+- These are all 'gaps' in the docs. so we are performaing expierments to get a more ifnormed answer
+- Note these were test on claude code  v2.1.280
 
 ## Test 1 - does `/clear` wait behind running work?
 
@@ -105,9 +106,7 @@ In a scratch session:
 - Assumes `/clear` was typed before the question
 - Screenshot ends before `/clear` fired — did it clear after the Stop hook?
 
-## Test 2
-
-**Question: if Claude stops to ask me something, does a queued `/clear` still wait?**
+## Test 2 - if Claude stops to ask me something, does a queued `/clear` still wait?
 
 In a scratch session:
 
