@@ -1,5 +1,5 @@
 ---
-title: "Rust"
+title: "Rust terms"
 description: "Cargo, crates, compiling, building and caching."
 date-modified: "2026-11-03"
 ---

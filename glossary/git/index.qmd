@@ -1,0 +1,27 @@
+---
+title: "Git and GitHub"
+description: "Repos, clones, config files and line endings."
+date-modified: "2026-11-02"
+listing:
+  id: related-tidbits
+  contents: "../../tidbits/**"
+  include:
+    categories: [git]
+  type: table
+  fields: [date, title]
+  date-format: "YYYY-MM-DD"
+  sort: "date desc"
+  sort-ui: false
+  filter-ui: false
+---
+
+## Pages
+
+| Page | What it holds |
+|---|---|
+| [Terms](terms.qmd) | Config files and line endings |
+
+## Related tidbits
+
+::: {#related-tidbits}
+:::

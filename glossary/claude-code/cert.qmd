@@ -1,0 +1,20 @@
+---
+title: "Claude architect certification"
+description: "Study plan and status for the Claude Certified Architect – Foundations exam."
+date-modified: "2026-11-09"
+---
+
+Tracked in [ran-codes/ranli-dev#44](https://github.com/ran-codes/ranli-dev/issues/44). Exam page: [Claude Certified Architect – Foundations](https://anthropic-partners.skilljar.com/claude-certified-architect-foundations-certification/486716).
+
+## Plan
+
+Read the exam guide first, then take three free courses. Step 1 shows which parts of each course to focus on; steps 2–4 don't depend on each other.
+
+| Order | Issue | What it is | Goal | Time | Status |
+|---|---|---|---|---|---|
+| 1st | [#45](https://github.com/ran-codes/ranli-dev/issues/45) | Read the exam guide | Mark the topics you don't know yet | ~2 h | |
+| 2nd | [#46](https://github.com/ran-codes/ranli-dev/issues/46) | Course: Building with the Claude API | Learn API, prompts, and tools | ~9 h | |
+| 3rd | [#47](https://github.com/ran-codes/ranli-dev/issues/47) | Course: Introduction to MCP | Learn how MCP servers work | ~1–2 h | |
+| 4th | [#48](https://github.com/ran-codes/ranli-dev/issues/48) | Course: Claude Code in Action | Learn Claude Code setup, past takers' weakest area | ~1–2 h | |
+
+Then: the official practice exam, taken cold for a baseline, then retaken until 900+.

@@ -1,0 +1,27 @@
+---
+title: "Rust"
+description: "Cargo, crates, compiling, building and caching."
+date-modified: "2026-11-03"
+listing:
+  id: related-tidbits
+  contents: "../../tidbits/**"
+  include:
+    categories: [rust]
+  type: table
+  fields: [date, title]
+  date-format: "YYYY-MM-DD"
+  sort: "date desc"
+  sort-ui: false
+  filter-ui: false
+---
+
+## Pages
+
+| Page | What it holds |
+|---|---|
+| [Terms](terms.qmd) | Code units, build steps, Cargo commands, outputs, and caching |
+
+## Related tidbits
+
+::: {#related-tidbits}
+:::
