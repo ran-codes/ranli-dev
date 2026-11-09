@@ -73,10 +73,10 @@ We can understand this through two axies
 
 In a scratch session:
 
-- [x] Ask: "run `python -c "import time; time.sleep(30)"` in Bash, then say DONE"
+- [x] **1.1** Ask: "run `python -c "import time; time.sleep(30)"` in Bash, then say DONE"
   - not `sleep 30` — the Bash tool blocks foreground `sleep` and backgrounds it, which ends the turn immediately and invalidates the test (attempt 1 did this)
-- [x] While it sleeps, type `/clear`
-- [x] Then type "what did I just ask you?"
+- [x] **1.2** While it sleeps, type `/clear`
+- [x] **1.3** Then type "what did I just ask you?"
 
 
 
@@ -106,14 +106,15 @@ In a scratch session:
 - Assumes `/clear` was typed before the question
 - Screenshot ends before `/clear` fired — did it clear after the Stop hook?
 
-## Test 2 - if Claude stops to ask me something, does a queued `/clear` still wait?
+## Test 2 - if Claude stops to ask me something does the turn end -> does a queued `/clear` still wait?
 
 In a scratch session:
 
-- [ ] Ask: "run `python -c "import time; time.sleep(30)"` in Bash, then ask me a yes/no question with AskUserQuestion"
-- [ ] While it sleeps, type `/clear`
-- [ ] Then type `hello`
-- [ ] Note what `hello` did: answered the question, got dropped, or waited
+- [ ] **2.1** Ask: "run `python -c "import time; time.sleep(30)"` in Bash, then ask me a yes/no question with AskUserQuestion"
+- [ ] **2.2** While it sleeps, type `/clear` — and nothing else
+- [ ] **2.3** Wait for the question to appear. Note: did `/clear` fire at that moment, or is it still queued?
+  - fired → a pending question counts as idle
+  - still queued → a pending question counts as busy
 
 **Answer:**
 
@@ -123,10 +124,22 @@ In a scratch session:
 
 On a throwaway PR:
 
-- [ ] Type `/dev-log`
-- [ ] While it runs, type `/clear`
-- [ ] Then type `/rev`
-- [ ] Note the order they ran in, and whether `/rev` started on a clean context
+- [ ] **3.1** Type `/dev-log`
+- [ ] **3.2** While it runs, type `/clear`
+- [ ] **3.3** Then type `/rev`
+- [ ] **3.4** Note the order they ran in, and whether `/rev` started on a clean context
+
+**Answer:**
+
+## Test 4 - while Claude is waiting on my answer, where does typed text go?
+
+Split out of Test 2 — the original issue bundled this into it. Not needed for the `/dev-log` loop; here for completeness.
+
+In a scratch session:
+
+- [ ] **4.1** Ask: "ask me a yes/no question with AskUserQuestion"
+- [ ] **4.2** When the question appears, don't pick an option — type `hello` in the input box instead
+- [ ] **4.3** Note what `hello` did: taken as the answer, dropped, or held until the question is resolved
 
 **Answer:**
 
