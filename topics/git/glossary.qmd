@@ -1,5 +1,5 @@
 ---
-title: "Git and GitHub"
+title: "Git and GitHub glossary"
 description: "Repos, clones, config files and line endings."
 date-modified: "2026-11-02"
 ---

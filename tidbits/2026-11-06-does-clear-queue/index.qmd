@@ -1,6 +1,7 @@
 ---
 title: "Experiment: does /clear queue in Claude Code?"
 date: "2026-11-06"
+topics: [claude-code]
 categories: [claude-code, agents, workflow]
 lightbox: true
 format:
@@ -21,7 +22,7 @@ format:
 
 # Vocab/Primer
 
-Canonical definitions live in the [Claude Code glossary](/glossary/claude-code.html); this is the working version used for the experiments.
+Canonical definitions live in the [Claude Code glossary](/topics/claude-code/glossary.html); this is the working version used for the experiments.
 
 - session: one open claude code window
 - context: what claude remebres this session; clear wipes it

@@ -1,6 +1,7 @@
 ---
 title: "Line endings on four axes: LF vs CRLF, repo vs local, .gitattributes, and the refresh"
 date: "2026-11-02"
+topics: [git]
 categories: [git, line-endings, gitattributes, windows]
 ---
 ## 1. Ramblings

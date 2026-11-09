@@ -1,6 +1,7 @@
 ---
 title: "Rust workspace primer: target, modules, tests, sccache, worktrees"
 date: "2026-11-05"
+topics: [rust]
 categories: [rust, cargo, sccache, git-worktrees]
 ---
 # Rambling

@@ -1,5 +1,5 @@
 ---
-title: "Claude Code"
+title: "Claude Code glossary"
 description: "Sessions, turns, tool calls, and what happens when you type while Claude is working."
 date-modified: "2026-11-09"
 ---

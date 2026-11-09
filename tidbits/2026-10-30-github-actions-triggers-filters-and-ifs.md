@@ -1,6 +1,7 @@
 ---
 title: "GitHub Actions triggers, filters and ifs"
 date: "2026-10-30"
+topics: [git]
 categories: [github-actions, ci, git]
 ---
 ## Rambling/understanding

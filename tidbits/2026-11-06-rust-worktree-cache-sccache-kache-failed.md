@@ -1,6 +1,7 @@
 ---
 title: "Rust worktree cache friction: why sccache and kache didn't work for us"
 date: "2026-11-06"
+topics: [rust]
 categories: [rust, cargo, sccache, kache, git-worktrees]
 ---
 # Ramblings

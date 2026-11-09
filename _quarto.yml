@@ -31,8 +31,8 @@ website:
         href: tidbits.qmd
       - text: "Pinned"
         href: pinned.qmd
-      - text: "Glossary"
-        href: glossary.qmd
+      - text: "Topics"
+        href: topics.qmd
   page-footer:
     center:
       - icon: linkedin
@@ -54,6 +54,9 @@ format:
   html:
     theme: cosmo
     css: styles.css
+
+filters:
+  - scripts/topics-badges.lua
 
 execute:
   freeze: auto

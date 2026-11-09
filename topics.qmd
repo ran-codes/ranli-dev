@@ -1,8 +1,8 @@
 ---
-title: "Glossary"
-subtitle: "Plain-language terms, one page per topic."
+title: "Topics"
+subtitle: "One page per topic: terms, plans, and related notes."
 listing:
-  contents: glossary
+  contents: topics/*/index.qmd
   sort: "title asc"
   type: table
   fields: [title, description, date-modified]
