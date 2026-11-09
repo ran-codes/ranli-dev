@@ -24,29 +24,39 @@ format:
 - session: one open claude code window
 - context: what claude remebres this session; clear wipes it
 - turn: one round - you send -> claude works -> claude replies
-- tool call: one action inside a turn (Bash, Edit)
-   - Question: so one turn can onyl have one aciton right?
-- background task: a Bash command moved out of the turn; the turn ends without it
-- Queue: input type mid turn, waiting to be secitons
-- Slash command: `/somethign` eithierh abuilt in slahs command like clear ot a skill develoepd by plugin or user
-
+   - Turns consist of tool calls and input text processing
+   - skill calls always start a new turn
+- tool call:  actions inside a turn (Bash, Edit); a turn can have many. 
+   - There are two  types
+   - Forground (default): the turn waits for it -> Claude session stays busy
+   - Background: it runs on its own, outside the turn, the turn ends -> Claude session is idle
+      - goes to background when you ask (Ctrl+B) or it times out or the commnand is baned int he forground (e.g. 'sleep')
+      - to for foreground: say 'wait for it'
+- Slash command: `/somethign` either a built in slash  command like clear or  a skill develoepd by plugin or user
+- Queue: one list of everything typed mid-turn, in typed order
+   - text -> handed to claude between tool calls, during the current turn
+   - slash commands -> waits int he list, runs after the current turn ends 
+      - excetipison ther eare few built in slash commands that runisntanlty never queued: `/status`, `/tasks`, `/usage`
+   - so text always runs before a queued slash command, whatever order you typed   
 
 We can understand this through two axies
 
 1. Is claude busy?
    - busy =  a turn is running
-   - idel = a turn finished. a bckground tasks counts as idle
+   - idel = a turn finished. a background tool call counts as idle
 2. What did you Type
    - Text
    - slash commnad
 
 # Understanding
 
-(To coorect wiht vacab/primer - beucase this ois slightly incorrect)
-- `/clear` is queued behind fore ground activity (it does not queue behind background activity)
-- foreground activity includes 
-    - other skill calls (i gues sthye have o explcitiy run fore guna dn not bakcogurnd)
-    - text like quesitons liek `what am i doing?` int he epxierment
+
+- Experiment 1
+   - `/clear` is a built in slash command; functionally it runs after the current turn ends in its own 'turn'
+      - So meaning it will wait for all foreground activity to end; it does not wait on background tool calls
+   - text type during a turn, gets evaluated before the slash command (even if it is type after the slash command- as long as its type before the turn ends).
+      - it gets evaluate during the turn at the next gap between tool calls to the quere 
+      - response happens before the turn ends 
 
 
 
