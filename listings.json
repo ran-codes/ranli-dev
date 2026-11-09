@@ -6,16 +6,15 @@
     ]
   },
   {
-    "listing": "/glossary.html",
+    "listing": "/portfolio.html",
     "items": [
-      "/glossary/claude-code.html",
-      "/glossary/git.html",
-      "/glossary/rust.html"
+      "/portfolio/2025-09-01-phl-city-health-dashboard/index.html"
     ]
   },
   {
     "listing": "/tidbits.html",
     "items": [
+      "/tidbits/2026-11-09-documentation-sites-ecosystem-scan.html",
       "/tidbits/2026-11-06-agentic-conference-poster-claude-code.html",
       "/tidbits/2026-11-06-does-clear-queue/index.html",
       "/tidbits/2026-11-06-rig-v0-11-initial-breakdown.html",
@@ -39,9 +38,11 @@
     ]
   },
   {
-    "listing": "/portfolio.html",
+    "listing": "/glossary.html",
     "items": [
-      "/portfolio/2025-09-01-phl-city-health-dashboard/index.html"
+      "/glossary/claude-code.html",
+      "/glossary/git.html",
+      "/glossary/rust.html"
     ]
   }
 ]
