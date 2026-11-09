@@ -9,6 +9,9 @@ categories: [docs, docusaurus, astro, quarto]
 - i want to use this tidbit ot compile that inshgt and also to do  slihgglt more rhtourhg omaprisons of docs site feature aprity
 - jsuta s self reference amterial for docs sites dated Nov 2026 (as this like willc hagne rapidaly in 2027)
 - The first reference table is a link to the docs site related PRs i have been doing recently.
+- preivous pR meniton other tech but failed to touhc on psit great docs packge as docs fremwaokr.
+  - its currently on Pythong
+  - But roadmas is to have rust and JS support and R
 - Here are some features sin my mind that must have NATIVE SUPPORT 
   - semvar of docs   
   - agents accesiblity  
@@ -18,8 +21,11 @@ categories: [docs, docusaurus, astro, quarto]
   - layout features like quarto for fleixblie and compelxity of docs
 - next stesup
   - link related PRs
+  - initail queisotna botu greater docs
+    - its only py spport?? not R or rust or JS?
+    - is it a packgea doucs framisome ntoa genral docs frmawkorig (relquires roxysngenr ot soemthign); so it cnanot be used frogneral docs sites?
   - develop a Parity table of tech avlailble adn silcnude the feautre sin my mind from above
-  - Initi blocked page so tehconolgoes that are blocking and to keepy an eye out one. froexamples. a row for great docs to add other langauge support namely Rust and JS. So proarbly just mofied the pinned page?
+  - Initi blocked page so tehconolgoes that are bl
 
 
 
@@ -27,9 +33,11 @@ categories: [docs, docusaurus, astro, quarto]
 
 
 
-&nbsp;
+- There is a difference between package docs generators (Pkgdown for R and Greater Docs for Python) and general docs site frameowrks (docusarus, astro-starlight, quarto)
+- This tidbit is focused on geneal docs sites framwroks only so we will onyl evlaute docsuars, astro-satrlight, quarto
+- 
 
-&nbsp;
+ 
 
 ---
 
@@ -70,15 +78,18 @@ categories: [docs, docusaurus, astro, quarto]
 ## 2. Tech mentioned in related PRs
 
 
-| Type           | Tool                       | Status                     | Where                                     |
-| -------------- | -------------------------- | -------------------------- | ----------------------------------------- |
-| Docs framework | Astro Starlight 0.42       | Used, then dropped         | loom #36, #40                             |
-| Docs framework | Docusaurus 3.10            | Used, current              | loom #42–45                               |
-| Docs framework | Quarto 1.10                | Used, current              | obt, infra                                |
-| Extension      | starlight-versions         | Mentioned, not tried       | loom #42                                  |
-| Extension      | starlight-sidebar-topics   | Mentioned, not tried       | loom #40                                  |
-| Extension      | docusaurus-plugin-llms 0.6 | Used: `llms.txt`           | loom #44, #45                             |
-| Extension      | Pagefind                   | Used: Starlight search     | loom #36                                  |
-| Host           | GitHub Pages               | Used                       | loom, obt, infra index                    |
-| Host           | Azure Blob static site     | Used                       | infra refinement, producer contract specs |
-| Host           | Azure Static Web Apps      | Rejected: login not needed | infra #1016                               |
+| Type                   | Tool                       | Status                        | Where                                     |
+| ---------------------- | -------------------------- | ----------------------------- | ----------------------------------------- |
+| General docs framework | Astro Starlight 0.42       | Used, then dropped            | loom #36, #40                             |
+| General docs framework | Docusaurus 3.10            | Used, current                 | loom #42–45                               |
+| General docs framework | Quarto 1.10                | Used, current                 | obt, infra                                |
+| Package docs generator | Great Docs (Posit)         | Not tried: Python pkgs only   | issue #64 (not a PR)                      |
+| Package docs generator | pkgdown (R)                | Not tried: R standard, active | research (not a PR)                       |
+| Extension              | starlight-versions         | Mentioned, not tried          | loom #42                                  |
+| Extension              | starlight-sidebar-topics   | Mentioned, not tried          | loom #40                                  |
+| Extension              | quarto-version-selector    | Not tried: v1.0.0, very new   | issue #64 (not a PR)                      |
+| Extension              | docusaurus-plugin-llms 0.6 | Used: `llms.txt`              | loom #44, #45                             |
+| Extension              | Pagefind                   | Used: Starlight search        | loom #36                                  |
+| Host                   | GitHub Pages               | Used                          | loom, obt, infra index                    |
+| Host                   | Azure Blob static site     | Used                          | infra refinement, producer contract specs |
+| Host                   | Azure Static Web Apps      | Rejected: login not needed    | infra #1016                               |
