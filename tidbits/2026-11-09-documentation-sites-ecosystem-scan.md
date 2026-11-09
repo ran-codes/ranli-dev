@@ -12,7 +12,14 @@ categories: [docs, docusaurus, astro, quarto]
 - preivous pR meniton other tech but failed to touhc on psit great docs packge as docs fremwaokr.
   - its currently on Pythong
   - But roadmas is to have rust and JS support and R
+- there are also other general docs gfrmaowek
+  - mkdocs amterial
+  - vitepress (no built in vrisoning)
+  - mkdocs (in maiyinacne model, supercied but very young zeinsical)
+  - spinx (python centric)
+  - zensical - [https://github.com/zensical/zensical](https://github.com/zensical/zensical)  (too new)
 - Here are some features sin my mind that must have NATIVE SUPPORT 
+  - multi-linugal focus
   - semvar of docs   
   - agents accesiblity  
   - mermaid diagramres
@@ -33,11 +40,11 @@ categories: [docs, docusaurus, astro, quarto]
 
 
 
-- There is a difference between package docs generators (Pkgdown for R and Greater Docs for Python) and general docs site frameowrks (docusarus, astro-starlight, quarto)
+- There is a difference between package docs generators (Pkgdown for R and Great Docs for Python) and general docs site frameowrks (docusarus, astro-starlight, quarto)
 - This tidbit is focused on geneal docs sites framwroks only so we will onyl evlaute docsuars, astro-satrlight, quarto
 - 
 
- 
+
 
 ---
 
