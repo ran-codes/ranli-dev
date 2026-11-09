@@ -51,13 +51,17 @@ We can understand this through two axies
 # Understanding
 
 
-- Experiment 1
+- Test  1 -  does `/clear` wait behind running work?
    - `/clear` is a built in slash command; functionally it runs after the current turn ends in its own 'turn'
       - So meaning it will wait for all foreground activity to end; it does not wait on background tool calls
    - text type during a turn, gets evaluated before the slash command (even if it is type after the slash command- as long as its type before the turn ends).
       - it gets evaluate during the turn at the next gap between tool calls to the quere 
       - response happens before the turn ends 
-
+   - Answer: `/clear` waits behing all foreground work
+- Test 2 - if Claude stops to ask me something does the turn end -> does a queued `/clear` still wait?
+   - Answer: turn does not end → `/clear` waits
+   - Ask user question is a tool call that does not 'end' untill it is answer
+   - so untill a asnwer is sbimitted hte turn is not over -> `/clear` does not run
 
 
 
@@ -110,13 +114,18 @@ In a scratch session:
 
 In a scratch session:
 
-- [ ] **2.1** Ask: "run `python -c "import time; time.sleep(30)"` in Bash, then ask me a yes/no question with AskUserQuestion"
-- [ ] **2.2** While it sleeps, type `/clear` — and nothing else
-- [ ] **2.3** Wait for the question to appear. Note: did `/clear` fire at that moment, or is it still queued?
+- [x] **2.1** Ask: "run `python -c "import time; time.sleep(30)"` in Bash, then ask me a yes/no question with AskUserQuestion"
+- [x] **2.2** While it sleeps, type `/clear` — and nothing else
+- [x] **2.3** Wait for the question to appear. Note: did `/clear` fire at that moment, or is it still queued?
   - fired → a pending question counts as idle
   - still queued → a pending question counts as busy
 
-**Answer:**
+**Answer: no, the turn does not end. `/clear` waited for my answer.**
+
+- After the 30s sleep, the AskUserQuestion prompt appeared and `/clear` stayed queued
+- `/clear` only ran after I answered the question and the turn finished
+- So a pending question counts as **busy** — the turn is paused, not over
+- For the `/dev-log` loop: a skill that stops to ask something will hold the queue, not drop it
 
 ## Test 3
 
