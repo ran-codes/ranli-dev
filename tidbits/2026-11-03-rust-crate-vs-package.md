@@ -1,6 +1,7 @@
 ---
 title: "Rust package vs crate vs modules"
 date: "2026-11-03"
+topics: [rust]
 categories: [rust, cargo]
 ---
 # Rambling

@@ -1,6 +1,7 @@
 ---
 title: "Rust build vs compilation"
 date: "2026-11-02"
+topics: [rust]
 categories: [rust, cargo, sccache, git-worktrees]
 ---
 # 1. Ramblings

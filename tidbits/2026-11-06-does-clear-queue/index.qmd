@@ -1,6 +1,7 @@
 ---
 title: "Experiment: does /clear queue in Claude Code?"
 date: "2026-11-06"
+topics: [claude-code]
 categories: [claude-code, agents, workflow]
 lightbox: true
 format:

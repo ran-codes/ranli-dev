@@ -6,7 +6,7 @@ listing:
   id: related-tidbits
   contents: "../../tidbits/**"
   include:
-    categories: [git]
+    topics: [git]
   type: table
   fields: [date, title]
   date-format: "YYYY-MM-DD"

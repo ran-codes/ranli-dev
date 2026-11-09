@@ -1,6 +1,7 @@
 ---
 title: "Agentic practices for writing a conference poster with Claude Code"
 date: "2026-11-06"
+topics: [claude-code]
 categories: [claude-code, ai-agents, posters]
 ---
 # Rambling
