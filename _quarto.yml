@@ -32,7 +32,7 @@ website:
       - text: "Pinned"
         href: pinned.qmd
       - text: "Topics"
-        href: glossary.qmd
+        href: topics.qmd
   page-footer:
     center:
       - icon: linkedin

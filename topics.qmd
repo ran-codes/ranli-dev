@@ -2,7 +2,7 @@
 title: "Topics"
 subtitle: "One page per topic: terms, plans, and related notes."
 listing:
-  contents: glossary/*/index.qmd
+  contents: topics/*/index.qmd
   sort: "title asc"
   type: table
   fields: [title, description, date-modified]

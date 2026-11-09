@@ -8,7 +8,7 @@ function Pandoc(doc)
   local links = {}
   for _, t in ipairs(topics) do
     local slug = pandoc.utils.stringify(t)
-    table.insert(links, string.format('<a href="/glossary/%s/">%s</a>', slug, slug))
+    table.insert(links, string.format('<a href="/topics/%s/">%s</a>', slug, slug))
   end
   local html = string.format([[
 <div class="quarto-title-meta-topics" hidden>

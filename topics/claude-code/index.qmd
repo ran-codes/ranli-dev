@@ -19,7 +19,7 @@ listing:
 
 | Page | What it holds |
 |---|---|
-| [Terms](terms.qmd) | Sessions, turns, tool calls, and what happens when you type while Claude is working |
+| [Glossary](glossary.qmd) | Sessions, turns, tool calls, and what happens when you type while Claude is working |
 | [Architect cert](cert.qmd) | Study plan and status for the Claude Certified Architect exam |
 
 ## Related tidbits

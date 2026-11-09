@@ -1,12 +1,12 @@
 ---
-title: "Git and GitHub"
-description: "Repos, clones, config files and line endings."
-date-modified: "2026-11-02"
+title: "Rust"
+description: "Cargo, crates, compiling, building and caching."
+date-modified: "2026-11-03"
 listing:
   id: related-tidbits
   contents: "../../tidbits/**"
   include:
-    topics: [git]
+    topics: [rust]
   type: table
   fields: [date, title]
   date-format: "YYYY-MM-DD"
@@ -19,7 +19,7 @@ listing:
 
 | Page | What it holds |
 |---|---|
-| [Terms](terms.qmd) | Config files and line endings |
+| [Glossary](glossary.qmd) | Code units, build steps, Cargo commands, outputs, and caching |
 
 ## Related tidbits
 
