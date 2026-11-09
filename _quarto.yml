@@ -55,5 +55,8 @@ format:
     theme: cosmo
     css: styles.css
 
+filters:
+  - scripts/topics-badges.lua
+
 execute:
   freeze: auto

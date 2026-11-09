@@ -5,7 +5,10 @@ listing:
   contents: tidbits
   sort: "date desc"
   type: table
-  fields: [date, title, categories]
+  fields: [date, title, topics, categories]
+  field-display-names:
+    topics: Topics
+    categories: Tags
   date-format: "YYYY-MM-DD"
   categories: true
   sort-ui: false

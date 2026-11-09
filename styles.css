@@ -23,3 +23,6 @@
 	background-color: #ffffff;
 	border-bottom-right-radius: 10px;
 }
+
+/* Title block meta row: Author | Topics | Published (scripts/topics-badges.lua) */
+#title-block-header.quarto-title-block.default .quarto-title-meta.has-topics { grid-template-columns: repeat(3, 1fr); }
