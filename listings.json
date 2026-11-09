@@ -6,15 +6,17 @@
     ]
   },
   {
-    "listing": "/portfolio.html",
+    "listing": "/glossary.html",
     "items": [
-      "/portfolio/2025-09-01-phl-city-health-dashboard/index.html"
+      "/glossary/git.html",
+      "/glossary/rust.html"
     ]
   },
   {
     "listing": "/tidbits.html",
     "items": [
       "/tidbits/2026-11-06-agentic-conference-poster-claude-code.html",
+      "/tidbits/2026-11-06-rig-v0-11-initial-breakdown.html",
       "/tidbits/2026-11-06-group-by-all-duckdb-dbt-v2-parser.html",
       "/tidbits/2026-11-06-agent-accessibility-quarto-docusaurus-doc-sites.html",
       "/tidbits/2026-11-06-rust-worktree-cache-sccache-kache-failed.html",
@@ -35,10 +37,9 @@
     ]
   },
   {
-    "listing": "/glossary.html",
+    "listing": "/portfolio.html",
     "items": [
-      "/glossary/git.html",
-      "/glossary/rust.html"
+      "/portfolio/2025-09-01-phl-city-health-dashboard/index.html"
     ]
   }
 ]

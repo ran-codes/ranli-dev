@@ -2,114 +2,118 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ranli.dev/index.html</loc>
-    <lastmod>2026-11-06T15:26:36.662Z</lastmod>
+    <lastmod>2026-11-09T14:30:23.005Z</lastmod>
   </url>
   <url>
     <loc>https://ranli.dev/blog.html</loc>
-    <lastmod>2026-11-06T15:26:36.652Z</lastmod>
+    <lastmod>2026-11-09T14:30:22.993Z</lastmod>
   </url>
   <url>
     <loc>https://ranli.dev/tidbits/2026-10-21-notion-as-a-backend.html</loc>
-    <lastmod>2026-11-06T15:26:36.665Z</lastmod>
+    <lastmod>2026-11-09T14:30:23.008Z</lastmod>
   </url>
   <url>
     <loc>https://ranli.dev/tidbits/2026-10-05-nextjs-server-vs-client-components.html</loc>
-    <lastmod>2026-11-06T15:26:36.665Z</lastmod>
+    <lastmod>2026-11-09T14:30:23.008Z</lastmod>
   </url>
   <url>
     <loc>https://ranli.dev/tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html</loc>
-    <lastmod>2026-11-06T15:26:36.665Z</lastmod>
+    <lastmod>2026-11-09T14:30:23.009Z</lastmod>
   </url>
   <url>
     <loc>https://ranli.dev/tidbits/2026-10-30-github-actions-triggers-filters-and-ifs.html</loc>
-    <lastmod>2026-11-06T15:26:36.665Z</lastmod>
+    <lastmod>2026-11-09T14:30:23.009Z</lastmod>
   </url>
   <url>
     <loc>https://ranli.dev/tidbits/2026-11-02-azure-compute-options-container-apps-vs-web-app.html</loc>
-    <lastmod>2026-11-06T15:26:36.665Z</lastmod>
+    <lastmod>2026-11-09T14:30:23.009Z</lastmod>
   </url>
   <url>
     <loc>https://ranli.dev/tidbits/2026-11-06-agent-accessibility-quarto-docusaurus-doc-sites.html</loc>
-    <lastmod>2026-11-06T15:26:36.665Z</lastmod>
+    <lastmod>2026-11-09T14:30:23.009Z</lastmod>
   </url>
   <url>
-    <loc>https://ranli.dev/tidbits/2026-10-12-r-package-and-env-management-renv.html</loc>
-    <lastmod>2026-11-06T15:26:36.665Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ranli.dev/tidbits/2026-11-06-agentic-conference-poster-claude-code.html</loc>
-    <lastmod>2026-11-06T15:26:36.665Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ranli.dev/tidbits/2026-11-03-rust-crate-vs-package.html</loc>
-    <lastmod>2026-11-06T15:26:36.665Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ranli.dev/glossary/git.html</loc>
-    <lastmod>2026-11-06T15:26:36.662Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ranli.dev/portfolio.html</loc>
-    <lastmod>2026-11-06T15:26:36.662Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ranli.dev/blog/2025-09-09-duckdb-wasm-proof-of-concept/index.html</loc>
-    <lastmod>2026-11-06T15:26:36.652Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ranli.dev/tidbits.html</loc>
-    <lastmod>2026-11-06T15:26:36.665Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ranli.dev/glossary.html</loc>
-    <lastmod>2026-11-06T15:26:36.662Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ranli.dev/glossary/rust.html</loc>
-    <lastmod>2026-11-06T15:26:36.662Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ranli.dev/tidbits/2026-11-02-rust-build-vs-compile-worktrees-sccache.html</loc>
-    <lastmod>2026-11-06T15:26:36.665Z</lastmod>
-  </url>
-  <url>
-    <loc>https://ranli.dev/tidbits/2026-10-13-quarto-lightbox-figures.html</loc>
-    <lastmod>2026-11-06T15:26:36.665Z</lastmod>
+    <loc>https://ranli.dev/tidbits/2026-11-06-rig-v0-11-initial-breakdown.html</loc>
+    <lastmod>2026-11-09T14:30:23.009Z</lastmod>
   </url>
   <url>
     <loc>https://ranli.dev/tidbits/2026-10-21-uvr-test-drive/index.html</loc>
-    <lastmod>2026-11-06T15:26:36.665Z</lastmod>
+    <lastmod>2026-11-09T14:30:23.009Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ranli.dev/tidbits/2026-10-13-quarto-lightbox-figures.html</loc>
+    <lastmod>2026-11-09T14:30:23.008Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ranli.dev/tidbits/2026-11-02-rust-build-vs-compile-worktrees-sccache.html</loc>
+    <lastmod>2026-11-09T14:30:23.009Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ranli.dev/glossary/rust.html</loc>
+    <lastmod>2026-11-09T14:30:23.005Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ranli.dev/glossary.html</loc>
+    <lastmod>2026-11-09T14:30:23.005Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ranli.dev/tidbits.html</loc>
+    <lastmod>2026-11-09T14:30:23.008Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ranli.dev/blog/2025-09-09-duckdb-wasm-proof-of-concept/index.html</loc>
+    <lastmod>2026-11-09T14:30:22.993Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ranli.dev/portfolio.html</loc>
+    <lastmod>2026-11-09T14:30:23.005Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ranli.dev/glossary/git.html</loc>
+    <lastmod>2026-11-09T14:30:23.005Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ranli.dev/tidbits/2026-11-03-rust-crate-vs-package.html</loc>
+    <lastmod>2026-11-09T14:30:23.009Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ranli.dev/tidbits/2026-11-06-agentic-conference-poster-claude-code.html</loc>
+    <lastmod>2026-11-09T14:30:23.009Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ranli.dev/tidbits/2026-10-12-r-package-and-env-management-renv.html</loc>
+    <lastmod>2026-11-09T14:30:23.008Z</lastmod>
   </url>
   <url>
     <loc>https://ranli.dev/tidbits/2026-11-06-group-by-all-duckdb-dbt-v2-parser.html</loc>
-    <lastmod>2026-11-06T15:26:36.665Z</lastmod>
+    <lastmod>2026-11-09T14:30:23.009Z</lastmod>
   </url>
   <url>
     <loc>https://ranli.dev/tidbits/2026-11-05-dplyneage-in-webr/index.html</loc>
-    <lastmod>2026-11-06T15:26:36.665Z</lastmod>
+    <lastmod>2026-11-09T14:30:23.009Z</lastmod>
   </url>
   <url>
     <loc>https://ranli.dev/tidbits/2026-11-06-rust-worktree-cache-sccache-kache-failed.html</loc>
-    <lastmod>2026-11-06T15:26:36.665Z</lastmod>
+    <lastmod>2026-11-09T14:30:23.009Z</lastmod>
   </url>
   <url>
     <loc>https://ranli.dev/tidbits/2026-10-08-js-script-runners-npm-pnpm-vite-test.html</loc>
-    <lastmod>2026-11-06T15:26:36.665Z</lastmod>
+    <lastmod>2026-11-09T14:30:23.008Z</lastmod>
   </url>
   <url>
     <loc>https://ranli.dev/tidbits/2026-10-30-rust-crate-101.html</loc>
-    <lastmod>2026-11-06T15:26:36.665Z</lastmod>
+    <lastmod>2026-11-09T14:30:23.009Z</lastmod>
   </url>
   <url>
     <loc>https://ranli.dev/tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html</loc>
-    <lastmod>2026-11-06T15:26:36.665Z</lastmod>
+    <lastmod>2026-11-09T14:30:23.009Z</lastmod>
   </url>
   <url>
     <loc>https://ranli.dev/portfolio/2025-09-01-phl-city-health-dashboard/index.html</loc>
-    <lastmod>2026-11-06T15:26:36.663Z</lastmod>
+    <lastmod>2026-11-09T14:30:23.006Z</lastmod>
   </url>
   <url>
     <loc>https://ranli.dev/pinned.html</loc>
-    <lastmod>2026-11-06T15:26:36.662Z</lastmod>
+    <lastmod>2026-11-09T14:30:23.005Z</lastmod>
   </url>
 </urlset>
