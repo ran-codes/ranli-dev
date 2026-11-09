@@ -1,14 +1,23 @@
 [
   {
-    "listing": "/blog.html",
+    "listing": "/topics.html",
     "items": [
-      "/blog/2025-09-09-duckdb-wasm-proof-of-concept/index.html"
+      "/topics/claude-code/index.html",
+      "/topics/git/index.html",
+      "/topics/rust/index.html"
     ]
   },
   {
     "listing": "/portfolio.html",
     "items": [
       "/portfolio/2025-09-01-phl-city-health-dashboard/index.html"
+    ]
+  },
+  {
+    "listing": "/topics/claude-code/index.html",
+    "items": [
+      "/tidbits/2026-11-06-agentic-conference-poster-claude-code.html",
+      "/tidbits/2026-11-06-does-clear-queue/index.html"
     ]
   },
   {
@@ -38,11 +47,26 @@
     ]
   },
   {
-    "listing": "/glossary.html",
+    "listing": "/topics/git/index.html",
     "items": [
-      "/glossary/claude-code.html",
-      "/glossary/git.html",
-      "/glossary/rust.html"
+      "/tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html",
+      "/tidbits/2026-10-30-github-actions-triggers-filters-and-ifs.html"
+    ]
+  },
+  {
+    "listing": "/topics/rust/index.html",
+    "items": [
+      "/tidbits/2026-11-06-rust-worktree-cache-sccache-kache-failed.html",
+      "/tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html",
+      "/tidbits/2026-11-03-rust-crate-vs-package.html",
+      "/tidbits/2026-11-02-rust-build-vs-compile-worktrees-sccache.html",
+      "/tidbits/2026-10-30-rust-crate-101.html"
+    ]
+  },
+  {
+    "listing": "/blog.html",
+    "items": [
+      "/blog/2025-09-09-duckdb-wasm-proof-of-concept/index.html"
     ]
   }
 ]

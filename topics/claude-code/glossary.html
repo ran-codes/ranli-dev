@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ran Li">
-<meta name="description" content="Repos, clones, config files and line endings.">
+<meta name="description" content="Sessions, turns, tool calls, and what happens when you type while Claude is working.">
 
-<title>Git and GitHub – Ran Li</title>
+<title>Claude Code glossary – Ran Li</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -31,24 +31,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-a14d652b86e00f03abd5043129e363d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-a14d652b86e00f03abd5043129e363d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -87,14 +87,14 @@ gtag('config', 'G-PC0JG3M1ZX', { 'anonymize_ip': true});
 </script>
 
 
-<link rel="stylesheet" href="../styles.css">
-<meta property="og:title" content="Git and GitHub – Ran Li">
-<meta property="og:description" content="Repos, clones, config files and line endings.">
-<meta property="og:image" content="https://ranli.dev/glossary/profile.jpg">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Claude Code glossary – Ran Li">
+<meta property="og:description" content="Sessions, turns, tool calls, and what happens when you type while Claude is working.">
+<meta property="og:image" content="https://ranli.dev/topics/claude-code/profile.jpg">
 <meta property="og:site_name" content="Ran Li">
-<meta name="twitter:title" content="Git and GitHub – Ran Li">
-<meta name="twitter:description" content="Repos, clones, config files and line endings.">
-<meta name="twitter:image" content="https://ranli.dev/glossary/profile.jpg">
+<meta name="twitter:title" content="Claude Code glossary – Ran Li">
+<meta name="twitter:description" content="Sessions, turns, tool calls, and what happens when you type while Claude is working.">
+<meta name="twitter:image" content="https://ranli.dev/topics/claude-code/profile.jpg">
 <meta name="twitter:creator" content="@ran_codes">
 <meta name="twitter:card" content="summary">
 </head>
@@ -106,7 +106,7 @@ gtag('config', 'G-PC0JG3M1ZX', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Ran Li</span>
     </a>
   </div>
@@ -117,34 +117,34 @@ gtag('config', 'G-PC0JG3M1ZX', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../blog.html"> 
+    <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../portfolio.html"> 
+    <a class="nav-link" href="../../portfolio.html"> 
 <span class="menu-text">Portfolio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../profile.pdf" target="_blank"> 
+    <a class="nav-link" href="../../profile.pdf" target="_blank"> 
 <span class="menu-text">Resume</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../tidbits.html"> 
+    <a class="nav-link" href="../../tidbits.html"> 
 <span class="menu-text">Tidbits</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../pinned.html"> 
+    <a class="nav-link" href="../../pinned.html"> 
 <span class="menu-text">Pinned</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../glossary.html"> 
-<span class="menu-text">Glossary</span></a>
+    <a class="nav-link" href="../../topics.html"> 
+<span class="menu-text">Topics</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -157,10 +157,10 @@ gtag('config', 'G-PC0JG3M1ZX', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Git and GitHub</h1>
+      <h1 class="title">Claude Code glossary</h1>
                   <div>
         <div class="description">
-          Repos, clones, config files and line endings.
+          Sessions, turns, tool calls, and what happens when you type while Claude is working.
         </div>
       </div>
                 </div>
@@ -172,7 +172,7 @@ gtag('config', 'G-PC0JG3M1ZX', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p><a href="https://ran-codes.github.io/">Ran Li</a> </p>
+               <p><a href="https://ranli.dev">Ran Li</a> </p>
             </div>
     </div>
       
@@ -180,7 +180,7 @@ gtag('config', 'G-PC0JG3M1ZX', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">November 2, 2026</p>
+        <p class="date-modified">November 9, 2026</p>
       </div>
     </div>
       
@@ -195,7 +195,10 @@ gtag('config', 'G-PC0JG3M1ZX', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#config-files" id="toc-config-files" class="nav-link active" data-scroll-target="#config-files">Config files</a></li>
+  <li><a href="#session" id="toc-session" class="nav-link active" data-scroll-target="#session">Session</a></li>
+  <li><a href="#tool-calls" id="toc-tool-calls" class="nav-link" data-scroll-target="#tool-calls">Tool calls</a></li>
+  <li><a href="#commands" id="toc-commands" class="nav-link" data-scroll-target="#commands">Commands</a></li>
+  <li><a href="#typing-while-claude-works" id="toc-typing-while-claude-works" class="nav-link" data-scroll-target="#typing-while-claude-works">Typing while Claude works</a></li>
   </ul>
 </nav>
     </div>
@@ -206,9 +209,9 @@ gtag('config', 'G-PC0JG3M1ZX', { 'anonymize_ip': true});
 
 
 
-<p>Terms follow the <a href="https://git-scm.com/docs">Git documentation</a> and <a href="https://docs.github.com/">GitHub Docs</a>. Terms that are not official are marked <em>informal</em>.</p>
-<section id="config-files" class="level2">
-<h2 class="anchored" data-anchor-id="config-files">Config files</h2>
+<p>Terms follow the <a href="https://code.claude.com/docs/en/interactive-mode">Claude Code docs</a> (<a href="https://code.claude.com/docs/en/commands">commands</a>). Terms that are not official are marked <em>informal</em>. Behaviors confirmed by hand are marked <em>tested</em> and link to the tidbit that tested them.</p>
+<section id="session" class="level2">
+<h2 class="anchored" data-anchor-id="session">Session</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -222,8 +225,143 @@ gtag('config', 'G-PC0JG3M1ZX', { 'anonymize_ip': true});
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>.gitattributes</code></td>
-<td>A committed file that sets per-path rules for Git, such as which line ending (<code>eol</code>) files get when Git writes them. It travels with the repo, so it applies on every clone</td>
+<td>session</td>
+<td>One open Claude Code window, holding one conversation</td>
+</tr>
+<tr class="even">
+<td>context</td>
+<td>What Claude remembers in this session. <code>/clear</code> wipes it</td>
+</tr>
+<tr class="odd">
+<td>turn</td>
+<td>One round: you send → Claude works → Claude replies. A turn is made of tool calls and reading any text you typed in the meantime. A skill call always starts a new turn</td>
+</tr>
+<tr class="even">
+<td>busy / idle (<em>informal</em>)</td>
+<td>Busy = a turn is running. Idle = no turn running. A background tool call does not keep Claude busy</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tool-calls" class="level2">
+<h2 class="anchored" data-anchor-id="tool-calls">Tool calls</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>tool call</td>
+<td>One action inside a turn (Bash, Read, Edit, …). A turn can have many</td>
+</tr>
+<tr class="even">
+<td>foreground tool call</td>
+<td>The default. The turn waits for it to finish, so Claude stays busy. To force it, say “wait for it”</td>
+</tr>
+<tr class="odd">
+<td>background tool call</td>
+<td>Runs on its own, outside the turn; the turn ends without it, so Claude is idle. A Bash command goes to the background when you ask, when you press <code>Ctrl+B</code>, when it times out, or when it is banned in the foreground (e.g.&nbsp;<code>sleep</code>)</td>
+</tr>
+<tr class="even">
+<td>AskUserQuestion</td>
+<td>A tool call that asks you something and does not finish until you answer. The turn stays busy while the question is pending (<em>tested</em>, <a href="../../tidbits/2026-11-06-does-clear-queue/">tidbit</a>)</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="commands" class="level2">
+<h2 class="anchored" data-anchor-id="commands">Commands</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>slash command</td>
+<td>Anything typed as <code>/something</code>. Either a built-in (<code>/clear</code>, <code>/compact</code>, <code>/model</code>) or a skill from a plugin or the user (<code>/dev-log</code>)</td>
+</tr>
+<tr class="even">
+<td>skill</td>
+<td>A custom slash command defined in a plugin or <code>.claude/skills</code>. Running one starts a new turn</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="typing-while-claude-works" class="level2">
+<h2 class="anchored" data-anchor-id="typing-while-claude-works">Typing while Claude works</h2>
+<p>Two questions decide what happens to anything you type:</p>
+<ol type="1">
+<li><strong>Is Claude busy?</strong> Busy = a turn is running. Idle = no turn running. A background tool call does not count; a pending AskUserQuestion does.</li>
+<li><strong>What did you type?</strong> Plain text, or a slash command.</li>
+</ol>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Text</th>
+<th>Slash command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Idle</strong></td>
+<td>runs now</td>
+<td>runs now</td>
+</tr>
+<tr class="even">
+<td><strong>Busy</strong></td>
+<td>joins the current turn, at the next gap between tool calls</td>
+<td>waits; runs after the turn ends</td>
+</tr>
+</tbody>
+</table>
+<p>So mid-turn, text always runs before a queued slash command, whatever order you typed them.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>queue</td>
+<td>One list of everything you typed mid-turn, in the order you typed it</td>
+</tr>
+<tr class="even">
+<td>text, queued</td>
+<td>Handed to Claude at the next gap between tool calls, inside the current turn. So it is answered before the turn ends, and before any queued slash command — whatever order you typed them (<em>tested</em>, <a href="../../tidbits/2026-11-06-does-clear-queue/">tidbit</a>)</td>
+</tr>
+<tr class="odd">
+<td>slash command, queued</td>
+<td>Waits in the list and runs after the current turn ends, as its own step. A pending AskUserQuestion keeps the turn alive, so a queued <code>/clear</code> waits for your answer (<em>tested</em>, <a href="../../tidbits/2026-11-06-does-clear-queue/">tidbit</a>)</td>
+</tr>
+<tr class="even">
+<td>text, during a pending question</td>
+<td>Taken as the answer to the question, not queued (<em>tested</em>, <a href="../../tidbits/2026-11-06-does-clear-queue/">tidbit</a>)</td>
+</tr>
+<tr class="odd">
+<td>immediate commands</td>
+<td>A few built-ins never queue: <code>/status</code>, <code>/tasks</code>, <code>/usage</code></td>
+</tr>
+<tr class="even">
+<td>send now</td>
+<td><code>Ctrl+Enter</code> or <code>Ctrl+X Ctrl+S</code> sends queued input right away instead of waiting. <code>Up</code> from an empty input box takes queued items back into the box</td>
 </tr>
 </tbody>
 </table>

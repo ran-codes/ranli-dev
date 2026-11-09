@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Ran Li">
+<meta name="description" content="Cargo, crates, compiling, building and caching.">
 
-<title>Glossary – Ran Li</title>
+<title>Rust – Ran Li</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,26 +31,26 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-a14d652b86e00f03abd5043129e363d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-a14d652b86e00f03abd5043129e363d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -79,20 +81,20 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-related-tidbits .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-title','listing-description','listing-date-modified',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
+      valueNames: ['listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
       
-      searchColumns: ["listing-title","listing-author"],
+      searchColumns: ["listing-date","listing-title","listing-author"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    window['quarto-listings']['listing-related-tidbits'] = new List('listing-related-tidbits', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -145,14 +147,14 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Glossary – Ran Li">
-<meta property="og:description" content="Plain-language terms, one page per topic.">
-<meta property="og:image" content="https://ranli.dev/profile.jpg">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Rust – Ran Li">
+<meta property="og:description" content="Cargo, crates, compiling, building and caching.">
+<meta property="og:image" content="https://ranli.dev/topics/rust/profile.jpg">
 <meta property="og:site_name" content="Ran Li">
-<meta name="twitter:title" content="Glossary – Ran Li">
-<meta name="twitter:description" content="Plain-language terms, one page per topic.">
-<meta name="twitter:image" content="https://ranli.dev/profile.jpg">
+<meta name="twitter:title" content="Rust – Ran Li">
+<meta name="twitter:description" content="Cargo, crates, compiling, building and caching.">
+<meta name="twitter:image" content="https://ranli.dev/topics/rust/profile.jpg">
 <meta name="twitter:creator" content="@ran_codes">
 <meta name="twitter:card" content="summary">
 </head>
@@ -164,7 +166,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Ran Li</span>
     </a>
   </div>
@@ -175,34 +177,34 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog.html"> 
+    <a class="nav-link" href="../../blog.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./portfolio.html"> 
+    <a class="nav-link" href="../../portfolio.html"> 
 <span class="menu-text">Portfolio</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./profile.pdf" target="_blank"> 
+    <a class="nav-link" href="../../profile.pdf" target="_blank"> 
 <span class="menu-text">Resume</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./tidbits.html"> 
+    <a class="nav-link" href="../../tidbits.html"> 
 <span class="menu-text">Tidbits</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./pinned.html"> 
+    <a class="nav-link" href="../../pinned.html"> 
 <span class="menu-text">Pinned</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./glossary.html" aria-current="page"> 
-<span class="menu-text">Glossary</span></a>
+    <a class="nav-link" href="../../topics.html"> 
+<span class="menu-text">Topics</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -214,98 +216,139 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
-      <h1 class="title">Glossary</h1>
-            <p class="subtitle lead">Plain-language terms, one page per topic.</p>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Rust</h1>
+                  <div>
+        <div class="description">
+          Cargo, crates, compiling, building and caching.
+        </div>
+      </div>
+                </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p><a href="https://ranli.dev">Ran Li</a> </p>
+            </div>
+    </div>
       
     
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">November 3, 2026</p>
+      </div>
+    </div>
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
-<!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
-
-
-
-
-
-
-
-
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<div class="listing-actions-group">
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#pages" id="toc-pages" class="nav-link active" data-scroll-target="#pages">Pages</a></li>
+  <li><a href="#related-tidbits" id="toc-related-tidbits" class="nav-link" data-scroll-target="#related-tidbits">Related tidbits</a></li>
+  </ul>
+</nav>
     </div>
-</div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="pages" class="level2">
+<h2 class="anchored" data-anchor-id="pages">Pages</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Page</th>
+<th>What it holds</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="../../topics/rust/glossary.html">Glossary</a></td>
+<td>Code units, build steps, Cargo commands, outputs, and caching</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="related-tidbits" class="level2">
+<h2 class="anchored" data-anchor-id="related-tidbits">Related tidbits</h2>
+<div id="listing-related-tidbits" class="quarto-listing quarto-listing-container-table">
 <table class="quarto-listing-table table">
 <thead>
 <tr>
 
 <th>
+Date
+</th>
+
+<th>
 Title
-</th>
-
-<th>
-Description
-</th>
-
-<th>
-Modified
 </th>
 
 </tr>
 </thead>
 <tbody class="list">
 
-<tr data-index="0" data-listing-file-modified-sort="1794244109364" data-listing-reading-time-sort="3" data-listing-word-count-sort="546" data-listing-title-sort="Claude Code" data-listing-filename-sort="claude-code.md">
+<tr data-index="0" data-categories="cnVzdCUyQ2NhcmdvJTJDc2NjYWNoZSUyQ2thY2hlJTJDZ2l0LXdvcmt0cmVlcw==" data-listing-date-sort="1793923200000" data-listing-file-modified-sort="1794244341220" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="731" data-listing-title-sort="Rust worktree cache friction: why sccache and kache didn't work for us" data-listing-filename-sort="2026-11-06-rust-worktree-cache-sccache-kache-failed.md">
 <td>
-<a href="./glossary/claude-code.html" class="title listing-title">Claude Code</a>
+<span class="listing-date">2026-11-06</span>
 </td>
 <td>
-<span class="listing-description">Sessions, turns, tool calls, and what happens when you type while Claude is working.</span>
-</td>
-<td>
-<span class="listing-date-modified">&nbsp;</span>
+<a href="../../tidbits/2026-11-06-rust-worktree-cache-sccache-kache-failed.html" class="title listing-title">Rust worktree cache friction: why sccache and kache didn’t work for us</a>
 </td>
 
 </tr>
 
-<tr data-index="1" data-listing-file-modified-sort="1794244109364" data-listing-reading-time-sort="1" data-listing-word-count-sort="55" data-listing-title-sort="Git and GitHub" data-listing-filename-sort="git.md">
+<tr data-index="1" data-categories="cnVzdCUyQ2NhcmdvJTJDc2NjYWNoZSUyQ2dpdC13b3JrdHJlZXM=" data-listing-date-sort="1793836800000" data-listing-file-modified-sort="1794244341219" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1697" data-listing-title-sort="Rust workspace primer: target, modules, tests, sccache, worktrees" data-listing-filename-sort="2026-11-03-rust-worktrees-sccache-build-perf.md">
 <td>
-<a href="./glossary/git.html" class="title listing-title">Git and GitHub</a>
+<span class="listing-date">2026-11-05</span>
 </td>
 <td>
-<span class="listing-description">Repos, clones, config files and line endings.</span>
-</td>
-<td>
-<span class="listing-date-modified">&nbsp;</span>
+<a href="../../tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html" class="title listing-title">Rust workspace primer: target, modules, tests, sccache, worktrees</a>
 </td>
 
 </tr>
 
-<tr data-index="2" data-listing-file-modified-sort="1794244109364" data-listing-reading-time-sort="4" data-listing-word-count-sort="743" data-listing-title-sort="Rust" data-listing-filename-sort="rust.md">
+<tr data-index="2" data-categories="cnVzdCUyQ2Nhcmdv" data-listing-date-sort="1793664000000" data-listing-file-modified-sort="1794244341219" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1072" data-listing-title-sort="Rust package vs crate vs modules" data-listing-filename-sort="2026-11-03-rust-crate-vs-package.md">
 <td>
-<a href="./glossary/rust.html" class="title listing-title">Rust</a>
+<span class="listing-date">2026-11-03</span>
 </td>
 <td>
-<span class="listing-description">Cargo, crates, compiling, building and caching.</span>
+<a href="../../tidbits/2026-11-03-rust-crate-vs-package.html" class="title listing-title">Rust package vs crate vs modules</a>
+</td>
+
+</tr>
+
+<tr data-index="3" data-categories="cnVzdCUyQ2NhcmdvJTJDc2NjYWNoZSUyQ2dpdC13b3JrdHJlZXM=" data-listing-date-sort="1793577600000" data-listing-file-modified-sort="1794244341219" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="369" data-listing-title-sort="Rust build vs compilation" data-listing-filename-sort="2026-11-02-rust-build-vs-compile-worktrees-sccache.md">
+<td>
+<span class="listing-date">2026-11-02</span>
 </td>
 <td>
-<span class="listing-date-modified">&nbsp;</span>
+<a href="../../tidbits/2026-11-02-rust-build-vs-compile-worktrees-sccache.html" class="title listing-title">Rust build vs compilation</a>
+</td>
+
+</tr>
+
+<tr data-index="4" data-categories="cnVzdCUyQ2NhcmdvJTJDdG9vbGluZw==" data-listing-date-sort="1793318400000" data-listing-file-modified-sort="1794244341219" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="447" data-listing-title-sort="Rust code organizaiton 101 - breaking down dbt-oss repo" data-listing-filename-sort="2026-10-30-rust-crate-101.md">
+<td>
+<span class="listing-date">2026-10-30</span>
+</td>
+<td>
+<a href="../../tidbits/2026-10-30-rust-crate-101.html" class="title listing-title">Rust code organizaiton 101 - breaking down dbt-oss repo</a>
 </td>
 
 </tr>
@@ -313,7 +356,13 @@ Modified
 </tbody>
 </table>
 <div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</div>
+
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
