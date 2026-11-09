@@ -21,6 +21,8 @@ format:
 
 # Vocab/Primer
 
+Canonical definitions live in the [Claude Code glossary](/glossary/claude-code.html); this is the working version used for the experiments.
+
 - session: one open claude code window
 - context: what claude remebres this session; clear wipes it
 - turn: one round - you send -> claude works -> claude replies
