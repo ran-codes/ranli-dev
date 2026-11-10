@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Ran Li">
+<meta name="dcterms.date" content="2026-11-10">
+
+<title>Syncing Notion databases with a relation + automation + rollups – Ran Li</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-a14d652b86e00f03abd5043129e363d4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-contrib/iconify-3.0.0/iconify-icon.min.js"></script>
+<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PC0JG3M1ZX"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-PC0JG3M1ZX', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Syncing Notion databases with a relation + automation + rollups – Ran Li">
+<meta property="og:description" content="Ran Li — software engineering, AI harness development, web development, data engineering, and public health analytics.">
+<meta property="og:image" content="https://ranli.dev/tidbits/2026-11-10-syncing-notion-databases-with-a-relation/01-relation.png">
+<meta property="og:site_name" content="Ran Li">
+<meta property="og:image:alt" content="Upstream: new relation to the downstream database, limit 1 page, two-way on">
+<meta property="og:image:height" content="560">
+<meta property="og:image:width" content="640">
+<meta name="twitter:title" content="Syncing Notion databases with a relation + automation + rollups – Ran Li">
+<meta name="twitter:description" content="Ran Li — software engineering, AI harness development, web development, data engineering, and public health analytics.">
+<meta name="twitter:image" content="https://ranli.dev/tidbits/2026-11-10-syncing-notion-databases-with-a-relation/01-relation.png">
+<meta name="twitter:creator" content="@ran_codes">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image:alt" content="Upstream: new relation to the downstream database, limit 1 page, two-way on">
+<meta name="twitter:image-height" content="560">
+<meta name="twitter:image-width" content="640">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Ran Li</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../portfolio.html"> 
+<span class="menu-text">Portfolio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../profile.pdf" target="_blank"> 
+<span class="menu-text">Resume</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../tidbits.html"> 
+<span class="menu-text">Tidbits</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../pinned.html"> 
+<span class="menu-text">Pinned</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../topics.html"> 
+<span class="menu-text">Topics</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Syncing Notion databases with a relation + automation + rollups</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">notion</div>
+                <div class="quarto-category">workflow</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p><a href="https://ranli.dev">Ran Li</a> </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">November 10, 2026</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<section id="rambling" class="level1">
+<h1>Rambling</h1>
+<ul>
+<li>so we setup a synced origni-copy database seutp in notino once. in <a href="https://github.com/SALURBAL-Climate/salurbal-etl/issues/285">salurbal-etl#285</a>) it was Fer’s P&amp;P databse and we wante synce contrablabl verison for DMC to track data bundle Status</li>
+<li>Here we are just genrailzie adn dadopting it to aprotocl whichc anc be used by others foremxpale for caro and maanuscrpt database.</li>
+<li>below is the distilled protocl fomr the roignal PR</li>
+</ul>
+</section>
+<section id="protocol" class="level1">
+<h1>Protocol</h1>
+<p>Checklist to reproduce the sync from scratch. Assumes the Claude Notion connector is set up, so Claude does the schema and row work and only automations need the Notion UI.</p>
+<ul>
+<li>🤖 Claude does it through the connector.</li>
+<li>🧑 You do it in the Notion UI.</li>
+<li>⚠️ Unverified or unclear; iterate here.</li>
+</ul>
+<p>Live test instance (2026-11-10): <a href="https://app.notion.com/p/4b0d76038bcf4efc8f316279abeb05f8">Origin Database</a> → <a href="https://app.notion.com/p/c336cd293d3d4ae49b09681f39233546">Copy Database</a>, under <a href="https://app.notion.com/p/41457008e88580cbb442d6f6fd6fb706">Notion Synced Databases Protocol Test</a>. Checked boxes reflect that instance.</p>
+<section id="permissions-config" class="level2">
+<h2 class="anchored" data-anchor-id="permissions-config">Permissions config</h2>
+<p>Set in each database’s <strong>Share</strong> panel. View on Origin is enough for the rollups to resolve; the Copy team only needs edit where its own <code>new_</code> columns live.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Database</th>
+<th>Owners</th>
+<th>Copy team</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Origin</td>
+<td>Full</td>
+<td>View</td>
+</tr>
+<tr class="even">
+<td>Copy</td>
+<td>Full</td>
+<td>Edit</td>
+</tr>
+</tbody>
+</table>
+<p>DMC reference (2026-11-10): Origin matches the table; Copy has the team at <em>Comment</em>, which blocks filling <code>new_</code> columns, so it should move to <em>Edit</em>. <a href="12-share-origin.png" class="lightbox" data-gallery="permissions" title="Origin: owners full, guests view, link view">(Snip: Origin)</a> <a href="13-share-copy.png" class="lightbox" data-gallery="permissions" title="Copy: owner full, team comment, unlinked from parent">(Snip: Copy)</a></p>
+</section>
+<section id="setup" class="level2">
+<h2 class="anchored" data-anchor-id="setup">Setup</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" checked=""><strong>S1</strong> 🤖 Two databases exist: <strong>Origin Database</strong> (source of truth, rows are created here) and <strong>Copy Database</strong> (one row per Origin row, plus its own columns). Claude created both with <code>notion-create-database</code>.</label></li>
+<li><label><input type="checkbox" checked=""><strong>S2</strong> 🤖 Both databases are reachable through the connector. Claude fetched each and recorded its data source ID.</label></li>
+<li><label><input type="checkbox" checked=""><strong>S3</strong> 🧑 You have edit access on both databases. The automation in step 2 runs as whoever creates it.</label></li>
+<li><label><input type="checkbox" checked=""><strong>S4</strong> 🧑 List the Origin columns the Copy team needs to see (test instance: Status, Year).</label></li>
+<li><label><input type="checkbox" checked=""><strong>S5</strong> 🤖 Query Origin for its row count. If it already has rows, step 7 applies (test instance: zero rows, so it does not).</label></li>
+</ul>
+</section>
+<section id="relation" class="level2">
+<h2 class="anchored" data-anchor-id="relation">1. Relation</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" checked=""><strong>1.1</strong> 🤖 Add the two-way relation on Origin in one DDL call: <code>ADD COLUMN "Copy" RELATION('&lt;Copy ds id&gt;', DUAL 'Origin')</code>. The <code>DUAL</code> name is the property that appears on the Copy side.</label></li>
+<li><label><input type="checkbox" checked=""><strong>1.2</strong> 🤖 Fetch Copy and confirm the synced relation property appeared.</label></li>
+<li><label><input type="checkbox" checked=""><strong>1.3</strong> 🧑 Set the Origin relation’s <strong>Limit</strong> to <strong>1 page</strong>. The connector does not expose the limit, so this is UI only. <a href="10-relation-limit.png" class="lightbox" data-gallery="protocol-1" title="1.3: Copy relation → Edit property → Limit → 1 page">(Snip)</a></label>
+<ul class="task-list">
+<li><label><input type="checkbox" checked=""><strong>1.3.1</strong> Open Origin Database.</label></li>
+<li><label><input type="checkbox" checked=""><strong>1.3.2</strong> Click the relation column header (<code>Copy</code>) → <strong>Edit property</strong>.</label></li>
+<li><label><input type="checkbox" checked=""><strong>1.3.3</strong> <strong>Limit</strong> → <strong>1 page</strong>.</label></li>
+</ul></li>
+</ul>
+</section>
+<section id="automation" class="level2">
+<h2 class="anchored" data-anchor-id="automation">2. Automation</h2>
+<p>🧑 Automations are not exposed through the API or the connector, so this whole step is manual.</p>
+<ul class="task-list">
+<li><label><input type="checkbox" checked=""><strong>2.1</strong> 🧑 Origin Database → ⚡ → <strong>New automation</strong>. <a href="06-automation-new.png" class="lightbox" data-gallery="protocol-2" title="2.1–2.2: new automation, scope defaults to Origin Database">(Snip)</a></label></li>
+<li><label><input type="checkbox" checked=""><strong>2.2</strong> 🧑 Scope: <em>For all pages in</em> Origin Database. This is the default when opened from the database. <a href="06-automation-new.png" class="lightbox" data-gallery="protocol-2" title="2.1–2.2: new automation, scope defaults to Origin Database">(Snip)</a></label></li>
+<li><label><input type="checkbox" checked=""><strong>2.3</strong> 🧑 When: <strong>New trigger</strong> → <strong>Page added</strong>. <a href="07-automation-trigger-action.png" class="lightbox" data-gallery="protocol-2" title="2.3–2.4: Page added trigger, Add page to Copy Database">(Snip)</a></label></li>
+<li><label><input type="checkbox" checked=""><strong>2.4</strong> 🧑 Do: <strong>New action</strong> → <strong>Add page to</strong> → Copy Database. <a href="07-automation-trigger-action.png" class="lightbox" data-gallery="protocol-2" title="2.3–2.4: Page added trigger, Add page to Copy Database">(Snip)</a></label></li>
+<li><label><input type="checkbox" checked=""><strong>2.5</strong> 🧑 In that action, <strong>Edit property</strong> → <code>Origin</code> → <strong>Trigger page</strong>. <a href="08-automation-relation.png" class="lightbox" data-gallery="protocol-2" title="2.5: Origin relation set to Trigger page">(Snip)</a></label></li>
+<li><label><input type="checkbox" checked=""><strong>2.6</strong> 🧑 In that action, click <code>@</code> in the <strong>Name</strong> field → Trigger page → Name. Shows as <em>Trigger page’s Name</em>. <a href="09-automation-name.png" class="lightbox" data-gallery="protocol-2" title="2.6: Name set to Trigger page's Name">(Snip)</a></label></li>
+<li><label><input type="checkbox" checked=""><strong>2.7</strong> 🧑 Click <strong>Enable</strong>. <a href="09-automation-name.png" class="lightbox" data-gallery="protocol-2" title="2.6: Name set to Trigger page's Name">(Snip)</a></label></li>
+</ul>
+</section>
+<section id="test" class="level2">
+<h2 class="anchored" data-anchor-id="test">3. Test</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" checked=""><strong>3.1</strong> 🧑 Add a throwaway row in Origin Database (or 🤖 with <code>notion-create-pages</code>).</label></li>
+<li><label><input type="checkbox" checked=""><strong>3.2</strong> 🤖 Query Copy: a new row exists with the relation filled. The automation may lag a few seconds; re-query before calling it a failure.</label></li>
+<li><label><input type="checkbox" checked=""><strong>3.3</strong> 🤖 Delete the throwaway page on both sides (deletes don’t sync).</label></li>
+<li><label><input type="checkbox" checked=""><strong>3.4</strong> ⚠️ <strong>Name</strong> on the copy is timing-dependent for hand-typed rows: <em>Page added</em> can fire on the empty row before the title exists, so the copy gets a blank Name. Seen once (blank) and once (filled) in the test instance. Robot-created rows always carry the title. The DMC build has 55 of 55 blank names and lives with it.</label></li>
+</ul>
+</section>
+<section id="rollups-origin-copy" class="level2">
+<h2 class="anchored" data-anchor-id="rollups-origin-copy">4. Rollups: Origin → Copy</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" checked=""><strong>4.1</strong> 🤖 One DDL call on Copy, one column per item from Setup: <code>ADD COLUMN "🔍 &lt;col&gt; (origin)" ROLLUP('Origin', '&lt;col&gt;', 'show_original')</code>. Convention: prefix rollups <code>🔍</code> so read-only columns stand out.</label></li>
+<li><label><input type="checkbox" checked=""><strong>4.2</strong> 🤖 Confirm the rollups resolve. Rollup values come back as opaque <code>rollupResult://</code> references, so query with a rollup <strong>filter</strong> instead: filter Copy where <code>🔍 Status (origin)</code> any = the value set on the Origin row and <code>🔍 Year (origin)</code> any = its year. The matching row coming back proves the rollup. Proven on <em>Rollup test (robot-created)</em>: Published / 2025, also eyeballed in the UI. <a href="11-rollup-check.png" class="lightbox" data-gallery="protocol-4" title="4.2: Copy rows showing Status (origin) rollups">(Snip)</a></label></li>
+</ul>
+</section>
+<section id="rollups-copy-origin-optional" class="level2">
+<h2 class="anchored" data-anchor-id="rollups-copy-origin-optional">5. Rollups: Copy → Origin (optional)</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" checked=""><strong>5.1</strong> 🤖 Reverse rollup on Origin so it can watch progress without editing it: <code>ADD COLUMN "new_Data Status (copy)" ROLLUP('Copy', 'new_Data Status', 'show_original')</code>. Verified with a rollup filter query, same trick as 4.2.</label></li>
+</ul>
+</section>
+<section id="copy-only-columns" class="level2">
+<h2 class="anchored" data-anchor-id="copy-only-columns">6. Copy-only columns</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" checked=""><strong>6.1</strong> 🤖 <code>ADD COLUMN</code> on Copy for each of the Copy team’s own properties (test instance: <code>new_Data Status</code>). Convention: prefix local columns <code>new_</code> so they read as copy-only at a glance.</label></li>
+</ul>
+</section>
+<section id="backfill-only-if-origin-had-rows-before-step-2" class="level2">
+<h2 class="anchored" data-anchor-id="backfill-only-if-origin-had-rows-before-step-2">7. Backfill (only if Origin had rows before step 2)</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" checked=""><strong>7.1</strong> 🤖 Query all Origin rows (<code>SELECT url, Name, Copy</code>) and all Copy rows (<code>SELECT url, Name, Origin</code>); diff to find Origin rows whose <code>Copy</code> is empty. Test instance: 2 and 2, all linked.</label></li>
+<li><label><input type="checkbox" checked=""><strong>7.2</strong> 🤖 Create one Copy page per unlinked Origin row with <code>notion-create-pages</code>, setting <code>Origin</code> to the Origin page. This replaces the by-hand backfill in the original build. Proven on <em>Manual link test (pre-automation)</em>; nothing left to backfill.</label></li>
+<li><label><input type="checkbox" checked=""><strong>7.3</strong> 🤖 Re-query Copy where <code>Origin</code> is empty; expect zero. Test instance: zero.</label></li>
+</ul>
+</section>
+<section id="maintenance" class="level2">
+<h2 class="anchored" data-anchor-id="maintenance">8. Maintenance</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" checked=""><strong>8.1</strong> 🤖 Orphan check: <code>SELECT url, Name FROM Copy WHERE Origin IS NULL OR Origin = '[]'</code> (rows left behind by Origin deletes). Test instance: zero.</label></li>
+<li><label><input type="checkbox" checked=""><strong>8.2</strong> 🤖 Duplicate check: the Copy-side relation is unlimited, so <code>SELECT Origin, COUNT(*) FROM Copy GROUP BY Origin HAVING COUNT(*) &gt; 1</code>. Test instance: zero.</label></li>
+</ul>
+</section>
+</section>
+<section id="reference" class="level1">
+<h1>Reference</h1>
+<section id="ref-2.-initial-protocol-migrated-from-repo" class="level2">
+<h2 class="anchored" data-anchor-id="ref-2.-initial-protocol-migrated-from-repo">Ref 2. Initial protocol (migrated from repo)</h2>
+<p>Notion has no native “synced database.” This recipe fakes one: the <strong>upstream</strong> team owns the rows and core columns, and the <strong>downstream</strong> team sees them live (read-only) and adds its own columns in a separate database.</p>
+<ul>
+<li><strong>Upstream</strong>: the source of truth. Rows are created here.</li>
+<li><strong>Downstream</strong>: one row per upstream row, plus the downstream team’s own columns.</li>
+</ul>
+<p>Screenshots are from the original build (May 2025, <a href="https://github.com/SALURBAL-Climate/salurbal-etl/issues/285">salurbal-etl#285</a>): upstream <code>Climate Papers (Database)</code> → downstream <code>Climate Papers Data Tracking (Database)</code>.</p>
+<section id="two-way-relation" class="level3">
+<h3 class="anchored" data-anchor-id="two-way-relation">1. Two-way relation</h3>
+<p>In the upstream database, add a <strong>Relation</strong> property pointing at the downstream database.</p>
+<ul>
+<li>Limit: <strong>1 page</strong> (one downstream row per upstream row).</li>
+<li><strong>Two-way relation</strong>: on. This creates the matching relation property in the downstream database.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="01-relation.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Upstream: new relation to the downstream database, limit 1 page, two-way on"><img src="01-relation.png" class="img-fluid figure-img" alt="Upstream: new relation to the downstream database, limit 1 page, two-way on"></a></p>
+<figcaption>Upstream: new relation to the downstream database, limit 1 page, two-way on</figcaption>
+</figure>
+</div>
+</section>
+<section id="automation-trigger" class="level3">
+<h3 class="anchored" data-anchor-id="automation-trigger">2. Automation: trigger</h3>
+<p>In the upstream database, open the ⚡ automations menu and click <strong>New automation</strong>.</p>
+<ul>
+<li>Scope: <em>For all pages in</em> the upstream database.</li>
+<li><strong>When</strong>: <em>Page added</em>.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="02-trigger.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Automation trigger: Page added, for all pages in the upstream database"><img src="02-trigger.png" class="img-fluid figure-img" alt="Automation trigger: Page added, for all pages in the upstream database"></a></p>
+<figcaption>Automation trigger: Page added, for all pages in the upstream database</figcaption>
+</figure>
+</div>
+</section>
+<section id="automation-action" class="level3">
+<h3 class="anchored" data-anchor-id="automation-action">3. Automation: action</h3>
+<ul>
+<li><strong>Do</strong>: <em>Add page to</em> → the downstream database.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="03-action-target.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Action: add page to the downstream database"><img src="03-action-target.png" class="img-fluid figure-img" alt="Action: add page to the downstream database"></a></p>
+<figcaption>Action: add page to the downstream database</figcaption>
+</figure>
+</div>
+<ul>
+<li><strong>Edit property</strong> → the downstream relation (here <code>Climate Paper</code>) → <strong>Trigger page</strong>. This links the new downstream row back to the upstream row that fired it.</li>
+<li><strong>Name</strong>: set to the upstream title (<code>@</code> → Trigger page → Title). In the original build this was left as <em>Untitled</em>, so the first downstream rows had blank names (see step 4).</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="04-action-relation.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Action: set the downstream relation to the Trigger page"><img src="04-action-relation.png" class="img-fluid figure-img" alt="Action: set the downstream relation to the Trigger page"></a></p>
+<figcaption>Action: set the downstream relation to the Trigger page</figcaption>
+</figure>
+</div>
+<p>Click <strong>Enable</strong>.</p>
+</section>
+<section id="test-1" class="level3">
+<h3 class="anchored" data-anchor-id="test-1">4. Test</h3>
+<p>Add a row upstream. A row should appear downstream with the relation filled.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="05-result.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5" title="Result: adding “New Paper Test 1” upstream creates a linked row downstream"><img src="05-result.png" class="img-fluid figure-img" alt="Result: adding “New Paper Test 1” upstream creates a linked row downstream"></a></p>
+<figcaption>Result: adding “New Paper Test 1” upstream creates a linked row downstream</figcaption>
+</figure>
+</div>
+</section>
+<section id="rollups-downstream" class="level3">
+<h3 class="anchored" data-anchor-id="rollups-downstream">5. Rollups (downstream)</h3>
+<p>For each upstream column the downstream team should see, add a <strong>Rollup</strong> in the downstream database: relation = the step 1 relation, property = the upstream column, show = <em>Show original</em>.</p>
+<ul>
+<li>Rollups are read-only, so the downstream team can’t edit upstream values.</li>
+<li>The reverse works the same way: upstream can roll up downstream columns (e.g.&nbsp;<code>Data Status (DMC)</code>) to see progress without editing it.</li>
+</ul>
+</section>
+<section id="downstream-only-columns" class="level3">
+<h3 class="anchored" data-anchor-id="downstream-only-columns">6. Downstream-only columns</h3>
+<p>Add the downstream team’s own properties directly in the downstream database. The upstream schema stays untouched.</p>
+</section>
+<section id="gotchas" class="level3">
+<h3 class="anchored" data-anchor-id="gotchas">Gotchas</h3>
+<ul>
+<li><strong>Backfill</strong>: the automation fires only on <em>new</em> pages. Rows that existed before it was turned on need downstream rows created and linked by hand.</li>
+<li><strong>Deletes don’t sync</strong>: deleting an upstream row leaves an orphaned downstream row with an empty relation. As of 2026-11-10, Data Bundle Tracking has 55 rows, 7 of them unlinked, against 48 upstream rows.</li>
+<li><strong>Limit is one-sided</strong>: the limit 1 set in step 1 applies only to the upstream side. The downstream relation is unlimited, so filter for duplicates.</li>
+<li><strong>Not inspectable</strong>: automations aren’t exposed through the Notion API or MCP, so this page and its screenshots are the only record of the configuration.</li>
+<li><strong>Permissions</strong>: whoever creates the automation needs edit access on the downstream database.</li>
+</ul>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/ranli\.dev");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/ran-li-6b722718/" target="_blank">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/ran-codes" target="_blank">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="https://bsky.app/profile/ran-li.bsky.social" target="_blank">
+<p><iconify-icon role="img" inline="" icon="fa6-brands:bluesky" aria-label="Icon bluesky from fa6-brands Iconify.design set." title="Icon bluesky from fa6-brands Iconify.design set."></iconify-icon></p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://x.com/ran_codes" target="_blank">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://medium.com/@ranli2011" target="_blank">
+      <i class="bi bi-medium" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

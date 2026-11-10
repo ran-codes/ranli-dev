@@ -8,21 +8,26 @@
     ]
   },
   {
-    "listing": "/portfolio.html",
+    "listing": "/topics/rust/index.html",
     "items": [
-      "/portfolio/2025-09-01-phl-city-health-dashboard/index.html"
+      "/tidbits/2026-11-06-rust-worktree-cache-sccache-kache-failed.html",
+      "/tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html",
+      "/tidbits/2026-11-03-rust-crate-vs-package.html",
+      "/tidbits/2026-11-02-rust-build-vs-compile-worktrees-sccache.html",
+      "/tidbits/2026-10-30-rust-crate-101.html"
     ]
   },
   {
-    "listing": "/topics/claude-code/index.html",
+    "listing": "/topics/git/index.html",
     "items": [
-      "/tidbits/2026-11-06-agentic-conference-poster-claude-code.html",
-      "/tidbits/2026-11-06-does-clear-queue/index.html"
+      "/tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html",
+      "/tidbits/2026-10-30-github-actions-triggers-filters-and-ifs.html"
     ]
   },
   {
     "listing": "/tidbits.html",
     "items": [
+      "/tidbits/2026-11-10-syncing-notion-databases-with-a-relation/index.html",
       "/tidbits/2026-11-09-documentation-sites-ecosystem-scan.html",
       "/tidbits/2026-11-06-agentic-conference-poster-claude-code.html",
       "/tidbits/2026-11-06-does-clear-queue/index.html",
@@ -47,20 +52,16 @@
     ]
   },
   {
-    "listing": "/topics/git/index.html",
+    "listing": "/topics/claude-code/index.html",
     "items": [
-      "/tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html",
-      "/tidbits/2026-10-30-github-actions-triggers-filters-and-ifs.html"
+      "/tidbits/2026-11-06-agentic-conference-poster-claude-code.html",
+      "/tidbits/2026-11-06-does-clear-queue/index.html"
     ]
   },
   {
-    "listing": "/topics/rust/index.html",
+    "listing": "/portfolio.html",
     "items": [
-      "/tidbits/2026-11-06-rust-worktree-cache-sccache-kache-failed.html",
-      "/tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html",
-      "/tidbits/2026-11-03-rust-crate-vs-package.html",
-      "/tidbits/2026-11-02-rust-build-vs-compile-worktrees-sccache.html",
-      "/tidbits/2026-10-30-rust-crate-101.html"
+      "/portfolio/2025-09-01-phl-city-health-dashboard/index.html"
     ]
   },
   {
