@@ -6,6 +6,10 @@ lightbox: true
 ---
 # Rambling
 
+- so we setup a synced origni-copy database seutp in notino once. in  [salurbal-etl#285](https://github.com/SALURBAL-Climate/salurbal-etl/issues/285)) it was Fer's P&P databse and we wante  synce contrablabl verison for DMC to track data bundle Status
+- Here we are just genrailzie adn dadopting it to aprotocl whichc anc be used by others foremxpale for caro and maanuscrpt database.
+- below is the distilled protocl fomr the roignal PR
+
 # Protocol
 
 Checklist to reproduce the sync from scratch. Assumes the Claude Notion connector is set up, so Claude does the schema and row work and only automations need the Notion UI.
@@ -15,6 +19,17 @@ Checklist to reproduce the sync from scratch. Assumes the Claude Notion connecto
 - ⚠️ Unverified or unclear; iterate here.
 
 Live test instance (2026-11-10): [Origin Database](https://app.notion.com/p/4b0d76038bcf4efc8f316279abeb05f8) → [Copy Database](https://app.notion.com/p/c336cd293d3d4ae49b09681f39233546), under [Notion Synced Databases Protocol Test](https://app.notion.com/p/41457008e88580cbb442d6f6fd6fb706). Checked boxes reflect that instance.
+
+## Permissions config
+
+Set in each database's **Share** panel. View on Origin is enough for the rollups to resolve; the Copy team only needs edit where its own `new_` columns live.
+
+| Database | Owners | Copy team |
+|---|---|---|
+| Origin | Full | View |
+| Copy | Full | Edit |
+
+DMC reference (2026-11-10): Origin matches the table; Copy has the team at *Comment*, which blocks filling `new_` columns, so it should move to *Edit*. <a href="12-share-origin.png" class="lightbox" data-gallery="permissions" title="Origin: owners full, guests view, link view">(Snip: Origin)</a> <a href="13-share-copy.png" class="lightbox" data-gallery="permissions" title="Copy: owner full, team comment, unlinked from parent">(Snip: Copy)</a>
 
 ## Setup
 
@@ -142,6 +157,8 @@ Add the downstream team's own properties directly in the downstream database. Th
 - **Limit is one-sided**: the limit 1 set in step 1 applies only to the upstream side. The downstream relation is unlimited, so filter for duplicates.
 - **Not inspectable**: automations aren't exposed through the Notion API or MCP, so this page and its screenshots are the only record of the configuration.
 - **Permissions**: whoever creates the automation needs edit access on the downstream database.
+
+
 
 
 
