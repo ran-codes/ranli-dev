@@ -157,9 +157,3 @@ Add the downstream team's own properties directly in the downstream database. Th
 - **Limit is one-sided**: the limit 1 set in step 1 applies only to the upstream side. The downstream relation is unlimited, so filter for duplicates.
 - **Not inspectable**: automations aren't exposed through the Notion API or MCP, so this page and its screenshots are the only record of the configuration.
 - **Permissions**: whoever creates the automation needs edit access on the downstream database.
-
-
-
-
-
-
