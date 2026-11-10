@@ -14,23 +14,23 @@ Checklist to reproduce the sync from scratch. Assumes the Claude Notion connecto
 - 🧑 You do it in the Notion UI.
 - ⚠️ Unverified or unclear; iterate here.
 
-Live test instance (2026-11-10): [Origin Database](https://app.notion.com/p/4b0d76038bcf4efc8f316279abeb05f8) → [Sync Copy 1 Database](https://app.notion.com/p/c336cd293d3d4ae49b09681f39233546), under [Notion Synced Databases Protocol Test](https://app.notion.com/p/41457008e88580cbb442d6f6fd6fb706). Checked boxes reflect that instance.
+Live test instance (2026-11-10): [Origin Database](https://app.notion.com/p/4b0d76038bcf4efc8f316279abeb05f8) → [Copy Database](https://app.notion.com/p/c336cd293d3d4ae49b09681f39233546), under [Notion Synced Databases Protocol Test](https://app.notion.com/p/41457008e88580cbb442d6f6fd6fb706). Checked boxes reflect that instance.
 
 ## Setup
 
-- [x] **S1** 🤖 Two databases exist: **Origin Database** (source of truth, rows are created here) and **Sync Copy 1 Database** (one row per Origin row, plus its own columns). Claude created both with `notion-create-database`.
+- [x] **S1** 🤖 Two databases exist: **Origin Database** (source of truth, rows are created here) and **Copy Database** (one row per Origin row, plus its own columns). Claude created both with `notion-create-database`.
 - [x] **S2** 🤖 Both databases are reachable through the connector. Claude fetched each and recorded its data source ID.
 - [x] **S3** 🧑 You have edit access on both databases. The automation in step 2 runs as whoever creates it.
-- [x] **S4** 🧑 List the Origin columns the Sync Copy 1 team needs to see (test instance: Status, Year).
-- [x] **S5** 🤖 Query Origin for its row count. If it already has rows, step 6 applies (test instance: zero rows, so it does not).
+- [x] **S4** 🧑 List the Origin columns the Copy team needs to see (test instance: Status, Year).
+- [x] **S5** 🤖 Query Origin for its row count. If it already has rows, step 7 applies (test instance: zero rows, so it does not).
 
 ## 1. Relation
 
-- [x] **1.1** 🤖 Add the two-way relation on Origin in one DDL call: `ADD COLUMN "Sync Copy 1" RELATION('<Sync Copy 1 ds id>', DUAL 'Origin')`. The `DUAL` name is the property that appears on the Sync Copy 1 side.
-- [x] **1.2** 🤖 Fetch Sync Copy 1 and confirm the synced relation property appeared.
-- [x] **1.3** 🧑 Set the Origin relation's **Limit** to **1 page**. The connector does not expose the limit, so this is UI only. <a href="10-relation-limit.png" class="lightbox" data-gallery="protocol-1" title="1.3: Sync Copy 1 relation → Edit property → Limit → 1 page">(Snip)</a>
+- [x] **1.1** 🤖 Add the two-way relation on Origin in one DDL call: `ADD COLUMN "Copy" RELATION('<Copy ds id>', DUAL 'Origin')`. The `DUAL` name is the property that appears on the Copy side.
+- [x] **1.2** 🤖 Fetch Copy and confirm the synced relation property appeared.
+- [x] **1.3** 🧑 Set the Origin relation's **Limit** to **1 page**. The connector does not expose the limit, so this is UI only. <a href="10-relation-limit.png" class="lightbox" data-gallery="protocol-1" title="1.3: Copy relation → Edit property → Limit → 1 page">(Snip)</a>
   - [x] **1.3.1** Open Origin Database.
-  - [x] **1.3.2** Click the relation column header (`Sync Copy 1`) → **Edit property**.
+  - [x] **1.3.2** Click the relation column header (`Copy`) → **Edit property**.
   - [x] **1.3.3** **Limit** → **1 page**.
 
 ## 2. Automation
@@ -39,38 +39,42 @@ Live test instance (2026-11-10): [Origin Database](https://app.notion.com/p/4b0d
 
 - [x] **2.1** 🧑 Origin Database → ⚡ → **New automation**. <a href="06-automation-new.png" class="lightbox" data-gallery="protocol-2" title="2.1–2.2: new automation, scope defaults to Origin Database">(Snip)</a>
 - [x] **2.2** 🧑 Scope: *For all pages in* Origin Database. This is the default when opened from the database. <a href="06-automation-new.png" class="lightbox" data-gallery="protocol-2" title="2.1–2.2: new automation, scope defaults to Origin Database">(Snip)</a>
-- [x] **2.3** 🧑 When: **New trigger** → **Page added**. <a href="07-automation-trigger-action.png" class="lightbox" data-gallery="protocol-2" title="2.3–2.4: Page added trigger, Add page to Sync Copy 1 Database">(Snip)</a>
-- [x] **2.4** 🧑 Do: **New action** → **Add page to** → Sync Copy 1 Database. <a href="07-automation-trigger-action.png" class="lightbox" data-gallery="protocol-2" title="2.3–2.4: Page added trigger, Add page to Sync Copy 1 Database">(Snip)</a>
+- [x] **2.3** 🧑 When: **New trigger** → **Page added**. <a href="07-automation-trigger-action.png" class="lightbox" data-gallery="protocol-2" title="2.3–2.4: Page added trigger, Add page to Copy Database">(Snip)</a>
+- [x] **2.4** 🧑 Do: **New action** → **Add page to** → Copy Database. <a href="07-automation-trigger-action.png" class="lightbox" data-gallery="protocol-2" title="2.3–2.4: Page added trigger, Add page to Copy Database">(Snip)</a>
 - [x] **2.5** 🧑 In that action, **Edit property** → `Origin` → **Trigger page**. <a href="08-automation-relation.png" class="lightbox" data-gallery="protocol-2" title="2.5: Origin relation set to Trigger page">(Snip)</a>
 - [x] **2.6** 🧑 In that action, click `@` in the **Name** field → Trigger page → Name. Shows as *Trigger page's Name*. <a href="09-automation-name.png" class="lightbox" data-gallery="protocol-2" title="2.6: Name set to Trigger page's Name">(Snip)</a>
 - [x] **2.7** 🧑 Click **Enable**. <a href="09-automation-name.png" class="lightbox" data-gallery="protocol-2" title="2.6: Name set to Trigger page's Name">(Snip)</a>
 
 ## 3. Test
 
-- [ ] **3.1** 🤖 Create a throwaway row in Origin with `notion-create-pages`.
-- [ ] **3.2** 🤖 ⚠️ Query Sync Copy 1: a new row exists with the relation filled and the name matching. The automation may lag a few seconds; re-query before calling it a failure.
-- [ ] **3.3** 🤖 Delete the throwaway page on both sides (deletes don't sync).
+- [x] **3.1** 🧑 Add a throwaway row in Origin Database (or 🤖 with `notion-create-pages`).
+- [x] **3.2** 🤖 Query Copy: a new row exists with the relation filled. The automation may lag a few seconds; re-query before calling it a failure.
+- [x] **3.3** 🤖 Delete the throwaway page on both sides (deletes don't sync).
+- [x] **3.4** ⚠️ **Name** on the copy is timing-dependent for hand-typed rows: *Page added* can fire on the empty row before the title exists, so the copy gets a blank Name. Seen once (blank) and once (filled) in the test instance. Robot-created rows always carry the title. The DMC build has 55 of 55 blank names and lives with it.
 
-## 4. Rollups
+## 4. Rollups: Origin → Copy
 
-- [x] **4.1** 🤖 One DDL call on Sync Copy 1, one column per item from Setup: `ADD COLUMN "<col> (origin)" ROLLUP('Origin', '<col>', 'show_original')`.
-- [ ] **4.2** 🧑 ⚠️ Confirm each rollup resolves on a linked row. The connector returns rollup values as opaque `rollupResult://` references, so this check has to be done by eye in the UI. A manually linked pair named *Manual link test (pre-automation)* exists in the test instance for this.
-- [ ] **4.3** 🤖 Optional reverse: a rollup on Origin over a Sync Copy 1 status column, so Origin can watch progress without editing it.
+- [x] **4.1** 🤖 One DDL call on Copy, one column per item from Setup: `ADD COLUMN "🔍 <col> (origin)" ROLLUP('Origin', '<col>', 'show_original')`. Convention: prefix rollups `🔍 ` so read-only columns stand out.
+- [x] **4.2** 🤖 Confirm the rollups resolve. Rollup values come back as opaque `rollupResult://` references, so query with a rollup **filter** instead: filter Copy where `🔍 Status (origin)` any = the value set on the Origin row and `🔍 Year (origin)` any = its year. The matching row coming back proves the rollup. Proven on *Rollup test (robot-created)*: Published / 2025, also eyeballed in the UI. <a href="11-rollup-check.png" class="lightbox" data-gallery="protocol-4" title="4.2: Copy rows showing Status (origin) rollups">(Snip)</a>
 
-## 5. Sync Copy 1-only columns
+## 5. Rollups: Copy → Origin (optional)
 
-- [x] **5.1** 🤖 `ADD COLUMN` on Sync Copy 1 for each of the Sync Copy 1 team's own properties (test instance: `Data Status`).
+- [x] **5.1** 🤖 Reverse rollup on Origin so it can watch progress without editing it: `ADD COLUMN "new_Data Status (copy)" ROLLUP('Copy', 'new_Data Status', 'show_original')`. Verified with a rollup filter query, same trick as 4.2.
 
-## 6. Backfill (only if Origin had rows before step 2)
+## 6. Copy-only columns
 
-- [ ] **6.1** 🤖 Query all Origin rows and all Sync Copy 1 rows; diff to find Origin rows with no linked Sync Copy 1 row.
-- [ ] **6.2** 🤖 Create one Sync Copy 1 page per unlinked Origin row with `notion-create-pages`, setting the relation to the Origin page. This replaces the by-hand backfill in the original build. Proven on one row in the test instance.
-- [ ] **6.3** 🤖 Re-query Sync Copy 1 where the relation is empty; expect zero.
+- [x] **6.1** 🤖 `ADD COLUMN` on Copy for each of the Copy team's own properties (test instance: `new_Data Status`). Convention: prefix local columns `new_` so they read as copy-only at a glance.
 
-## 7. Maintenance
+## 7. Backfill (only if Origin had rows before step 2)
 
-- [ ] **7.1** 🤖 Orphan check: query Sync Copy 1 for rows with an empty relation (left behind by Origin deletes).
-- [ ] **7.2** 🤖 Duplicate check: the Sync Copy 1 relation is unlimited, so query for Origin pages linked from more than one Sync Copy 1 row.
+- [x] **7.1** 🤖 Query all Origin rows (`SELECT url, Name, Copy`) and all Copy rows (`SELECT url, Name, Origin`); diff to find Origin rows whose `Copy` is empty. Test instance: 2 and 2, all linked.
+- [x] **7.2** 🤖 Create one Copy page per unlinked Origin row with `notion-create-pages`, setting `Origin` to the Origin page. This replaces the by-hand backfill in the original build. Proven on *Manual link test (pre-automation)*; nothing left to backfill.
+- [x] **7.3** 🤖 Re-query Copy where `Origin` is empty; expect zero. Test instance: zero.
+
+## 8. Maintenance
+
+- [x] **8.1** 🤖 Orphan check: `SELECT url, Name FROM Copy WHERE Origin IS NULL OR Origin = '[]'` (rows left behind by Origin deletes). Test instance: zero.
+- [x] **8.2** 🤖 Duplicate check: the Copy-side relation is unlimited, so `SELECT Origin, COUNT(*) FROM Copy GROUP BY Origin HAVING COUNT(*) > 1`. Test instance: zero.
 
 # Reference
 
