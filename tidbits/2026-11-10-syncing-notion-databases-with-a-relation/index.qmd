@@ -6,9 +6,75 @@ lightbox: true
 ---
 # Rambling
 
+# Protocol
+
+Checklist to reproduce the sync from scratch. Assumes the Claude Notion connector is set up, so Claude does the schema and row work and only automations need the Notion UI.
+
+- 🤖 Claude does it through the connector.
+- 🧑 You do it in the Notion UI.
+- ⚠️ Unverified or unclear; iterate here.
+
+Live test instance (2026-11-10): [Origin Database](https://app.notion.com/p/4b0d76038bcf4efc8f316279abeb05f8) → [Sync Copy 1 Database](https://app.notion.com/p/c336cd293d3d4ae49b09681f39233546), under [Notion Synced Databases Protocol Test](https://app.notion.com/p/41457008e88580cbb442d6f6fd6fb706). Checked boxes reflect that instance.
+
+## Setup
+
+- [x] **S1** 🤖 Two databases exist: **Origin Database** (source of truth, rows are created here) and **Sync Copy 1 Database** (one row per Origin row, plus its own columns). Claude created both with `notion-create-database`.
+- [x] **S2** 🤖 Both databases are reachable through the connector. Claude fetched each and recorded its data source ID.
+- [x] **S3** 🧑 You have edit access on both databases. The automation in step 2 runs as whoever creates it.
+- [x] **S4** 🧑 List the Origin columns the Sync Copy 1 team needs to see (test instance: Status, Year).
+- [x] **S5** 🤖 Query Origin for its row count. If it already has rows, step 6 applies (test instance: zero rows, so it does not).
+
+## 1. Relation
+
+- [x] **1.1** 🤖 Add the two-way relation on Origin in one DDL call: `ADD COLUMN "Sync Copy 1" RELATION('<Sync Copy 1 ds id>', DUAL 'Origin')`. The `DUAL` name is the property that appears on the Sync Copy 1 side.
+- [x] **1.2** 🤖 Fetch Sync Copy 1 and confirm the synced relation property appeared.
+- [x] **1.3** 🧑 Set the Origin relation's **Limit** to **1 page**. The connector does not expose the limit, so this is UI only. <a href="10-relation-limit.png" class="lightbox" data-gallery="protocol-1" title="1.3: Sync Copy 1 relation → Edit property → Limit → 1 page">(Snip)</a>
+  - [x] **1.3.1** Open Origin Database.
+  - [x] **1.3.2** Click the relation column header (`Sync Copy 1`) → **Edit property**.
+  - [x] **1.3.3** **Limit** → **1 page**.
+
+## 2. Automation
+
+🧑 Automations are not exposed through the API or the connector, so this whole step is manual.
+
+- [x] **2.1** 🧑 Origin Database → ⚡ → **New automation**. <a href="06-automation-new.png" class="lightbox" data-gallery="protocol-2" title="2.1–2.2: new automation, scope defaults to Origin Database">(Snip)</a>
+- [x] **2.2** 🧑 Scope: *For all pages in* Origin Database. This is the default when opened from the database. <a href="06-automation-new.png" class="lightbox" data-gallery="protocol-2" title="2.1–2.2: new automation, scope defaults to Origin Database">(Snip)</a>
+- [x] **2.3** 🧑 When: **New trigger** → **Page added**. <a href="07-automation-trigger-action.png" class="lightbox" data-gallery="protocol-2" title="2.3–2.4: Page added trigger, Add page to Sync Copy 1 Database">(Snip)</a>
+- [x] **2.4** 🧑 Do: **New action** → **Add page to** → Sync Copy 1 Database. <a href="07-automation-trigger-action.png" class="lightbox" data-gallery="protocol-2" title="2.3–2.4: Page added trigger, Add page to Sync Copy 1 Database">(Snip)</a>
+- [x] **2.5** 🧑 In that action, **Edit property** → `Origin` → **Trigger page**. <a href="08-automation-relation.png" class="lightbox" data-gallery="protocol-2" title="2.5: Origin relation set to Trigger page">(Snip)</a>
+- [x] **2.6** 🧑 In that action, click `@` in the **Name** field → Trigger page → Name. Shows as *Trigger page's Name*. <a href="09-automation-name.png" class="lightbox" data-gallery="protocol-2" title="2.6: Name set to Trigger page's Name">(Snip)</a>
+- [x] **2.7** 🧑 Click **Enable**. <a href="09-automation-name.png" class="lightbox" data-gallery="protocol-2" title="2.6: Name set to Trigger page's Name">(Snip)</a>
+
+## 3. Test
+
+- [ ] **3.1** 🤖 Create a throwaway row in Origin with `notion-create-pages`.
+- [ ] **3.2** 🤖 ⚠️ Query Sync Copy 1: a new row exists with the relation filled and the name matching. The automation may lag a few seconds; re-query before calling it a failure.
+- [ ] **3.3** 🤖 Delete the throwaway page on both sides (deletes don't sync).
+
+## 4. Rollups
+
+- [x] **4.1** 🤖 One DDL call on Sync Copy 1, one column per item from Setup: `ADD COLUMN "<col> (origin)" ROLLUP('Origin', '<col>', 'show_original')`.
+- [ ] **4.2** 🧑 ⚠️ Confirm each rollup resolves on a linked row. The connector returns rollup values as opaque `rollupResult://` references, so this check has to be done by eye in the UI. A manually linked pair named *Manual link test (pre-automation)* exists in the test instance for this.
+- [ ] **4.3** 🤖 Optional reverse: a rollup on Origin over a Sync Copy 1 status column, so Origin can watch progress without editing it.
+
+## 5. Sync Copy 1-only columns
+
+- [x] **5.1** 🤖 `ADD COLUMN` on Sync Copy 1 for each of the Sync Copy 1 team's own properties (test instance: `Data Status`).
+
+## 6. Backfill (only if Origin had rows before step 2)
+
+- [ ] **6.1** 🤖 Query all Origin rows and all Sync Copy 1 rows; diff to find Origin rows with no linked Sync Copy 1 row.
+- [ ] **6.2** 🤖 Create one Sync Copy 1 page per unlinked Origin row with `notion-create-pages`, setting the relation to the Origin page. This replaces the by-hand backfill in the original build. Proven on one row in the test instance.
+- [ ] **6.3** 🤖 Re-query Sync Copy 1 where the relation is empty; expect zero.
+
+## 7. Maintenance
+
+- [ ] **7.1** 🤖 Orphan check: query Sync Copy 1 for rows with an empty relation (left behind by Origin deletes).
+- [ ] **7.2** 🤖 Duplicate check: the Sync Copy 1 relation is unlimited, so query for Origin pages linked from more than one Sync Copy 1 row.
+
 # Reference
 
-## Initial protocol (migrated from repo)
+## Ref 2. Initial protocol (migrated from repo)
 
 Notion has no native "synced database." This recipe fakes one: the **upstream** team owns the rows and core columns, and the **downstream** team sees them live (read-only) and adds its own columns in a separate database.
 
@@ -72,3 +138,7 @@ Add the downstream team's own properties directly in the downstream database. Th
 - **Limit is one-sided**: the limit 1 set in step 1 applies only to the upstream side. The downstream relation is unlimited, so filter for duplicates.
 - **Not inspectable**: automations aren't exposed through the Notion API or MCP, so this page and its screenshots are the only record of the configuration.
 - **Permissions**: whoever creates the automation needs edit access on the downstream database.
+
+
+
+
