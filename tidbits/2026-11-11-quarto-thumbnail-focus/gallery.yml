@@ -1,0 +1,9 @@
+- title: "Swirl cake"
+  image: images/swirl-cake.svg
+  focus: "50% 10% 1.00"
+- title: "Watermelon coaster"
+  image: images/watermelon-coaster.svg
+- title: "Bunny"
+  image: images/bunny.svg
+- title: "Centered (control)"
+  image: images/centered-control.svg

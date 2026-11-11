@@ -1,0 +1,12 @@
+```{=html}
+<div class="thumb-focus-grid">
+<% for (const item of items) { %>
+<div class="thumb-focus-card">
+<div class="thumb-focus-frame">
+<img src="<%- item.image %>" alt="<%= item.title %>" data-focus="<%= item.focus || '' %>">
+</div>
+<div class="thumb-focus-title"><%= item.title %></div>
+</div>
+<% } %>
+</div>
+```
