@@ -12,4 +12,31 @@ format:
 ---
 # Rambling
 
+- So all i want to know is hoe changing model consumes tokens within a cluade code session
+- Hypothetical scenario 1
+   - scenario
+      - we are in a fresh session - i jsut typed claude in a tmeirnal
+      - the context is relative freshonyl wahte baseline conettxt(Claud.emd skills .. etc)
+      - the default model is opus 
+      - but i change to model to fable with `/model fable`
+   - Questions about token consumptio
+      - Q1 when i change modles what haeppensa nd does it ocnsume tokens
+        - like does a new 'session' of fable get started and tatneed to consume all the ocnetxt window
+        - as 'input' otkens and that costs input tokens
+      - Q2 does the modle swtiching if there is inptu tokne usease does it consume the entire context windows (80k abselin vs 500k meidumsession)
+        - so swithichg mdoels for larget context windows cost more input tokens
+      - Q3 does swithcing mutiple tiemns a session re-incure hte input context cost
+        - so lets say i star topens (CW - 80k)
+        - change mode ot tfbale (inptu CQ 80k cost?)
+        - do more owrk contex window i now at 500k 
+        - i swtich to opus (does input token cost 500k?)
+        - then do some opus stuff CW is now at 700k
+        - if i swithc agiant ot fable doe sit re-incur at 700k input?
+      - Q4 - does model selectino effect hte cost of `/compact`
+        - I have a huge sessionc ontext window
+        - i want ot run `/compact`
+        - does `/compact` execution cost tokens and does it depend ont he model? sohudl is with to opus or sonent to do compat 
+        - does runnign comacpt in fable caost more?
+
+
 # Understanding
