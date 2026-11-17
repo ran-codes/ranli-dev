@@ -1,0 +1,15 @@
+---
+title: "Model changing and token usage in Claude Code"
+date: "2026-11-17"
+topics: [claude-code]
+categories: [claude-code, agents, workflow]
+lightbox: true
+format:
+  html:
+    grid:
+      margin-width: 500px
+      body-width: 800px
+---
+# Rambling
+
+# Understanding
