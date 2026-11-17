@@ -1,0 +1,106 @@
+---
+title: "Model changing and token usage in Claude Code"
+date: "2026-11-17"
+topics: [claude-code]
+categories: [claude-code, agents, workflow]
+lightbox: true
+format:
+  html:
+    grid:
+      margin-width: 500px
+      body-width: 800px
+---
+# Rambling
+
+- So all i want to know is hoe changing model consumes tokens within a cluade code session
+- Hypothetical scenario 1
+   - scenario
+      - we are in a fresh session - i jsut typed claude in a tmeirnal
+      - the context is relative freshonyl wahte baseline conettxt(Claud.emd skills .. etc)
+      - the default model is opus 
+      - but i change to model to fable with `/model fable`
+   - Questions about token consumptio
+      - Q1 when i change modles what haeppensa nd does it ocnsume tokens
+        - like does a new 'session' of fable get started and tatneed to consume all the ocnetxt window
+        - as 'input' otkens and that costs input tokens
+      - Q2 does the modle swtiching if there is inptu tokne usease does it consume the entire context windows (80k abselin vs 500k meidumsession)
+        - so swithichg mdoels for larget context windows cost more input tokens
+      - Q3 does swithcing mutiple tiemns a session re-incure hte input context cost
+        - so lets say i star topens (CW - 80k)
+        - change mode ot tfbale (inptu CQ 80k cost?)
+        - do more owrk contex window i now at 500k 
+        - i swtich to opus (does input token cost 500k?)
+        - then do some opus stuff CW is now at 700k
+        - if i swithc agiant ot fable doe sit re-incur at 700k input?
+      - Q4 - does model selectino effect hte cost of `/compact`
+        - I have a huge sessionc ontext window
+        - i want ot run `/compact`
+        - does `/compact` execution cost tokens and does it depend ont he model? sohudl is with to opus or sonent to do compat 
+        - does runnign comacpt in fable caost more?
+      - Q5- what abotu cahce. and idle sessions?
+        - How long does a session stay idle and then ehte re is an incured cost about  due to incaicitlve and whole context windows is uncchae beause its tking too long and then what the whooel the counts as input tokens and costs algot 
+        - so wht ist hebest raptice of oming abcka fter a long tiem?
+
+# Understanding - haha - trying to Understanding
+
+- Scenario - we will answer the questions with this sencario in mind
+   - Subscription plan - cahche TTL is 1 hour
+   - Current model set to Opus
+   - Current context window is at 500k
+   - Current cache status is warm with TTL ~ 59 minutes
+- Sources
+   - we refered to [How Claude Code uses prompt caching](https://code.claude.com/docs/en/prompt-caching) 
+   - And an exepriement described int eh references 1 seciton below 
+- Q1 - When i change models what happens and how are costs incurred 
+   - when I call `model fable` nothing happens and actually no charges are incurred
+   - but the next thign i trigger a message or a tool call or wahtever will now use Fable as the model and it will check if there is a cache of the context window
+   - odesl liek fable or opusa re stateless but they are exposued to a cache
+   - since i jsut changed model this model fable isntance does not have a cache for the ontext yet
+   - so that first request has zero cache reads and pays a `cache write` for the whole contet windows as input tokens 
+   - this cost of this inptu tokne usea by `cache write` is proportional to how big thecontext widnos is; so bigger context window is bigger inital cost; but once writtent he model in a warm session will red it from its owna cache for cents a turn (Cheap!)
+- Q2 - Is the model switching cost  associated with Context Window size - Yes!
+   - Answer in Q1 Answer. YES!
+   - the first request after a swtich rwrites the wohle context at the new models cache-write price
+      - opus is cheaper than fable
+   - **you already send whoel context every turn; a swithc just blls ont urna t he write price instead of read price**
+- Q3 - Q3 does swithcing mutiple tiemns a session re-incure hte input context cost - Yes!
+   - based ont he docs and expriemnts; Yes
+   - Every time we change mdoels the isntance of the model is new and a cache write needs to happeng (the cost of which is directly proportinoal to context window size)
+- Q4 - Does model cohice effect the cost of callign `/compact` - Yes 
+   - `/compact` is one extra API request: it reads the whole context and writes a summary, and the summary replaces the history
+   - on the model you're already on with a warm cache it's cheap: the read is a cache read, so the cost is mostly the summary output (500k on Opus ≈ $0.10 read + ~$0.20 summary)
+   - switching to a cheaper model *just to compact* is a model switch first, so it pays a full cold write of the whole context before the summary (500k on Opus ≈ $4). Never worth it
+   - compacting a cold session pays the full write too, because there is no cache to read. That's when `/compact` costs the most
+   - so: compact on the current model, while warm, at a natural break. The model's price matters far less than the TTL state
+- Q5 - what about cahce and idle sessions?
+   - the cache has a timer called TTL (Time To Live): how long it survives without being used
+   - on a subscription the main conversation gets 1 hour; on an API key or usage credits it's 5 minutes
+   - only an API request refreshes it. Typing, `/model`, `/usage`, editing files: none of these count
+   - once it runs out the cache is cold (gone). Idle time itself costs nothing
+   - the cost lands on the next request: a full cache write of the whole context, the same bill as a model switch (500k on Opus ≈ $4, on Fable ≈ $10)
+   - the status line now shows the countdown (`cache 41m`, then `cache cold`), so you can see it before you send
+   - best practice, before stepping away: `/compact` at a natural break while warm. It costs cents, and the cold return then rewrites ~30k instead of 500k. Claude Code can do this for you on idle (`idleCompaction`)
+   - best practice, coming back cold: `/clear` if the task changed (write the gist yourself; asking Claude for a handoff is itself a full cold write). If you need the history, just continue and pay once. Never `/compact` cold
+   - cold is also the free moment to switch models: you pay the full write either way, so pick the model you want for the next stretch
+
+
+
+## Ref 1 - experiment: does `/model` send a request?
+
+Full protocol and raw output in [Experiments](#experiments) below. Run in this session, on a Max subscription, 146k context, Opus 5.5 → Fable 5.1.
+
+**Result: `/model` is free. The cost lands on the next message, as a full cache rewrite on the new model.**
+
+| Entry | Model | Cache write | Cache read |
+|---|---|---|---|
+| `baseline` reply | opus-5-5 | 417 | 146,397 |
+| `/model fable` | local command, no API call | - | - |
+| `/usage` | local command, no API call | - | - |
+| `check` reply | **fable-5-1** | **141,559** | **0** |
+
+- The two slash commands are stored in the transcript as `local_command` entries with no token usage. `/usage` before and after the switch showed the same miss count and no Fable line.
+- The first Fable reply wrote the whole 141k context to a 1-hour cache and read nothing. At API prices that's about **$2.80** for one message, against about $0.03 for the Opus reply just before it.
+- Bonus finding: `/usage` reported the session's only other miss as "idle past the 1h TTL, 82.7k tokens re-cached". That is Q5 observed: an idle gap over an hour cost one full context rewrite.
+- Bonus finding: the session cost line matched the price table to the cent (4.6m reads × $0.20 + 194k writes × $8 + 25.7k output × $20 ≈ $2.98 vs $2.99 shown), so 1-hour cache writes are billed at 2× input.
+- Bonus finding: a switch also changes the system prompt. Claude Code tells the agent which model it is and rewrites the commit attribution line, so the prefix is not byte-identical across models.
+ 
