@@ -1,43 +1,19 @@
 [
   {
-    "listing": "/topics.html",
-    "items": [
-      "/topics/claude-code/index.html",
-      "/topics/git/index.html",
-      "/topics/rust/index.html"
-    ]
-  },
-  {
-    "listing": "/tidbits/2026-11-11-quarto-thumbnail-focus/index.html",
-    "items": []
-  },
-  {
-    "listing": "/portfolio.html",
-    "items": [
-      "/portfolio/2025-09-01-phl-city-health-dashboard/index.html"
-    ]
-  },
-  {
-    "listing": "/topics/claude-code/index.html",
-    "items": [
-      "/tidbits/2026-11-06-agentic-conference-poster-claude-code.html",
-      "/tidbits/2026-11-06-does-clear-queue/index.html"
-    ]
-  },
-  {
     "listing": "/tidbits.html",
     "items": [
+      "/tidbits/2026-11-17-model-change-and-token-usage-in-claude-code/index.html",
       "/tidbits/2026-11-11-quarto-thumbnail-focus/index.html",
       "/tidbits/2026-11-10-syncing-notion-databases-with-a-relation/index.html",
       "/tidbits/2026-11-09-documentation-sites-ecosystem-scan.html",
+      "/tidbits/2026-11-06-rust-worktree-cache-sccache-kache-failed.html",
+      "/tidbits/2026-11-06-group-by-all-duckdb-dbt-v2-parser.html",
       "/tidbits/2026-11-06-agentic-conference-poster-claude-code.html",
       "/tidbits/2026-11-06-does-clear-queue/index.html",
-      "/tidbits/2026-11-06-rig-v0-11-initial-breakdown.html",
-      "/tidbits/2026-11-06-group-by-all-duckdb-dbt-v2-parser.html",
       "/tidbits/2026-11-06-agent-accessibility-quarto-docusaurus-doc-sites.html",
-      "/tidbits/2026-11-06-rust-worktree-cache-sccache-kache-failed.html",
-      "/tidbits/2026-11-05-dplyneage-in-webr/index.html",
+      "/tidbits/2026-11-06-rig-v0-11-initial-breakdown.html",
       "/tidbits/2026-11-03-rust-worktrees-sccache-build-perf.html",
+      "/tidbits/2026-11-05-dplyneage-in-webr/index.html",
       "/tidbits/2026-11-03-rust-crate-vs-package.html",
       "/tidbits/2026-11-02-rust-build-vs-compile-worktrees-sccache.html",
       "/tidbits/2026-11-02-azure-compute-options-container-apps-vs-web-app.html",
@@ -53,13 +29,6 @@
     ]
   },
   {
-    "listing": "/topics/git/index.html",
-    "items": [
-      "/tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html",
-      "/tidbits/2026-10-30-github-actions-triggers-filters-and-ifs.html"
-    ]
-  },
-  {
     "listing": "/topics/rust/index.html",
     "items": [
       "/tidbits/2026-11-06-rust-worktree-cache-sccache-kache-failed.html",
@@ -70,9 +39,42 @@
     ]
   },
   {
+    "listing": "/topics/claude-code/index.html",
+    "items": [
+      "/tidbits/2026-11-17-model-change-and-token-usage-in-claude-code/index.html",
+      "/tidbits/2026-11-06-agentic-conference-poster-claude-code.html",
+      "/tidbits/2026-11-06-does-clear-queue/index.html"
+    ]
+  },
+  {
+    "listing": "/topics/git/index.html",
+    "items": [
+      "/tidbits/2026-11-02-line-endings-four-axes-lf-vs-crlf.html",
+      "/tidbits/2026-10-30-github-actions-triggers-filters-and-ifs.html"
+    ]
+  },
+  {
     "listing": "/blog.html",
     "items": [
       "/blog/2025-09-09-duckdb-wasm-proof-of-concept/index.html"
+    ]
+  },
+  {
+    "listing": "/tidbits/2026-11-11-quarto-thumbnail-focus/index.html",
+    "items": []
+  },
+  {
+    "listing": "/portfolio.html",
+    "items": [
+      "/portfolio/2025-09-01-phl-city-health-dashboard/index.html"
+    ]
+  },
+  {
+    "listing": "/topics.html",
+    "items": [
+      "/topics/claude-code/index.html",
+      "/topics/git/index.html",
+      "/topics/rust/index.html"
     ]
   }
 ]
